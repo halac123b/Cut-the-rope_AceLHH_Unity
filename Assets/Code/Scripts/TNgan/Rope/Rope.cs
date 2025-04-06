@@ -1,33 +1,28 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class Rope : MonoBehaviour
 {
-    [SerializeField] private GameObject object1;
-    [SerializeField] private GameObject object2;
+    [SerializeField] private GameObject ropeFirstObject;
+    [SerializeField] private GameObject ropeSecondobject;
     [SerializeField] private int ropeLength;
     [SerializeField] private float gravity = -1.5f;
-
-    private float liftForce = 2f;
-
+    
     public bool isActiveBalloon;
-
+    
+    private float _liftForce = 2f;
     private LineRenderer _ropeRenderer;
-    private List<RopeSegment> _ropeSegments = new List<RopeSegment>();
+    private List<RopeSegment> _ropeSegments = new();
     private float _ropeSegmentLen = 0.05f;
     private float _ropeWidth = 0.03f;
-
     private SpringJoint2D _joint;
 
     private void Start()
     {
         _ropeRenderer = GetComponent<LineRenderer>();
 
-        Vector3 ropeStartPoint = new Vector3(object1.transform.position.x, object1.transform.position.y, 0.1f);
+        Vector3 ropeStartPoint = new (ropeFirstObject.transform.position.x, ropeFirstObject.transform.position.y, 0.1f);
 
         for (int i = 0; i < ropeLength; i++)
         {
@@ -35,19 +30,20 @@ public class Rope : MonoBehaviour
             ropeStartPoint.y -= _ropeSegmentLen;
         }
 
-        _joint = object1.GetComponent<SpringJoint2D>();
-        _joint.connectedBody = object2.GetComponent<Rigidbody2D>();
+        _joint = ropeFirstObject.GetComponent<SpringJoint2D>();
+        _joint.connectedBody = ropeSecondobject.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Destroy(this.transform.gameObject);
-            if (object2.transform.CompareTag("Candy") || object1.transform.CompareTag("Candy"))
+            if (ropeSecondobject.transform.CompareTag("Candy") || ropeFirstObject.transform.CompareTag("Candy"))
             {
                 _joint.connectedBody = null;
             }
+            
+            Destroy(this.gameObject);
         }
 
         DrawRope();
@@ -65,7 +61,7 @@ public class Rope : MonoBehaviour
 
     private void Simulate()
     {
-        Vector3 forceGravity = new Vector3(0f, gravity, 0);
+        Vector3 forceGravity = new (0f, gravity, 0f);
 
         for (int i = 1; i < ropeLength; i++)
         {
@@ -83,11 +79,11 @@ public class Rope : MonoBehaviour
     private void ApplyConstraint()
     {
         RopeSegment firstSegment = _ropeSegments[0];
-        firstSegment.posNow = new Vector3(object1.transform.position.x, object1.transform.position.y, 0.1f);
+        firstSegment.posNow = new Vector3 (ropeFirstObject.transform.position.x, ropeFirstObject.transform.position.y, 0.1f);
         _ropeSegments[0] = firstSegment;
 
         RopeSegment endSegment = _ropeSegments[_ropeSegments.Count - 1];
-        endSegment.posNow = new Vector3(object2.transform.position.x, object2.transform.position.y, 0.1f);
+        endSegment.posNow = new Vector3 (ropeSecondobject.transform.position.x, ropeSecondobject.transform.position.y, 0.1f);
         _ropeSegments[_ropeSegments.Count - 1] = endSegment;
 
         for (int i = 0; i < ropeLength - 1; i++)
@@ -141,8 +137,8 @@ public class Rope : MonoBehaviour
         _ropeRenderer.SetPositions(ropePositions);
 
         Vector3[] ropeMaxPositions = new Vector3[2];
-        ropeMaxPositions[0] = new Vector3(object1.transform.position.x, object1.transform.position.y, 0.1f);
-        ropeMaxPositions[1] = new Vector3(object2.transform.position.x, object2.transform.position.y, 0.1f);
+        ropeMaxPositions[0] = new Vector3(ropeFirstObject.transform.position.x, ropeFirstObject.transform.position.y, 0.1f);
+        ropeMaxPositions[1] = new Vector3(ropeSecondobject.transform.position.x, ropeSecondobject.transform.position.y, 0.1f);
     }
 
     public struct RopeSegment
