@@ -37,18 +37,19 @@ public class Rope : MonoBehaviour
 
         _joint = ropeFirstObject.GetComponent<SpringJoint2D>();
         _joint.connectedBody = ropeSecondObject.GetComponent<Rigidbody2D>();
-        
+       _joint.distance = ropeLength * 0.1f;
+
         Debug.Log($"Ngan - join  {_joint.transform.name} {_joint.connectedBody}");
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Ngan - GetMouseButtonDown");
-            
+
             Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            
+
             RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
 
             if (hit.collider != null)
@@ -60,7 +61,7 @@ public class Rope : MonoBehaviour
                 {
                     rope._joint.connectedBody = null;
                 }
-                
+
                 Destroy(hit.collider.gameObject);
             }
         }
