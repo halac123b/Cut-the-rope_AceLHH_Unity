@@ -153,7 +153,6 @@ MonoBehaviour:
   object2: {fileID: 2042982214}
   ropeLength: 10
   gravity: -1.5
-  liftForce: 2
   isActiveBalloon: 0
 --- !u!120 &615131416
 LineRenderer:
@@ -311,7 +310,6 @@ MonoBehaviour:
   object2: {fileID: 2042982214}
   ropeLength: 10
   gravity: -1.5
-  liftForce: 2
   isActiveBalloon: 0
 --- !u!120 &746056530
 LineRenderer:
@@ -590,7 +588,6 @@ MonoBehaviour:
   object2: {fileID: 2042982214}
   ropeLength: 10
   gravity: -1.5
-  liftForce: 2
   isActiveBalloon: 0
 --- !u!120 &1267225353
 LineRenderer:
