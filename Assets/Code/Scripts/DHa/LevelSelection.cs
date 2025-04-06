@@ -11,9 +11,23 @@ public class LevelSelection : MonoBehaviour
 
     public void LoadLevel(int seasonIndex)
     {
-        for (int i = 0; i < _season1st.Length; i++)
+        LevelData[] levelList = null;
+        switch (seasonIndex)
         {
-            Instantiate(_levelPrefab, _gridLayoutGroup);
+            case 0:
+                levelList = _season1st;
+                break;
+            case 1:
+                levelList = _season2nd;
+                break;
+            case 2:
+                levelList = _season3rd;
+                break;
+        }
+        for (int i = 0; i < levelList.Length; i++)
+        {
+            GameObject levelObject = Instantiate(_levelPrefab, _gridLayoutGroup);
+            levelObject.GetComponent<LevelObject>().LevelIndicator = levelList[i].levelName;
         }
     }
 }
