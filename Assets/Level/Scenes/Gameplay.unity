@@ -149,11 +149,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe300d3f56624485be1aa04ff5aac32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  object1: {fileID: 2016474224}
-  object2: {fileID: 2042982214}
+  ropeFirstObject: {fileID: 2125177480}
+  ropeSecondObject: {fileID: 2042982217}
   ropeLength: 10
   gravity: -1.5
-  isActiveBalloon: 0
+  IsActiveBalloon: 0
 --- !u!120 &615131416
 LineRenderer:
   serializedVersion: 2
@@ -306,11 +306,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe300d3f56624485be1aa04ff5aac32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  object1: {fileID: 2125177479}
-  object2: {fileID: 2042982214}
+  ropeFirstObject: {fileID: 1800617433}
+  ropeSecondObject: {fileID: 2042982217}
   ropeLength: 10
   gravity: -1.5
-  isActiveBalloon: 0
+  IsActiveBalloon: 0
 --- !u!120 &746056530
 LineRenderer:
   serializedVersion: 2
@@ -584,11 +584,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe300d3f56624485be1aa04ff5aac32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  object1: {fileID: 1800617431}
-  object2: {fileID: 2042982214}
+  ropeFirstObject: {fileID: 2016474226}
+  ropeSecondObject: {fileID: 2042982217}
   ropeLength: 10
   gravity: -1.5
-  isActiveBalloon: 0
+  IsActiveBalloon: 0
 --- !u!120 &1267225353
 LineRenderer:
   serializedVersion: 2
