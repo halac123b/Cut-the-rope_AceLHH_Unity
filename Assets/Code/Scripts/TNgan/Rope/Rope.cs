@@ -4,12 +4,12 @@ using UnityEngine.Serialization;
 
 public class Rope : MonoBehaviour
 {
-    [SerializeField] private GameObject ropeFirstObject;
-    [SerializeField] private GameObject ropeSecondobject;
+    [SerializeField] private Transform ropeFirstObject;
+    [SerializeField] private Transform ropeSecondObject;
     [SerializeField] private int ropeLength;
     [SerializeField] private float gravity = -1.5f;
     
-    public bool isActiveBalloon;
+    public bool IsActiveBalloon;
     
     private float _liftForce = 2f;
     private LineRenderer _ropeRenderer;
@@ -22,7 +22,7 @@ public class Rope : MonoBehaviour
     {
         _ropeRenderer = GetComponent<LineRenderer>();
 
-        Vector3 ropeStartPoint = new (ropeFirstObject.transform.position.x, ropeFirstObject.transform.position.y, 0.1f);
+        Vector3 ropeStartPoint = new (ropeFirstObject.position.x, ropeFirstObject.position.y, 0.1f);
 
         for (int i = 0; i < ropeLength; i++)
         {
@@ -31,19 +31,19 @@ public class Rope : MonoBehaviour
         }
 
         _joint = ropeFirstObject.GetComponent<SpringJoint2D>();
-        _joint.connectedBody = ropeSecondobject.GetComponent<Rigidbody2D>();
+        _joint.connectedBody = ropeSecondObject.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (ropeSecondobject.transform.CompareTag("Candy") || ropeFirstObject.transform.CompareTag("Candy"))
+            if (ropeSecondObject.CompareTag("Candy") || ropeFirstObject.CompareTag("Candy"))
             {
                 _joint.connectedBody = null;
             }
             
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 
         DrawRope();
@@ -79,11 +79,11 @@ public class Rope : MonoBehaviour
     private void ApplyConstraint()
     {
         RopeSegment firstSegment = _ropeSegments[0];
-        firstSegment.posNow = new Vector3 (ropeFirstObject.transform.position.x, ropeFirstObject.transform.position.y, 0.1f);
+        firstSegment.posNow = new Vector3 (ropeFirstObject.position.x, ropeFirstObject.position.y, 0.1f);
         _ropeSegments[0] = firstSegment;
 
         RopeSegment endSegment = _ropeSegments[_ropeSegments.Count - 1];
-        endSegment.posNow = new Vector3 (ropeSecondobject.transform.position.x, ropeSecondobject.transform.position.y, 0.1f);
+        endSegment.posNow = new Vector3 (ropeSecondObject.position.x, ropeSecondObject.position.y, 0.1f);
         _ropeSegments[_ropeSegments.Count - 1] = endSegment;
 
         for (int i = 0; i < ropeLength - 1; i++)
@@ -92,7 +92,7 @@ public class Rope : MonoBehaviour
             RopeSegment secondSeg = _ropeSegments[i + 1];
 
             float dist = (firstSeg.posNow - secondSeg.posNow).magnitude;
-            float error = Mathf.Abs(dist - this._ropeSegmentLen);
+            float error = Mathf.Abs(dist - _ropeSegmentLen);
             Vector3 changeDir = Vector2.zero;
 
             if (dist > _ropeSegmentLen)
@@ -137,8 +137,8 @@ public class Rope : MonoBehaviour
         _ropeRenderer.SetPositions(ropePositions);
 
         Vector3[] ropeMaxPositions = new Vector3[2];
-        ropeMaxPositions[0] = new Vector3(ropeFirstObject.transform.position.x, ropeFirstObject.transform.position.y, 0.1f);
-        ropeMaxPositions[1] = new Vector3(ropeSecondobject.transform.position.x, ropeSecondobject.transform.position.y, 0.1f);
+        ropeMaxPositions[0] = new Vector3(ropeFirstObject.position.x, ropeFirstObject.position.y, 0.1f);
+        ropeMaxPositions[1] = new Vector3(ropeSecondObject.position.x, ropeSecondObject.position.y, 0.1f);
     }
 
     public struct RopeSegment
