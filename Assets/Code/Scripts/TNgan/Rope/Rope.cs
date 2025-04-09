@@ -6,8 +6,8 @@ using VInspector.Libs;
 
 public class Rope : MonoBehaviour
 {
-    [SerializeField] private Transform ropeFirstObject;
-    [SerializeField] private Transform ropeSecondObject;
+    public Transform RopeFirstObject;
+    public Transform RopeSecondObject;
     [SerializeField] private int ropeLength;
     [SerializeField] private float gravity = -1.5f;
     [SerializeField] private Camera mainCamera;
@@ -27,7 +27,7 @@ public class Rope : MonoBehaviour
         _ropeRenderer = GetComponent<LineRenderer>();
         _edgeCollider = GetComponent<EdgeCollider2D>();
 
-        Vector3 ropeStartPoint = new(ropeFirstObject.position.x, ropeFirstObject.position.y, 0.0f);
+        Vector3 ropeStartPoint = new(RopeFirstObject.position.x, RopeFirstObject.position.y, 0.0f);
 
         for (int i = 0; i < ropeLength; i++)
         {
@@ -35,11 +35,13 @@ public class Rope : MonoBehaviour
             ropeStartPoint.y -= _ropeSegmentLen;
         }
 
-        _joint = ropeFirstObject.GetComponent<SpringJoint2D>();
-        _joint.connectedBody = ropeSecondObject.GetComponent<Rigidbody2D>();
-       _joint.distance = ropeLength * 0.1f;
+        _joint = RopeFirstObject.GetComponent<SpringJoint2D>();
+        _joint.connectedBody = RopeSecondObject.GetComponent<Rigidbody2D>();
+        _joint.distance = ropeLength * 0.1f;
 
         Debug.Log($"Ngan - join  {_joint.transform.name} {_joint.connectedBody}");
+
+        mainCamera = Camera.main;
     }
 
     private void Update()
@@ -132,11 +134,11 @@ public class Rope : MonoBehaviour
     private void ApplyConstraint()
     {
         RopeSegment firstSegment = _ropeSegments[0];
-        firstSegment.posNow = new Vector3(ropeFirstObject.position.x, ropeFirstObject.position.y, 0.0f);
+        firstSegment.posNow = new Vector3(RopeFirstObject.position.x, RopeFirstObject.position.y, 0.0f);
         _ropeSegments[0] = firstSegment;
 
         RopeSegment endSegment = _ropeSegments[_ropeSegments.Count - 1];
-        endSegment.posNow = new Vector3(ropeSecondObject.position.x, ropeSecondObject.position.y, 0.0f);
+        endSegment.posNow = new Vector3(RopeSecondObject.position.x, RopeSecondObject.position.y, 0.0f);
         _ropeSegments[_ropeSegments.Count - 1] = endSegment;
 
         for (int i = 0; i < ropeLength - 1; i++)
@@ -190,8 +192,8 @@ public class Rope : MonoBehaviour
         _ropeRenderer.SetPositions(ropePositions);
 
         Vector3[] ropeMaxPositions = new Vector3[2];
-        ropeMaxPositions[0] = new Vector3(ropeFirstObject.position.x, ropeFirstObject.position.y, 0.0f);
-        ropeMaxPositions[1] = new Vector3(ropeSecondObject.position.x, ropeSecondObject.position.y, 0.0f);
+        ropeMaxPositions[0] = new Vector3(RopeFirstObject.position.x, RopeFirstObject.position.y, 0.0f);
+        ropeMaxPositions[1] = new Vector3(RopeSecondObject.position.x, RopeSecondObject.position.y, 0.0f);
     }
 
     public struct RopeSegment
