@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +22,5 @@ public class SeasonSelection : MonoBehaviour
         _levelMapPanel.SetActive(true);
 
         _levelSelection.LoadLevel(index);
-
     }
 }

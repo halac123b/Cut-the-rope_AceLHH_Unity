@@ -12,4 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae92dedaa7ee84992a5fda59de3d60ba, type: 3}
   m_Name: Level1_1
   m_EditorClassIdentifier: 
-  seasonName: Season_1
+  levelName: 1_1
+  ListEntities:
+  - Id: 0
+    Category: 0
+    Position: {x: 0.536, y: 1.18, z: 0}
+    ExpandProperty: 
+  - Id: 1
+    Category: 0
+    Position: {x: 0.979, y: 0.959, z: 0}
+    ExpandProperty: 
+  - Id: 2
+    Category: 1
+    Position: {x: 0, y: 0.458, z: 0}
+    ExpandProperty: 
+  - Id: 3
+    Category: 2
+    Position: {x: 0, y: 0, z: 0}
+    ExpandProperty: '{"FirstNailIndex": 0, "SecondNailIndex": 2}'
