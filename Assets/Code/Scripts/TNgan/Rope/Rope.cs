@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using VInspector.Libs;
 
 public class Rope : MonoBehaviour
 {
@@ -8,21 +10,24 @@ public class Rope : MonoBehaviour
     [SerializeField] private Transform ropeSecondObject;
     [SerializeField] private int ropeLength;
     [SerializeField] private float gravity = -1.5f;
-    
+    [SerializeField] private Camera mainCamera;
+
     public bool IsActiveBalloon;
-    
+
     private float _liftForce = 2f;
     private LineRenderer _ropeRenderer;
     private List<RopeSegment> _ropeSegments = new();
     private float _ropeSegmentLen = 0.05f;
     private float _ropeWidth = 0.03f;
     private SpringJoint2D _joint;
+    private EdgeCollider2D _edgeCollider;
 
     private void Start()
     {
         _ropeRenderer = GetComponent<LineRenderer>();
+        _edgeCollider = GetComponent<EdgeCollider2D>();
 
-        Vector3 ropeStartPoint = new (ropeFirstObject.position.x, ropeFirstObject.position.y, 0.1f);
+        Vector3 ropeStartPoint = new(ropeFirstObject.position.x, ropeFirstObject.position.y, 0.0f);
 
         for (int i = 0; i < ropeLength; i++)
         {
@@ -32,18 +37,33 @@ public class Rope : MonoBehaviour
 
         _joint = ropeFirstObject.GetComponent<SpringJoint2D>();
         _joint.connectedBody = ropeSecondObject.GetComponent<Rigidbody2D>();
+       _joint.distance = ropeLength * 0.1f;
+
+        Debug.Log($"Ngan - join  {_joint.transform.name} {_joint.connectedBody}");
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
-            if (ropeSecondObject.CompareTag("Candy") || ropeFirstObject.CompareTag("Candy"))
+            Debug.Log("Ngan - GetMouseButtonDown");
+
+            Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+
+            RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
+
+            if (hit.collider != null)
             {
-                _joint.connectedBody = null;
+                Debug.Log("Ngan - Chạm vào collider");
+
+                Rope rope = hit.collider.GetComponent<Rope>();
+                if (rope != null)
+                {
+                    rope._joint.connectedBody = null;
+                }
+
+                Destroy(hit.collider.gameObject);
             }
-            
-            Destroy(gameObject);
         }
 
         DrawRope();
@@ -59,9 +79,42 @@ public class Rope : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        UpdateColliderForRope();
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider != null)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void UpdateColliderForRope()
+    {
+        int segmentStep = 3;
+        List<Vector2> edgePoints = new(_ropeSegments.Count);
+
+        for (int i = 0; i < _ropeRenderer.positionCount; i += segmentStep)
+        {
+            Vector3 ropePointPos = _ropeRenderer.GetPosition(i);
+            edgePoints.Add(new Vector2(ropePointPos.x, ropePointPos.y));
+        }
+
+        if ((_ropeSegments.Count - 1) % segmentStep != 0)
+        {
+            Vector3 lastPos = _ropeRenderer.GetPosition(_ropeSegments.Count - 1);
+            edgePoints.Add(new Vector2(lastPos.x, lastPos.y));
+        }
+
+        _edgeCollider.points = edgePoints.ToArray();
+    }
+
     private void Simulate()
     {
-        Vector3 forceGravity = new (0f, gravity, 0f);
+        Vector3 forceGravity = new(0f, gravity, 0f);
 
         for (int i = 1; i < ropeLength; i++)
         {
@@ -79,11 +132,11 @@ public class Rope : MonoBehaviour
     private void ApplyConstraint()
     {
         RopeSegment firstSegment = _ropeSegments[0];
-        firstSegment.posNow = new Vector3 (ropeFirstObject.position.x, ropeFirstObject.position.y, 0.1f);
+        firstSegment.posNow = new Vector3(ropeFirstObject.position.x, ropeFirstObject.position.y, 0.0f);
         _ropeSegments[0] = firstSegment;
 
         RopeSegment endSegment = _ropeSegments[_ropeSegments.Count - 1];
-        endSegment.posNow = new Vector3 (ropeSecondObject.position.x, ropeSecondObject.position.y, 0.1f);
+        endSegment.posNow = new Vector3(ropeSecondObject.position.x, ropeSecondObject.position.y, 0.0f);
         _ropeSegments[_ropeSegments.Count - 1] = endSegment;
 
         for (int i = 0; i < ropeLength - 1; i++)
@@ -137,8 +190,8 @@ public class Rope : MonoBehaviour
         _ropeRenderer.SetPositions(ropePositions);
 
         Vector3[] ropeMaxPositions = new Vector3[2];
-        ropeMaxPositions[0] = new Vector3(ropeFirstObject.position.x, ropeFirstObject.position.y, 0.1f);
-        ropeMaxPositions[1] = new Vector3(ropeSecondObject.position.x, ropeSecondObject.position.y, 0.1f);
+        ropeMaxPositions[0] = new Vector3(ropeFirstObject.position.x, ropeFirstObject.position.y, 0.0f);
+        ropeMaxPositions[1] = new Vector3(ropeSecondObject.position.x, ropeSecondObject.position.y, 0.0f);
     }
 
     public struct RopeSegment
