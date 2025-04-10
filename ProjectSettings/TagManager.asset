@@ -5,8 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Candy
-  - Star
-  - Frog
+  - Rope
   layers:
   - Default
   - TransparentFX
