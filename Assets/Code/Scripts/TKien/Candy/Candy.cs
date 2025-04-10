@@ -9,17 +9,17 @@ public class Candy : MonoBehaviour
     {
         if (collision.CompareTag("Star"))
         {
-            Debug.Log($"[Kien] Bro, Candy va chạm với Start Object: {collision.name}");
+            Debug.Log($"[Candy] Candy va chạm với Star Object: {collision.name}");
             OnCandyCollision?.Invoke(collision);
         }
     }
 
-    public void OnEnable()
+    private void OnEnable()
     {
         OnCandyCollision += HandleCandyCollision;
     }
 
-    public void OnDisable()
+    private void OnDisable()
     {
         OnCandyCollision -= HandleCandyCollision;
     }
@@ -28,11 +28,12 @@ public class Candy : MonoBehaviour
     {
         try
         {
-            Debug.Log($"[Kien] Bro, Candy va chạm với Start Object: {collision.name}");
+            Debug.Log($"[Candy] Xử lý va chạm với Star Object: {collision.name}");
+            Star.IncreaseStars();
         }
         catch (Exception ex)
         {
-            Debug.LogError($"[Kien] Bro,Lỗi Candy va chạm với Start Object: {collision.name}");
+            Debug.LogError($"[Candy] Lỗi khi xử lý va chạm với Star Object: {collision.name} - {ex.Message}");
         }
     }
 }
