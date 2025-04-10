@@ -16,6 +16,9 @@ public class LevelObject : MonoBehaviour
     {
         UserProfile.Instance.SetLevel(LevelIndicator);
         Debug.Log($"Load game Level {LevelIndicator}.");
-        SceneManager.LoadScene("GamePlay");
+        //SceneManager.LoadScene("GamePlay");
+        
+        //Kien's scene Test
+        SceneManager.LoadScene("KienTest");
     }
 }

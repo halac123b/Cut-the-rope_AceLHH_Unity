@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Candy
   - Rope
+  - Star
+  - Frog
   layers:
   - Default
   - TransparentFX
