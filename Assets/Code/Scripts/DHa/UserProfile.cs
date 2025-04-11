@@ -4,12 +4,10 @@ public class UserProfile : MonoBehaviour
 {
     public static UserProfile Instance { get; private set; }
 
-    // Example data you want to pass between scenes
     public string SelectedLevelIndex { get; private set; }
 
     private void Awake()
     {
-        // Singleton setup
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -17,12 +15,33 @@ public class UserProfile : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); // Persist across scenes
+        DontDestroyOnLoad(gameObject); 
     }
 
-    // Call this before loading the game scene
     public void SetLevel(string levelIndex)
     {
         SelectedLevelIndex = levelIndex;
+    }
+    
+    public void SaveStars(string levelIndex, int stars)
+    {
+        int currentStars = GetStars(levelIndex);
+        Debug.Log($"SaveStars called for level {levelIndex}. New stars: {stars}. Current stars: {currentStars}");
+
+        if (stars > currentStars)
+        {
+            PlayerPrefs.SetInt($"Level_{levelIndex}_Stars", stars);
+            PlayerPrefs.Save();
+            Debug.Log($"Stars updated for level {levelIndex}. New stars saved: {stars}");
+        }
+        else
+        {
+            Debug.Log($"No update needed for level {levelIndex}. Existing stars: {currentStars} are greater than or equal to new stars: {stars}");
+        }
+    }
+
+    private static int GetStars(string levelIndex)
+    {
+        return PlayerPrefs.GetInt($"Level_{levelIndex}_Stars", 0);
     }
 }
