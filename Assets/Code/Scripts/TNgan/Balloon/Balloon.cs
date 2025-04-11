@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class Balloon : MonoBehaviour
 {
-    [SerializeField] private Camera mainCamera;
+    public Camera mainCamera;
+    
+    private float _balloonSpeed = 13f;
 
     private void Start()
     {
@@ -15,15 +17,14 @@ public class Balloon : MonoBehaviour
         if (candy != null)
         {
             transform.SetParent(candy.transform);
-            candy.SetBalloonState(true);
+            candy.SetBalloonState(true, _balloonSpeed );
         }
     }
 
     public void PopBalloon()
     {
         Candy candy = transform.parent.GetComponent<Candy>();
-        candy.SetBalloonState(false);
-        candy.AddForceIfDestroyBalloon();
+        candy.SetBalloonState(false, _balloonSpeed);
         Destroy(gameObject, 1f);
     }
 
@@ -37,7 +38,6 @@ public class Balloon : MonoBehaviour
 
             if (hit.collider != null && hit.collider.gameObject.CompareTag("Balloon"))
             {
-                
                 PopBalloon();
             }
         }

@@ -6,29 +6,21 @@ public class Rope : MonoBehaviour
 {
     public Transform RopeFirstObject;
     public Transform RopeSecondObject;
+    public Camera mainCamera;
     [SerializeField] private int ropeLength;
     [SerializeField] private float gravity = -1.5f;
-    [SerializeField] private Camera mainCamera;
-    [SerializeField] float _balloonSpeed = 1.5f;
-    
-    public bool IsActiveBalloon;
 
     private LineRenderer _ropeRenderer;
-    private Rigidbody2D _rb;
-    private float _liftForce = 10f;
     private List<RopeSegment> _ropeSegments = new();
     private float _ropeSegmentLen = 0.05f;
     private float _ropeWidth = 0.03f;
     private SpringJoint2D _joint;
     private EdgeCollider2D _edgeCollider;
-   
-   
 
     private void Start()
     {
         _ropeRenderer = GetComponent<LineRenderer>();
         _edgeCollider = GetComponent<EdgeCollider2D>();
-        _rb = GetComponent<Rigidbody2D>();
 
         Vector3 ropeStartPoint = new(RopeFirstObject.position.x, RopeFirstObject.position.y, 0f);
 
@@ -90,18 +82,6 @@ public class Rope : MonoBehaviour
         UpdateColliderForRope();
     }
 
-    private void ToggleMaxRope(bool isActiveBallon)
-    {
-        if (isActiveBallon)
-        {
-            _joint.enabled = true;
-        }
-        else
-        {
-            _joint.enabled = false;
-        }
-    }
-
     private void UpdateColliderForRope()
     {
         int segmentStep = 3;
@@ -124,14 +104,6 @@ public class Rope : MonoBehaviour
     
     private void Simulate()
     {
-        // Balloon bay lên nếu active
-        if (IsActiveBalloon)
-        {
-            Candy ropeCandy = RopeSecondObject.GetComponent<Candy>();
-
-            ropeCandy.AddForceIfTriggerBalloon(_balloonSpeed);
-        }
-        
         Vector3 forceGravity = new Vector3(0, gravity, 0);
 
         for (int i = 1; i < ropeLength; i++)

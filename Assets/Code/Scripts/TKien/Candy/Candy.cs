@@ -7,7 +7,7 @@ public class Candy : MonoBehaviour
     public static event Action<Collider2D> OnCandyCollision;
 
     public List<Rope> _attachedRopes = new();
-    
+
     private Rigidbody2D _rb2D;
 
     private void Start()
@@ -45,7 +45,7 @@ public class Candy : MonoBehaviour
             Debug.LogError($"[Kien] Bro,Lỗi Candy va chạm với Start Object: {collision.name}");
         }
     }
-    
+
     public void AttachRope(Rope rope)
     {
         if (!_attachedRopes.Contains(rope))
@@ -58,17 +58,17 @@ public class Candy : MonoBehaviour
             _attachedRopes.Remove(rope);
     }
 
-    public void SetBalloonState(bool isActive)
+    public void SetBalloonState(bool isActive, float balloonSpeed)
     {
-        foreach (var rope in _attachedRopes)
-        {
-            rope.IsActiveBalloon = isActive;
-        }
+        if (isActive)
+            AddForceIfTriggerBalloon(balloonSpeed);
+        else
+            AddForceIfDestroyBalloon();
     }
 
     public void AddForceIfTriggerBalloon(float balloonSpeed)
     {
-        _rb2D.gravityScale = 0f;
+        _rb2D.gravityScale = -0.25f;
         _rb2D.AddForce(Vector3.up * balloonSpeed, ForceMode2D.Force);
     }
 
