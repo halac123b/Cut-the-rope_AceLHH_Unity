@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Rope : MonoBehaviour
 {
     public Transform RopeFirstObject;
     public Transform RopeSecondObject;
     public Camera mainCamera;
-    public int ropeLength;
+    public int RopeLength;
     [SerializeField] private float gravity = -1.5f;
 
     private LineRenderer _ropeRenderer;
@@ -24,7 +25,7 @@ public class Rope : MonoBehaviour
 
         Vector3 ropeStartPoint = new(RopeFirstObject.position.x, RopeFirstObject.position.y, 0f);
 
-        for (int i = 0; i < ropeLength; i++)
+        for (int i = 0; i < RopeLength; i++)
         {
             _ropeSegments.Add(new RopeSegment(ropeStartPoint));
             ropeStartPoint.y -= _ropeSegmentLen;
@@ -32,7 +33,7 @@ public class Rope : MonoBehaviour
 
         _joint = RopeFirstObject.GetComponent<SpringJoint2D>();
         _joint.connectedBody = RopeSecondObject.GetComponent<Rigidbody2D>();
-        _joint.distance = ropeLength * 0.1f;
+        _joint.distance = RopeLength * 0.1f;
         
         mainCamera = Camera.main;
     }
@@ -101,7 +102,7 @@ public class Rope : MonoBehaviour
     {
         Vector3 forceGravity = new Vector3(0, gravity, 0);
 
-        for (int i = 1; i < ropeLength; i++)
+        for (int i = 1; i < RopeLength; i++)
         {
             RopeSegment ropeSegment = _ropeSegments[i];
             Vector3 velocity = ropeSegment.posNow - ropeSegment.posOld;
@@ -126,7 +127,7 @@ public class Rope : MonoBehaviour
         endSegment.posNow = new Vector3(RopeSecondObject.position.x, RopeSecondObject.position.y, 0f);
         _ropeSegments[_ropeSegments.Count - 1] = endSegment;
 
-        for (int i = 0; i < ropeLength - 1; i++)
+        for (int i = 0; i < RopeLength - 1; i++)
         {
             RopeSegment firstSeg = _ropeSegments[i];
             RopeSegment secondSeg = _ropeSegments[i + 1];
@@ -166,9 +167,9 @@ public class Rope : MonoBehaviour
         _ropeRenderer.startWidth = lineWidth;
         _ropeRenderer.endWidth = lineWidth;
 
-        Vector3[] ropePositions = new Vector3[ropeLength];
+        Vector3[] ropePositions = new Vector3[RopeLength];
 
-        for (int i = 0; i < ropeLength; i++)
+        for (int i = 0; i < RopeLength; i++)
         {
             ropePositions[i] = _ropeSegments[i].posNow;
         }

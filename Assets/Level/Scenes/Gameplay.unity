@@ -155,7 +155,7 @@ MonoBehaviour:
   _ropePrefab: {fileID: 601785303011650862, guid: ec2c02cd3d31b4b66ba4bacb2e74669d, type: 3}
   _frogPrefab: {fileID: 7545011936986348594, guid: a68bee4623cff47b5a49077ccef93e62, type: 3}
   _starPrefab: {fileID: 2329482212126349978, guid: 391184aa1d480448a93178fa90f6e840, type: 3}
-  ParentCreatedObjects: {fileID: 2116699971}
+  ParentObject: {fileID: 0}
 --- !u!4 &108569432
 Transform:
   m_ObjectHideFlags: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
   RopeFirstObject: {fileID: 2016474226}
   RopeSecondObject: {fileID: 2042982217}
   mainCamera: {fileID: 1584235575}
-  ropeLength: 20
+  RopeLength: 0
   gravity: -1.5
 --- !u!120 &615131416
 LineRenderer:
@@ -778,7 +778,7 @@ MonoBehaviour:
   RopeFirstObject: {fileID: 1800617433}
   RopeSecondObject: {fileID: 2042982217}
   mainCamera: {fileID: 1584235575}
-  ropeLength: 10
+  RopeLength: 0
   gravity: -1.5
 --- !u!120 &1267225353
 LineRenderer:
@@ -1032,7 +1032,7 @@ Transform:
   m_GameObject: {fileID: 1584235573}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.12, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

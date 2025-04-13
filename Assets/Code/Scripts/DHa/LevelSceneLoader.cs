@@ -1,6 +1,7 @@
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 public class LevelSceneLoader : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class LevelSceneLoader : MonoBehaviour
     [SerializeField] private GameObject _frogPrefab;
     [SerializeField] private GameObject _starPrefab;
 
-    public Transform ParentCreatedObjects;
+    public Transform ParentObject;
     private List<GameObject> _listLoadedObj = new();
 
     private void Start()
@@ -41,7 +42,7 @@ public class LevelSceneLoader : MonoBehaviour
                 createdObj = Instantiate(_candyPrefab, entity.Position, Quaternion.identity);
                 break;
             case ObjectCategory.Rope:
-                var obj = JObject.Parse(entity.ExpandProperty);
+                JObject obj = JObject.Parse(entity.ExpandProperty);
                 int firstIndex = (int)obj["FirstNailIndex"];
                 int secondIndex = (int)obj["SecondNailIndex"];
                 int lengthRope = (int)obj["LengthRope"];
@@ -50,7 +51,7 @@ public class LevelSceneLoader : MonoBehaviour
                 Rope rope = createdObj.GetComponent<Rope>();
                 rope.RopeFirstObject = _listLoadedObj[firstIndex].transform;
                 rope.RopeSecondObject = _listLoadedObj[secondIndex].transform;
-                rope.ropeLength = lengthRope;
+                rope.RopeLength = lengthRope;
                 break;
             case ObjectCategory.Frog:
                 createdObj = Instantiate(_frogPrefab, entity.Position, Quaternion.identity);
@@ -65,7 +66,7 @@ public class LevelSceneLoader : MonoBehaviour
         if (createdObj != null)
         {
             _listLoadedObj.Add(createdObj);
-            createdObj.transform.SetParent(ParentCreatedObjects);
+            createdObj.transform.SetParent(ParentObject);
         }
     }
 
