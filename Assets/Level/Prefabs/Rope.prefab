@@ -153,13 +153,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe300d3f56624485be1aa04ff5aac32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ropeFirstObject: {fileID: 0}
-  ropeSecondObject: {fileID: 0}
+  RopeFirstObject: {fileID: 0}
+  RopeSecondObject: {fileID: 0}
+  mainCamera: {fileID: 0}
   ropeLength: 15
   gravity: -1.5
-  mainCamera: {fileID: 0}
-  isMaxRope: 0
-  IsActiveBalloon: 0
 --- !u!68 &1484202853711902112
 EdgeCollider2D:
   m_ObjectHideFlags: 0

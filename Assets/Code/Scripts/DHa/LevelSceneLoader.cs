@@ -8,6 +8,8 @@ public class LevelSceneLoader : MonoBehaviour
     [SerializeField] private GameObject _staticPointPrefab;
     [SerializeField] private GameObject _candyPrefab;
     [SerializeField] private GameObject _ropePrefab;
+    [SerializeField] private GameObject _frogPrefab;
+    [SerializeField] private GameObject _starPrefab;
     private List<GameObject> _listLoadedObj = new();
 
     private void Start()
@@ -46,6 +48,12 @@ public class LevelSceneLoader : MonoBehaviour
                 rope.RopeFirstObject = _listLoadedObj[firstIndex].transform;
                 rope.RopeSecondObject = _listLoadedObj[secondIndex].transform;
                 break;
+            case ObjectCategory.Frog:
+                createdObj = Instantiate(_frogPrefab, entity.Position, Quaternion.identity);
+                break;
+            case ObjectCategory.Star:
+                createdObj = Instantiate(_starPrefab, entity.Position, Quaternion.identity);
+                break;
             default:
                 Debug.LogError($"Unknown category: {entity.Category}");
                 break;
@@ -61,6 +69,8 @@ public class LevelSceneLoader : MonoBehaviour
     {
         StaticPoint,
         Candy,
-        Rope
+        Rope,
+        Frog,
+        Star
     }
 }
