@@ -154,6 +154,7 @@ MonoBehaviour:
   _ropePrefab: {fileID: 601785303011650862, guid: ec2c02cd3d31b4b66ba4bacb2e74669d, type: 3}
   _frogPrefab: {fileID: 7545011936986348594, guid: a68bee4623cff47b5a49077ccef93e62, type: 3}
   _starPrefab: {fileID: 2329482212126349978, guid: 391184aa1d480448a93178fa90f6e840, type: 3}
+  ParentCreatedObjects: {fileID: 2116699971}
 --- !u!4 &108569432
 Transform:
   m_ObjectHideFlags: 0
@@ -976,6 +977,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7687861201075141727, guid: 33331b253fbb34ab6a7b05a0ed5c9253, type: 3}
   m_PrefabInstance: {fileID: 3656283341019194675}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2116699970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2116699971}
+  m_Layer: 0
+  m_Name: LevelObjects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2116699971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116699970}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2125177479
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,3 +1417,4 @@ SceneRoots:
   - {fileID: 2016474226}
   - {fileID: 2125177480}
   - {fileID: 108569432}
+  - {fileID: 2116699971}
