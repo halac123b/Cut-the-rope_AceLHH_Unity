@@ -158,6 +158,7 @@ MonoBehaviour:
   ropeLength: 15
   gravity: -1.5
   mainCamera: {fileID: 0}
+  isMaxRope: 0
   IsActiveBalloon: 0
 --- !u!68 &1484202853711902112
 EdgeCollider2D:
