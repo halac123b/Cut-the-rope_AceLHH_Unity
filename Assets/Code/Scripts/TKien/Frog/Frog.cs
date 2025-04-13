@@ -21,6 +21,7 @@ public class Frog : MonoBehaviour
         {
             Debug.Log($"[Frog] Frog ăn Candy Object: {collision.name}");
             OnCandyCollision?.Invoke(collision);
+            Destroy(collision.gameObject, 0.015f);
         }
     }
 
