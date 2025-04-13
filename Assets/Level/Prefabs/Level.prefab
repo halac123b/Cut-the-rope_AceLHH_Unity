@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _btnPlay: {fileID: 7157952610935117306}
+  _tmpText: {fileID: 6943055231224585022}
   LevelIndicator: 
 --- !u!1 &4791071728147551453
 GameObject:

@@ -1,18 +1,41 @@
+using System;
 using UnityEngine;
 
 public class Frog : MonoBehaviour
 {
+    public static event Action<Collider2D> OnCandyCollision;
+
+    private void OnEnable()
+    {
+        OnCandyCollision += HandleFrogCollision;
+    }
+
+    private void OnDisable()
+    {
+        OnCandyCollision -= HandleFrogCollision;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Star"))
+        if (collision.CompareTag("Candy"))
         {
-            Debug.Log($"[Kien], Frog va chạm với Start Object: {collision.name}");
-            HandleStartCollision(collision);
+            Debug.Log($"[Frog] Frog ăn Candy Object: {collision.name}");
+            OnCandyCollision?.Invoke(collision);
         }
     }
 
-    private void HandleStartCollision(Collider2D collision)
-    {
-        Debug.Log($"[Kien], Xử Frog va chạm với Start Object: {collision.name}");
+    private void HandleFrogCollision(Collider2D collision)
+    {   
+        try
+        {
+            Debug.Log($"[Frog] Xử lý va chạm, Frog ăn Candy Object: {collision.name}");
+            int stars = Star.GetStarsInGameplay();
+            string levelIndex = UserProfile.Instance.SelectedLevelIndex;
+            UserProfile.Instance.SaveStars(levelIndex, stars);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"[Frog] Lỗi khi Frog ăn Candy Object: {collision.name} - {ex.Message}");
+        }
     }
 }

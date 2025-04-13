@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae92dedaa7ee84992a5fda59de3d60ba, type: 3}
-  m_Name: Level1_1 4
+  m_Name: Level1_3
   m_EditorClassIdentifier: 
-  seasonName: Season_1
+  levelName: 1_3
+  ListEntities: []
