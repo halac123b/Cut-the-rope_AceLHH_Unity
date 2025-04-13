@@ -18,4 +18,11 @@ public class UIController : MonoBehaviour
     }
 
     public StarUI StarUIComponent;
+    public CompleteLevelUI CompleteLevelUIComponent;
+
+    public void ShowLevelCompleteUI()
+    {
+        StarUIComponent.gameObject.SetActive(false);
+        CompleteLevelUIComponent.gameObject.SetActive(true);
+    }
 }

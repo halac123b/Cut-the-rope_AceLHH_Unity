@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class LevelSelection : MonoBehaviour
 {
@@ -8,6 +9,22 @@ public class LevelSelection : MonoBehaviour
 
     [SerializeField] private GameObject _levelPrefab;
     [SerializeField] private Transform _gridLayoutGroup;
+
+    private void OnEnable()
+    {
+        CompleteLevelUI.OnLevelComplete += LoadLevelFromGamplay;
+    }
+
+    private void OnDestroy()
+    {
+        CompleteLevelUI.OnLevelComplete -= LoadLevelFromGamplay;
+    }
+
+    public void LoadLevelFromGamplay()
+    {
+        gameObject.SetActive(true);
+        //LoadLevel();
+    }
 
     public void LoadLevel(int seasonIndex)
     {
