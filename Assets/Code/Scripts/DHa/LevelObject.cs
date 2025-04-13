@@ -11,14 +11,7 @@ public class LevelObject : MonoBehaviour
 
     private void Start()
     {
-        if (_tmpText != null)
-        {
-            _tmpText.text = LevelIndicator;
-        }
-        else
-        {
-            Debug.LogWarning("[Kien],[LevelItem] TMP_Text reference is missing.");
-        }
+        _tmpText.text = LevelIndicator;
         _btnPlay.onClick.AddListener(OnPlayButtonClicked);
     }
 
@@ -27,7 +20,7 @@ public class LevelObject : MonoBehaviour
         UserProfile.Instance.SetLevel(LevelIndicator);
         Debug.Log($"Load game Level {LevelIndicator}.");
         //SceneManager.LoadScene("GamePlay");
-        
+
         //Kien's scene Test
         SceneManager.LoadScene("KienTest");
     }
