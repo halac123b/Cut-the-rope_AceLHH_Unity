@@ -7,7 +7,7 @@ public class Rope : MonoBehaviour
     public Transform RopeFirstObject;
     public Transform RopeSecondObject;
     public Camera mainCamera;
-    [SerializeField] private int ropeLength;
+    public int ropeLength;
     [SerializeField] private float gravity = -1.5f;
 
     private LineRenderer _ropeRenderer;

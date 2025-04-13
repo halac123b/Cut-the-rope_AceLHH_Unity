@@ -20,7 +20,9 @@ public class Candy : MonoBehaviour
         if (collision.CompareTag("Star"))
         {
             Debug.Log($"[Candy] Candy va chạm với Star Object: {collision.name}");
-            OnCandyCollision?.Invoke(collision);
+           // OnCandyCollision?.Invoke(collision);
+            StarController.IncreaseStars();
+            Destroy(collision.gameObject);
         }
     }
 

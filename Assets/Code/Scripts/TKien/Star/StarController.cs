@@ -18,6 +18,8 @@ public class StarController : MonoBehaviour
             _currentStarsInGameplay++;
             Debug.Log($"[Kien],[Star] Stars increased: {_currentStarsInGameplay}");
         }
+        
+        UIController.Instance.StarUIComponent.UpdateStarTextNumber(_currentStarsInGameplay);
     }
     
     public static int GetStarsInGameplay()

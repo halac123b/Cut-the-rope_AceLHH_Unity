@@ -36,39 +36,36 @@ public class LevelSceneLoader : MonoBehaviour
         {
             case ObjectCategory.StaticPoint:
                 createdObj = Instantiate(_staticPointPrefab, entity.Position, Quaternion.identity);
-                createdObj.transform.SetParent(ParentCreatedObjects);
                 break;
             case ObjectCategory.Candy:
                 createdObj = Instantiate(_candyPrefab, entity.Position, Quaternion.identity);
-                createdObj.transform.SetParent(ParentCreatedObjects);
                 break;
             case ObjectCategory.Rope:
                 var obj = JObject.Parse(entity.ExpandProperty);
                 int firstIndex = (int)obj["FirstNailIndex"];
                 int secondIndex = (int)obj["SecondNailIndex"];
+                int lengthRope = (int)obj["LengthRope"];
 
                 createdObj = Instantiate(_ropePrefab, entity.Position, Quaternion.identity);
-                createdObj.transform.SetParent(ParentCreatedObjects);
                 Rope rope = createdObj.GetComponent<Rope>();
                 rope.RopeFirstObject = _listLoadedObj[firstIndex].transform;
                 rope.RopeSecondObject = _listLoadedObj[secondIndex].transform;
+                rope.ropeLength = lengthRope;
                 break;
             case ObjectCategory.Frog:
                 createdObj = Instantiate(_frogPrefab, entity.Position, Quaternion.identity);
-                createdObj.transform.SetParent(ParentCreatedObjects);
                 break;
             case ObjectCategory.Star:
                 createdObj = Instantiate(_starPrefab, entity.Position, Quaternion.identity);
-                createdObj.transform.SetParent(ParentCreatedObjects);
                 break;
             default:
                 Debug.LogError($"Unknown category: {entity.Category}");
                 break;
         }
-
         if (createdObj != null)
         {
             _listLoadedObj.Add(createdObj);
+            createdObj.transform.SetParent(ParentCreatedObjects);
         }
     }
 
