@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Star : MonoBehaviour
+public class StarController : MonoBehaviour
 {
     private static int _currentStarsInGameplay;
     private const int MAX_STARS = 3;

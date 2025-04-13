@@ -27,7 +27,12 @@ public class LevelSelection : MonoBehaviour
         for (int i = 0; i < levelList.Length; i++)
         {
             GameObject levelObject = Instantiate(_levelPrefab, _gridLayoutGroup);
-            levelObject.GetComponent<LevelObject>().LevelIndicator = levelList[i].levelName;
+            string levelName = levelList[i].levelName;
+            
+            levelObject.GetComponent<LevelObject>().LevelIndicator = levelName;
+            
+            int stars = PlayerPrefs.GetInt($"Level_{levelName}_Stars", 0);
+            levelObject.GetComponent<LevelObject>().SetStars(stars); 
         }
     }
 }

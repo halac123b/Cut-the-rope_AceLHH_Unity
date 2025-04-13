@@ -29,7 +29,7 @@ public class Candy : MonoBehaviour
         try
         {
             Debug.Log($"[Candy] Xử lý va chạm với Star Object: {collision.name}");
-            Star.IncreaseStars();
+            StarController.IncreaseStars();
         }
         catch (Exception ex)
         {

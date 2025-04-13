@@ -29,7 +29,7 @@ public class Frog : MonoBehaviour
         try
         {
             Debug.Log($"[Frog] Xử lý va chạm, Frog ăn Candy Object: {collision.name}");
-            int stars = Star.GetStarsInGameplay();
+            int stars = StarController.GetStarsInGameplay();
             string levelIndex = UserProfile.Instance.SelectedLevelIndex;
             UserProfile.Instance.SaveStars(levelIndex, stars);
         }
