@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Candy : MonoBehaviour
 {
     public static event Action<Collider2D> OnCandyCollision;
 
-    public List<Rope> _attachedRopes = new();
-
     private Rigidbody2D _rb2D;
+    //public List<Rope> AttachedRopes = new();
 
     private void Start()
     {
@@ -46,33 +46,37 @@ public class Candy : MonoBehaviour
         }
     }
 
-    public void AttachRope(Rope rope)
-    {
-        if (!_attachedRopes.Contains(rope))
-            _attachedRopes.Add(rope);
-    }
+    // public void AttachRope(Rope rope)
+    // {
+    //     if (!AttachedRopes.Contains(rope))
+    //         AttachedRopes.Add(rope);
+    // }
+    //
+    // public void DetachRope(Rope rope)
+    // {
+    //     if (AttachedRopes.Contains(rope))
+    //         AttachedRopes.Remove(rope);
+    // }
 
-    public void DetachRope(Rope rope)
-    {
-        if (_attachedRopes.Contains(rope))
-            _attachedRopes.Remove(rope);
-    }
-
-    public void SetBalloonState(bool isActive, float balloonSpeed)
+    public void SetBalloonState(bool isActive, float balloonSpeed = 0f)
     {
         if (isActive)
+        {
             AddForceIfTriggerBalloon(balloonSpeed);
+        }
         else
+        {
             AddForceIfDestroyBalloon();
+        }
     }
 
-    public void AddForceIfTriggerBalloon(float balloonSpeed)
+    private void AddForceIfTriggerBalloon(float balloonSpeed)
     {
         _rb2D.gravityScale = -0.25f;
         _rb2D.AddForce(Vector3.up * balloonSpeed, ForceMode2D.Force);
     }
 
-    public void AddForceIfDestroyBalloon()
+    private void AddForceIfDestroyBalloon()
     {
         _rb2D.gravityScale = 1f;
     }

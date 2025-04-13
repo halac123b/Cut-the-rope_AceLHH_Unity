@@ -200,11 +200,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RopeFirstObject: {fileID: 2016474226}
   RopeSecondObject: {fileID: 2042982217}
+  mainCamera: {fileID: 1584235575}
   ropeLength: 20
   gravity: -1.5
-  mainCamera: {fileID: 1584235575}
-  IsActiveBalloon: 0
-  _balloonSpeed: 1
 --- !u!120 &615131416
 LineRenderer:
   serializedVersion: 2
@@ -524,11 +522,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RopeFirstObject: {fileID: 1800617433}
   RopeSecondObject: {fileID: 2042982217}
+  mainCamera: {fileID: 1584235575}
   ropeLength: 10
   gravity: -1.5
-  mainCamera: {fileID: 1584235575}
-  IsActiveBalloon: 0
-  _balloonSpeed: 1
 --- !u!120 &1267225353
 LineRenderer:
   serializedVersion: 2

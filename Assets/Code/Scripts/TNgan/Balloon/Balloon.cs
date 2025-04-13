@@ -24,8 +24,12 @@ public class Balloon : MonoBehaviour
     public void PopBalloon()
     {
         Candy candy = transform.parent.GetComponent<Candy>();
-        candy.SetBalloonState(false, _balloonSpeed);
-        Destroy(gameObject, 1f);
+        if (candy == null)
+        {
+            return;
+        }
+        candy.SetBalloonState(false);
+        Destroy(gameObject);
     }
 
     private void Update()
