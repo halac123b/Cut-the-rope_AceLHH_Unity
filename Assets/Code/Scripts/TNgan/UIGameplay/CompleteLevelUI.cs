@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class CompleteLevelUI : MonoBehaviour
 {
-    public static event Action OnLevelComplete;
     [SerializeField] private Button _nextBtn;
 
     private void Start()
@@ -16,7 +15,5 @@ public class CompleteLevelUI : MonoBehaviour
     private void OnClickNextLevel()
     {
         SceneManager.LoadScene("Home");
-        
-        OnLevelComplete?.Invoke();
     }
 }

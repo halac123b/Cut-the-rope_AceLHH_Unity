@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using VInspector.Libs;
 
 public class MenuController : MonoBehaviour
 {
@@ -7,9 +8,18 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject _menuPanel;
     [SerializeField] private GameObject _seasonPanel;
 
+    [SerializeField] private GameObject _levelMap;
+
     private void Start()
     {
         _playBtn.onClick.AddListener(OnPlayButtonClicked);
+
+        if (!GameManager.Instance.CurrentBox.IsNullOrEmpty())
+        {
+            LoadPreviousBox();
+
+            GameManager.Instance.CurrentBox = "";
+        }
     }
 
     private void OnPlayButtonClicked()
@@ -24,5 +34,11 @@ public class MenuController : MonoBehaviour
     {
         // Unsubscribe from the button click event to prevent memory leaks
         _playBtn.onClick.RemoveListener(OnPlayButtonClicked);
+    }
+
+    private void LoadPreviousBox()
+    {
+        _levelMap.SetActive(true);
+        _menuPanel.SetActive(false);
     }
 }

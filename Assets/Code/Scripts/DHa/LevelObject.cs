@@ -19,6 +19,7 @@ public class LevelObject : MonoBehaviour
     private void OnPlayButtonClicked()
     {
         UserProfile.Instance.SetLevel(LevelIndicator);
+        GameManager.Instance.CurrentBox = LevelIndicator;
         Debug.Log($"Load game Level {LevelIndicator}.");
         SceneManager.LoadScene("GamePlay");
 
