@@ -1,11 +1,10 @@
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
-using UnityEngine.Serialization;
 
 public class LevelSceneLoader : MonoBehaviour
 {
-    [SerializeField] private LevelData _levelData;
+    private LevelData _levelData;
     [SerializeField] private GameObject _staticPointPrefab;
     [SerializeField] private GameObject _candyPrefab;
     [SerializeField] private GameObject _ropePrefab;
@@ -17,7 +16,15 @@ public class LevelSceneLoader : MonoBehaviour
 
     private void Start()
     {
+        LoadLevelData();
         LoadLevelMap();
+    }
+
+    private void LoadLevelData()
+    {
+        string levelName = $"Level_{UserProfile.Instance.SelectedLevelIndex}";
+        levelName = "Level1_3";
+        _levelData = Resources.Load<LevelData>($"Level/{levelName}");
     }
 
     private void LoadLevelMap()

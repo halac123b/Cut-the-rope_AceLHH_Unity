@@ -12,7 +12,7 @@ public class LevelObject : MonoBehaviour
 
     private void Start()
     {
-        _tmpText.text = LevelIndicator;
+        _tmpText.text = LevelIndicator.Split('_')[1];
         _btnPlay.onClick.AddListener(OnPlayButtonClicked);
     }
 
@@ -21,12 +21,13 @@ public class LevelObject : MonoBehaviour
         UserProfile.Instance.SetLevel(LevelIndicator);
         GameManager.Instance.CurrentBox = LevelIndicator;
         Debug.Log($"Load game Level {LevelIndicator}.");
+
         SceneManager.LoadScene("GamePlay");
 
         //Kien's scene Test
         //SceneManager.LoadScene("KienTest");
     }
-    
+
     public void SetStars(int starCount)
     {
         _tmpStars.text = $"{starCount}";
