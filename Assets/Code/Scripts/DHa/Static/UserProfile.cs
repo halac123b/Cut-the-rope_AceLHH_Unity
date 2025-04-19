@@ -15,14 +15,15 @@ public class UserProfile : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); 
+        SelectedLevelIndex = string.Empty;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void SetLevel(string levelIndex)
     {
         SelectedLevelIndex = levelIndex;
     }
-    
+
     public void SaveStars(string levelIndex, int stars)
     {
         int currentStars = GetStars(levelIndex);
