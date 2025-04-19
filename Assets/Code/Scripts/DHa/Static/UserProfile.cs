@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class UserProfile : MonoBehaviour
 {
     public static UserProfile Instance { get; private set; }
 
-    public string SelectedLevelIndex { get; private set; }
+    public string SelectedLevelIndex { get; set; }
+    public BoxData SelectedBoxIndex { get; set; }
 
     private void Awake()
     {
@@ -16,12 +18,20 @@ public class UserProfile : MonoBehaviour
 
         Instance = this;
         SelectedLevelIndex = string.Empty;
+        SelectedBoxIndex = null;
         DontDestroyOnLoad(gameObject);
+        
+        Debug.Log("Ngan - Init UserProfile");
     }
 
     public void SetLevel(string levelIndex)
     {
         SelectedLevelIndex = levelIndex;
+    }
+    
+    public void SetBoxData(BoxData boxData)
+    {
+        SelectedBoxIndex = boxData;
     }
 
     public void SaveStars(string levelIndex, int stars)

@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using VInspector.Libs;
@@ -7,18 +9,20 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Button _playBtn;
     [SerializeField] private GameObject _menuPanel;
     [SerializeField] private GameObject _seasonPanel;
-
-    [SerializeField] private GameObject _levelMap;
+    [SerializeField] private LevelSelection _levelMap;
 
     private void Start()
     {
+        Debug.Log("Ngan - Init Menu");
         _playBtn.onClick.AddListener(OnPlayButtonClicked);
 
-        if (!GameManager.Instance.CurrentBox.IsNullOrEmpty())
+        if (UserProfile.Instance.SelectedBoxIndex != null)
         {
-            LoadPreviousBox();
+            Debug.Log("Ngan - Selected Box Index: " +UserProfile.Instance.SelectedBoxIndex.Index);
 
-            GameManager.Instance.CurrentBox = "";
+            LoadPreviousBox(UserProfile.Instance.SelectedBoxIndex);
+
+            UserProfile.Instance.SetBoxData(null);
         }
     }
 
@@ -34,11 +38,14 @@ public class MenuController : MonoBehaviour
     {
         // Unsubscribe from the button click event to prevent memory leaks
         _playBtn.onClick.RemoveListener(OnPlayButtonClicked);
+        EventDispatcher.Instance.RemoveEvent(gameObject);
     }
 
-    private void LoadPreviousBox()
+    private void LoadPreviousBox(BoxData boxData)
     {
-        _levelMap.SetActive(true);
+        Debug.Log("Ngan - Load previous box");
         _menuPanel.SetActive(false);
+        _levelMap.gameObject.SetActive(true);
+        _levelMap.LoadLevel(boxData);
     }
 }

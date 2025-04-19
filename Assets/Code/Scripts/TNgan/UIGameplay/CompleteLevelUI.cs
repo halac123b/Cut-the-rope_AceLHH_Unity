@@ -6,13 +6,14 @@ using UnityEngine.UI;
 public class CompleteLevelUI : MonoBehaviour
 {
     [SerializeField] private Button _nextBtn;
+    [SerializeField] private Button _backBtn;
 
     private void Start()
     {
-        _nextBtn.onClick.AddListener(OnClickNextLevel);
+        _backBtn.onClick.AddListener(OnClickBackHome);
     }
 
-    private void OnClickNextLevel()
+    private void OnClickBackHome()
     {
         SceneManager.LoadScene("Home");
     }
