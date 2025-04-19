@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdd28fb020d45429886c436155f037ef, type: 3}
-  m_Name: BoxData_01_01
+  m_Name: BoxData_3
   m_EditorClassIdentifier: 
-  BoxName: Box_1.1_01
-  ListBoxEntities: []
+  Index: 3
+  BoxName: Box3
+  NumberOfLevels: 5

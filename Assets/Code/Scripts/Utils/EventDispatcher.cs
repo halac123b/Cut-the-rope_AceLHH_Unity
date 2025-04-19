@@ -20,49 +20,36 @@ public class EventDispatcher : MonoSingleton<EventDispatcher>
 
     public static string LoadLevelUI = "LoadLevelUI";
 
-    public static void AddEvent(GameObject gameObject, Action<object> action, params string[] scopes)
+    public void AddEvent(GameObject gameObject, Action<object> action, string key)
     {
         if (Instance == null)
         {
             return;
         }
 
-        if (scopes.Length == 0)
+        bool is_existed = false;
+        var eventDatas = Instance.GetEventDatasByScope(key);
+        foreach (IEventData eventData in eventDatas)
         {
-            scopes = new string[] { "" };
+            if (eventData.GameObject == gameObject)
+            {
+                is_existed = true;
+                break;
+            }
         }
 
-        foreach (string scope in scopes)
+        if (!is_existed)
         {
-            bool is_existed = false;
-            var eventDatas = Instance.GetEventDatasByScope(scope);
-            foreach (IEventData eventData in eventDatas)
-            {
-                if (eventData.GameObject == gameObject)
-                {
-                    is_existed = true;
-                    break;
-                }
-            }
-
-            if (!is_existed)
-            {
-                eventDatas.Add(new IEventData(gameObject, action));
-            }
+            eventDatas.Add(new IEventData(gameObject, action));
         }
     }
 
-    public void Dispatch(object action, params Event[] scopes)
+    public void Dispatch(object action, string key)
     {
-        // if (scopes.Length == 0)
-        //     scopes = new Event[] { Event.NONE }; //default
-        foreach (Event scope in scopes)
+        List<IEventData> eventDatas = GetEventDatasByScope(key);
+        foreach (IEventData eventData in eventDatas)
         {
-            List<IEventData> eventDatas = GetEventDatasByScope(scope.ToString());
-            foreach (IEventData eventData in eventDatas)
-            {
-                eventData.ActionCallBack?.Invoke(action);
-            }
+            eventData.ActionCallBack?.Invoke(action);
         }
     }
 
@@ -76,6 +63,26 @@ public class EventDispatcher : MonoSingleton<EventDispatcher>
         {
             dispatchMaps[scope] = new List<IEventData>();
             return dispatchMaps[scope];
+        }
+    }
+
+    public void RemoveEvent(GameObject gameObject)
+    {
+        if (Instance == null)
+        {
+            return;
+        }
+
+        foreach (List<IEventData> eventList in Instance.dispatchMaps.Values)
+        {
+            foreach (IEventData eventData in eventList)
+            {
+                if (eventData.GameObject == gameObject)
+                {
+                    eventList.Remove(eventData);
+                    break;
+                }
+            }
         }
     }
 }

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e837203aa2a26422fbe16003bcdc9fc6, type: 3}
+  m_Name: Season_2
+  m_EditorClassIdentifier: 
+  BoxList:
+  - {fileID: 11400000, guid: 7ead1164a7f15432cbc51c28cf0afdbd, type: 2}
+  - {fileID: 11400000, guid: 28c4798a3e0014e4f84f05e60a40f405, type: 2}
+  - {fileID: 11400000, guid: d6652dbe41e2f4746aee9f43424a5e7d, type: 2}
