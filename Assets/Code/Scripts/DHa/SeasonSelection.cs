@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class SeasonSelection : MonoBehaviour
 {
     [SerializeField] private Button[] _btnSeason;
-    [SerializeField] private GameObject _levelMapPanel;
-    [SerializeField] private LevelSelection _levelSelection;
+    [SerializeField] private GameObject _boxMapPanel;
+    [SerializeField] private BoxSelection _boxSelection;
 
     private void Start()
     {
@@ -19,8 +19,7 @@ public class SeasonSelection : MonoBehaviour
     private void OnSeasonButtonClicked(int index)
     {
         gameObject.SetActive(false);
-        _levelMapPanel.SetActive(true);
-
-        _levelSelection.LoadLevel(index);
+        _boxMapPanel.SetActive(true);
+        _boxSelection.LoadBox(index);
     }
 }
