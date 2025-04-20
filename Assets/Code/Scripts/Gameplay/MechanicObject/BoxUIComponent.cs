@@ -14,6 +14,7 @@ public class BoxUIComponent : MonoBehaviour
     private void OnBoxButtonClicked()
     {
         Debug.Log($"Box {MyBoxData.BoxName} clicked");
+        UserProfile.Instance.SetBoxData(MyBoxData);
         EventDispatcher.Instance.Dispatch(MyBoxData, EventDispatcher.LoadLevelUI);
     }
 
