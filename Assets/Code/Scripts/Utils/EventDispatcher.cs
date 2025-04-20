@@ -19,6 +19,8 @@ public class EventDispatcher : MonoSingleton<EventDispatcher>
     private readonly Dictionary<string, List<IEventData>> dispatchMaps = new();
 
     public static string LoadLevelUI = "LoadLevelUI";
+    public static string LoadCompleteUI = "LoadCompleteUI";
+    public static string UpdateStarNumber =  "UpdateStarNumber";
     public void AddEvent(GameObject gameObject, Action<object> action, string key)
     {
         if (Instance == null)
