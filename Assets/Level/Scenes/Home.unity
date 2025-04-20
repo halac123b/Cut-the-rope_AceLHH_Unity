@@ -1254,6 +1254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e22a9c2086642b9811b9e284c5bad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectedLevelIndex: 
+  SelectedBoxIndex: {fileID: 0}
 --- !u!1 &1798287020
 GameObject:
   m_ObjectHideFlags: 0

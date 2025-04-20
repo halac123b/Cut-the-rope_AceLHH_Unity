@@ -22,8 +22,8 @@ public class LevelSceneLoader : MonoBehaviour
 
     private void LoadLevelData()
     {
-        string levelName = $"Level_{UserProfile.Instance.SelectedLevelIndex}";
-        levelName = "Level1_1";
+        string levelName = $"Level{UserProfile.Instance.SelectedLevelIndex}";
+        //levelName = "Level1_1";
         _levelData = Resources.Load<LevelData>($"Level/{levelName}");
     }
 

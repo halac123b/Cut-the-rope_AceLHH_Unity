@@ -8,6 +8,7 @@ public class LevelObject : MonoBehaviour
     [SerializeField] private Button _btnPlay;
     [SerializeField] private TMP_Text _tmpText;
     [SerializeField] private TMP_Text _tmpStars;
+    [SerializeField] private Image _levelLockUI;
     public string LevelIndicator;
 
     private void Start()
@@ -20,7 +21,7 @@ public class LevelObject : MonoBehaviour
     {
         UserProfile.Instance.SetLevel(LevelIndicator);
         Debug.Log($"Load game Level {LevelIndicator}.");
-
+        
         SceneManager.LoadScene("GamePlay");
 
         //Kien's scene Test
@@ -32,4 +33,18 @@ public class LevelObject : MonoBehaviour
         _tmpStars.text = $"{starCount}";
     }
 
+    public void IsEnabledLockLevelUI()
+    {
+        //_levelLockUI.enabled = true;
+        _levelLockUI.gameObject.SetActive(true);
+        _btnPlay.interactable = false;
+
+    }
+    
+    public void IsDisabledLockLevelUI()
+    {
+        //_levelLockUI.enabled = false;
+        _levelLockUI.gameObject.SetActive(false);
+        _btnPlay.interactable = true;
+    }
 }
