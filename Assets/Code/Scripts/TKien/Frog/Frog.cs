@@ -33,7 +33,7 @@ public class Frog : MonoBehaviour
             int stars = StarController.GetStarsInGameplay();
             string levelIndex = UserProfile.Instance.SelectedLevelIndex;
             UserProfile.Instance.SaveStars(levelIndex, stars);
-            EventDispatcher.Instance.Dispatch(this, EventDispatcher.LoadCompleteUI);
+            EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LoadCompleteUI);
         }
         catch (Exception ex)
         {
