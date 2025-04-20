@@ -10,7 +10,8 @@ public class StarController : MonoBehaviour
     public static int SetStartLevel()
     {
         Debug.Log("[Kiên],[Star] Reset stars to 0");
-        return _currentStarsInGameplay = 0;
+        _currentStarsInGameplay = 0;
+        return _currentStarsInGameplay;
     }
     
     public static void IncreaseStars()

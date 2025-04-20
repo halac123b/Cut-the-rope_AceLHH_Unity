@@ -33,18 +33,9 @@ public class LevelObject : MonoBehaviour
         _tmpStars.text = $"{starCount}";
     }
 
-    public void IsEnabledLockLevelUI()
+    public void SetLevelLock(bool isLocked)
     {
-        //_levelLockUI.enabled = true;
-        _levelLockUI.gameObject.SetActive(true);
-        _btnPlay.interactable = false;
-
-    }
-    
-    public void IsDisabledLockLevelUI()
-    {
-        //_levelLockUI.enabled = false;
-        _levelLockUI.gameObject.SetActive(false);
-        _btnPlay.interactable = true;
+        _levelLockUI.gameObject.SetActive(isLocked);
+        _btnPlay.interactable = !isLocked;
     }
 }

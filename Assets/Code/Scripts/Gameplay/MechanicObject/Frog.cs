@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Frog : MonoBehaviour
 {
-    private const int NEXT_LEVEL_VALUE = 1;
+    private int _nextLevelValue;
     public static event Action<Collider2D> OnCandyCollision;
 
     private void OnEnable()
@@ -27,7 +27,7 @@ public class Frog : MonoBehaviour
     }
 
     private void HandleFrogCollision(Collider2D collision)
-    {   
+    {
         try
         {
             Debug.Log($"[Frog] Xử lý va chạm, Frog ăn Candy Object: {collision.name}");
@@ -35,7 +35,21 @@ public class Frog : MonoBehaviour
             string levelIndex = UserProfile.Instance.SelectedLevelIndex;
             UserProfile.Instance.SaveStars(levelIndex, stars);
             string nextLevelIndex = GetNextLevelIndex(levelIndex);
-            UserProfile.Instance.SaveStars(nextLevelIndex,StarController.SetStartLevel() );
+
+            if (UserProfile.Instance.SelectedBoxIndex != null)
+            {
+                int totalLevels = UserProfile.Instance.SelectedBoxIndex.NumberOfLevels;
+
+                if (_nextLevelValue <= totalLevels)
+                {
+                    UserProfile.Instance.SaveStars(nextLevelIndex, StarController.SetStartLevel());
+                }
+            }
+            else
+            {
+                Debug.LogWarning("[Frog] SelectedBoxIndex is null.");
+            }
+
             EventDispatcher.Instance.Dispatch(this, EventDispatcher.LoadCompleteUI);
         }
         catch (Exception ex)
@@ -51,10 +65,11 @@ public class Frog : MonoBehaviour
             int.TryParse(parts[0], out int boxIndex) &&
             int.TryParse(parts[1], out int levelNumber))
         {
-            levelNumber += NEXT_LEVEL_VALUE;
+            levelNumber += 1;
+            _nextLevelValue = levelNumber;
             return $"{boxIndex}_{levelNumber}";
         }
-        
+
         return currentLevelIndex;
     }
 }

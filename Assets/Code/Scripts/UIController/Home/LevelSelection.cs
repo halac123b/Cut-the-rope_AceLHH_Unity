@@ -29,11 +29,11 @@ public class LevelSelection : MonoBehaviour
 
             if (isFirstLevel || isPlayedBefore)
             {
-                levelObj.IsDisabledLockLevelUI();
+                levelObj.SetLevelLock(false);
             }
             else
             {
-                levelObj.IsEnabledLockLevelUI();
+                levelObj.SetLevelLock(true);
             }
         }
     }
