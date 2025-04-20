@@ -1,10 +1,12 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StarController : MonoBehaviour
 {
     private static int _currentStarsInGameplay;
     private const int MAX_STARS = 3;
-    
+
     public void ResetStars()
     {
         _currentStarsInGameplay = 0;
@@ -19,7 +21,7 @@ public class StarController : MonoBehaviour
             Debug.Log($"[Kien],[Star] Stars increased: {_currentStarsInGameplay}");
         }
         
-        UIController.Instance.StarUIComponent.UpdateStarTextNumber(_currentStarsInGameplay);
+        EventDispatcher.Instance.Dispatch(_currentStarsInGameplay, EventDispatcher.UpdateStarNumber );
     }
     
     public static int GetStarsInGameplay()
