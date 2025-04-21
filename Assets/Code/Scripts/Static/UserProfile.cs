@@ -50,6 +50,6 @@ public class UserProfile : MonoBehaviour
 
     private int GetStars(string levelIndex)
     {
-        return PlayerPrefs.GetInt($"Level_{levelIndex}_Stars", 0);
+        return PlayerPrefs.GetInt($"Level_{levelIndex}_Stars", -1);
     }
 }
