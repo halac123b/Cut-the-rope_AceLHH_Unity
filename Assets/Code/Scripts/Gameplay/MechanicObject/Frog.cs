@@ -50,8 +50,6 @@ public class Frog : MonoBehaviour
             {
                 Debug.LogWarning("[Frog] SelectedBoxIndex is null.");
             }
-
-            EventDispatcher.Instance.Dispatch(this, EventDispatcher.LoadCompleteUI);
         }
         catch (Exception ex)
         {
