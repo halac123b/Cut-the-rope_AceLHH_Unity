@@ -34,6 +34,7 @@ public class Frog : MonoBehaviour
             int stars = StarController.GetStarsInGameplay();
             string levelIndex = UserProfile.Instance.SelectedLevelIndex;
             UserProfile.Instance.SaveStars(levelIndex, stars);
+            EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LoadCompleteUI);
             string nextLevelIndex = GetNextLevelIndex(levelIndex);
 
             if (UserProfile.Instance.SelectedBoxIndex != null)
@@ -49,8 +50,6 @@ public class Frog : MonoBehaviour
             {
                 Debug.LogWarning("[Frog] SelectedBoxIndex is null.");
             }
-
-            EventDispatcher.Instance.Dispatch(this, EventDispatcher.LoadCompleteUI);
         }
         catch (Exception ex)
         {

@@ -9,7 +9,8 @@ public class UIController : MonoBehaviour
 
     private void Start()
     {
-        EventDispatcher.Instance.AddEvent(gameObject, completeUI => ShowLevelCompleteUI(), EventDispatcher.LoadCompleteUI);
+        EventDispatcher.Instance.AddEvent(gameObject, _ => ShowLevelCompleteUI(),
+            EventDispatcher.LoadCompleteUI);
     }
 
     public void ShowLevelCompleteUI()

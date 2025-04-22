@@ -36,6 +36,9 @@ public class Rope : MonoBehaviour
         _joint.distance = RopeLength * 0.1f;
         
         mainCamera = Camera.main;
+        
+        Candy candy = RopeSecondObject.GetComponent<Candy>();
+        candy.AttachRope(this);
     }
 
     private void Update()
@@ -54,6 +57,7 @@ public class Rope : MonoBehaviour
                 if (rope != null && ropeCandy != null)
                 {
                     rope._joint.connectedBody = null;
+                    ropeCandy.DetachRope(this);
                 }
 
                 Destroy(hit.collider.gameObject);

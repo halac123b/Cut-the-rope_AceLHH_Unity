@@ -1,0 +1,2098 @@
+fileFormatVersion: 2
+guid: bc847767d85bc4793a0ade804b8bc6ca
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OmMo_Eat_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 825
+        width: 80
+        height: 83
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5207ed5f1c448450197cffb230300b7a
+      internalID: -1709710466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 818
+        width: 80
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eee92b606e3634557b4f55c9973712dc
+      internalID: 1059233314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_2
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 823
+        width: 81
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48779efd20e35498b9d2cfd36d9b6642
+      internalID: -746233801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_3
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 831
+        width: 82
+        height: 77
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 122c58cbd2c4141fa945da6510070f62
+      internalID: -1574943789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_4
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 827
+        width: 97
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aeddd8a282c844afbd543ce1ec97aad
+      internalID: 2117138503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_5
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 823
+        width: 88
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9df6400e3a0df4cedacfa5cc65a58124
+      internalID: 1139120817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_6
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 822
+        width: 87
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c00d571cc02f4384961202b9fd9b499
+      internalID: -2062857991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_7
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 826
+        width: 80
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92d1d36a2c2fa4d2a97b28a81d986098
+      internalID: 1043737580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_8
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 821
+        width: 81
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ebf51a3f58e8420282b92949263fcd8
+      internalID: 2020305306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_9
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 741
+        width: 80
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56029481cff7140499656d5427774002
+      internalID: 934302290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_10
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 726
+        width: 80
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78ec4648fc6824a6c9d713a5a2cf3248
+      internalID: -971353070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_11
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 736
+        width: 80
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 093715643611649d6b2310263dbf0129
+      internalID: 2041604734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_12
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 760
+        width: 88
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1089f39c8830047608005a3d8e49332a
+      internalID: -485450459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_13
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 790
+        width: 61
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6949e7e3d37c64a22a9593b74070f351
+      internalID: 1566400933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_14
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 739
+        width: 78
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa656e5b849e442d68e7563894cddcb7
+      internalID: -622203043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_15
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 734
+        width: 90
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aa0cc664f6c840cc9ff76bac0986a57
+      internalID: 37191973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_16
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 738
+        width: 82
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dd0cf6b0ec314196b0c769595c09396
+      internalID: -1183118583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_17
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 733
+        width: 82
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a97c9cdb945124dc4909d145c87c36ca
+      internalID: 760336707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_18
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 776
+        width: 55
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 591b4e3c8da5f4c9e863a27841cf1fdc
+      internalID: 1723643499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_19
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 679
+        width: 100
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d57faa48a20ef478fac1bd2419c32392
+      internalID: -1730399639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_20
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 752
+        width: 56
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bec60bea836f4f0d8746fb30344851a
+      internalID: 423590374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_21
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 657
+        width: 80
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 302f0c67c191141208ba02a778b2a042
+      internalID: -2021944204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_22
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 634
+        width: 80
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e96bb1174a146eb8aa298167b197c5
+      internalID: 2080628456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_23
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 651
+        width: 80
+        height: 83
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 938bfa4b76b654703b938367507c8c56
+      internalID: 1143317008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_24
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 597
+        width: 90
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35dcbfca512d243269f1ecafc6f25169
+      internalID: -900332336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_25
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 669
+        width: 87
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d09a362ce49704efa95e23463ecb75ac
+      internalID: -1861596722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_26
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 653
+        width: 78
+        height: 83
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef66a2936c201417badf54d94d062e21
+      internalID: -1425324837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_27
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 644
+        width: 90
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f460bf2e50204bd38f08e9ae0e1e532
+      internalID: 1210132994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_28
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 650
+        width: 82
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78004f5d477f4491082c06f67436bb60
+      internalID: 1103273664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_29
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 645
+        width: 82
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4563e305ab17404ea006a9b211a7c30
+      internalID: -304915837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_30
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 571
+        width: 80
+        height: 83
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e84b2c448f5b4809924078d33705b38
+      internalID: 101328832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_31
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 542
+        width: 80
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f394dcd734a5440b9a7fbd05fa3e26c
+      internalID: -167753271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_32
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 568
+        width: 80
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e6bfe3f47684a3fbf2025240ff5bc2
+      internalID: 1731657611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_33
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 513
+        width: 82
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb8841bf5ed3c4b0799b5bf9f5dea005
+      internalID: 158881642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_34
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 584
+        width: 84
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87826efc8c31b406588a66e4f1d8f85c
+      internalID: -589126002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_35
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 567
+        width: 78
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0abb1d269677a47f887e2ddccfde3a81
+      internalID: -1025003803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_36
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 553
+        width: 88
+        height: 89
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff07605b0d3624fa3ba3189da00b81bc
+      internalID: -200664594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_37
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 562
+        width: 83
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0ea041ba15174eeaa86e2702c600556
+      internalID: -261655512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_38
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 561
+        width: 82
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 043a8b34d74a4422eb1592cf7630ecc8
+      internalID: -254820836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_39
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 486
+        width: 80
+        height: 83
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ac6f1936ebd4faaa85953a2ea8e1ce
+      internalID: -1206040053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_40
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 449
+        width: 80
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08508faa85a174bdd9bbfa95b23a8981
+      internalID: 14175114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_41
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 485
+        width: 80
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2767f44c7929e439a9bb6f4970b8bbc2
+      internalID: 213122240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_42
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 425
+        width: 80
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bbd472e38ef346828c4b7784b15a35e
+      internalID: -6714720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_43
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 498
+        width: 82
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08f9ae59feb94dfcb451ddfaebbc220
+      internalID: -963315367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_44
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 478
+        width: 87
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38236f72b75b9408187234d7d02bea30
+      internalID: 782518468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_45
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 461
+        width: 86
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdaafaa1a8a834a2caf161725f919e27
+      internalID: -776489937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_46
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 474
+        width: 83
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5fcf6fa92805442a865b13d5e1f4104
+      internalID: 1388214337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_47
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 400
+        width: 80
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efe6f31ec0d2946b7a16c85368d884a8
+      internalID: -1408241273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_48
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 358
+        width: 80
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41828f411eb4144eaadd8bd5d5cfd8d0
+      internalID: -578875950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_49
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 403
+        width: 80
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57f3ccf60b34e49b1aa0240528de9382
+      internalID: 1064898686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_50
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 333
+        width: 81
+        height: 89
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e0a43e65c96f4866ae795551c22e4b4
+      internalID: -2135223923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_51
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 410
+        width: 84
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19c2716d35d9948abb10ccc9fe91d131
+      internalID: 214481734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_52
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 390
+        width: 90
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05b33c08e152e467097f0483e031f949
+      internalID: -1489902112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_53
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 372
+        width: 86
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d619b8248e9bb4f569a5b4553d0e0bde
+      internalID: -299274388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_54
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 389
+        width: 82
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 676525caf66f44df4b3599741911ecdc
+      internalID: -865171900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_55
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 311
+        width: 80
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 740ef32180642446cbb55485589ae20b
+      internalID: -1839486646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_56
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 268
+        width: 80
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eddab1de7ee443a69713a2e80516e56
+      internalID: 830722661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_57
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 321
+        width: 80
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60f2cbe428577472db3b6ed368558acc
+      internalID: -2091011221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_58
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 241
+        width: 81
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84efedebb251d465cbda39cfe605c099
+      internalID: 1156845105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_59
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 321
+        width: 86
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: babc2a75f05234432ba508168cb22572
+      internalID: -1711112158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_60
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 302
+        width: 88
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc3db56e053f84158a59367717411e2e
+      internalID: 1286432536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_61
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 288
+        width: 84
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a431dcc7f6d6d498b92a286c53c8596a
+      internalID: -1593134177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_62
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 311
+        width: 82
+        height: 76
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746536551570e42d3985658ed4c07842
+      internalID: -1509339440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_63
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 222
+        width: 80
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8fbd488cee17460b813660f6e5559fb
+      internalID: 1206036131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_64
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 181
+        width: 80
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b976ee7d88c884cf5a5357846ce6616c
+      internalID: 1190262448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_65
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 239
+        width: 80
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceb788a318c794dc083f4427b4688e01
+      internalID: 1491534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_66
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 149
+        width: 82
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3181a1a7f51b544748e3f48e0c0dae6e
+      internalID: 1026033116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_67
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 230
+        width: 88
+        height: 89
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69153ac7978b64a6c921237f54b8e201
+      internalID: 1094320318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_68
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 214
+        width: 78
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15f1149597e68495cbe40ff7f2995b7b
+      internalID: -1696617945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_69
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 206
+        width: 87
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70b1ea6af1fb54ff8aa72b40edbef83b
+      internalID: -1211207054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_70
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 230
+        width: 82
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32d13a0b1781148a2ac6d7aa7327b0e7
+      internalID: 1161627483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_71
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 131
+        width: 80
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d9ffe04295d14bbb89c99561d32a75a
+      internalID: -1350823417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_72
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 94
+        width: 80
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e26a921bbf2d14ed4ad3883407a37074
+      internalID: 766188537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_73
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 154
+        width: 80
+        height: 83
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25cee0372d2a94b72998e146e4bf6e1f
+      internalID: 1329385676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_74
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 141
+        width: 90
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 839945856418c4288912870e1e07c280
+      internalID: 285037543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_75
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 126
+        width: 78
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83d17e51c64cb4fa6adaeaacbc24652b
+      internalID: 30972497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_76
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 126
+        width: 82
+        height: 77
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc81a2fa82f243529816a29607a5fc7
+      internalID: -630861210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_77
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 146
+        width: 81
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf42477989ef54f6986f52618366ee1e
+      internalID: 1107803089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_78
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 40
+        width: 80
+        height: 89
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6c2364d31f514114b82bd2f35a439cb
+      internalID: -315584350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_79
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 2
+        width: 82
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f419d7cd23acd4ee280bcde5237f0885
+      internalID: 992279873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_80
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 65
+        width: 80
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f702ef463389044cc942dd6115c41933
+      internalID: 1836050429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_81
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 62
+        width: 89
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe2b3f5eff3ea45a69c2fde4deffdf8b
+      internalID: -411337441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_82
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 38
+        width: 78
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dacfe49682ff4c6e91297103e86a16b
+      internalID: -657158894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_83
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 45
+        width: 80
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9decaa15c36694ff4b6666915e0e56a3
+      internalID: -2145708680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Eat_84
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 57
+        width: 81
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35dcf9cff5ffc4a22814b53c4bb97be0
+      internalID: 1475771766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5176ac26ad61b4bb080a58e430cd42d1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      OmMo_Eat_0: -1709710466
+      OmMo_Eat_1: 1059233314
+      OmMo_Eat_10: -971353070
+      OmMo_Eat_11: 2041604734
+      OmMo_Eat_12: -485450459
+      OmMo_Eat_13: 1566400933
+      OmMo_Eat_14: -622203043
+      OmMo_Eat_15: 37191973
+      OmMo_Eat_16: -1183118583
+      OmMo_Eat_17: 760336707
+      OmMo_Eat_18: 1723643499
+      OmMo_Eat_19: -1730399639
+      OmMo_Eat_2: -746233801
+      OmMo_Eat_20: 423590374
+      OmMo_Eat_21: -2021944204
+      OmMo_Eat_22: 2080628456
+      OmMo_Eat_23: 1143317008
+      OmMo_Eat_24: -900332336
+      OmMo_Eat_25: -1861596722
+      OmMo_Eat_26: -1425324837
+      OmMo_Eat_27: 1210132994
+      OmMo_Eat_28: 1103273664
+      OmMo_Eat_29: -304915837
+      OmMo_Eat_3: -1574943789
+      OmMo_Eat_30: 101328832
+      OmMo_Eat_31: -167753271
+      OmMo_Eat_32: 1731657611
+      OmMo_Eat_33: 158881642
+      OmMo_Eat_34: -589126002
+      OmMo_Eat_35: -1025003803
+      OmMo_Eat_36: -200664594
+      OmMo_Eat_37: -261655512
+      OmMo_Eat_38: -254820836
+      OmMo_Eat_39: -1206040053
+      OmMo_Eat_4: 2117138503
+      OmMo_Eat_40: 14175114
+      OmMo_Eat_41: 213122240
+      OmMo_Eat_42: -6714720
+      OmMo_Eat_43: -963315367
+      OmMo_Eat_44: 782518468
+      OmMo_Eat_45: -776489937
+      OmMo_Eat_46: 1388214337
+      OmMo_Eat_47: -1408241273
+      OmMo_Eat_48: -578875950
+      OmMo_Eat_49: 1064898686
+      OmMo_Eat_5: 1139120817
+      OmMo_Eat_50: -2135223923
+      OmMo_Eat_51: 214481734
+      OmMo_Eat_52: -1489902112
+      OmMo_Eat_53: -299274388
+      OmMo_Eat_54: -865171900
+      OmMo_Eat_55: -1839486646
+      OmMo_Eat_56: 830722661
+      OmMo_Eat_57: -2091011221
+      OmMo_Eat_58: 1156845105
+      OmMo_Eat_59: -1711112158
+      OmMo_Eat_6: -2062857991
+      OmMo_Eat_60: 1286432536
+      OmMo_Eat_61: -1593134177
+      OmMo_Eat_62: -1509339440
+      OmMo_Eat_63: 1206036131
+      OmMo_Eat_64: 1190262448
+      OmMo_Eat_65: 1491534
+      OmMo_Eat_66: 1026033116
+      OmMo_Eat_67: 1094320318
+      OmMo_Eat_68: -1696617945
+      OmMo_Eat_69: -1211207054
+      OmMo_Eat_7: 1043737580
+      OmMo_Eat_70: 1161627483
+      OmMo_Eat_71: -1350823417
+      OmMo_Eat_72: 766188537
+      OmMo_Eat_73: 1329385676
+      OmMo_Eat_74: 285037543
+      OmMo_Eat_75: 30972497
+      OmMo_Eat_76: -630861210
+      OmMo_Eat_77: 1107803089
+      OmMo_Eat_78: -315584350
+      OmMo_Eat_79: 992279873
+      OmMo_Eat_8: 2020305306
+      OmMo_Eat_80: 1836050429
+      OmMo_Eat_81: -411337441
+      OmMo_Eat_82: -657158894
+      OmMo_Eat_83: -2145708680
+      OmMo_Eat_84: 1475771766
+      OmMo_Eat_9: 934302290
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
