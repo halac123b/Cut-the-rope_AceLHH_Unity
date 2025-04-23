@@ -32,14 +32,9 @@ public class AutoScaleBackground : MonoBehaviour
 
     private void UpdateBgSize()
     {
-        if (_canvas == null)
-        {
-            _canvas = GetComponentInParent<Canvas>();
-        }
-
         var canvasSize = _canvas.GetComponent<RectTransform>().sizeDelta;
         var rect = GetComponent<RectTransform>();
-        var bgSize = rect.sizeDelta;
+        Vector2 bgSize = rect.sizeDelta;
 
         float ratio;
 
