@@ -1,0 +1,1914 @@
+fileFormatVersion: 2
+guid: e990d7c2e432d43cbbcd53b1940a2696
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OmMo_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 768
+        width: 85
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aff93fd6bf711480b985854c206ca2fe
+      internalID: 269467092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 758
+        width: 80
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7d57cc1c34e041719f4158f4d16c488
+      internalID: -1936907542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 760
+        width: 81
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 182209252099c44b98e51b0856b6ee62
+      internalID: 466004519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 763
+        width: 81
+        height: 83
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb27b62f2fae14cd3be73b4c45518372
+      internalID: 447468678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 762
+        width: 86
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8946e793545a40d5b17c85d054ecba4
+      internalID: -198204021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 762
+        width: 84
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ad7599709bc4397bc532e3bc89eeca
+      internalID: 50998544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_6
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 763
+        width: 87
+        height: 83
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ded5cca5d5c8404aab75234d518ac98
+      internalID: -534306105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_7
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 774
+        width: 86
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ca741d25348b4662ac798b87e644468
+      internalID: -2107808983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_8
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 751
+        width: 75
+        height: 95
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3795e8654a0724841b7cb56a53c5d9f7
+      internalID: 491077147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_9
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 681
+        width: 83
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e312e29b65384af68e7be621c970d35
+      internalID: 639151987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 665
+        width: 80
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e5a6b309a559492ea730060e600131d
+      internalID: 1252305073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 675
+        width: 83
+        height: 83
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39f01b3d8c9d54e7c9d5b3a2b01213c0
+      internalID: 524655848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_12
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 679
+        width: 83
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4446bbb61c2564f479d9641612f968a6
+      internalID: -348915761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_13
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 675
+        width: 86
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f7c73c073434eb3bcaef70459f129a
+      internalID: 503870505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 676
+        width: 85
+        height: 83
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 891073fdc40f34e84b9d01addddbc777
+      internalID: -1031144371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_15
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 683
+        width: 85
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4b37f989c83345ce988d6b5e69cd273
+      internalID: -1897128504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_16
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 700
+        width: 85
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f265e9e67adeb4ca6a5dc8b3b1d814ef
+      internalID: -633093199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_17
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 656
+        width: 78
+        height: 93
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14bc01a3c32d942f8b840e82d40a1a35
+      internalID: 2048428428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_18
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 586
+        width: 79
+        height: 93
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca83e0e05141e428ca4ea995e23de3ff
+      internalID: 624307659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_19
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 572
+        width: 80
+        height: 91
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae46bb732fd474328ab0e52a22b6ee20
+      internalID: -1938299590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_20
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 592
+        width: 90
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55fa13cd00e854d339ad0441a6471ce0
+      internalID: -1452257700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_21
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 595
+        width: 84
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81fa658739f574c89bedf089d46aaf33
+      internalID: -637457197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_22
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 588
+        width: 86
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64f4ac52a4a7c41b09ca0ecd14caa5ec
+      internalID: -732153003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_23
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 591
+        width: 80
+        height: 83
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c5baa41dc9245d696f54119de28523
+      internalID: 60720040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_24
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 609
+        width: 85
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 808ff3445893545b1b27cf5bfdd56ccd
+      internalID: -1771866873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_25
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 627
+        width: 88
+        height: 71
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c6150c5c850e4cbeb26321605c2f6ba
+      internalID: -753563827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_26
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 572
+        width: 84
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc1be64399e5b4290a7daea7183c5434
+      internalID: 233010513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_27
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 486
+        width: 74
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c069c7f3592ec4834875e3c1f503131e
+      internalID: -375668894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_28
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 478
+        width: 80
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a76c5f9d4df1143518306c098c66a6c3
+      internalID: -731803349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_29
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 508
+        width: 85
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fb1834e6d47a40069502048717d0b06
+      internalID: -1337704709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_30
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 510
+        width: 86
+        height: 83
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a53aaab8ac70486bb337f420d154235
+      internalID: 1034438634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_31
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 501
+        width: 86
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 257eec68b61a44f3ebc2862c1518d813
+      internalID: -920431610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_32
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 500
+        width: 79
+        height: 89
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0387b8c82dd343d0935432d4c874dba
+      internalID: -1928800288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_33
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 536
+        width: 88
+        height: 71
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ceca395fbce74590b6c730cc5f6cba1
+      internalID: -2107953848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_34
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 553
+        width: 88
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76b3930aeb77143bbaec89f33c247e6f
+      internalID: -1016476511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_35
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 492
+        width: 82
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9dd35785c96a41a3ae15c77c3e90a69
+      internalID: 1301283073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_36
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 385
+        width: 72
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96dcfe25af2b64c31a59af06e91a790c
+      internalID: 1459331012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_37
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 422
+        width: 78
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251879f1c70f040fd8ae58645aa397f8
+      internalID: 1686109330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_38
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 424
+        width: 86
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1755b04769b7e43c8975a6507704dea2
+      internalID: -772837700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_39
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 414
+        width: 86
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deb55f59b147a42e984dc0f7f3682583
+      internalID: 739976760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_40
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 405
+        width: 78
+        height: 93
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc901f5a4470e49459e81f6262f40535
+      internalID: -1924769169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_41
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 461
+        width: 88
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07cc14d7221f74dc1a5d53b59b32c737
+      internalID: -325075338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_42
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 479
+        width: 86
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407b91bff6e3e46a7b48c462322b633a
+      internalID: -17851733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_43
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 408
+        width: 81
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e7e43b781e0d468d93ecc98fc02f987
+      internalID: 214494324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_44
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 384
+        width: 80
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a5f24a1a6bb645b48aee8ef7c0df80a
+      internalID: 436294850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_45
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 335
+        width: 76
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cc23b8ac5cd049b6bcf12f1d9c5af2d
+      internalID: -30695035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_46
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 338
+        width: 86
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7443d6e2d88024bcfb8400e9f6ace878
+      internalID: 93534018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_47
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 325
+        width: 85
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2486465b486554678819c9a2774bf8ee
+      internalID: 1106188289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_48
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 387
+        width: 86
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a42a9a924adfb4ca68d015296b03718f
+      internalID: -1482165698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_49
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 405
+        width: 85
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f5bf5c0f5423490595cdeeef63ff666
+      internalID: 1361618056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_50
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 284
+        width: 74
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b02e68b3fa1f41e19739dd2023e6af7
+      internalID: 1270406790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_51
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 290
+        width: 80
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6dd387e5beb444a19266cb9d66714ee
+      internalID: 1368931513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_52
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 251
+        width: 86
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e3a01434e144d1594c3bcee86a1692
+      internalID: -203691229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_53
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 309
+        width: 78
+        height: 94
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8cfa7315a7564bdf89247af18561ff4
+      internalID: 554243299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_54
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 313
+        width: 85
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40440a22fc3b5470caa25de5d027ec01
+      internalID: 1134019066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_55
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 333
+        width: 86
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3bde53e05ecb48e791a6ecb482f0375
+      internalID: -1269502368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_56
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 189
+        width: 78
+        height: 93
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24ea350a6c8f941d0b8debcb1878725d
+      internalID: -527523795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_57
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 194
+        width: 78
+        height: 94
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e46cb1b81719b491bbd822581b8010c1
+      internalID: -897117999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_58
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 245
+        width: 76
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9867814cb22e4ca69ecbe4c5bf2c3b1
+      internalID: -1259221067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_59
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 234
+        width: 82
+        height: 89
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a94b2fa7bde274ef5af37680919d2bb8
+      internalID: 1249030921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_60
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 213
+        width: 80
+        height: 94
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7553e24707a0e4691998e3e09416b38b
+      internalID: -1550655937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_61
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 240
+        width: 88
+        height: 71
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6610b56797448afac6d5e46fd415bd
+      internalID: 952541184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_62
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 260
+        width: 85
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95c6afff9dc144215af12289687c375a
+      internalID: -474682381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_63
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 95
+        width: 80
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 083d620a93e294d69aebdbfdc0b8f31f
+      internalID: 1597927376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_64
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 97
+        width: 76
+        height: 95
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38863fbc764c94ac0b77f8051795ff12
+      internalID: -564854719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_65
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 155
+        width: 77
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c193568730d4e33a168835f9126295
+      internalID: -2083225967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_66
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 164
+        width: 86
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97dcb632fc7ee4e319dafc4943d3fc49
+      internalID: -569156637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_67
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 142
+        width: 81
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd46f025f953843ce901c821d0bc5791
+      internalID: -1069732853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_68
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 115
+        width: 82
+        height: 95
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c9f92e4b73ba48c8976a8f04f79b65f
+      internalID: 82492439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_69
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 166
+        width: 88
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69dbdf7889dc6494eb109d7703e6ea80
+      internalID: 52094464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_70
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 176
+        width: 77
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 169fe40be3bcf4e8e9b1768cf519d042
+      internalID: 105217994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_71
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 5
+        width: 80
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b0f7ad37c4d7452fabb22a747685777
+      internalID: -1658273819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_72
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 2
+        width: 78
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e7304fbc4a6046b3a3d862e25b0ff92
+      internalID: 686775117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_73
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 67
+        width: 79
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be0b9ddbb0b864293aaea6c6eb1d4328
+      internalID: -37173643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_74
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 77
+        width: 86
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed3e80d71175b4dca8a905ef811c505c
+      internalID: -1992836235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_75
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 52
+        width: 82
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f07dec6435214abb8c332195e187bca
+      internalID: -112856773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OmMo_Idle_76
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 22
+        width: 84
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ba9dc7dc63ab4ef48d3d6ee277ac265
+      internalID: 320071376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 93c4e9ed9d87e445b937510083ac021e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      OmMo_Idle_0: 269467092
+      OmMo_Idle_1: -1936907542
+      OmMo_Idle_10: 1252305073
+      OmMo_Idle_11: 524655848
+      OmMo_Idle_12: -348915761
+      OmMo_Idle_13: 503870505
+      OmMo_Idle_14: -1031144371
+      OmMo_Idle_15: -1897128504
+      OmMo_Idle_16: -633093199
+      OmMo_Idle_17: 2048428428
+      OmMo_Idle_18: 624307659
+      OmMo_Idle_19: -1938299590
+      OmMo_Idle_2: 466004519
+      OmMo_Idle_20: -1452257700
+      OmMo_Idle_21: -637457197
+      OmMo_Idle_22: -732153003
+      OmMo_Idle_23: 60720040
+      OmMo_Idle_24: -1771866873
+      OmMo_Idle_25: -753563827
+      OmMo_Idle_26: 233010513
+      OmMo_Idle_27: -375668894
+      OmMo_Idle_28: -731803349
+      OmMo_Idle_29: -1337704709
+      OmMo_Idle_3: 447468678
+      OmMo_Idle_30: 1034438634
+      OmMo_Idle_31: -920431610
+      OmMo_Idle_32: -1928800288
+      OmMo_Idle_33: -2107953848
+      OmMo_Idle_34: -1016476511
+      OmMo_Idle_35: 1301283073
+      OmMo_Idle_36: 1459331012
+      OmMo_Idle_37: 1686109330
+      OmMo_Idle_38: -772837700
+      OmMo_Idle_39: 739976760
+      OmMo_Idle_4: -198204021
+      OmMo_Idle_40: -1924769169
+      OmMo_Idle_41: -325075338
+      OmMo_Idle_42: -17851733
+      OmMo_Idle_43: 214494324
+      OmMo_Idle_44: 436294850
+      OmMo_Idle_45: -30695035
+      OmMo_Idle_46: 93534018
+      OmMo_Idle_47: 1106188289
+      OmMo_Idle_48: -1482165698
+      OmMo_Idle_49: 1361618056
+      OmMo_Idle_5: 50998544
+      OmMo_Idle_50: 1270406790
+      OmMo_Idle_51: 1368931513
+      OmMo_Idle_52: -203691229
+      OmMo_Idle_53: 554243299
+      OmMo_Idle_54: 1134019066
+      OmMo_Idle_55: -1269502368
+      OmMo_Idle_56: -527523795
+      OmMo_Idle_57: -897117999
+      OmMo_Idle_58: -1259221067
+      OmMo_Idle_59: 1249030921
+      OmMo_Idle_6: -534306105
+      OmMo_Idle_60: -1550655937
+      OmMo_Idle_61: 952541184
+      OmMo_Idle_62: -474682381
+      OmMo_Idle_63: 1597927376
+      OmMo_Idle_64: -564854719
+      OmMo_Idle_65: -2083225967
+      OmMo_Idle_66: -569156637
+      OmMo_Idle_67: -1069732853
+      OmMo_Idle_68: 82492439
+      OmMo_Idle_69: 52094464
+      OmMo_Idle_7: -2107808983
+      OmMo_Idle_70: 105217994
+      OmMo_Idle_71: -1658273819
+      OmMo_Idle_72: 686775117
+      OmMo_Idle_73: -37173643
+      OmMo_Idle_74: -1992836235
+      OmMo_Idle_75: -112856773
+      OmMo_Idle_76: 320071376
+      OmMo_Idle_8: 491077147
+      OmMo_Idle_9: 639151987
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

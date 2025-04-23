@@ -6,13 +6,27 @@ using UnityEngine.Serialization;
 public class Candy : MonoBehaviour
 {
     public static event Action<Collider2D> OnCandyCollision;
+    public List<Rope> AttachedRopes = new();
 
     private Rigidbody2D _rb2D;
-    //public List<Rope> AttachedRopes = new();
+    private Camera _mainCamera;
+    
 
     private void Start()
     {
         _rb2D = GetComponent<Rigidbody2D>();
+        
+        _mainCamera = Camera.main;
+    }
+
+    private void Update()
+    {
+        Vector3 viewPos = _mainCamera.WorldToViewportPoint(transform.position);
+
+        if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1 && AttachedRopes.Count <= 0)
+        {
+            Debug.Log("Ngan - out of view");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,17 +63,17 @@ public class Candy : MonoBehaviour
         }
     }
 
-    // public void AttachRope(Rope rope)
-    // {
-    //     if (!AttachedRopes.Contains(rope))
-    //         AttachedRopes.Add(rope);
-    // }
-    //
-    // public void DetachRope(Rope rope)
-    // {
-    //     if (AttachedRopes.Contains(rope))
-    //         AttachedRopes.Remove(rope);
-    // }
+    public void AttachRope(Rope rope)
+    {
+        if (!AttachedRopes.Contains(rope))
+            AttachedRopes.Add(rope);
+    }
+    
+    public void DetachRope(Rope rope)
+    {
+        if (AttachedRopes.Contains(rope))
+            AttachedRopes.Remove(rope);
+    }
 
     public void SetBalloonState(bool isActive, float balloonSpeed = 0f)
     {

@@ -59,6 +59,9 @@ public class Rope : MonoBehaviour
 
         _ropeRenderer.startWidth = _ropeWidth;
         _ropeRenderer.endWidth = _ropeWidth;
+
+        Candy candy = RopeSecondObject.GetComponent<Candy>();
+        candy.AttachRope(this);
     }
 
     private void Update()
@@ -77,6 +80,7 @@ public class Rope : MonoBehaviour
                 if (rope != null && ropeCandy != null)
                 {
                     rope._joint.connectedBody = null;
+                    ropeCandy.DetachRope(this);
                 }
 
                 Destroy(hit.gameObject);
