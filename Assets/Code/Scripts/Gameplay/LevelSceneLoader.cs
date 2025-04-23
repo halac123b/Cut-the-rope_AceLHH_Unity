@@ -52,7 +52,7 @@ public class LevelSceneLoader : MonoBehaviour
                 JObject obj = JObject.Parse(entity.ExpandProperty);
                 int firstIndex = (int)obj["FirstNailIndex"];
                 int secondIndex = (int)obj["SecondNailIndex"];
-                int lengthRope = (int)obj["LengthRope"];
+                float lengthRope = (float)obj["LengthRope"];
 
                 createdObj = Instantiate(_ropePrefab, entity.Position, Quaternion.identity);
                 Rope rope = createdObj.GetComponent<Rope>();
