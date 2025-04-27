@@ -18,6 +18,18 @@ public class LevelSceneLoader : MonoBehaviour
     {
         LoadLevelData();
         LoadLevelMap();
+
+        EventDispatcher.Instance.AddEvent(gameObject, _ => ReloadLevel(), EventDispatcher.RestartLevel);
+    }
+
+    /// <summary>
+    /// Reload level - GameOver
+    /// </summary>
+    private void ReloadLevel()
+    {
+        ClearMap();
+        StarController.SetStartLevel();
+        LoadLevelMap();
     }
 
     private void LoadLevelData()
@@ -70,11 +82,27 @@ public class LevelSceneLoader : MonoBehaviour
                 Debug.LogError($"Unknown category: {entity.Category}");
                 break;
         }
+
         if (createdObj != null)
         {
             _listLoadedObj.Add(createdObj);
             createdObj.transform.SetParent(ParentObject);
         }
+    }
+
+    private void ClearMap()
+    {
+        foreach (Transform obj in ParentObject)
+        {
+            Destroy(obj.gameObject);
+        }
+
+        _listLoadedObj.Clear();
+    }
+
+    private void OnDisable()
+    {
+        EventDispatcher.Instance.RemoveEvent(gameObject);
     }
 
     public enum ObjectCategory

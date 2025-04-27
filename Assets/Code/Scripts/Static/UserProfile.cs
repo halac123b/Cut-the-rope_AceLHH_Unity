@@ -25,7 +25,7 @@ public class UserProfile : MonoBehaviour
     {
         SelectedLevelIndex = levelIndex;
     }
-    
+
     public void SetBoxData(BoxData boxData)
     {
         SelectedBoxIndex = boxData;
@@ -44,11 +44,12 @@ public class UserProfile : MonoBehaviour
         }
         else
         {
-            Debug.Log($"No update needed for level {levelIndex}. Existing stars: {currentStars} are greater than or equal to new stars: {stars}");
+            Debug.Log(
+                $"No update needed for level {levelIndex}. Existing stars: {currentStars} are greater than or equal to new stars: {stars}");
         }
     }
 
-    private int GetStars(string levelIndex)
+    public int GetStars(string levelIndex)
     {
         return PlayerPrefs.GetInt($"Level_{levelIndex}_Stars", -1);
     }

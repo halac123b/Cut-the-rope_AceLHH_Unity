@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
@@ -7,7 +8,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject _menuPanel;
     [SerializeField] private GameObject _seasonPanel;
     [SerializeField] private LevelSelection _levelMap;
-
+   
     private void Start()
     {
         Debug.Log("Ngan - Init Menu");
