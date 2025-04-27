@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 356198751901552657}
   - component: {fileID: 1384329189785177574}
-  - component: {fileID: 5107304445309865344}
+  - component: {fileID: 1311589743061065522}
   m_Layer: 0
   m_Name: Star
   m_TagString: Star
@@ -88,8 +88,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!68 &5107304445309865344
-EdgeCollider2D:
+--- !u!58 &1311589743061065522
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -123,32 +123,4 @@ EdgeCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 0.18473956, y: -0.053777456}
-  - {x: 0.16573179, y: -0.093489766}
-  - {x: 0.1792258, y: -0.14073122}
-  - {x: 0.14339778, y: -0.21712935}
-  - {x: -0.006493911, y: -0.174591}
-  - {x: -0.06986502, y: -0.20398283}
-  - {x: -0.07192768, y: -0.19641024}
-  - {x: -0.09682205, y: -0.20670491}
-  - {x: -0.15453121, y: -0.2074241}
-  - {x: -0.1692217, y: -0.1359188}
-  - {x: -0.1592499, y: -0.06358427}
-  - {x: -0.20467074, y: -0.0288167}
-  - {x: -0.24530572, y: 0.05366665}
-  - {x: -0.18986137, y: 0.11670646}
-  - {x: -0.09442243, y: 0.138904}
-  - {x: -0.06879386, y: 0.19807008}
-  - {x: 0.002987653, y: 0.25067386}
-  - {x: 0.073215425, y: 0.19738981}
-  - {x: 0.11354256, y: 0.13314417}
-  - {x: 0.18951046, y: 0.11576733}
-  - {x: 0.24447465, y: 0.07919848}
-  - {x: 0.23137158, y: 0.005816102}
-  - {x: 0.17325264, y: -0.05752772}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
+  m_Radius: 0.2777778
