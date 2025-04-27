@@ -34,9 +34,9 @@ public class Rope : MonoBehaviour
         _joint = RopeFirstObject.GetComponent<SpringJoint2D>();
         _joint.connectedBody = RopeSecondObject.GetComponent<Rigidbody2D>();
         _joint.distance = RopeLength * 0.1f;
-        
+
         mainCamera = Camera.main;
-        
+
         Candy candy = RopeSecondObject.GetComponent<Candy>();
         candy.AttachRope(this);
     }
@@ -53,7 +53,7 @@ public class Rope : MonoBehaviour
             {
                 Rope rope = hit.collider.GetComponent<Rope>();
                 Candy ropeCandy = RopeSecondObject.GetComponent<Candy>();
-                   
+
                 if (rope != null && ropeCandy != null)
                 {
                     rope._joint.connectedBody = null;
@@ -79,6 +79,9 @@ public class Rope : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (_ropeRenderer == null || _edgeCollider == null) 
+            return;
+
         UpdateColliderForRope();
     }
 
@@ -95,13 +98,13 @@ public class Rope : MonoBehaviour
 
         if ((_ropeSegments.Count - 1) % segmentStep != 0)
         {
-            Vector3 lastPos = _ropeRenderer.GetPosition(_ropeSegments.Count - 1);
+            Vector3 lastPos = _ropeRenderer.GetPosition(_ropeRenderer.positionCount - 1);
             edgePoints.Add(new Vector2(lastPos.x, lastPos.y));
         }
 
         _edgeCollider.points = edgePoints.ToArray();
     }
-    
+
     private void Simulate()
     {
         Vector3 forceGravity = new Vector3(0, gravity, 0);

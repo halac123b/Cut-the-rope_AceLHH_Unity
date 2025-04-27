@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
@@ -16,6 +17,16 @@ public class LevelSceneLoader : MonoBehaviour
 
     private void Start()
     {
+        LoadLevelData();
+        LoadLevelMap();
+
+        EventDispatcher.Instance.AddEvent(gameObject, _ => LoadLevel(), EventDispatcher.RestartLevel);
+    }
+
+    private void LoadLevel()
+    {
+        ClearMap();
+
         LoadLevelData();
         LoadLevelMap();
     }
@@ -70,11 +81,27 @@ public class LevelSceneLoader : MonoBehaviour
                 Debug.LogError($"Unknown category: {entity.Category}");
                 break;
         }
+
         if (createdObj != null)
         {
             _listLoadedObj.Add(createdObj);
             createdObj.transform.SetParent(ParentObject);
         }
+    }
+
+    private void ClearMap()
+    {
+        foreach (Transform obj in ParentObject)
+        {
+            Destroy(obj.gameObject);
+        }
+
+        _listLoadedObj.Clear();
+    }
+
+    private void OnDisable()
+    {
+        EventDispatcher.Instance.RemoveEvent(gameObject);
     }
 
     public enum ObjectCategory

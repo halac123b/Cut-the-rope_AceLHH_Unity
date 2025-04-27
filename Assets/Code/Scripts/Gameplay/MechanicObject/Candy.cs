@@ -25,7 +25,7 @@ public class Candy : MonoBehaviour
 
         if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1 && AttachedRopes.Count <= 0)
         {
-            Debug.Log("Ngan - out of view");
+            EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.RestartLevel);
         }
     }
 
