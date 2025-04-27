@@ -100,7 +100,7 @@ public class LevelSceneLoader : MonoBehaviour
         _listLoadedObj.Clear();
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         EventDispatcher.Instance.RemoveEvent(gameObject);
     }
