@@ -19,10 +19,13 @@ public class LevelSceneLoader : MonoBehaviour
         LoadLevelData();
         LoadLevelMap();
 
-        EventDispatcher.Instance.AddEvent(gameObject, _ => LoadLevel(), EventDispatcher.RestartLevel);
+        EventDispatcher.Instance.AddEvent(gameObject, _ => ReloadLevel(), EventDispatcher.RestartLevel);
     }
 
-    private void LoadLevel()
+    /// <summary>
+    /// Reload level - GameOver
+    /// </summary>
+    private void ReloadLevel()
     {
         ClearMap();
         StarController.SetStartLevel();
