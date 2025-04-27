@@ -49,13 +49,6 @@ public class UserProfile : MonoBehaviour
         }
     }
 
-    public void ResetStars(string levelIndex, int stars)
-    {
-        StarController.SetStartLevel();
-        PlayerPrefs.SetInt($"Level_{levelIndex}_Stars", stars);
-        PlayerPrefs.Save();
-    }
-
     public int GetStars(string levelIndex)
     {
         return PlayerPrefs.GetInt($"Level_{levelIndex}_Stars", -1);

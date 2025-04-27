@@ -1,8 +1,6 @@
-using System;
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
-using VInspector.Libs;
 
 public class LevelSceneLoader : MonoBehaviour
 {
@@ -27,10 +25,7 @@ public class LevelSceneLoader : MonoBehaviour
     private void LoadLevel()
     {
         ClearMap();
-
-        UserProfile.Instance.ResetStars(UserProfile.Instance.SelectedLevelIndex, 0);
-        
-        LoadLevelData();
+        StarController.SetStartLevel();
         LoadLevelMap();
     }
 
