@@ -5,6 +5,15 @@ using UnityEngine.UI;
 
 public class PauseUI : MonoBehaviour
 {
+   [SerializeField] private Button _backBtn;
+   [SerializeField] private Button _resumeBtn;
+
+   private void Start()
+   {
+      _backBtn.onClick.AddListener(OnBackClick);
+      _resumeBtn.onClick.AddListener(OnResumeClick);
+   }
+
    public void OnResumeClick()
    {
       Time.timeScale = 1;
@@ -13,7 +22,8 @@ public class PauseUI : MonoBehaviour
 
    public void OnBackClick()
    {
-      EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.ResetMap);
+      StarController.SetStartLevel();
+      Time.timeScale = 1;
       SceneManager.LoadScene("Home");
    }
 }

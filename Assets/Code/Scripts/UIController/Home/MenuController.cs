@@ -14,11 +14,7 @@ public class MenuController : MonoBehaviour
 
         if (UserProfile.Instance.SelectedBoxIndex != null)
         {
-            Debug.Log("Ngan - Selected Box Index: " + UserProfile.Instance.SelectedBoxIndex.Index);
-
             LoadPreviousBox(UserProfile.Instance.SelectedBoxIndex);
-
-            if (!UserProfile.Instance.SelectedBoxIndex) UserProfile.Instance.SetBoxData(null);
         }
     }
 
