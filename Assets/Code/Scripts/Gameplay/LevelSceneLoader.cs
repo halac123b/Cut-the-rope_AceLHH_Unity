@@ -20,6 +20,7 @@ public class LevelSceneLoader : MonoBehaviour
         LoadLevelMap();
 
         EventDispatcher.Instance.AddEvent(gameObject, _ => ReloadLevel(), EventDispatcher.RestartLevel);
+        EventDispatcher.Instance.AddEvent(gameObject, _ => ResetMap(), EventDispatcher.ResetMap);
     }
 
     /// <summary>
@@ -103,6 +104,13 @@ public class LevelSceneLoader : MonoBehaviour
     private void OnDestroy()
     {
         EventDispatcher.Instance.RemoveEvent(gameObject);
+    }
+
+    public void ResetMap()
+    {
+        ClearMap();
+        StarController.SetStartLevel();
+        Time.timeScale = 1;
     }
 
     public enum ObjectCategory
