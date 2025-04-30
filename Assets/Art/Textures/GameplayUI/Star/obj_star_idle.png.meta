@@ -148,10 +148,10 @@ TextureImporter:
       name: obj_star_idle_1
       rect:
         serializedVersion: 2
-        x: 90
+        x: 98
         y: 545
-        width: 32
-        height: 33
+        width: 13
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,10 +170,10 @@ TextureImporter:
       name: obj_star_idle_2
       rect:
         serializedVersion: 2
-        x: 90
-        y: 567
-        width: 6
-        height: 4
+        x: 126
+        y: 512
+        width: 30
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: obj_star_idle_3
       rect:
         serializedVersion: 2
-        x: 118
+        x: 126
         y: 545
-        width: 62
-        height: 33
+        width: 28
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,28 +206,6 @@ TextureImporter:
       bones: []
       spriteID: ed371dc6121f545b69ac1228381b968e
       internalID: 885004618
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: obj_star_idle_4
-      rect:
-        serializedVersion: 2
-        x: 169
-        y: 567
-        width: 11
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b79776f121ddf4b4eb841451dd521425
-      internalID: -2006313770
       vertices: []
       indices: 
       edges: []
@@ -346,10 +324,10 @@ TextureImporter:
       name: obj_star_idle_10
       rect:
         serializedVersion: 2
-        x: 90
-        y: 499
-        width: 96
-        height: 47
+        x: 98
+        y: 512
+        width: 11
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -365,35 +343,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_11
-      rect:
-        serializedVersion: 2
-        x: 108
-        y: 539
-        width: 18
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e19481d2e8b5b47248630b8a81408d64
-      internalID: -738257948
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: obj_star_idle_13
       rect:
         serializedVersion: 2
-        x: 1
-        y: 453
-        width: 33
-        height: 34
+        x: 2
+        y: 455
+        width: 31
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,10 +368,10 @@ TextureImporter:
       name: obj_star_idle_14
       rect:
         serializedVersion: 2
-        x: 78
-        y: 465
-        width: 49
-        height: 48
+        x: 98
+        y: 478
+        width: 11
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -434,10 +390,10 @@ TextureImporter:
       name: obj_star_idle_15
       rect:
         serializedVersion: 2
-        x: 114
+        x: 126
         y: 479
-        width: 48
-        height: 31
+        width: 33
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -566,10 +522,10 @@ TextureImporter:
       name: obj_star_idle_21
       rect:
         serializedVersion: 2
-        x: 72
-        y: 441
-        width: 48
-        height: 34
+        x: 98
+        y: 444
+        width: 14
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -580,28 +536,6 @@ TextureImporter:
       bones: []
       spriteID: e5126a900d06e4be1adeb7e98af11bd7
       internalID: 1828615835
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: obj_star_idle_22
-      rect:
-        serializedVersion: 2
-        x: 78
-        y: 474
-        width: 18
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2cc9ca5f13d6c4f3eb1252c7e4447240
-      internalID: -395881389
       vertices: []
       indices: 
       edges: []
@@ -632,10 +566,10 @@ TextureImporter:
       name: obj_star_idle_24
       rect:
         serializedVersion: 2
-        x: 1
-        y: 421
-        width: 33
-        height: 32
+        x: 2
+        y: 422
+        width: 28
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -654,10 +588,10 @@ TextureImporter:
       name: obj_star_idle_26
       rect:
         serializedVersion: 2
-        x: 72
+        x: 98
         y: 411
-        width: 48
-        height: 31
+        width: 17
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -764,10 +698,10 @@ TextureImporter:
       name: obj_star_idle_32
       rect:
         serializedVersion: 2
-        x: 1
-        y: 388
-        width: 33
-        height: 32
+        x: 2
+        y: 389
+        width: 26
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -786,10 +720,10 @@ TextureImporter:
       name: obj_star_idle_33
       rect:
         serializedVersion: 2
-        x: 72
+        x: 98
         y: 378
-        width: 48
-        height: 33
+        width: 19
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -805,35 +739,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_34
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 392
-        width: 24
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 756fd5e681ca44b59945ce72c350a16b
-      internalID: 1885714890
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: obj_star_idle_36
       rect:
         serializedVersion: 2
-        x: 1
-        y: 355
-        width: 33
-        height: 32
+        x: 2
+        y: 356
+        width: 23
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -844,28 +756,6 @@ TextureImporter:
       bones: []
       spriteID: b806f7f594c8b48cd97fc3940eabd037
       internalID: -439132649
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: obj_star_idle_37
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 382
-        width: 24
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e7e81e82adeb45bbb0daa64a51a12b9
-      internalID: -1395608521
       vertices: []
       indices: 
       edges: []
@@ -896,10 +786,10 @@ TextureImporter:
       name: obj_star_idle_39
       rect:
         serializedVersion: 2
-        x: 1
-        y: 322
-        width: 33
-        height: 32
+        x: 2
+        y: 323
+        width: 20
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -918,9 +808,9 @@ TextureImporter:
       name: obj_star_idle_40
       rect:
         serializedVersion: 2
-        x: 72
+        x: 98
         y: 345
-        width: 48
+        width: 22
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1028,10 +918,10 @@ TextureImporter:
       name: obj_star_idle_46
       rect:
         serializedVersion: 2
-        x: 72
-        y: 295
-        width: 54
-        height: 48
+        x: 98
+        y: 312
+        width: 25
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1050,10 +940,10 @@ TextureImporter:
       name: obj_star_idle_47
       rect:
         serializedVersion: 2
-        x: 1
-        y: 289
-        width: 33
-        height: 32
+        x: 2
+        y: 290
+        width: 18
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1069,78 +959,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_49
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 307
-        width: 30
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 51fc93a45826446ad83f418dcb8efec6
-      internalID: -258142263
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: obj_star_idle_50
-      rect:
-        serializedVersion: 2
-        x: 84
-        y: 299
-        width: 18
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b77dcab03a09c42ae8e0e9529163111d
-      internalID: 190304867
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: obj_star_idle_51
-      rect:
-        serializedVersion: 2
-        x: 90
-        y: 294
-        width: 12
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c612191775725459097eba202e060126
-      internalID: 510076753
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: obj_star_idle_52
       rect:
         serializedVersion: 2
-        x: 1
+        x: 3
         y: 256
-        width: 33
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

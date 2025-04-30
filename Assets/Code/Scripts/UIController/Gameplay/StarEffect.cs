@@ -1,0 +1,19 @@
+using UnityEngine;
+using LitMotion;
+using LitMotion.Extensions;
+public class StarEffect : MonoBehaviour
+{
+    private void Start()
+    {
+        StarAnimation();
+    }
+
+    private void StarAnimation()
+    {
+        LMotion.Create(0f, 0.15f, 1.15f) // Animate from 0f to 10f over 2 seconds
+            .WithEase(Ease.OutQuad) // Specify easing function
+            .WithLoops(-1, LoopType.Yoyo) // Specify loop count and type
+            .WithDelay(0.2f) // Set delay
+            .BindToPositionY(transform); 
+    }
+}
