@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.InputSystem;
 
 public class Rope : MonoBehaviour
 {
@@ -43,9 +43,9 @@ public class Rope : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
         {
-            Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Touchscreen.current.primaryTouch.position.ReadValue());
 
             RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
 
@@ -79,9 +79,6 @@ public class Rope : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (_ropeRenderer == null || _edgeCollider == null) 
-            return;
-
         UpdateColliderForRope();
     }
 
