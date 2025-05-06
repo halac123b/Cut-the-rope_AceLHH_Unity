@@ -22,7 +22,15 @@ public class PauseUI : MonoBehaviour
 
    public void OnBackClick()
    {
-      StarController.SetStartLevel();
+      string levelIndex = UserProfile.Instance.SelectedLevelIndex;
+      EventDispatcher.Instance.Dispatch(
+         (Action<int>)(currentStars =>
+         {
+            UserProfile.Instance.SaveStars(levelIndex, currentStars);
+         }),
+         EventDispatcher.OnGetStarsRequest
+      );
+
       Time.timeScale = 1;
       SceneManager.LoadScene("Home");
    }
