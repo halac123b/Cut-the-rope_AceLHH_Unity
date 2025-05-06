@@ -1,31 +1,64 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class StarController : MonoBehaviour
 {
-    private static int _currentStarsInGameplay;
+    private int _currentStarsInGameplay;
     private const int MAX_STARS = 3;
-    
-    public static int SetStartLevel()
+    [SerializeField] private List<Animator> _stars;
+
+    private void Start()
     {
-        Debug.Log("[Kiên],[Star] Reset stars to 0");
-        _currentStarsInGameplay = 0;
-        return _currentStarsInGameplay;
+        EventDispatcher.Instance.AddEvent(gameObject, _ => EnableStarIndex(_currentStarsInGameplay), EventDispatcher.OnStarIncreased);
+        EventDispatcher.Instance.AddEvent(gameObject, SetStartLevel, EventDispatcher.OnResetStars);
+        EventDispatcher.Instance.AddEvent(gameObject, _ => IncreaseStars(), EventDispatcher.OnIncreaseStar);
+        EventDispatcher.Instance.AddEvent(gameObject, obj =>
+        {
+            if (obj is Action<int> callback)
+            {
+                callback.Invoke(_currentStarsInGameplay);
+            }
+        }, EventDispatcher.OnGetStarsRequest);
+    }
+
+    private void OnDestroy()
+    {
+        EventDispatcher.Instance.RemoveEvent(gameObject);
     }
     
-    public static void IncreaseStars()
+    private void SetStartLevel(object obj)
+    {
+        _currentStarsInGameplay = 0;
+
+        if (obj is Action<int> callback)
+        {
+            callback.Invoke(_currentStarsInGameplay);
+        }
+
+        EventDispatcher.Instance.Dispatch(_currentStarsInGameplay, EventDispatcher.UpdateStarNumber);
+    }
+    
+    private void IncreaseStars()
     {
         if (_currentStarsInGameplay < MAX_STARS)
         {
             _currentStarsInGameplay++;
-            Debug.Log($"[Kien],[Star] Stars increased: {_currentStarsInGameplay}");
+            EventDispatcher.Instance.Dispatch(_currentStarsInGameplay, EventDispatcher.OnStarIncreased);
         }
-        
-        EventDispatcher.Instance.Dispatch(_currentStarsInGameplay, EventDispatcher.UpdateStarNumber );
+
+        EventDispatcher.Instance.Dispatch(_currentStarsInGameplay, EventDispatcher.UpdateStarNumber);
     }
-    
-    public static int GetStarsInGameplay()
+
+    private void EnableStarIndex(int currentStarsInGameplay)
     {
-        return _currentStarsInGameplay;
+        int starIndexInList = currentStarsInGameplay - 1;
+
+        if (starIndexInList >= 0 && starIndexInList < _stars.Count)
+        {
+            Animator star = _stars[starIndexInList];
+            star.speed = 0.8f;
+            star.SetTrigger("StarIncrease");
+        }
     }
 }
-

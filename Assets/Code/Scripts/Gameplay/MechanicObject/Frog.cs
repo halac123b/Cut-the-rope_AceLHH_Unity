@@ -31,25 +31,37 @@ public class Frog : MonoBehaviour
         try
         {
             Debug.Log($"[Frog] Xử lý va chạm, Frog ăn Candy Object: {collision.name}");
-            int stars = StarController.GetStarsInGameplay();
+            
             string levelIndex = UserProfile.Instance.SelectedLevelIndex;
-            UserProfile.Instance.SaveStars(levelIndex, stars);
-            EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LoadCompleteUI);
-            string nextLevelIndex = GetNextLevelIndex(levelIndex);
+            
+            EventDispatcher.Instance.Dispatch(
+                (Action<int>)(currentStars => {
+                    UserProfile.Instance.SaveStars(levelIndex, currentStars);
+                    EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LoadCompleteUI);
+                    string nextLevelIndex = GetNextLevelIndex(levelIndex);
 
-            if (UserProfile.Instance.SelectedBoxIndex != null)
-            {
-                int totalLevels = UserProfile.Instance.SelectedBoxIndex.NumberOfLevels;
+                    if (UserProfile.Instance.SelectedBoxIndex != null)
+                    {
+                        int totalLevels = UserProfile.Instance.SelectedBoxIndex.NumberOfLevels;
 
-                if (_nextLevelValue <= totalLevels)
-                {
-                    UserProfile.Instance.SaveStars(nextLevelIndex, StarController.SetStartLevel());
-                }
-            }
-            else
-            {
-                Debug.LogWarning("[Frog] SelectedBoxIndex is null.");
-            }
+                        if (_nextLevelValue <= totalLevels)
+                        {
+                            EventDispatcher.Instance.Dispatch(
+                                (Action<int>)(resetStars =>
+                                {
+                                    UserProfile.Instance.SaveStars(nextLevelIndex, resetStars);
+                                }),
+                                EventDispatcher.OnResetStars
+                            );
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogWarning("[Frog] SelectedBoxIndex is null.");
+                    }
+                }),
+                EventDispatcher.OnGetStarsRequest
+            );
         }
         catch (Exception ex)
         {

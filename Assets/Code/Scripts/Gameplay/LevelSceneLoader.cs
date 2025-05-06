@@ -28,7 +28,7 @@ public class LevelSceneLoader : MonoBehaviour
     private void ReloadLevel()
     {
         ClearMap();
-        StarController.SetStartLevel();
+        EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnResetStars);
         LoadLevelMap();
     }
 
