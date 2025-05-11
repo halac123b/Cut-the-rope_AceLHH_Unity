@@ -10,8 +10,8 @@ public class StarUI : MonoBehaviour
     {
         _starText.text = "0";
 
-        EventDispatcher.Instance.AddEvent(gameObject, currentStarNumber => UpdateStarTextNumber((int)currentStarNumber),
-            EventDispatcher.UpdateStarNumber);
+        // EventDispatcher.Instance.AddEvent(gameObject, currentStarNumber => UpdateStarTextNumber((int)currentStarNumber),
+        //     EventDispatcher.UpdateStarNumber);
     }
 
     public void UpdateStarTextNumber(int star)

@@ -7,7 +7,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private Button _pauseButton;
 
     public PauseUI PauseUIComponent;
-    public StarUI StarUIComponent;
+   // public StarUI StarUIComponent;
     public CompleteLevelUI CompleteLevelUIComponent;
 
     private void Start()
@@ -20,7 +20,7 @@ public class UIController : MonoBehaviour
 
     public void ShowLevelCompleteUI()
     {
-        StarUIComponent.gameObject.SetActive(false);
+        //StarUIComponent.gameObject.SetActive(false);
         CompleteLevelUIComponent.gameObject.SetActive(true);
     }
 
