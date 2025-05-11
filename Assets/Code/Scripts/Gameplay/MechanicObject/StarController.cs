@@ -36,7 +36,7 @@ public class StarController : MonoBehaviour
             callback.Invoke(_currentStarsInGameplay);
         }
 
-        EventDispatcher.Instance.Dispatch(_currentStarsInGameplay, EventDispatcher.UpdateStarNumber);
+        //EventDispatcher.Instance.Dispatch(_currentStarsInGameplay, EventDispatcher.UpdateStarNumber);
     }
     
     private void IncreaseStars()
@@ -47,7 +47,7 @@ public class StarController : MonoBehaviour
             EventDispatcher.Instance.Dispatch(_currentStarsInGameplay, EventDispatcher.OnStarIncreased);
         }
 
-        EventDispatcher.Instance.Dispatch(_currentStarsInGameplay, EventDispatcher.UpdateStarNumber);
+        //EventDispatcher.Instance.Dispatch(_currentStarsInGameplay, EventDispatcher.UpdateStarNumber);
     }
 
     private void EnableStarIndex(int currentStarsInGameplay)
