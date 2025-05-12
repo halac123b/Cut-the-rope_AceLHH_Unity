@@ -12,7 +12,7 @@ public class LevelSelection : MonoBehaviour
             GameObject levelObject = Instantiate(_levelPrefab, _gridLayoutGroup);
             LevelObject levelObj = levelObject.GetComponent<LevelObject>();
             levelObj.LevelIndicator = $"{boxData.Index}_{i + 1}";
-
+            levelObj.SetLevelNumber(i);
             int stars = PlayerPrefs.GetInt($"Level_{boxData.Index}_{i + 1}_Stars", -1);
 
             bool isFirstLevel = (i == 0);

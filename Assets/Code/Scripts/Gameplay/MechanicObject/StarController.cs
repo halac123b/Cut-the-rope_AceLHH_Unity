@@ -7,6 +7,7 @@ public class StarController : MonoBehaviour
     private int _currentStarsInGameplay;
     private const int MAX_STARS = 3;
     [SerializeField] private List<Animator> _stars;
+    [SerializeField] private List<Sprite> _starSprites;
 
     private void Start()
     {
