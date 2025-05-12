@@ -6,11 +6,12 @@ public class ShadowPanel : MonoBehaviour
    public RectTransform ShadowPanelRect;
    public float ShadowSpeed = 30f; // degrees per second
 
-   private float _shadowAngle = 0f;
+   private float _shadowSpeedUp = 1f;
 
    private void Update()
    {
-      _shadowAngle += Time.deltaTime * ShadowSpeed;
-      ShadowPanelRect.localEulerAngles = new Vector3(0f, 0f, _shadowAngle);
+       float deltaAngle = Time.deltaTime * ShadowSpeed * _shadowSpeedUp;
+       
+       ShadowPanelRect.Rotate(0f, 0f, deltaAngle);
    }
 }
