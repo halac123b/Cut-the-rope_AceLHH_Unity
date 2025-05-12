@@ -36,8 +36,9 @@ public class Frog : MonoBehaviour
             
             EventDispatcher.Instance.Dispatch(
                 (Action<int>)(currentStars => {
-                    UserProfile.Instance.SaveStars(levelIndex, currentStars);
                     EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LoadCompleteUI);
+                    UserProfile.Instance.SaveStars(levelIndex, currentStars);
+                    
                     string nextLevelIndex = GetNextLevelIndex(levelIndex);
 
                     if (UserProfile.Instance.SelectedBoxIndex != null)
