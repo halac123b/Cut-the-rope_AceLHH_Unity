@@ -9,7 +9,7 @@ public class CompleteLevelUI : MonoBehaviour
 
     private void Start()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         _backBtn.onClick.AddListener(OnClickBackHome);
     }
 

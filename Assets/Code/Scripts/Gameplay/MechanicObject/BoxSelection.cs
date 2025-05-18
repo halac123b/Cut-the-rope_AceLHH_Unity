@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 
 public class BoxSelection : MonoBehaviour
@@ -9,6 +11,12 @@ public class BoxSelection : MonoBehaviour
     [SerializeField] private GameObject _boxPrefab;
     [SerializeField] private Transform _gridLayoutGroup;
     [SerializeField] private LevelSelection _levelSelection;
+    [SerializeField] private TextMeshProUGUI _numberStar;
+
+    private void OnEnable()
+    {
+        _numberStar.text = UserProfile.Instance.GetAllStars().ToString();
+    }
 
     private void Start()
     {
