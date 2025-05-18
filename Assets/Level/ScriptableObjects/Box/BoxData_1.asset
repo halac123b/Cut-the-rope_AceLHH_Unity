@@ -15,3 +15,4 @@ MonoBehaviour:
   Index: 1
   BoxName: Box_1.1_01
   NumberOfLevels: 5
+  BoxBGSprite: {fileID: 21300000, guid: f07720566bc4642539781e860d4f6d9d, type: 3}

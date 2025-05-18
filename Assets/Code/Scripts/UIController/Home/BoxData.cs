@@ -6,4 +6,5 @@ public class BoxData : ScriptableObject
     public int Index;
     public string BoxName;
     public int NumberOfLevels;
+    public Sprite BoxBGSprite;
 }
