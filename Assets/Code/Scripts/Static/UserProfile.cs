@@ -7,7 +7,7 @@ public class UserProfile : MonoBehaviour
 
     public string SelectedLevelIndex;
     public BoxData SelectedBoxData;
-    [FormerlySerializedAs("StarCollect")] public int AllStarsCollect;
+    public int AllStarsCollect;
 
     private void Awake()
     {
