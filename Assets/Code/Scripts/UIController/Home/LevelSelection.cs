@@ -1,9 +1,16 @@
+using TMPro;
 using UnityEngine;
 
 public class LevelSelection : MonoBehaviour
 {
     [SerializeField] private GameObject _levelPrefab;
     [SerializeField] private Transform _gridLayoutGroup;
+    [SerializeField] private TextMeshProUGUI _numberStar;
+
+    private void OnEnable()
+    {
+        _numberStar.text = UserProfile.Instance.GetAllStars().ToString();
+    }
 
     public void LoadLevel(BoxData boxData)
     {
