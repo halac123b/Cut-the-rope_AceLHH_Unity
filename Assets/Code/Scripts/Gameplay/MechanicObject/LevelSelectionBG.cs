@@ -10,7 +10,7 @@ public class LevelSelectionBG : MonoBehaviour
 
     private void Start()
     {
-        _levelImageRight.sprite = UserProfile.Instance.SelectedBoxIndex.BoxBGSprite;
-        _levelImageLeft.sprite = UserProfile.Instance.SelectedBoxIndex.BoxBGSprite;
+        _levelImageRight.sprite = UserProfile.Instance.SelectedBoxData.BoxBGSprite;
+        _levelImageLeft.sprite = UserProfile.Instance.SelectedBoxData.BoxBGSprite;
     }
 }

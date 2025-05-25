@@ -41,9 +41,9 @@ public class Frog : MonoBehaviour
                     EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LoadCompleteUI);
                     string nextLevelIndex = GetNextLevelIndex(levelIndex);
 
-                    if (UserProfile.Instance.SelectedBoxIndex != null)
+                    if (UserProfile.Instance.SelectedBoxData != null)
                     {
-                        int totalLevels = UserProfile.Instance.SelectedBoxIndex.NumberOfLevels;
+                        int totalLevels = UserProfile.Instance.SelectedBoxData.NumberOfLevels;
 
                         if (_nextLevelValue <= totalLevels)
                         {

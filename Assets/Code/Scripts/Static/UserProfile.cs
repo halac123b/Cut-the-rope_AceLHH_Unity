@@ -6,7 +6,7 @@ public class UserProfile : MonoBehaviour
     public static UserProfile Instance { get; private set; }
 
     public string SelectedLevelIndex;
-    public BoxData SelectedBoxIndex;
+    public BoxData SelectedBoxData;
     [FormerlySerializedAs("StarCollect")] public int AllStarsCollect;
 
     private void Awake()
@@ -19,7 +19,7 @@ public class UserProfile : MonoBehaviour
 
         Instance = this;
         SelectedLevelIndex = string.Empty;
-        SelectedBoxIndex = null;
+        SelectedBoxData = null;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -30,7 +30,7 @@ public class UserProfile : MonoBehaviour
 
     public void SetBoxData(BoxData boxData)
     {
-        SelectedBoxIndex = boxData;
+        SelectedBoxData = boxData;
     }
 
     public void SaveStars(string levelIndex, int stars)
