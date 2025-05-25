@@ -43,9 +43,9 @@ public class Rope : MonoBehaviour
 
     private void Update()
     {
-        if (Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
+        if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
         {
-            Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Touchscreen.current.primaryTouch.position.ReadValue());
+            Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Pointer.current.position.ReadValue());
 
             RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
 
