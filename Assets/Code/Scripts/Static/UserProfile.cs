@@ -6,6 +6,7 @@ public class UserProfile : MonoBehaviour
 
     public string SelectedLevelIndex;
     public BoxData SelectedBoxIndex;
+    public int StarCollect;
 
     private void Awake()
     {
@@ -25,7 +26,7 @@ public class UserProfile : MonoBehaviour
     {
         SelectedLevelIndex = levelIndex;
     }
-    
+
     public void SetBoxData(BoxData boxData)
     {
         SelectedBoxIndex = boxData;
@@ -39,17 +40,25 @@ public class UserProfile : MonoBehaviour
         if (stars > currentStars)
         {
             PlayerPrefs.SetInt($"Level_{levelIndex}_Stars", stars);
+            StarCollect += stars;
+            PlayerPrefs.SetInt("AllStars", StarCollect);
             PlayerPrefs.Save();
             Debug.Log($"Stars updated for level {levelIndex}. New stars saved: {stars}");
         }
         else
         {
-            Debug.Log($"No update needed for level {levelIndex}. Existing stars: {currentStars} are greater than or equal to new stars: {stars}");
+            Debug.Log(
+                $"No update needed for level {levelIndex}. Existing stars: {currentStars} are greater than or equal to new stars: {stars}");
         }
     }
 
     private int GetStars(string levelIndex)
     {
         return PlayerPrefs.GetInt($"Level_{levelIndex}_Stars", -1);
+    }
+
+    public int GetAllStars()
+    {
+        return PlayerPrefs.GetInt("AllStars");
     }
 }

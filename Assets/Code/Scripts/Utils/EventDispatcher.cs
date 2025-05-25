@@ -21,6 +21,12 @@ public class EventDispatcher : MonoSingleton<EventDispatcher>
     public static string LoadLevelUI = "LoadLevelUI";
     public static string LoadCompleteUI = "LoadCompleteUI";
     public static string UpdateStarNumber =  "UpdateStarNumber";
+    public static string RestartLevel = "RestartLevel";
+    public static string OnStarIncreased = "OnStarIncreased";
+    public static string OnResetStars = "OnResetStars";
+    public static string OnGetStarsRequest = "OnGetStarsRequest";
+    public static string OnIncreaseStar = "OnIncreaseStar";
+
     public void AddEvent(GameObject gameObject, Action<object> action, string key)
     {
         if (Instance == null)

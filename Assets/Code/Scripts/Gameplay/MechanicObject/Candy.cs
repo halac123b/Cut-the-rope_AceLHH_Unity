@@ -25,7 +25,7 @@ public class Candy : MonoBehaviour
 
         if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1 && AttachedRopes.Count <= 0)
         {
-            Debug.Log("Ngan - out of view");
+            EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.RestartLevel);
         }
     }
 
@@ -34,8 +34,7 @@ public class Candy : MonoBehaviour
         if (collision.CompareTag("Star"))
         {
             Debug.Log($"[Candy] Candy va chạm với Star Object: {collision.name}");
-           // OnCandyCollision?.Invoke(collision);
-            StarController.IncreaseStars();
+            EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnIncreaseStar);
             Destroy(collision.gameObject);
         }
     }
@@ -55,7 +54,7 @@ public class Candy : MonoBehaviour
         try
         {
             Debug.Log($"[Candy] Xử lý va chạm với Star Object: {collision.name}");
-            StarController.IncreaseStars();
+            EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnIncreaseStar);
         }
         catch (Exception ex)
         {

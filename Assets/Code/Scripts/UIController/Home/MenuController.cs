@@ -10,16 +10,11 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Ngan - Init Menu");
         _playBtn.onClick.AddListener(OnPlayButtonClicked);
 
         if (UserProfile.Instance.SelectedBoxIndex != null)
         {
-            Debug.Log("Ngan - Selected Box Index: " +UserProfile.Instance.SelectedBoxIndex.Index);
-
             LoadPreviousBox(UserProfile.Instance.SelectedBoxIndex);
-
-            UserProfile.Instance.SetBoxData(null);
         }
     }
 
