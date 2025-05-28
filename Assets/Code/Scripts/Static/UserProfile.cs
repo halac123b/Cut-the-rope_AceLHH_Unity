@@ -18,8 +18,6 @@ public class UserProfile : MonoBehaviour
         }
 
         Instance = this;
-        SelectedLevelIndex = string.Empty;
-        SelectedBoxData = null;
         DontDestroyOnLoad(gameObject);
     }
 
