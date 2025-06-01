@@ -8,7 +8,6 @@ public class UIController : MonoBehaviour
     [SerializeField] private Button _pauseButton;
     [SerializeField] private Button _replayButton;
     private string _currentLevelReplace;
-    private LevelObject _levelObject;
 
     public PauseUI PauseUIComponent;
     // public StarUI StarUIComponent;
@@ -46,9 +45,9 @@ public class UIController : MonoBehaviour
 
         if (!string.IsNullOrEmpty(levelToLoad))
         {
-            Debug.Log("Reloading level: " + levelToLoad);
-            EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnResetStars);
             UserProfile.Instance.SetLevel(levelToLoad);
+            EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnResetStars);
+
             EventDispatcher.Instance.Dispatch(
                 (Action<int>)(_ =>
                 {
@@ -56,11 +55,7 @@ public class UIController : MonoBehaviour
                 }),
                 EventDispatcher.OnGetStarsRequest
             );
-            SceneManager.LoadScene("Gameplay");
-        }
-        else
-        {
-            Debug.LogError("No level to reload! Chưa có level hiện tại bro!");
+            EventDispatcher.Instance.Dispatch(null, EventDispatcher.ReplaceLevel);
         }
     }
 

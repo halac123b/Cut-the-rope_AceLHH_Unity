@@ -18,8 +18,14 @@ public class LevelSceneLoader : MonoBehaviour
     {
         LoadLevelData();
         LoadLevelMap();
-
+        EventDispatcher.Instance.AddEvent(gameObject, _ => ReplayLevel(), EventDispatcher.ReplaceLevel);
         EventDispatcher.Instance.AddEvent(gameObject, _ => ReloadLevel(), EventDispatcher.RestartLevel);
+    }
+    
+    private void ReplayLevel()
+    {
+        ClearMap();
+        LoadLevelMap();
     }
 
     /// <summary>

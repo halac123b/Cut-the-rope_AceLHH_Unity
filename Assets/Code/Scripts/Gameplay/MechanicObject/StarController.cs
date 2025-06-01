@@ -31,7 +31,7 @@ public class StarController : MonoBehaviour
     private void SetStartLevel(object obj)
     {
         _currentStarsInGameplay = 0;
-
+        ResetStarsUI();
         if (obj is Action<int> callback)
         {
             callback.Invoke(_currentStarsInGameplay);
@@ -60,6 +60,15 @@ public class StarController : MonoBehaviour
             Animator star = _stars[starIndexInList];
             star.speed = 0.8f;
             star.SetTrigger("StarIncrease");
+        }
+    }
+    private void ResetStarsUI()
+    {
+        foreach (Animator star in _stars)
+        {
+            //Reset parameters in Animator
+            star.Rebind();        
+            star.Update(0);       
         }
     }
 }
