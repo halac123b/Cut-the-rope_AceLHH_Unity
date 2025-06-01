@@ -24,9 +24,9 @@ public class PauseUI : MonoBehaviour
    {
       string levelIndex = UserProfile.Instance.SelectedLevelIndex;
       EventDispatcher.Instance.Dispatch(
-         (Action<int>)(currentStars =>
+         (Action<int>)(_ =>
          {
-            UserProfile.Instance.SaveStars(levelIndex, currentStars);
+            UserProfile.Instance.SaveStars(levelIndex, 0);
          }),
          EventDispatcher.OnGetStarsRequest
       );

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 525257376cc764277b970057e526c6fa
+guid: 8218e6b3d40334533989f541a58e9d34
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,13 +43,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 201, y: 94, z: 211, w: 85}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -121,13 +121,35 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: buttonsprite_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 38
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9869b442f81cf47a693ae9b3e9aa1455
+      internalID: -1754614198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: ccbefa64b0d474d88878d8e29347e681
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -135,7 +157,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      buttonsprite_0: -1386304176
+      buttonsprite_1: -2061688195
+      buttonsprite_10: -948465776
+      buttonsprite_11: -418793518
+      buttonsprite_12: -655578560
+      buttonsprite_2: -1754614198
+      buttonsprite_3: 321692446
+      buttonsprite_4: -50366812
+      buttonsprite_5: -745692588
+      buttonsprite_6: 407714476
+      buttonsprite_7: -1452913606
+      buttonsprite_8: 1799850969
+      buttonsprite_9: 2082496422
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
