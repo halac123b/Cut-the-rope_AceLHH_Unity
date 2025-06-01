@@ -915,10 +915,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGLevel
       objectReference: {fileID: 0}
-    - target: {fileID: 5565106379761541029, guid: b70264cf438b24b76a2c6a0ef94938f9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
