@@ -56,13 +56,6 @@ public class LevelSelection : MonoBehaviour
 
     private void OnBackButtonClicked()
     {
-        gameObject.SetActive(false);
-        _boxSelection.gameObject.SetActive(true);
-        _boxSelection.LoadBox(UserProfile.Instance.SeasonIndex);
-    }
-    
-    private void OnDisable()
-    {
         if (_gridLayoutGroup.childCount != 0)
         {
             foreach (Transform child in _gridLayoutGroup)
@@ -70,5 +63,19 @@ public class LevelSelection : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }
+        gameObject.SetActive(false);
+        _boxSelection.gameObject.SetActive(true);
+        //_boxSelection.LoadBox(UserProfile.Instance.SeasonIndex);
     }
+    
+    // private void OnDisable()
+    // {
+    //     if (_gridLayoutGroup.childCount != 0)
+    //     {
+    //         foreach (Transform child in _gridLayoutGroup)
+    //         {
+    //             Destroy(child.gameObject);
+    //         }
+    //     }
+    // }
 }

@@ -64,12 +64,6 @@ public class BoxSelection : MonoBehaviour
 
     private void OnBackButtonClicked()
     {
-        gameObject.SetActive(false);
-        _seasonSelection.gameObject.SetActive(true);
-    }
-
-    private void OnDisable()
-    {
         if (_gridLayoutGroup.childCount != 0)
         {
             foreach (Transform child in _gridLayoutGroup)
@@ -77,6 +71,8 @@ public class BoxSelection : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }
+        gameObject.SetActive(false);
+        _seasonSelection.gameObject.SetActive(true);
     }
 
     private void OnDestroy()
