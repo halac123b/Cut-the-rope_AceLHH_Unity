@@ -1,5 +1,3 @@
-using System;
-using System.Security.Cryptography;
 using LitMotion;
 using LitMotion.Extensions;
 using TMPro;
@@ -9,6 +7,8 @@ public class LevelNumberText : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _levelTextCanvasGroup;
     [SerializeField] private TMP_Text _levelNumberText;
+
+    private MotionHandle _motionFirstAnim, _motionSecondAnim, _motionThirdAnim;
 
     private void Start()
     {
@@ -28,12 +28,29 @@ public class LevelNumberText : MonoBehaviour
 
     public void PlayLevelTextAnimation()
     {
-        LMotion.Create(0f, 1f, 0.3f).WithOnComplete(() =>
+        if (_levelTextCanvasGroup == null) return;
+
+        _motionFirstAnim = LMotion.Create(0f, 1f, 0.3f).WithOnComplete(() =>
         {
-            LMotion.Create(1f, 1f, 0.4f).WithOnComplete(() =>
+            _motionSecondAnim = LMotion.Create(1f, 1f, 0.4f).WithOnComplete(() =>
             {
-                LMotion.Create(1f, 0f, 0.3f).BindToAlpha(_levelTextCanvasGroup);
+                _motionThirdAnim = LMotion.Create(1f, 0f, 0.3f).BindToAlpha(_levelTextCanvasGroup);
             }).BindToAlpha(_levelTextCanvasGroup);
         }).BindToAlpha(_levelTextCanvasGroup);
+    }
+
+    private void OnDestroy()
+    {
+        CancelMotion(_motionFirstAnim);
+        CancelMotion(_motionSecondAnim);
+        CancelMotion(_motionThirdAnim);
+    }
+
+    private void CancelMotion(MotionHandle motion)
+    {
+        if (motion != null && motion.IsPlaying())
+        {
+            motion.Cancel();
+        }
     }
 }

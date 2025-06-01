@@ -26,7 +26,7 @@ public class StarEffect : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (_motion.IsActive())
+        if (_motion.IsPlaying())
         {
             _motion.Cancel();
         }
