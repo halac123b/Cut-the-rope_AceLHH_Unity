@@ -7,7 +7,6 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private Button _pauseButton;
     [SerializeField] private Button _replayButton;
-    private string _currentLevelReplace;
 
     public PauseUI PauseUIComponent;
     // public StarUI StarUIComponent;
@@ -41,22 +40,7 @@ public class UIController : MonoBehaviour
 
     private void OnReplaceButtonClick()
     {
-        string levelToLoad = _currentLevelReplace ?? UserProfile.Instance.GetLevel();
-
-        if (!string.IsNullOrEmpty(levelToLoad))
-        {
-            UserProfile.Instance.SetLevel(levelToLoad);
-            EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnResetStars);
-
-            EventDispatcher.Instance.Dispatch(
-                (Action<int>)(_ =>
-                {
-                    UserProfile.Instance.SaveStars(levelToLoad, 0);
-                }),
-                EventDispatcher.OnGetStarsRequest
-            );
-            EventDispatcher.Instance.Dispatch(null, EventDispatcher.RestartLevel);
-        }
+        EventDispatcher.Instance.Dispatch(null, EventDispatcher.RestartLevel);
     }
 
     private void OnApplicationFocus(bool hasFocus)
