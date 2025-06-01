@@ -7,6 +7,7 @@ public class UserProfile : MonoBehaviour
 
     public string SelectedLevelIndex;
     public BoxData SelectedBoxData;
+    public int SeasonIndex;
     public int AllStarsCollect;
 
     private void Awake()
