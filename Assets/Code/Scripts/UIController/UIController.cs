@@ -55,7 +55,7 @@ public class UIController : MonoBehaviour
                 }),
                 EventDispatcher.OnGetStarsRequest
             );
-            EventDispatcher.Instance.Dispatch(null, EventDispatcher.ReplaceLevel);
+            EventDispatcher.Instance.Dispatch(null, EventDispatcher.RestartLevel);
         }
     }
 

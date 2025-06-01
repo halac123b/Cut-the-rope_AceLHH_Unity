@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 
 public class Candy : MonoBehaviour
 {
-    public static event Action<Collider2D> OnCandyCollision;
+    //public static event Action<Collider2D> OnCandyCollision;
     public List<Rope> AttachedRopes = new();
 
     private Rigidbody2D _rb2D;
@@ -39,28 +39,28 @@ public class Candy : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        OnCandyCollision += HandleCandyCollision;
-    }
+    // private void OnEnable()
+    // {
+    //     OnCandyCollision += HandleCandyCollision;
+    // }
+    //
+    // private void OnDisable()
+    // {
+    //     OnCandyCollision -= HandleCandyCollision;
+    // }
 
-    private void OnDisable()
-    {
-        OnCandyCollision -= HandleCandyCollision;
-    }
-
-    private void HandleCandyCollision(Collider2D collision)
-    {
-        try
-        {
-            Debug.Log($"[Candy] Xử lý va chạm với Star Object: {collision.name}");
-            EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnIncreaseStar);
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[Candy] Lỗi khi xử lý va chạm với Star Object: {collision.name} - {ex.Message}");
-        }
-    }
+    // private void HandleCandyCollision(Collider2D collision)
+    // {
+    //     try
+    //     {
+    //         Debug.Log($"[Candy] Xử lý va chạm với Star Object: {collision.name}");
+    //         EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnIncreaseStar);
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         Debug.LogError($"[Candy] Lỗi khi xử lý va chạm với Star Object: {collision.name} - {ex.Message}");
+    //     }
+    // }
 
     public void AttachRope(Rope rope)
     {
