@@ -12,9 +12,9 @@ public class MenuController : MonoBehaviour
     {
         _playBtn.onClick.AddListener(OnPlayButtonClicked);
 
-        if (UserProfile.Instance.SelectedBoxIndex != null)
+        if (UserProfile.Instance.SelectedBoxData != null)
         {
-            LoadPreviousBox(UserProfile.Instance.SelectedBoxIndex);
+            LoadPreviousBox(UserProfile.Instance.SelectedBoxData);
         }
     }
 

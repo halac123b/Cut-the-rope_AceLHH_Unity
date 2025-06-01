@@ -1,12 +1,13 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class UserProfile : MonoBehaviour
 {
     public static UserProfile Instance { get; private set; }
 
     public string SelectedLevelIndex;
-    public BoxData SelectedBoxIndex;
-    public int StarCollect;
+    public BoxData SelectedBoxData;
+    public int AllStarsCollect;
 
     private void Awake()
     {
@@ -17,8 +18,6 @@ public class UserProfile : MonoBehaviour
         }
 
         Instance = this;
-        SelectedLevelIndex = string.Empty;
-        SelectedBoxIndex = null;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -29,7 +28,7 @@ public class UserProfile : MonoBehaviour
 
     public void SetBoxData(BoxData boxData)
     {
-        SelectedBoxIndex = boxData;
+        SelectedBoxData = boxData;
     }
 
     public void SaveStars(string levelIndex, int stars)
@@ -40,8 +39,8 @@ public class UserProfile : MonoBehaviour
         if (stars > currentStars)
         {
             PlayerPrefs.SetInt($"Level_{levelIndex}_Stars", stars);
-            StarCollect += stars;
-            PlayerPrefs.SetInt("AllStars", StarCollect);
+            AllStarsCollect += stars;
+            PlayerPrefs.SetInt("AllStars", AllStarsCollect);
             PlayerPrefs.Save();
             Debug.Log($"Stars updated for level {levelIndex}. New stars saved: {stars}");
         }
