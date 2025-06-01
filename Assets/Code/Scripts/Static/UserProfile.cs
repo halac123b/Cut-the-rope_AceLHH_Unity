@@ -61,4 +61,9 @@ public class UserProfile : MonoBehaviour
     {
         return PlayerPrefs.GetInt("AllStars");
     }
+    
+    public string GetLevel()
+    {
+        return SelectedLevelIndex;
+    }
 }
