@@ -1,4 +1,5 @@
 using System;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 
@@ -12,6 +13,9 @@ public class BoxSelection : MonoBehaviour
     [SerializeField] private Transform _gridLayoutGroup;
     [SerializeField] private LevelSelection _levelSelection;
     [SerializeField] private TextMeshProUGUI _numberStar;
+    
+    [SerializeField] private Button _btnBack;
+    [SerializeField] private SeasonSelection _seasonSelection;
 
     private void OnEnable()
     {
@@ -24,6 +28,8 @@ public class BoxSelection : MonoBehaviour
         {
             LoadLevel((BoxData)boxData);
         }, EventDispatcher.LoadLevelUI);
+        
+        _btnBack.onClick.AddListener(() => OnBackButtonClicked());
     }
 
     public void LoadBox(int seasonIndex)
@@ -41,7 +47,7 @@ public class BoxSelection : MonoBehaviour
                 boxlList = _season3rd.BoxList;
                 break;
         }
-
+        
         for (int i = 0; i < boxlList.Length; i++)
         {
             GameObject boxGameObject = Instantiate(_boxPrefab, _gridLayoutGroup);
@@ -54,6 +60,19 @@ public class BoxSelection : MonoBehaviour
         _levelSelection.gameObject.SetActive(true);
         _levelSelection.LoadLevel(boxData);
         gameObject.SetActive(false);
+    }
+
+    private void OnBackButtonClicked()
+    {
+        if (_gridLayoutGroup.childCount != 0)
+        {
+            foreach (Transform child in _gridLayoutGroup)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        gameObject.SetActive(false);
+        _seasonSelection.gameObject.SetActive(true);
     }
 
     private void OnDestroy()
