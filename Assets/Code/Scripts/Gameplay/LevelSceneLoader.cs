@@ -18,9 +18,9 @@ public class LevelSceneLoader : MonoBehaviour
     {
         LoadLevelData();
         LoadLevelMap();
-
         EventDispatcher.Instance.AddEvent(gameObject, _ => ReloadLevel(), EventDispatcher.RestartLevel);
     }
+    
 
     /// <summary>
     /// Reload level - GameOver

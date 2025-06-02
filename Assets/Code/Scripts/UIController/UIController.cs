@@ -1,18 +1,21 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
     [SerializeField] private Button _pauseButton;
+    [SerializeField] private Button _replayButton;
 
     public PauseUI PauseUIComponent;
-   // public StarUI StarUIComponent;
+    // public StarUI StarUIComponent;
     public CompleteLevelUI CompleteLevelUIComponent;
 
     private void Start()
     {
         _pauseButton.onClick.AddListener(() => OnPauseButtonClick());
+        _replayButton.onClick.AddListener(() => OnReplaceButtonClick());
 
         EventDispatcher.Instance.AddEvent(gameObject, _ => ShowLevelCompleteUI(),
             EventDispatcher.LoadCompleteUI);
@@ -33,6 +36,11 @@ public class UIController : MonoBehaviour
     {
         Time.timeScale = 0;
         PauseUIComponent.gameObject.SetActive(true);
+    }
+
+    private void OnReplaceButtonClick()
+    {
+        EventDispatcher.Instance.Dispatch(null, EventDispatcher.RestartLevel);
     }
 
     private void OnApplicationFocus(bool hasFocus)
