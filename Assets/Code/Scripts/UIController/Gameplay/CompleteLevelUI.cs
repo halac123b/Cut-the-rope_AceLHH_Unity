@@ -9,13 +9,17 @@ public class CompleteLevelUI : MonoBehaviour
 {
     [SerializeField] private Button _nextBtn;
     [SerializeField] private Button _menuBtn;
+    [SerializeField] private Button _replayBtn;
     [SerializeField] private List<StarCollectActive> _starCollect;
 
     private string _levelIndex;
     private void OnEnable()
     {
         //gameObject.SetActive(false);
+        _nextBtn.onClick.AddListener(OnClickNextButton);
         _menuBtn.onClick.AddListener(OnClickMenuButton);
+        _replayBtn.onClick.AddListener(OnClickRestartButton);
+        
         _levelIndex = UserProfile.Instance.SelectedLevelIndex;
 
         UpdateStarCollectLevel();
@@ -48,12 +52,12 @@ public class CompleteLevelUI : MonoBehaviour
 
     private void OnClickRestartButton()
     {
-        
+        EventDispatcher.Instance.Dispatch(null, EventDispatcher.RestartLevel);
     }
 
     private void OnClickNextButton()
     {
-        
+        EventDispatcher.Instance.Dispatch(null, EventDispatcher.LoadNextLevel);
     }
 
     private void OnDisable()

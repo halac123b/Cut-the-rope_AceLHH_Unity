@@ -16,9 +16,10 @@ public class LevelSceneLoader : MonoBehaviour
 
     private void Start()
     {
-        LoadLevelData();
+        LoadLevelData(UserProfile.Instance.SelectedLevelIndex);
         LoadLevelMap();
         EventDispatcher.Instance.AddEvent(gameObject, _ => ReloadLevel(), EventDispatcher.RestartLevel);
+        EventDispatcher.Instance.AddEvent(gameObject, _ => LoadNextLevel(), EventDispatcher.LoadNextLevel);
     }
     
 
@@ -32,11 +33,27 @@ public class LevelSceneLoader : MonoBehaviour
         LoadLevelMap();
     }
 
-    private void LoadLevelData()
+    private void LoadNextLevel()
     {
-        string levelName = $"Level{UserProfile.Instance.SelectedLevelIndex}";
+        string levelIndex = UserProfile.Instance.SelectedLevelIndex;
+        string[] parts = levelIndex.Split('_');
+        int firstNumber = int.Parse(parts[0]);
+        int secondNumber = int.Parse(parts[1]);
+        int nextLvIndex = secondNumber + 1;
+        
+        string levelName = $"{firstNumber}_{nextLvIndex}";
+        
+        ClearMap();
+        EventDispatcher.Instance.Dispatch(null, EventDispatcher.DisableCompleteUI);
+        LoadLevelData(levelName);
+        LoadLevelMap();
+    }
+
+    private void LoadLevelData(string levelName)
+    {
+        string levelLoad = $"Level{levelName}";
         //levelName = "Level1_1";
-        _levelData = Resources.Load<LevelData>($"Level/{levelName}");
+        _levelData = Resources.Load<LevelData>($"Level/{levelLoad}");
     }
 
     private void LoadLevelMap()

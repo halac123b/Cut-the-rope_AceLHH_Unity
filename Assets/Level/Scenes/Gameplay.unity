@@ -497,8 +497,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28393334970364cbcadc94fd39219ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextBtn: {fileID: 0}
+  _nextBtn: {fileID: 1304063536}
   _menuBtn: {fileID: 1584176393}
+  _replayBtn: {fileID: 1338783159}
   _starCollect:
   - {fileID: 1427851082}
   - {fileID: 715809300}
