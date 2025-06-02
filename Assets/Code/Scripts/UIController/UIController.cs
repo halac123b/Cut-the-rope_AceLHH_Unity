@@ -17,17 +17,19 @@ public class UIController : MonoBehaviour
         _pauseButton.onClick.AddListener(() => OnPauseButtonClick());
         _replayButton.onClick.AddListener(() => OnReplaceButtonClick());
 
-        EventDispatcher.Instance.AddEvent(gameObject, _ => ShowLevelCompleteUI(),
+        EventDispatcher.Instance.AddEvent(gameObject, _ => ShowLevelCompleteUI(true),
             EventDispatcher.LoadCompleteUI);
+        EventDispatcher.Instance.AddEvent(gameObject, _ => ShowLevelCompleteUI(false),
+            EventDispatcher.DisableCompleteUI);
     }
 
-    public void ShowLevelCompleteUI()
+    public void ShowLevelCompleteUI(bool active)
     {
         //StarUIComponent.gameObject.SetActive(false);
-        CompleteLevelUIComponent.gameObject.SetActive(true);
+        CompleteLevelUIComponent.gameObject.SetActive(active);
     }
-
-    private void OnDestroy()
+    
+    private void OnDisable()
     {
         EventDispatcher.Instance.RemoveEvent(gameObject);
     }

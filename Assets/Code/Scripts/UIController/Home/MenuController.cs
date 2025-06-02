@@ -35,7 +35,6 @@ public class MenuController : MonoBehaviour
 
     private void LoadPreviousBox(BoxData boxData)
     {
-        Debug.Log("Ngan - Load previous box");
         _menuPanel.SetActive(false);
         _levelMap.gameObject.SetActive(true);
         _levelMap.LoadLevel(boxData);
