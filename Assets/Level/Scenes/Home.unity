@@ -1425,6 +1425,7 @@ MonoBehaviour:
   _menuPanel: {fileID: 367240898}
   _seasonPanel: {fileID: 1662813220}
   _levelMap: {fileID: 635753884}
+  _boxSelection: {fileID: 1682904065}
 --- !u!1 &1265413076
 GameObject:
   m_ObjectHideFlags: 0

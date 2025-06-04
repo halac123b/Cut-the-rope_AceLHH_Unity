@@ -29,6 +29,11 @@ public class BoxSelection : MonoBehaviour
             LoadLevel((BoxData)boxData);
         }, EventDispatcher.LoadLevelUI);
         
+        EventDispatcher.Instance.AddEvent(gameObject, seasonIndx =>
+        {
+            LoadBox((int)seasonIndx);
+        }, EventDispatcher.LoadLevelUI);
+        
         _btnBack.onClick.AddListener(() => OnBackButtonClicked());
     }
 

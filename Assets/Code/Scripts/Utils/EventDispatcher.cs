@@ -19,6 +19,7 @@ public class EventDispatcher : MonoSingleton<EventDispatcher>
     private readonly Dictionary<string, List<IEventData>> dispatchMaps = new();
 
     public static string LoadLevelUI = "LoadLevelUI";
+    public static string LoadBoxUI = "LoadBoxUI";
     public static string LoadCompleteUI = "LoadCompleteUI";
     public static string UpdateStarNumber =  "UpdateStarNumber";
     public static string RestartLevel = "RestartLevel";
