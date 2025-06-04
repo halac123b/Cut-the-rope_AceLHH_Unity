@@ -20,6 +20,7 @@ public class BoxSelection : MonoBehaviour
     private void OnEnable()
     {
         _numberStar.text = UserProfile.Instance.GetAllStars().ToString();
+        LoadBox(UserProfile.Instance.SeasonIndex);
     }
 
     private void Start()
@@ -29,10 +30,10 @@ public class BoxSelection : MonoBehaviour
             LoadLevel((BoxData)boxData);
         }, EventDispatcher.LoadLevelUI);
         
-        EventDispatcher.Instance.AddEvent(gameObject, seasonIndx =>
-        {
-            LoadBox((int)seasonIndx);
-        }, EventDispatcher.LoadLevelUI);
+        // EventDispatcher.Instance.AddEvent(gameObject, seasonIndx =>
+        // {
+        //     LoadBox((int)seasonIndx);
+        // }, EventDispatcher.LoadBoxUI);
         
         _btnBack.onClick.AddListener(() => OnBackButtonClicked());
     }
