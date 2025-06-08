@@ -24,6 +24,11 @@ public class LevelNumberText : MonoBehaviour
         _levelTextCanvasGroup.alpha = 0f;
 
         PlayLevelTextAnimation();
+        
+        EventDispatcher.Instance.AddEvent(gameObject, _ =>
+        {
+            PlayLevelTextAnimation();   
+        }, EventDispatcher.PlayLevelTextAnimation);
     }
 
     public void PlayLevelTextAnimation()
@@ -44,6 +49,8 @@ public class LevelNumberText : MonoBehaviour
         CancelMotion(_motionFirstAnim);
         CancelMotion(_motionSecondAnim);
         CancelMotion(_motionThirdAnim);
+        
+        EventDispatcher.Instance.RemoveEvent(gameObject);
     }
 
     private void CancelMotion(MotionHandle motion)

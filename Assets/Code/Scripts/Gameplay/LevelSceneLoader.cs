@@ -30,7 +30,9 @@ public class LevelSceneLoader : MonoBehaviour
     private void ReloadLevel()
     {
         ClearMap();
+        EventDispatcher.Instance.Dispatch(null, EventDispatcher.DisableCompleteUI);
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnResetStars);
+        EventDispatcher.Instance.Dispatch(null, EventDispatcher.PlayLevelTextAnimation);
         LoadLevelMap();
     }
 
@@ -45,7 +47,7 @@ public class LevelSceneLoader : MonoBehaviour
         int seasonIdx = UserProfile.Instance.SeasonIndex;
         bool finalLevel = IsFinalLevel(nextLvIndex);
 
-        Debug.LogError($"final level: {finalLevel} - {nextLvIndex}");
+        Debug.Log($"final level: {finalLevel} - {nextLvIndex}");
 
         if (finalLevel)
         {

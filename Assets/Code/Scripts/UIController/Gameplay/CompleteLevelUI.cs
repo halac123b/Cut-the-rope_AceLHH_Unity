@@ -29,7 +29,7 @@ public class CompleteLevelUI : MonoBehaviour
     {
         int starCollect = PlayerPrefs.GetInt($"Level_{_levelIndex}_Stars");
         
-        Debug.LogError($"StarCollect: {starCollect}");
+        Debug.Log($"StarCollect: {starCollect}");
 
         for (int i = 0; i < starCollect; i++)
         {

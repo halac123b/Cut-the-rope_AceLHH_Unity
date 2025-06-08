@@ -52,6 +52,5 @@ public class MenuController : MonoBehaviour
         _menuPanel.SetActive(false);
         _levelMap.gameObject.SetActive(false);
         _boxSelection.gameObject.SetActive(true);
-        _boxSelection.LoadBox(seasonIndex);
     }
 }
