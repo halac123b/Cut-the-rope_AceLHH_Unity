@@ -1,6 +1,7 @@
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class LevelSceneLoader : MonoBehaviour
 {
@@ -16,11 +17,12 @@ public class LevelSceneLoader : MonoBehaviour
 
     private void Start()
     {
-        LoadLevelData();
+        LoadLevelData(UserProfile.Instance.SelectedLevelIndex);
         LoadLevelMap();
         EventDispatcher.Instance.AddEvent(gameObject, _ => ReloadLevel(), EventDispatcher.RestartLevel);
+        EventDispatcher.Instance.AddEvent(gameObject, _ => LoadNextLevel(), EventDispatcher.LoadNextLevel);
     }
-    
+
 
     /// <summary>
     /// Reload level - GameOver
@@ -28,15 +30,60 @@ public class LevelSceneLoader : MonoBehaviour
     private void ReloadLevel()
     {
         ClearMap();
+        EventDispatcher.Instance.Dispatch(null, EventDispatcher.DisableCompleteUI);
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnResetStars);
+        EventDispatcher.Instance.Dispatch(null, EventDispatcher.PlayLevelTextAnimation);
         LoadLevelMap();
     }
 
-    private void LoadLevelData()
+    private void LoadNextLevel()
     {
-        string levelName = $"Level{UserProfile.Instance.SelectedLevelIndex}";
+        string levelIndex = UserProfile.Instance.SelectedLevelIndex; //"Level1_1"
+        string[] parts = levelIndex.Split('_'); // => {[Level1], [1]}
+        int firstNumber = int.Parse(parts[0]); // "Level1"
+        int secondNumber = int.Parse(parts[1]); // "1"
+        int nextLvIndex = secondNumber + 1; //1+1 = 2
+
+        int seasonIdx = UserProfile.Instance.SeasonIndex;
+        bool finalLevel = IsFinalLevel(nextLvIndex);
+
+        Debug.Log($"final level: {finalLevel} - {nextLvIndex}");
+
+        if (finalLevel)
+        {
+            UserProfile.Instance.IsCompleteBox = true;
+            EventDispatcher.Instance.Dispatch(seasonIdx, EventDispatcher.LoadBoxUI);
+            SceneManager.LoadScene("Home");
+        }
+        else
+        {
+            string levelName = $"{firstNumber}_{nextLvIndex}"; // => "Level1_2"
+
+            ClearMap();
+            EventDispatcher.Instance.Dispatch(null, EventDispatcher.DisableCompleteUI);
+            LoadLevelData(levelName);
+            LoadLevelMap();
+        }
+    }
+
+    private bool IsFinalLevel(int nextLevel)
+    {
+        int totalBoxDataLevel = UserProfile.Instance.SelectedBoxData.NumberOfLevels;
+        Debug.Log($"Final level: {totalBoxDataLevel}");
+
+        if (nextLevel >= totalBoxDataLevel)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private void LoadLevelData(string levelName)
+    {
+        string levelLoad = $"Level{levelName}";
         //levelName = "Level1_1";
-        _levelData = Resources.Load<LevelData>($"Level/{levelName}");
+        _levelData = Resources.Load<LevelData>($"Level/{levelLoad}");
     }
 
     private void LoadLevelMap()

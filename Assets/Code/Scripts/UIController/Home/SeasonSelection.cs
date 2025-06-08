@@ -25,7 +25,6 @@ public class SeasonSelection : MonoBehaviour
         UserProfile.Instance.SeasonIndex = index;
         gameObject.SetActive(false);
         _boxMapPanel.SetActive(true);
-        _boxSelection.LoadBox(index);
     }
 
     private void OnBackButtonClicked()

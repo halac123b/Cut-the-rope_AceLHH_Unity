@@ -19,6 +19,7 @@ public class EventDispatcher : MonoSingleton<EventDispatcher>
     private readonly Dictionary<string, List<IEventData>> dispatchMaps = new();
 
     public static string LoadLevelUI = "LoadLevelUI";
+    public static string LoadBoxUI = "LoadBoxUI";
     public static string LoadCompleteUI = "LoadCompleteUI";
     public static string UpdateStarNumber =  "UpdateStarNumber";
     public static string RestartLevel = "RestartLevel";
@@ -26,6 +27,9 @@ public class EventDispatcher : MonoSingleton<EventDispatcher>
     public static string OnResetStars = "OnResetStars";
     public static string OnGetStarsRequest = "OnGetStarsRequest";
     public static string OnIncreaseStar = "OnIncreaseStar";
+    public static string LoadNextLevel = "LoadNextLevel";
+    public static string DisableCompleteUI = "DisableCompleteUI";
+    public static string PlayLevelTextAnimation = "PlayLevelTextAnimation";
 
     public void AddEvent(GameObject gameObject, Action<object> action, string key)
     {
