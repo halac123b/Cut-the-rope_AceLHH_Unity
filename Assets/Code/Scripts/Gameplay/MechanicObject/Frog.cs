@@ -1,42 +1,68 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class Frog : MonoBehaviour
 {
+    [SerializeField] private Animator animator; 
+    private const float EatAnimDuration = 3.0f; 
     private int _nextLevelValue;
-    public static event Action<Collider2D> OnCandyCollision;
-
-    private void OnEnable()
-    {
-        OnCandyCollision += HandleFrogCollision;
-    }
-
-    private void OnDisable()
-    {
-        OnCandyCollision -= HandleFrogCollision;
-    }
+    
+    // public static event Action<Collider2D> OnCandyCollision;
+    //
+    // private void OnEnable()
+    // {
+    //     OnCandyCollision += HandleFrogCollision;
+    // }
+    //
+    // private void OnDisable()
+    // {
+    //     OnCandyCollision -= HandleFrogCollision;
+    // }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Candy"))
         {
             Debug.Log($"[Frog] Frog ăn Candy Object: {collision.name}");
-            OnCandyCollision?.Invoke(collision);
-            Destroy(collision.gameObject, 0.015f);
+            EventDispatcher.Instance.Dispatch(collision.gameObject, EventDispatcher.DestroyCandy);
+            StartCoroutine(HandleCandyCollisionFlow(collision.gameObject));
         }
     }
-
-    private void HandleFrogCollision(Collider2D collision)
+    
+    private IEnumerator HandleCandyCollisionFlow(GameObject candyObj)
+    {
+        string candyName = candyObj.name;
+        
+        if (animator != null)
+        {
+            animator.SetTrigger("Eat");
+        }
+        
+        yield return new WaitForSeconds(EatAnimDuration);
+        
+        animator.ResetTrigger("Eat");
+        
+        HandleFrogLogic(candyName);
+        
+        if (candyObj != null)
+        {
+            Destroy(candyObj);
+            Debug.Log($"[Frog] Candy {candyName} đã bị destroy.");
+        }
+    }
+    
+    private void HandleFrogLogic(string candyName)
     {
         try
         {
-            Debug.Log($"[Frog] Xử lý va chạm, Frog ăn Candy Object: {collision.name}");
-            
+            Debug.Log($"[Frog] Xử lý logic sau khi ăn Candy: {candyName}");
+
             string levelIndex = UserProfile.Instance.SelectedLevelIndex;
-            
+
             EventDispatcher.Instance.Dispatch(
-                (Action<int>)(currentStars => {
-                   
+                (Action<int>)(currentStars =>
+                {
                     UserProfile.Instance.SaveStars(levelIndex, currentStars);
                     EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LoadCompleteUI);
                     string nextLevelIndex = GetNextLevelIndex(levelIndex);
@@ -58,7 +84,7 @@ public class Frog : MonoBehaviour
                     }
                     else
                     {
-                        Debug.LogWarning("[Frog] SelectedBoxIndex is null.");
+                        Debug.LogWarning("[Frog] SelectedBoxData is null.");
                     }
                 }),
                 EventDispatcher.OnGetStarsRequest
@@ -66,7 +92,7 @@ public class Frog : MonoBehaviour
         }
         catch (Exception ex)
         {
-            Debug.LogError($"[Frog] Lỗi khi Frog ăn Candy Object: {collision.name} - {ex.Message}");
+            Debug.LogError($"[Frog] Lỗi xử lý Candy {candyName}: {ex.Message}");
         }
     }
     
