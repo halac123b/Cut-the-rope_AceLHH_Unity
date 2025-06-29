@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -37,6 +38,26 @@ public class Candy : MonoBehaviour
             EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnIncreaseStar);
             Destroy(collision.gameObject);
         }
+    }
+    private void OnDestroyCandy(object obj)
+    {
+        if (this == null || gameObject == null)
+        {
+            return;
+        }
+
+        StartCoroutine(DelayDeactivate());
+    }
+    
+    private void OnEnable()
+    {
+        EventDispatcher.Instance.AddEvent(gameObject, OnDestroyCandy, EventDispatcher.DestroyCandy);
+    }
+    
+    private IEnumerator DelayDeactivate()
+    {
+        yield return null;
+        gameObject.SetActive(false);
     }
 
     // private void OnEnable()
