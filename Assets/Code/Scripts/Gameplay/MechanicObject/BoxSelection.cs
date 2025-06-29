@@ -58,11 +58,11 @@ public class BoxSelection : MonoBehaviour
             _pos = new float[_gridLayoutGroup.childCount];
         }
 
-        float distance = 1f / (_pos.Length - 1f);
+        float distance = 1f / (_pos.Length - 1f); //Khoảng cách giữa các box
 
         for (int i = 0; i < _pos.Length; i++)
         {
-            _pos[i] = distance * i;
+            _pos[i] = distance * i; //Tính vị trí của các box dựa trên khoảng cách 
         }
 
         if (Touch.activeTouches.Count > 0)
@@ -71,16 +71,16 @@ public class BoxSelection : MonoBehaviour
             
             if (firstTouch.phase == UnityEngine.InputSystem.TouchPhase.Moved)
             {
-                _scrollPos = _scrollbar.value;
+                _scrollPos = _scrollbar.value; //Lấy gía trị scrollbar mỗi khi move
             }
         }
         else
         {
             for (int i = 0; i < _pos.Length; i++)
             {
-                if (_scrollPos < _pos[i] + (distance / 2) && _scrollPos > _pos[i] - (distance / 2))
+                if (_scrollPos < _pos[i] + (distance / 2) && _scrollPos > _pos[i] - (distance / 2))  //So giá trị scrollbar hiện tại với khoảng cách từ box và 1/2 khoảng trống với box kề cạnh
                 {
-                    _scrollbar.value = Mathf.Lerp(_scrollbar.value, _pos[i], 0.1f);
+                    _scrollbar.value = Mathf.Lerp(_scrollbar.value, _pos[i], 0.1f); //Lerp scrollbar về vị trí box gần nhất 
                 }
             }
         }
@@ -90,13 +90,13 @@ public class BoxSelection : MonoBehaviour
             if (_scrollPos < _pos[i] + (distance / 2) && _scrollPos > _pos[i] - (distance / 2))
             {
                 _gridLayoutGroup.GetChild(i).localScale =
-                    Vector2.Lerp(_gridLayoutGroup.GetChild(i).localScale, new Vector2(1f, 1f), Time.deltaTime * 5f);
+                    Vector2.Lerp(_gridLayoutGroup.GetChild(i).localScale, new Vector2(1f, 1f), Time.deltaTime * 5f); //Đưa scale box gần nhất về 1
                 for (int j = 0; j < _pos.Length; j++)
                 {
-                    if (j != i)
+                    if (j != i) //Nếu không phải là box gần nhất 
                     {
                         _gridLayoutGroup.GetChild(j).localScale = Vector2.Lerp(_gridLayoutGroup.GetChild(j).localScale,
-                            new Vector2(0.8f, 0.8f), 0.1f);
+                            new Vector2(0.8f, 0.8f), 0.1f); //Scale các box về 0.8
                     }
                 }
             }
