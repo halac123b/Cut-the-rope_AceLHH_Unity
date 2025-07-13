@@ -27,10 +27,10 @@ public class BoxSelection : MonoBehaviour
     private float _scrollPos;
     private void OnEnable()
     {
-        EnhancedTouchSupport.Enable();
+        EnhancedTouchSupport.Enable(); //Support touch khi enable - New input system not support 
 
         _numberStar.text = UserProfile.Instance.GetAllStars().ToString();
-
+        
         if (_gridLayoutGroup.childCount != 0)
         {
             foreach (Transform child in _gridLayoutGroup)
@@ -39,7 +39,7 @@ public class BoxSelection : MonoBehaviour
             }
         }
 
-        LoadBox();
+        LoadBox(); 
     }
 
     private void Start()
@@ -122,6 +122,9 @@ public class BoxSelection : MonoBehaviour
         {
             GameObject boxGameObject = Instantiate(_boxPrefab, _gridLayoutGroup);
             boxGameObject.GetComponent<BoxUIComponent>().MyBoxData = _boxlList[i];
+            
+            BoxUIComponent boxUIComponent = boxGameObject.GetComponent<BoxUIComponent>();
+            boxUIComponent.SetUIBoxComponent();
         }
     }
 
