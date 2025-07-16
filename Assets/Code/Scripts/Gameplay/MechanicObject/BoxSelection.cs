@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
@@ -21,16 +22,23 @@ public class BoxSelection : MonoBehaviour
 
     [SerializeField] private Button _btnBack;
     [SerializeField] private SeasonSelection _seasonSelection;
+    [SerializeField] private Image _frogMask;
+
+    [SerializeField] private RectTransform viewport;
+    [SerializeField] private HorizontalLayoutGroup horizontalLayoutGroup;
 
     private float[] _pos;
     private BoxData[] _boxlList;
     private float _scrollPos;
+    private BoxUIComponent _boxUI;
+    private List<BoxUIComponent> _boxUIList = new();
+
     private void OnEnable()
     {
         EnhancedTouchSupport.Enable(); //Support touch khi enable - New input system not support 
 
         _numberStar.text = UserProfile.Instance.GetAllStars().ToString();
-        
+
         if (_gridLayoutGroup.childCount != 0)
         {
             foreach (Transform child in _gridLayoutGroup)
@@ -39,7 +47,8 @@ public class BoxSelection : MonoBehaviour
             }
         }
 
-        LoadBox(); 
+        ClearBox();
+        LoadBox();
     }
 
     private void Start()
@@ -48,13 +57,14 @@ public class BoxSelection : MonoBehaviour
             EventDispatcher.LoadLevelUI);
 
         _btnBack.onClick.AddListener(() => OnBackButtonClicked());
+        UpdatePadding();
     }
 
     private void Update()
     {
-        if (_boxlList.Length <= 0) return;
         if (_boxlList != null)
         {
+            if (_boxlList.Length <= 0) return;
             _pos = new float[_gridLayoutGroup.childCount];
         }
 
@@ -68,7 +78,7 @@ public class BoxSelection : MonoBehaviour
         if (Touch.activeTouches.Count > 0)
         {
             var firstTouch = Touch.activeTouches[0];
-            
+
             if (firstTouch.phase == UnityEngine.InputSystem.TouchPhase.Moved)
             {
                 _scrollPos = _scrollbar.value; //Lấy gía trị scrollbar mỗi khi move
@@ -78,19 +88,29 @@ public class BoxSelection : MonoBehaviour
         {
             for (int i = 0; i < _pos.Length; i++)
             {
-                if (_scrollPos < _pos[i] + (distance / 2) && _scrollPos > _pos[i] - (distance / 2))  //So giá trị scrollbar hiện tại với khoảng cách từ box và 1/2 khoảng trống với box kề cạnh
+                if (_scrollPos < _pos[i] + (distance / 2) &&
+                    _scrollPos >
+                    _pos[i] - (distance /
+                               2)) //So giá trị scrollbar hiện tại với khoảng cách từ box và 1/2 khoảng trống với box kề cạnh
                 {
-                    _scrollbar.value = Mathf.Lerp(_scrollbar.value, _pos[i], 0.1f); //Lerp scrollbar về vị trí box gần nhất 
+                    _scrollbar.value =
+                        Mathf.Lerp(_scrollbar.value, _pos[i], 0.1f); //Lerp scrollbar về vị trí box gần nhất 
                 }
             }
         }
-        
+
         for (int i = 0; i < _pos.Length; i++)
         {
             if (_scrollPos < _pos[i] + (distance / 2) && _scrollPos > _pos[i] - (distance / 2))
             {
                 _gridLayoutGroup.GetChild(i).localScale =
-                    Vector2.Lerp(_gridLayoutGroup.GetChild(i).localScale, new Vector2(1f, 1f), Time.deltaTime * 5f); //Đưa scale box gần nhất về 1
+                    Vector2.Lerp(_gridLayoutGroup.GetChild(i).localScale, new Vector2(1f, 1f),
+                        Time.deltaTime * 5f); //Đưa scale box gần nhất về 1
+
+                _frogMask.transform.SetParent(_boxUIList[i].FrogMask.transform, false);
+                _frogMask.transform.SetAsFirstSibling();
+                _frogMask.transform.localScale = Vector3.one;
+
                 for (int j = 0; j < _pos.Length; j++)
                 {
                     if (j != i) //Nếu không phải là box gần nhất 
@@ -101,6 +121,19 @@ public class BoxSelection : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void UpdatePadding()
+    {
+        if (viewport == null || horizontalLayoutGroup == null) return;
+
+        float viewportWidth = viewport.rect.width;
+        int halfViewport = Mathf.RoundToInt(viewportWidth / 2f - 300f);
+
+        horizontalLayoutGroup.padding.left = halfViewport;
+        horizontalLayoutGroup.padding.right = halfViewport;
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(horizontalLayoutGroup.GetComponent<RectTransform>());
     }
 
     private void LoadBox()
@@ -122,9 +155,10 @@ public class BoxSelection : MonoBehaviour
         {
             GameObject boxGameObject = Instantiate(_boxPrefab, _gridLayoutGroup);
             boxGameObject.GetComponent<BoxUIComponent>().MyBoxData = _boxlList[i];
-            
-            BoxUIComponent boxUIComponent = boxGameObject.GetComponent<BoxUIComponent>();
-            boxUIComponent.SetUIBoxComponent();
+
+            _boxUI = boxGameObject.GetComponent<BoxUIComponent>();
+            _boxUIList.Add(_boxUI);
+            _boxUI.SetUIBoxComponent();
         }
     }
 
@@ -145,8 +179,18 @@ public class BoxSelection : MonoBehaviour
             }
         }
 
+        ClearBox();
+
         gameObject.SetActive(false);
         _seasonSelection.gameObject.SetActive(true);
+    }
+
+    private void ClearBox()
+    {
+        if (_boxUIList.Count > 0)
+        {
+            _boxUIList.Clear();
+        }
     }
 
     private void OnDestroy()

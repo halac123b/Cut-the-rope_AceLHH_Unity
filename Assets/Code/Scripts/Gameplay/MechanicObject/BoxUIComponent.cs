@@ -1,14 +1,16 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class BoxUIComponent : MonoBehaviour
 {
     [SerializeField] private Button _btnBox;
     [HideInInspector] public BoxData MyBoxData;
-    [SerializeField] private Image _boxSprite;
+    [FormerlySerializedAs("_boxSprite")] public Image BoxSprite;
     [SerializeField] private TMP_Text _boxName;
+    public RectMask2D FrogMask;
     
     private void Start()
     {
@@ -23,10 +25,9 @@ public class BoxUIComponent : MonoBehaviour
     
     public void SetUIBoxComponent()
     {
-        _boxSprite.sprite = MyBoxData.BoxSprite;
+        BoxSprite.sprite = MyBoxData.BoxSprite;
         _boxName.text = MyBoxData.Index.ToString() +". " +MyBoxData.BoxName;
     }
-
 
     private void OnDestroy()
     {
