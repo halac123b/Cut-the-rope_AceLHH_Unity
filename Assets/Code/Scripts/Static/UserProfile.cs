@@ -43,11 +43,9 @@ public class UserProfile : MonoBehaviour
         if (stars > currentStars)
         {
             PlayerPrefs.SetInt($"Level_{levelIndex}_Stars", stars);
-            AllStarsCollect = stars + GetAllStars();
-            PlayerPrefs.SetInt("AllStars", AllStarsCollect);
+            PlayerPrefs.SetInt("AllStars",  stars + GetAllStars());
             PlayerPrefs.Save();
             Debug.Log($"Stars updated for level {levelIndex}. New stars saved: {stars}");
-            AllStarsCollect = 0;
         }
         else
         {
