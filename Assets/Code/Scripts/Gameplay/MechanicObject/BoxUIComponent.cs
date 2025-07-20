@@ -14,16 +14,24 @@ public class BoxUIComponent : MonoBehaviour
     [SerializeField] private TMP_Text _boxName;
     public RectMask2D FrogMask;
     public bool IsPlayAnimation;
+    public GameObject LockPart;
+    public TMP_Text RequireStarAmount;
 
     private MotionHandle _motionFirstScale;
 
     private void Start()
     {
         _btnBox.onClick.AddListener(() => OnBoxButtonClicked());
+        CheckUnlockPart();
     }
 
     private void OnBoxButtonClicked()
     {
+        if (LockPart.activeSelf)
+        {
+            return;
+        }
+        
         UserProfile.Instance.SetBoxData(MyBoxData);
         EventDispatcher.Instance.Dispatch(MyBoxData, EventDispatcher.LoadLevelUI);
     }
@@ -55,6 +63,20 @@ public class BoxUIComponent : MonoBehaviour
                 .Append(LMotion.Create(0.85f, 1.08f, 0.3f).BindToLocalScaleX(transform))
                 .Join(LMotion.Create(1.1f, 1f, 0.3f).BindToLocalScaleY(transform))
                 .Append(LMotion.Create(1.08f, 1f, 0.2f).BindToLocalScaleX(transform)).Run();
+        }
+    }
+
+    private void CheckUnlockPart()
+    {
+        RequireStarAmount.text = MyBoxData.RequireStar.ToString();
+        
+        if (UserProfile.Instance.GetAllStars() >= MyBoxData.RequireStar)
+        {
+            LockPart.SetActive(false);
+        }
+        else
+        {
+            LockPart.SetActive(true);
         }
     }
 

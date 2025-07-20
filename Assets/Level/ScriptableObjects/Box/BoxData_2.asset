@@ -16,4 +16,5 @@ MonoBehaviour:
   BoxName: Fabric Box
   NumberOfLevels: 5
   BoxBGSprite: {fileID: 21300000, guid: fe0b355d2175d42d9902ff64158cf2d1, type: 3}
+  RequireStar: 2
   BoxSprite: {fileID: 21300000, guid: e92b316152edc41348c10ad41ff14180, type: 3}

@@ -8,7 +8,9 @@ public class UserProfile : MonoBehaviour
     public string SelectedLevelIndex;
     public BoxData SelectedBoxData;
     public int SeasonIndex = -1;
+
     public int AllStarsCollect;
+
     public bool IsCompleteBox;
 
     private void Awake()
@@ -41,7 +43,7 @@ public class UserProfile : MonoBehaviour
         if (stars > currentStars)
         {
             PlayerPrefs.SetInt($"Level_{levelIndex}_Stars", stars);
-            AllStarsCollect += stars;
+            AllStarsCollect += stars + GetAllStars();
             PlayerPrefs.SetInt("AllStars", AllStarsCollect);
             PlayerPrefs.Save();
             Debug.Log($"Stars updated for level {levelIndex}. New stars saved: {stars}");
@@ -62,7 +64,7 @@ public class UserProfile : MonoBehaviour
     {
         return PlayerPrefs.GetInt("AllStars");
     }
-    
+
     public string GetLevel()
     {
         return SelectedLevelIndex;
