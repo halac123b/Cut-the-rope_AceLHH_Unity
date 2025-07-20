@@ -1485,6 +1485,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 635753883}
     m_Modifications:
+    - target: {fileID: 1262914075461624182, guid: b70264cf438b24b76a2c6a0ef94938f9, type: 3}
+      propertyPath: _canvas
+      value: 
+      objectReference: {fileID: 1179104979}
+    - target: {fileID: 3158955913238492841, guid: b70264cf438b24b76a2c6a0ef94938f9, type: 3}
+      propertyPath: _canvas
+      value: 
+      objectReference: {fileID: 1179104979}
     - target: {fileID: 3523450175133247010, guid: b70264cf438b24b76a2c6a0ef94938f9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1511,11 +1519,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3523450175133247010, guid: b70264cf438b24b76a2c6a0ef94938f9, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 3523450175133247010, guid: b70264cf438b24b76a2c6a0ef94938f9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 3523450175133247010, guid: b70264cf438b24b76a2c6a0ef94938f9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1565,6 +1573,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5165145574838769036, guid: b70264cf438b24b76a2c6a0ef94938f9, type: 3}
+      propertyPath: _canvas
+      value: 
+      objectReference: {fileID: 1179104979}
     - target: {fileID: 5565106379761541029, guid: b70264cf438b24b76a2c6a0ef94938f9, type: 3}
       propertyPath: m_Name
       value: BGLevel

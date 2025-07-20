@@ -79,7 +79,10 @@ public class BoxSelection : MonoBehaviour
             _pos[i] = distance * i; //Tính vị trí của các box dựa trên khoảng cách 
         }
 
-        if (Touch.activeTouches.Count > 1) return;
+        if (Touch.activeTouches.Count > 1)
+        {
+            return;
+        }
 
         if (Touch.activeTouches.Count > 0)
         {
@@ -98,10 +101,10 @@ public class BoxSelection : MonoBehaviour
         else
         {
             _isTouchEnd = false;
+            //So giá trị scrollbar hiện tại với khoảng cách từ box và 1/2 khoảng trống với box kề cạnh
             for (int i = 0; i < _pos.Length; i++)
             {
-                if (_scrollPos < _pos[i] + (distance / 2) && _scrollPos > _pos[i] - (distance /
-                        2)) //So giá trị scrollbar hiện tại với khoảng cách từ box và 1/2 khoảng trống với box kề cạnh
+                if (_scrollPos < _pos[i] + (distance / 2) && _scrollPos > _pos[i] - (distance / 2)) 
                 {
                     _scrollbar.value =
                         Mathf.Lerp(_scrollbar.value, _pos[i], 0.1f); //Lerp scrollbar về vị trí box gần nhất 
