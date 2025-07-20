@@ -32,6 +32,7 @@ public class BoxSelection : MonoBehaviour
     private float _scrollPos;
     private BoxUIComponent _boxUI;
     private List<BoxUIComponent> _boxUIList = new();
+    private bool _isTouchEnd;
 
     private void OnEnable()
     {
@@ -78,23 +79,29 @@ public class BoxSelection : MonoBehaviour
             _pos[i] = distance * i; //Tính vị trí của các box dựa trên khoảng cách 
         }
 
+        if (Touch.activeTouches.Count > 1) return;
+
         if (Touch.activeTouches.Count > 0)
         {
             var firstTouch = Touch.activeTouches[0];
 
             if (firstTouch.phase == UnityEngine.InputSystem.TouchPhase.Moved)
             {
+                _isTouchEnd = true;
                 _scrollPos = _scrollbar.value; //Lấy gía trị scrollbar mỗi khi move
+                for (int i = 0; i < _pos.Length; i++)
+                {
+                    _boxUIList[i].IsPlayAnimation = false;
+                }
             }
         }
         else
         {
+            _isTouchEnd = false;
             for (int i = 0; i < _pos.Length; i++)
             {
-                if (_scrollPos < _pos[i] + (distance / 2) &&
-                    _scrollPos >
-                    _pos[i] - (distance /
-                               2)) //So giá trị scrollbar hiện tại với khoảng cách từ box và 1/2 khoảng trống với box kề cạnh
+                if (_scrollPos < _pos[i] + (distance / 2) && _scrollPos > _pos[i] - (distance /
+                        2)) //So giá trị scrollbar hiện tại với khoảng cách từ box và 1/2 khoảng trống với box kề cạnh
                 {
                     _scrollbar.value =
                         Mathf.Lerp(_scrollbar.value, _pos[i], 0.1f); //Lerp scrollbar về vị trí box gần nhất 
@@ -106,21 +113,12 @@ public class BoxSelection : MonoBehaviour
         {
             if (_scrollPos < _pos[i] + (distance / 2) && _scrollPos > _pos[i] - (distance / 2))
             {
-                _gridLayoutGroup.GetChild(i).localScale =
-                    Vector2.Lerp(_gridLayoutGroup.GetChild(i).localScale, new Vector2(1f, 1f),
-                        Time.deltaTime * 5f); //Đưa scale box gần nhất về 1
-
                 _frogMask.transform.SetParent(_boxUIList[i].FrogMask.transform, false);
                 _frogMask.transform.SetAsFirstSibling();
                 _frogMask.transform.localScale = Vector3.one;
-
-                for (int j = 0; j < _pos.Length; j++)
+                if (!_isTouchEnd)
                 {
-                    if (j != i) //Nếu không phải là box gần nhất 
-                    {
-                        _gridLayoutGroup.GetChild(j).localScale = Vector2.Lerp(_gridLayoutGroup.GetChild(j).localScale,
-                            new Vector2(0.8f, 0.8f), 0.1f); //Scale các box về 0.8
-                    }
+                    _boxUIList[i].PlayBoxAnimation();
                 }
             }
         }
