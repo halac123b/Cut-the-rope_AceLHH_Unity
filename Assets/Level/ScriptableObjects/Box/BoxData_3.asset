@@ -16,4 +16,5 @@ MonoBehaviour:
   BoxName: Foil Box
   NumberOfLevels: 5
   BoxBGSprite: {fileID: 21300000, guid: bc45b61e6c7ed4227aaaca086ec02a38, type: 3}
+  RequireStar: 3
   BoxSprite: {fileID: 21300000, guid: 9812531cac5174f6ea60424a8c03e8e5, type: 3}

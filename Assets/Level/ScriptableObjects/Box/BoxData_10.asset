@@ -16,4 +16,5 @@ MonoBehaviour:
   BoxName: Tool Box
   NumberOfLevels: 3
   BoxBGSprite: {fileID: 21300000, guid: 6decd116971e14d31ab22d8e05945eda, type: 3}
+  RequireStar: 10
   BoxSprite: {fileID: 21300000, guid: a28656054f50e4f1d806eb3d48573e7c, type: 3}
