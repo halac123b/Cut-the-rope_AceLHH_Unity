@@ -39,6 +39,9 @@ public class BoxSelection : MonoBehaviour
 
         _numberStar.text = UserProfile.Instance.GetAllStars().ToString();
 
+        _frogMask.transform.SetParent(transform);
+        _frogMask.transform.SetSiblingIndex(1);
+        
         if (_gridLayoutGroup.childCount != 0)
         {
             foreach (Transform child in _gridLayoutGroup)
@@ -171,6 +174,9 @@ public class BoxSelection : MonoBehaviour
 
     private void OnBackButtonClicked()
     {
+        _frogMask.transform.SetParent(transform);
+        _frogMask.transform.SetSiblingIndex(1);
+        
         if (_gridLayoutGroup.childCount != 0)
         {
             foreach (Transform child in _gridLayoutGroup)
