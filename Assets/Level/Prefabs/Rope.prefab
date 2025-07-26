@@ -156,8 +156,8 @@ MonoBehaviour:
   RopeFirstObject: {fileID: 0}
   RopeSecondObject: {fileID: 0}
   mainCamera: {fileID: 0}
-  ropeLength: 15
-  gravity: -1.5
+  RopeLength: 0
+  gravity: -1
 --- !u!68 &1484202853711902112
 EdgeCollider2D:
   m_ObjectHideFlags: 0

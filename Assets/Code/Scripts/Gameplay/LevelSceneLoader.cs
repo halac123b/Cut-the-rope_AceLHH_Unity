@@ -111,13 +111,13 @@ public class LevelSceneLoader : MonoBehaviour
                 JObject obj = JObject.Parse(entity.ExpandProperty);
                 int firstIndex = (int)obj["FirstNailIndex"];
                 int secondIndex = (int)obj["SecondNailIndex"];
-                int lengthRope = (int)obj["LengthRope"];
+                float lengthRope = (float)obj["LengthRope"];
 
                 createdObj = Instantiate(_ropePrefab, entity.Position, Quaternion.identity);
                 Rope rope = createdObj.GetComponent<Rope>();
                 rope.RopeFirstObject = _listLoadedObj[firstIndex].transform;
                 rope.RopeSecondObject = _listLoadedObj[secondIndex].transform;
-                rope.RopeLength = lengthRope;
+                rope.RopeLength = (int)lengthRope;
                 break;
             case ObjectCategory.Frog:
                 createdObj = Instantiate(_frogPrefab, entity.Position, Quaternion.identity);

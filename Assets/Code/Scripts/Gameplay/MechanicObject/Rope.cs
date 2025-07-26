@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,13 +8,13 @@ public class Rope : MonoBehaviour
     public Transform RopeSecondObject;
     public Camera mainCamera;
     public int RopeLength;
-    [SerializeField] private float gravity = -1.5f;
+    [SerializeField] private float gravity = -1f;
 
     private LineRenderer _ropeRenderer;
     private List<RopeSegment> _ropeSegments = new();
-    private float _ropeSegmentLen = 0.05f;
+    private float _ropeSegmentLen = 0.1f;
     private float _ropeWidth = 0.03f;
-    private SpringJoint2D _joint;
+    private DistanceJoint2D _joint;
     private EdgeCollider2D _edgeCollider;
 
     private void Start()
@@ -31,9 +30,9 @@ public class Rope : MonoBehaviour
             ropeStartPoint.y -= _ropeSegmentLen;
         }
 
-        _joint = RopeFirstObject.GetComponent<SpringJoint2D>();
+        _joint = RopeFirstObject.GetComponent<DistanceJoint2D>();
         _joint.connectedBody = RopeSecondObject.GetComponent<Rigidbody2D>();
-        _joint.distance = RopeLength * 0.1f;
+        _joint.distance = (RopeLength + 5) * 0.1f;
 
         mainCamera = Camera.main;
 
@@ -71,7 +70,7 @@ public class Rope : MonoBehaviour
     {
         Simulate();
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 10; i++)
         {
             ApplyConstraint();
         }
@@ -96,7 +95,7 @@ public class Rope : MonoBehaviour
         if ((_ropeSegments.Count - 1) % segmentStep != 0)
         {
             Vector3 lastPos = _ropeRenderer.GetPosition(_ropeRenderer.positionCount - 1);
-            edgePoints.Add(new Vector2(lastPos.x, lastPos.y));
+            edgePoints.Add(lastPos);
         }
 
         _edgeCollider.points = edgePoints.ToArray();
@@ -104,12 +103,12 @@ public class Rope : MonoBehaviour
 
     private void Simulate()
     {
-        Vector3 forceGravity = new Vector3(0, gravity, 0);
+        Vector3 forceGravity = new(0, gravity, 0);
 
         for (int i = 1; i < RopeLength; i++)
         {
             RopeSegment ropeSegment = _ropeSegments[i];
-            Vector3 velocity = ropeSegment.posNow - ropeSegment.posOld;
+            // Vector3 velocity = ropeSegment.posNow - ropeSegment.posOld;
             ropeSegment.posOld = ropeSegment.posNow;
             //ropeSegment.posNow += velocity;
             ropeSegment.posNow += forceGravity * Time.deltaTime;
@@ -117,19 +116,18 @@ public class Rope : MonoBehaviour
 
             _ropeSegments[i] = ropeSegment;
         }
-
-        ApplyConstraint();
     }
 
     private void ApplyConstraint()
     {
+        // Cố định 2 segment đầu cuối
         RopeSegment firstSegment = _ropeSegments[0];
         firstSegment.posNow = new Vector3(RopeFirstObject.position.x, RopeFirstObject.position.y, 0f);
         _ropeSegments[0] = firstSegment;
 
-        RopeSegment endSegment = _ropeSegments[_ropeSegments.Count - 1];
+        RopeSegment endSegment = _ropeSegments[^1];
         endSegment.posNow = new Vector3(RopeSecondObject.position.x, RopeSecondObject.position.y, 0f);
-        _ropeSegments[_ropeSegments.Count - 1] = endSegment;
+        _ropeSegments[^1] = endSegment;
 
         for (int i = 0; i < RopeLength - 1; i++)
         {
@@ -137,29 +135,33 @@ public class Rope : MonoBehaviour
             RopeSegment secondSeg = _ropeSegments[i + 1];
 
             float dist = (firstSeg.posNow - secondSeg.posNow).magnitude;
-            float error = Mathf.Abs(dist - _ropeSegmentLen);
-            Vector3 changeDir = Vector2.zero;
+            Vector3 delta = firstSeg.posNow - secondSeg.posNow;
+            float f = (dist - _ropeSegmentLen) / dist;
+            // float error = Mathf.Abs(dist - _ropeSegmentLen);
+            // Vector3 changeDir = Vector2.zero;
 
-            if (dist > _ropeSegmentLen)
-            {
-                changeDir = (firstSeg.posNow - secondSeg.posNow).normalized;
-            }
-            else if (dist < _ropeSegmentLen)
-            {
-                changeDir = (secondSeg.posNow - firstSeg.posNow).normalized;
-            }
+            // if (dist > _ropeSegmentLen)
+            // {
+            //     changeDir = (firstSeg.posNow - secondSeg.posNow).normalized;
+            // }
+            // else if (dist < _ropeSegmentLen)
+            // {
+            //     changeDir = (secondSeg.posNow - firstSeg.posNow).normalized;
+            // }
 
-            Vector3 changeAmount = changeDir * error;
+            // Vector3 changeAmount = changeDir * error;
             if (i != 0)
             {
-                firstSeg.posNow -= changeAmount * 0.5f;
+                // firstSeg.posNow -= changeAmount * 0.5f;
+                firstSeg.posNow -= f * 0.5f * delta;
                 _ropeSegments[i] = firstSeg;
-                secondSeg.posNow += changeAmount * 0.5f;
+                // secondSeg.posNow += changeAmount * 0.5f;
+                secondSeg.posNow += f * 0.5f * delta;
                 _ropeSegments[i + 1] = secondSeg;
             }
             else
             {
-                secondSeg.posNow += changeAmount;
+                secondSeg.posNow += f * delta;
                 _ropeSegments[i + 1] = secondSeg;
             }
         }
