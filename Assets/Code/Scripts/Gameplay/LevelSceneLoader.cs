@@ -117,7 +117,7 @@ public class LevelSceneLoader : MonoBehaviour
                 Rope rope = createdObj.GetComponent<Rope>();
                 rope.RopeFirstObject = _listLoadedObj[firstIndex].transform;
                 rope.RopeSecondObject = _listLoadedObj[secondIndex].transform;
-                rope.RopeLength = lengthRope;
+                rope.RopeLength = (int)lengthRope;
                 break;
             case ObjectCategory.Frog:
                 createdObj = Instantiate(_frogPrefab, entity.Position, Quaternion.identity);
