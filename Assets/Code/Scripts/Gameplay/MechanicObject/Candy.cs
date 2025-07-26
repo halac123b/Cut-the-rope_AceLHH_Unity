@@ -1,11 +1,12 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class Candy : MonoBehaviour
 {
-    public static event Action<Collider2D> OnCandyCollision;
+    //public static event Action<Collider2D> OnCandyCollision;
     public List<Rope> AttachedRopes = new();
 
     private Rigidbody2D _rb2D;
@@ -38,29 +39,49 @@ public class Candy : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+    private void OnDestroyCandy(object obj)
+    {
+        if (this == null || gameObject == null)
+        {
+            return;
+        }
 
+        StartCoroutine(DelayDeactivate());
+    }
+    
     private void OnEnable()
     {
-        OnCandyCollision += HandleCandyCollision;
+        EventDispatcher.Instance.AddEvent(gameObject, OnDestroyCandy, EventDispatcher.DestroyCandy);
+    }
+    
+    private IEnumerator DelayDeactivate()
+    {
+        yield return null;
+        gameObject.SetActive(false);
     }
 
-    private void OnDisable()
-    {
-        OnCandyCollision -= HandleCandyCollision;
-    }
+    // private void OnEnable()
+    // {
+    //     OnCandyCollision += HandleCandyCollision;
+    // }
+    //
+    // private void OnDisable()
+    // {
+    //     OnCandyCollision -= HandleCandyCollision;
+    // }
 
-    private void HandleCandyCollision(Collider2D collision)
-    {
-        try
-        {
-            Debug.Log($"[Candy] Xử lý va chạm với Star Object: {collision.name}");
-            EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnIncreaseStar);
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[Candy] Lỗi khi xử lý va chạm với Star Object: {collision.name} - {ex.Message}");
-        }
-    }
+    // private void HandleCandyCollision(Collider2D collision)
+    // {
+    //     try
+    //     {
+    //         Debug.Log($"[Candy] Xử lý va chạm với Star Object: {collision.name}");
+    //         EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnIncreaseStar);
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         Debug.LogError($"[Candy] Lỗi khi xử lý va chạm với Star Object: {collision.name} - {ex.Message}");
+    //     }
+    // }
 
     public void AttachRope(Rope rope)
     {

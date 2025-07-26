@@ -1,15 +1,25 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelSelection : MonoBehaviour
 {
     [SerializeField] private GameObject _levelPrefab;
     [SerializeField] private Transform _gridLayoutGroup;
     [SerializeField] private TextMeshProUGUI _numberStar;
+    
+    [SerializeField] private Button _backButton;
+    [SerializeField] private BoxSelection _boxSelection;
 
     private void OnEnable()
     {
         _numberStar.text = UserProfile.Instance.GetAllStars().ToString();
+    }
+
+    private void Start()
+    {
+        _backButton.onClick.AddListener(() => OnBackButtonClicked());
     }
 
     public void LoadLevel(BoxData boxData)
@@ -42,5 +52,18 @@ public class LevelSelection : MonoBehaviour
                 levelObj.SetLevelLock(true);
             }
         }
+    }
+
+    private void OnBackButtonClicked()
+    {
+        if (_gridLayoutGroup.childCount != 0)
+        {
+            foreach (Transform child in _gridLayoutGroup)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        gameObject.SetActive(false);
+        _boxSelection.gameObject.SetActive(true);
     }
 }

@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: Season_3
   m_EditorClassIdentifier: 
   BoxList:
-  - {fileID: 11400000, guid: 7ead1164a7f15432cbc51c28cf0afdbd, type: 2}
-  - {fileID: 11400000, guid: 28c4798a3e0014e4f84f05e60a40f405, type: 2}
-  - {fileID: 11400000, guid: d6652dbe41e2f4746aee9f43424a5e7d, type: 2}
+  - {fileID: 11400000, guid: 97029757d59a24366990efbb71f6a906, type: 2}

@@ -7,14 +7,21 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject _menuPanel;
     [SerializeField] private GameObject _seasonPanel;
     [SerializeField] private LevelSelection _levelMap;
+    [SerializeField] private BoxSelection _boxSelection;
 
     private void Start()
     {
         _playBtn.onClick.AddListener(OnPlayButtonClicked);
 
-        if (UserProfile.Instance.SelectedBoxIndex != null)
+        if (UserProfile.Instance.SelectedBoxData != null && !UserProfile.Instance.IsCompleteBox)
         {
-            LoadPreviousBox(UserProfile.Instance.SelectedBoxIndex);
+            LoadPreviousBox(UserProfile.Instance.SelectedBoxData);
+        }
+
+        if (UserProfile.Instance.SeasonIndex != -1 && UserProfile.Instance.IsCompleteBox)
+        {
+            LoadBoxUIData(UserProfile.Instance.SeasonIndex);
+            UserProfile.Instance.IsCompleteBox = false;
         }
     }
 
@@ -35,9 +42,15 @@ public class MenuController : MonoBehaviour
 
     private void LoadPreviousBox(BoxData boxData)
     {
-        Debug.Log("Ngan - Load previous box");
         _menuPanel.SetActive(false);
         _levelMap.gameObject.SetActive(true);
         _levelMap.LoadLevel(boxData);
+    }
+
+    private void LoadBoxUIData(int seasonIndex)
+    {
+        _menuPanel.SetActive(false);
+        _levelMap.gameObject.SetActive(false);
+        _boxSelection.gameObject.SetActive(true);
     }
 }
