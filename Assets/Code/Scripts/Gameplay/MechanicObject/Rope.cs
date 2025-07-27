@@ -42,6 +42,8 @@ public class Rope : MonoBehaviour
 
     private void Update()
     {
+        if (UIController.Instance.IsEnableUI) return;
+        
         if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
         {
             Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Pointer.current.position.ReadValue());
