@@ -5,21 +5,17 @@ using System.Collections;
 public class Frog : MonoBehaviour
 {
     [SerializeField] private Animator animator; 
+    [SerializeField] private SpriteRenderer frogCharSelectedSprite;
     private const float EatAnimDuration = 3.0f; 
     private int _nextLevelValue;
-    
-    // public static event Action<Collider2D> OnCandyCollision;
-    //
-    // private void OnEnable()
-    // {
-    //     OnCandyCollision += HandleFrogCollision;
-    // }
-    //
-    // private void OnDisable()
-    // {
-    //     OnCandyCollision -= HandleFrogCollision;
-    // }
 
+
+    private void Start()
+    {
+        Sprite selectedFrogSprite = UserProfile.Instance.SelectedBoxData.CharFrogSprites;
+        frogCharSelectedSprite.sprite = selectedFrogSprite;
+    }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Candy"))
