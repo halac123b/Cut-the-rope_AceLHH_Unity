@@ -18,7 +18,7 @@ public class PauseUI : MonoBehaviour
    {
       Time.timeScale = 1;
       gameObject.SetActive(false);
-      UIController.Instance.UIStatus(false);
+      UIController.Instance.SetUIStatus(false);
    }
 
    public void OnBackClick()
@@ -33,7 +33,7 @@ public class PauseUI : MonoBehaviour
       );
 
       Time.timeScale = 1;
-      UIController.Instance.UIStatus(false);
+      UIController.Instance.SetUIStatus(false);
       SceneManager.LoadScene("Home");
    }
 }

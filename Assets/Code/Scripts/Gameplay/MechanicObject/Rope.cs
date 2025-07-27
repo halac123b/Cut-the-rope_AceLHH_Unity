@@ -42,8 +42,6 @@ public class Rope : MonoBehaviour
 
     private void Update()
     {
-        if (UIController.Instance.IsEnableUI) return;
-        
         if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
         {
             Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Pointer.current.position.ReadValue());
@@ -52,6 +50,11 @@ public class Rope : MonoBehaviour
 
             if (hit.collider != null && hit.collider.gameObject.CompareTag("Rope"))
             {
+                if (UIController.Instance.IsEnableUI)
+                {
+                    return;
+                }
+                
                 Rope rope = hit.collider.GetComponent<Rope>();
                 Candy ropeCandy = RopeSecondObject.GetComponent<Candy>();
 
@@ -70,6 +73,11 @@ public class Rope : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (UIController.Instance.IsCompleteLevel)
+        {
+            return;
+        }
+        
         Simulate();
 
         for (int i = 0; i < 10; i++)
@@ -80,6 +88,11 @@ public class Rope : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (UIController.Instance.IsCompleteLevel)
+        {
+            return;
+        }
+        
         UpdateColliderForRope();
     }
 
@@ -171,6 +184,11 @@ public class Rope : MonoBehaviour
 
     private void DrawRope()
     {
+        if (UIController.Instance.IsCompleteLevel)
+        {
+            return;
+        }
+        
         float lineWidth = _ropeWidth;
         _ropeRenderer.startWidth = lineWidth;
         _ropeRenderer.endWidth = lineWidth;

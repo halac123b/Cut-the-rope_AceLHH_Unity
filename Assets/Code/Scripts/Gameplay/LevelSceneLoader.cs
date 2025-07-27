@@ -29,6 +29,7 @@ public class LevelSceneLoader : MonoBehaviour
     /// </summary>
     private void ReloadLevel()
     {
+        UIController.Instance.ResetUI();
         ClearMap();
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.DisableCompleteUI);
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnResetStars);
@@ -54,12 +55,14 @@ public class LevelSceneLoader : MonoBehaviour
         {
             UserProfile.Instance.IsCompleteBox = true;
             EventDispatcher.Instance.Dispatch(seasonIdx, EventDispatcher.LoadBoxUI);
+            UIController.Instance.ResetUI();
             SceneManager.LoadScene("Home");
         }
         else
         {
             string levelName = $"{firstNumber}_{nextLvIndex}"; // => "1_2"
             UserProfile.Instance.SetLevel(levelName);
+            UIController.Instance.ResetUI();
             ClearMap();
             EventDispatcher.Instance.Dispatch(null, EventDispatcher.DisableCompleteUI);
             LoadLevelData(levelName);

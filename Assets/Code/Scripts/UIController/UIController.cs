@@ -3,10 +3,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIController : MonoBehaviour
+public class UIController : MonoSingleton<UIController>
 {
-    public static UIController Instance { get; private set; }
-    
     [SerializeField] private Button _pauseButton;
     [SerializeField] private Button _replayButton;
 
@@ -14,17 +12,7 @@ public class UIController : MonoBehaviour
     public CompleteLevelUI CompleteLevelUIComponent;
 
     public bool IsEnableUI;
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-    }
+    public bool IsCompleteLevel;
 
     private void Start()
     {
@@ -37,11 +25,18 @@ public class UIController : MonoBehaviour
 
     public void ShowLevelCompleteUI(bool active)
     {
+        IsCompleteLevel = active;
         CompleteLevelUIComponent.gameObject.SetActive(active);
-        UIStatus(active);
+        SetUIStatus(active);
     }
 
-    public void UIStatus(bool active)
+    public void ResetUI()
+    {
+        IsCompleteLevel = false;
+        IsEnableUI = false;
+    }
+
+    public void SetUIStatus(bool active)
     {
         IsEnableUI = active;
     }
@@ -55,12 +50,12 @@ public class UIController : MonoBehaviour
     {
         Time.timeScale = 0;
         PauseUIComponent.gameObject.SetActive(true);
-        UIStatus(true);
+        SetUIStatus(true);
     }
 
     private void OnReplaceButtonClick()
     {
-        UIStatus(false);
+        SetUIStatus(false);
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.RestartLevel);
     }
 
