@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8460130892140797178}
   - component: {fileID: 7502261571240423152}
   - component: {fileID: 5433255220672783052}
-  - component: {fileID: 3007191781698954711}
+  - component: {fileID: 1415125499655387059}
   m_Layer: 0
   m_Name: Nut
   m_TagString: Untagged
@@ -116,8 +116,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!231 &3007191781698954711
-SpringJoint2D:
+--- !u!232 &1415125499655387059
+DistanceJoint2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -133,7 +133,6 @@ SpringJoint2D:
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
-  m_AutoConfigureDistance: 1
-  m_Distance: 1.2960309
-  m_DampingRatio: 0
-  m_Frequency: 1
+  m_AutoConfigureDistance: 0
+  m_Distance: 1
+  m_MaxDistanceOnly: 1
