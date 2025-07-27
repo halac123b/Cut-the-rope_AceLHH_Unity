@@ -49,19 +49,19 @@ public class CompleteLevelUI : MonoBehaviour
 
     private void OnClickMenuButton()
     {
-        UIController.Instance.UIStatus(false);
+        UIController.Instance.SetUIStatus(false);
         SceneManager.LoadScene("Home");
     }
 
     private void OnClickRestartButton()
     {
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.RestartLevel);
-        UIController.Instance.UIStatus(false);
+        UIController.Instance.SetUIStatus(false);
     }
 
     private void OnClickNextButton()
     {
-        UIController.Instance.UIStatus(false);
+        UIController.Instance.SetUIStatus(false);
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.LoadNextLevel);
     }
 
