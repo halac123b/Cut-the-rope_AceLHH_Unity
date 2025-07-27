@@ -29,7 +29,7 @@ public class LevelSceneLoader : MonoBehaviour
     /// </summary>
     private void ReloadLevel()
     {
-        UIController.Instance.ResetUI();
+        UIController.Instance.ResetUI(); //Reset trạng thái UI 
         ClearMap();
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.DisableCompleteUI);
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnResetStars);

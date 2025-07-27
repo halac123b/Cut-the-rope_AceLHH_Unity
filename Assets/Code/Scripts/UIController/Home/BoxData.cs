@@ -11,4 +11,5 @@ public class BoxData : ScriptableObject
     
     //UI List Box
     public Sprite BoxSprite;
+    public Sprite BGGameplay;
 }

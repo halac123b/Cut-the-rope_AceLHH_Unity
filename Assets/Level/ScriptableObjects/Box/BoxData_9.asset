@@ -18,3 +18,4 @@ MonoBehaviour:
   BoxBGSprite: {fileID: 21300000, guid: 8fc9a669036aa45279486689960c85c3, type: 3}
   RequireStar: 9
   BoxSprite: {fileID: 21300000, guid: e4635561629974fa9a9a6de09ee7ba3f, type: 3}
+  BGGameplay: {fileID: 21300000, guid: e3235f00b884e466ea75451b043b0973, type: 3}
