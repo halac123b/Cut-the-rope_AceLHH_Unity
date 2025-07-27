@@ -16,13 +16,18 @@ public class CompleteLevelUI : MonoBehaviour
     private void OnEnable()
     {
         //gameObject.SetActive(false);
-        //_nextBtn.onClick.AddListener(OnClickNextButton);
-        //_menuBtn.onClick.AddListener(OnClickMenuButton);
-        //_replayBtn.onClick.AddListener(OnClickRestartButton);
+        
         
         _levelIndex = UserProfile.Instance.SelectedLevelIndex;
 
         UpdateStarCollectLevel();
+    }
+
+    private void Start()
+    {
+        _nextBtn.onClick.AddListener(OnClickNextButton);
+        _menuBtn.onClick.AddListener(OnClickMenuButton);
+        _replayBtn.onClick.AddListener(OnClickRestartButton);
     }
 
     private void UpdateStarCollectLevel()
