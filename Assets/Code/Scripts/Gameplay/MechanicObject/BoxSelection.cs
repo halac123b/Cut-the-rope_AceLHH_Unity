@@ -41,7 +41,7 @@ public class BoxSelection : MonoBehaviour
 
         _frogMask.transform.SetParent(transform);
         _frogMask.transform.SetSiblingIndex(1);
-        
+
         if (_gridLayoutGroup.childCount != 0)
         {
             foreach (Transform child in _gridLayoutGroup)
@@ -71,8 +71,21 @@ public class BoxSelection : MonoBehaviour
             _pos = new float[_gridLayoutGroup.childCount];
         }
 
-        float distance = 1f / (_pos.Length - 1f); //Khoảng cách giữa các box
-
+        float distance;
+        if (_pos.Length == 1)
+        {
+            _pos[0] = 0.5f; 
+            distance = 1f;
+        }
+        else
+        {
+            distance = 1f / (_pos.Length - 1f);
+            for (int i = 0; i < _pos.Length; i++)
+            {
+                _pos[i] = distance * i;
+            }
+        }
+        
         for (int i = 0; i < _pos.Length; i++)
         {
             _pos[i] = distance * i; //Tính vị trí của các box dựa trên khoảng cách 
@@ -103,7 +116,7 @@ public class BoxSelection : MonoBehaviour
             //So giá trị scrollbar hiện tại với khoảng cách từ box và 1/2 khoảng trống với box kề cạnh
             for (int i = 0; i < _pos.Length; i++)
             {
-                if (_scrollPos < _pos[i] + (distance / 2) && _scrollPos > _pos[i] - (distance / 2)) 
+                if (_scrollPos < _pos[i] + (distance / 2) && _scrollPos > _pos[i] - (distance / 2))
                 {
                     _scrollbar.value =
                         Mathf.Lerp(_scrollbar.value, _pos[i], 0.1f); //Lerp scrollbar về vị trí box gần nhất 
@@ -176,7 +189,7 @@ public class BoxSelection : MonoBehaviour
     {
         _frogMask.transform.SetParent(transform);
         _frogMask.transform.SetSiblingIndex(1);
-        
+
         if (_gridLayoutGroup.childCount != 0)
         {
             foreach (Transform child in _gridLayoutGroup)
