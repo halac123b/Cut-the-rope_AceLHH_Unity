@@ -4,8 +4,8 @@ using System.Collections;
 
 public class Frog : MonoBehaviour
 {
-    [SerializeField] private Animator animator; 
-    [SerializeField] private SpriteRenderer frogCharSelectedSprite;
+    [SerializeField] private Animator _animator; 
+    [SerializeField] private SpriteRenderer _frogStandPoint;
     private const float EatAnimDuration = 3.0f; 
     private int _nextLevelValue;
 
@@ -13,7 +13,7 @@ public class Frog : MonoBehaviour
     private void Start()
     {
         Sprite selectedFrogSprite = UserProfile.Instance.SelectedBoxData.CharFrogSprites;
-        frogCharSelectedSprite.sprite = selectedFrogSprite;
+        _frogStandPoint.sprite = selectedFrogSprite;
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,14 +30,14 @@ public class Frog : MonoBehaviour
     {
         string candyName = candyObj.name;
         
-        if (animator != null)
+        if (_animator != null)
         {
-            animator.SetTrigger("Eat");
+            _animator.SetTrigger("Eat");
         }
         
         yield return new WaitForSeconds(EatAnimDuration);
         
-        animator.ResetTrigger("Eat");
+        _animator.ResetTrigger("Eat");
         
         HandleFrogLogic(candyName);
         

@@ -247,20 +247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c699f627777c64682863a844eeaebf5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 8591129723430687887}
-  frogCharSprite:
-  - {fileID: 665484249, guid: 56fde9423255a413e9e76b728df7d51b, type: 3}
-  - {fileID: -1192940936, guid: 56fde9423255a413e9e76b728df7d51b, type: 3}
-  - {fileID: -355763875, guid: 56fde9423255a413e9e76b728df7d51b, type: 3}
-  - {fileID: -458926994, guid: 56fde9423255a413e9e76b728df7d51b, type: 3}
-  - {fileID: 11169815, guid: 56fde9423255a413e9e76b728df7d51b, type: 3}
-  - {fileID: -2082688106, guid: 56fde9423255a413e9e76b728df7d51b, type: 3}
-  - {fileID: 168628649, guid: 56fde9423255a413e9e76b728df7d51b, type: 3}
-  - {fileID: -252658675, guid: 56fde9423255a413e9e76b728df7d51b, type: 3}
-  - {fileID: -1281230942, guid: 56fde9423255a413e9e76b728df7d51b, type: 3}
-  - {fileID: -803790671, guid: 56fde9423255a413e9e76b728df7d51b, type: 3}
-  - {fileID: 1227059431, guid: 56fde9423255a413e9e76b728df7d51b, type: 3}
-  frogCharSelectedSprite: {fileID: 7190501901798611650}
+  _animator: {fileID: 8591129723430687887}
+  _frogStandPoint: {fileID: 7190501901798611650}
 --- !u!212 &3250781565448043404
 SpriteRenderer:
   m_ObjectHideFlags: 0
