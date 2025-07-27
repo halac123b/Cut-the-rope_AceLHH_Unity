@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
@@ -32,6 +31,7 @@ public class BoxSelection : MonoBehaviour
     private BoxUIComponent _boxUI;
     private List<BoxUIComponent> _boxUIList = new();
     private bool _isTouchEnd;
+    private Vector2 _lastMousePos;
 
     private void OnEnable()
     {
@@ -74,7 +74,7 @@ public class BoxSelection : MonoBehaviour
         float distance;
         if (_pos.Length == 1)
         {
-            _pos[0] = 0.5f; 
+            _pos[0] = 0.5f;
             distance = 1f;
         }
         else
@@ -85,22 +85,17 @@ public class BoxSelection : MonoBehaviour
                 _pos[i] = distance * i;
             }
         }
-        
+
         for (int i = 0; i < _pos.Length; i++)
         {
             _pos[i] = distance * i; //Tính vị trí của các box dựa trên khoảng cách 
         }
 
-        if (Touch.activeTouches.Count > 1)
+        if (Pointer.current != null && Pointer.current.press.isPressed)
         {
-            return;
-        }
-
-        if (Touch.activeTouches.Count > 0)
-        {
-            var firstTouch = Touch.activeTouches[0];
-
-            if (firstTouch.phase == UnityEngine.InputSystem.TouchPhase.Moved)
+            Vector2 currentMousePos = Pointer.current.position.ReadValue();
+            
+            if ((currentMousePos - _lastMousePos).sqrMagnitude > 1f)
             {
                 _isTouchEnd = true;
                 _scrollPos = _scrollbar.value; //Lấy gía trị scrollbar mỗi khi move
@@ -109,6 +104,8 @@ public class BoxSelection : MonoBehaviour
                     _boxUIList[i].IsPlayAnimation = false;
                 }
             }
+            
+            _lastMousePos = currentMousePos;
         }
         else
         {
@@ -123,7 +120,6 @@ public class BoxSelection : MonoBehaviour
                 }
             }
         }
-
         for (int i = 0; i < _pos.Length; i++)
         {
             if (_scrollPos < _pos[i] + (distance / 2) && _scrollPos > _pos[i] - (distance / 2))
