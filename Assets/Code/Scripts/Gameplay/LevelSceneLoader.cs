@@ -38,12 +38,13 @@ public class LevelSceneLoader : MonoBehaviour
 
     private void LoadNextLevel()
     {
-        string levelIndex = UserProfile.Instance.SelectedLevelIndex; //"Level1_1"
-        string[] parts = levelIndex.Split('_'); // => {[Level1], [1]}
-        int firstNumber = int.Parse(parts[0]); // "Level1"
+        string levelIndex = UserProfile.Instance.SelectedLevelIndex; //"1_1"
+        string[] parts = levelIndex.Split('_'); // => {[1], [1]}
+        int firstNumber = int.Parse(parts[0]); // "1"
         int secondNumber = int.Parse(parts[1]); // "1"
         int nextLvIndex = secondNumber + 1; //1+1 = 2
 
+       // UserProfile.Instance.SetLevel(secondNumber + "_" + nextLvIndex.ToString());
         int seasonIdx = UserProfile.Instance.SeasonIndex;
         bool finalLevel = IsFinalLevel(nextLvIndex);
 
@@ -57,8 +58,8 @@ public class LevelSceneLoader : MonoBehaviour
         }
         else
         {
-            string levelName = $"{firstNumber}_{nextLvIndex}"; // => "Level1_2"
-
+            string levelName = $"{firstNumber}_{nextLvIndex}"; // => "1_2"
+            UserProfile.Instance.SetLevel(levelName);
             ClearMap();
             EventDispatcher.Instance.Dispatch(null, EventDispatcher.DisableCompleteUI);
             LoadLevelData(levelName);

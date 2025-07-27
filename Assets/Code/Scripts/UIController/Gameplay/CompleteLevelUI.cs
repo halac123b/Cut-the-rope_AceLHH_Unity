@@ -16,9 +16,9 @@ public class CompleteLevelUI : MonoBehaviour
     private void OnEnable()
     {
         //gameObject.SetActive(false);
-        _nextBtn.onClick.AddListener(OnClickNextButton);
-        _menuBtn.onClick.AddListener(OnClickMenuButton);
-        _replayBtn.onClick.AddListener(OnClickRestartButton);
+        //_nextBtn.onClick.AddListener(OnClickNextButton);
+        //_menuBtn.onClick.AddListener(OnClickMenuButton);
+        //_replayBtn.onClick.AddListener(OnClickRestartButton);
         
         _levelIndex = UserProfile.Instance.SelectedLevelIndex;
 
@@ -45,17 +45,17 @@ public class CompleteLevelUI : MonoBehaviour
         }
     }
 
-    private void OnClickMenuButton()
+    public void OnClickMenuButton()
     {
         SceneManager.LoadScene("Home");
     }
 
-    private void OnClickRestartButton()
+    public void OnClickRestartButton()
     {
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.RestartLevel);
     }
 
-    private void OnClickNextButton()
+    public void OnClickNextButton()
     {
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.LoadNextLevel);
     }
