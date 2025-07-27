@@ -9,16 +9,17 @@ public class LoadingUI : MonoBehaviour
     [Header("Loading UI")] 
     [SerializeField] private Image _leftPanel;
     [SerializeField] private Image _rightPanel;
-    [SerializeField] private RectTransform _cutterKnifeImage;
+    [SerializeField] private RectTransform _boxCutterRect;
     [SerializeField] private RectTransform _canvasRect;
     [SerializeField] private RectTransform _tagLeft;
     [SerializeField] private RectTransform _tagRight;
+    
     // [SerializeField] private RectTransform _tagCuterByKnifeLeft;
     // [SerializeField] private RectTransform _tagCuterByKnifeRight;
 
-    //Time 
-    private float _durationScissorsAmim = 1.2f;
-    private float _scissorsImageOffsetX = -519.2f;
+    //Time animation
+    private float _boxCutterAnimDuration = 1.2f;
+    private float _boxCutterOffsetX = -519.2f;
     private float _durationLoadingCurtain = 0.75f;
 
     private void Start()
@@ -30,12 +31,23 @@ public class LoadingUI : MonoBehaviour
     {
         _leftPanel.gameObject.SetActive(true);
         _rightPanel.gameObject.SetActive(true);
-        _cutterKnifeImage.gameObject.SetActive(true);
-        _leftPanel.rectTransform.anchoredPosition = Vector2.zero;
-        _rightPanel.rectTransform.anchoredPosition = Vector2.zero;
+        _boxCutterRect.gameObject.SetActive(true);
+
+        float width = _canvasRect.rect.width;
+
         _leftPanel.sprite = UserProfile.Instance.SelectedBoxData.BoxBGSprite;
         _rightPanel.sprite = UserProfile.Instance.SelectedBoxData.BoxBGSprite;
-        //InitCuterTagOffsets();
+
+        // Set size
+        _leftPanel.rectTransform.sizeDelta = new Vector2(width, _leftPanel.rectTransform.sizeDelta.y);
+        _rightPanel.rectTransform.sizeDelta = new Vector2(width, _rightPanel.rectTransform.sizeDelta.y);
+
+        // Set anchored position
+        _leftPanel.rectTransform.anchoredPosition = new Vector2(-width / 2, 0);
+        _rightPanel.rectTransform.anchoredPosition = new Vector2(-width / 2, 0);
+
+        //Debug.Log("Width screen is: " + width);
+
         StartCoroutine(StartLoadingSequence());
     }
 
@@ -53,24 +65,24 @@ public class LoadingUI : MonoBehaviour
 
     private IEnumerator PlayCutAnimation()
     {
-        _cutterKnifeImage.gameObject.SetActive(true);
+        _boxCutterRect.gameObject.SetActive(true);
 
         float canvasHeight = _canvasRect.rect.height;
-        float scissorsHeight = _cutterKnifeImage.rect.height;
+        float scissorsHeight = _boxCutterRect.rect.height;
 
         float startY = +scissorsHeight / 2;
         float endY = canvasHeight + scissorsHeight / 2;
 
-        _cutterKnifeImage.anchoredPosition = new Vector2(_scissorsImageOffsetX, startY);
+        _boxCutterRect.anchoredPosition = new Vector2(_boxCutterOffsetX, startY);
 
-        LMotion.Create(_cutterKnifeImage.anchoredPosition, new Vector2(_scissorsImageOffsetX, endY),
-                _durationScissorsAmim)
+        LMotion.Create(_boxCutterRect.anchoredPosition, new Vector2(_boxCutterOffsetX, endY),
+                _boxCutterAnimDuration)
             .WithEase(Ease.InOutSine)
-            .BindToAnchoredPosition(_cutterKnifeImage);
+            .BindToAnchoredPosition(_boxCutterRect);
 
-        yield return new WaitForSeconds(_durationScissorsAmim);
+        yield return new WaitForSeconds(_boxCutterAnimDuration);
 
-        _cutterKnifeImage.gameObject.SetActive(false);
+        _boxCutterRect.gameObject.SetActive(false);
     }
 
     private IEnumerator ShowLoadingCurtainCoroutine()
@@ -89,7 +101,8 @@ public class LoadingUI : MonoBehaviour
             .WithEase(Ease.InOutQuad)
             .BindToAnchoredPosition(_leftPanel.rectTransform);
 
-        LMotion.Create(_rightPanel.rectTransform.anchoredPosition, new Vector2(rightWidth, 0), _durationLoadingCurtain)
+        LMotion.Create(_rightPanel.rectTransform.anchoredPosition, new Vector2(rightWidth, 0),
+                _durationLoadingCurtain * 2)
             .WithEase(Ease.InOutQuad)
             .BindToAnchoredPosition(_rightPanel.rectTransform);
 
