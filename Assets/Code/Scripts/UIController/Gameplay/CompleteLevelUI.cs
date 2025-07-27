@@ -14,15 +14,17 @@ public class CompleteLevelUI : MonoBehaviour
 
     private string _levelIndex;
     private void OnEnable()
-    {
-        //gameObject.SetActive(false);
-        //_nextBtn.onClick.AddListener(OnClickNextButton);
-        //_menuBtn.onClick.AddListener(OnClickMenuButton);
-        //_replayBtn.onClick.AddListener(OnClickRestartButton);
-        
+    { 
         _levelIndex = UserProfile.Instance.SelectedLevelIndex;
 
         UpdateStarCollectLevel();
+    }
+
+    private void Start()
+    {
+        _nextBtn.onClick.AddListener(OnClickNextButton);
+        _menuBtn.onClick.AddListener(OnClickMenuButton);
+        _replayBtn.onClick.AddListener(OnClickRestartButton);
     }
 
     private void UpdateStarCollectLevel()
@@ -45,18 +47,21 @@ public class CompleteLevelUI : MonoBehaviour
         }
     }
 
-    public void OnClickMenuButton()
+    private void OnClickMenuButton()
     {
+        UIController.Instance.UIStatus(false);
         SceneManager.LoadScene("Home");
     }
 
-    public void OnClickRestartButton()
+    private void OnClickRestartButton()
     {
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.RestartLevel);
+        UIController.Instance.UIStatus(false);
     }
 
-    public void OnClickNextButton()
+    private void OnClickNextButton()
     {
+        UIController.Instance.UIStatus(false);
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.LoadNextLevel);
     }
 

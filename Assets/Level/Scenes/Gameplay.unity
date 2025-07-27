@@ -2502,19 +2502,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1304063537}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 565824855}
-        m_TargetAssemblyTypeName: CompleteLevelUI, Assembly-CSharp
-        m_MethodName: OnClickNextButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1304063537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2774,19 +2762,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1338783160}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 565824855}
-        m_TargetAssemblyTypeName: CompleteLevelUI, Assembly-CSharp
-        m_MethodName: OnClickRestartButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1338783160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2979,19 +2955,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1584176394}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 565824855}
-        m_TargetAssemblyTypeName: CompleteLevelUI, Assembly-CSharp
-        m_MethodName: OnClickMenuButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1584176394
 MonoBehaviour:
   m_ObjectHideFlags: 0
