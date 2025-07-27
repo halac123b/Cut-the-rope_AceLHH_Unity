@@ -122,7 +122,19 @@ public class BoxSelection : MonoBehaviour
         }
         for (int i = 0; i < _pos.Length; i++)
         {
-            if (_scrollPos < _pos[i] + (distance / 2) && _scrollPos > _pos[i] - (distance / 2))
+            bool isFocusedBox;
+
+            if (_pos.Length == 1)
+            {
+                // Luôn true nếu chỉ có 1 box
+                isFocusedBox = true;
+            }
+            else
+            {
+                isFocusedBox = _scrollPos < _pos[i] + (distance / 2f) && _scrollPos > _pos[i] - (distance / 2f);
+            }
+            
+            if (isFocusedBox)
             {
                 _frogMask.transform.SetParent(_boxUIList[i].FrogMask.transform, false);
                 _frogMask.transform.SetAsFirstSibling();
