@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
@@ -6,7 +5,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
-using TouchPhase = UnityEditor.DeviceSimulation.TouchPhase;
 
 public class BoxSelection : MonoBehaviour
 {
@@ -33,6 +31,7 @@ public class BoxSelection : MonoBehaviour
     private BoxUIComponent _boxUI;
     private List<BoxUIComponent> _boxUIList = new();
     private bool _isTouchEnd;
+    private Vector2 _lastMousePos;
 
     private void OnEnable()
     {
@@ -42,7 +41,7 @@ public class BoxSelection : MonoBehaviour
 
         _frogMask.transform.SetParent(transform);
         _frogMask.transform.SetSiblingIndex(1);
-        
+
         if (_gridLayoutGroup.childCount != 0)
         {
             foreach (Transform child in _gridLayoutGroup)
@@ -72,23 +71,31 @@ public class BoxSelection : MonoBehaviour
             _pos = new float[_gridLayoutGroup.childCount];
         }
 
-        float distance = 1f / (_pos.Length - 1f); //Khoảng cách giữa các box
+        float distance;
+        if (_pos.Length == 1)
+        {
+            _pos[0] = 0.5f;
+            distance = 1f;
+        }
+        else
+        {
+            distance = 1f / (_pos.Length - 1f);
+            for (int i = 0; i < _pos.Length; i++)
+            {
+                _pos[i] = distance * i;
+            }
+        }
 
         for (int i = 0; i < _pos.Length; i++)
         {
             _pos[i] = distance * i; //Tính vị trí của các box dựa trên khoảng cách 
         }
 
-        if (Touch.activeTouches.Count > 1)
+        if (Pointer.current != null && Pointer.current.press.isPressed)
         {
-            return;
-        }
-
-        if (Touch.activeTouches.Count > 0)
-        {
-            var firstTouch = Touch.activeTouches[0];
-
-            if (firstTouch.phase == UnityEngine.InputSystem.TouchPhase.Moved)
+            Vector2 currentMousePos = Pointer.current.position.ReadValue();
+            
+            if ((currentMousePos - _lastMousePos).sqrMagnitude > 1f)
             {
                 _isTouchEnd = true;
                 _scrollPos = _scrollbar.value; //Lấy gía trị scrollbar mỗi khi move
@@ -97,6 +104,8 @@ public class BoxSelection : MonoBehaviour
                     _boxUIList[i].IsPlayAnimation = false;
                 }
             }
+            
+            _lastMousePos = currentMousePos;
         }
         else
         {
@@ -104,14 +113,13 @@ public class BoxSelection : MonoBehaviour
             //So giá trị scrollbar hiện tại với khoảng cách từ box và 1/2 khoảng trống với box kề cạnh
             for (int i = 0; i < _pos.Length; i++)
             {
-                if (_scrollPos < _pos[i] + (distance / 2) && _scrollPos > _pos[i] - (distance / 2)) 
+                if (_scrollPos < _pos[i] + (distance / 2) && _scrollPos > _pos[i] - (distance / 2))
                 {
                     _scrollbar.value =
                         Mathf.Lerp(_scrollbar.value, _pos[i], 0.1f); //Lerp scrollbar về vị trí box gần nhất 
                 }
             }
         }
-
         for (int i = 0; i < _pos.Length; i++)
         {
             if (_scrollPos < _pos[i] + (distance / 2) && _scrollPos > _pos[i] - (distance / 2))
@@ -177,7 +185,7 @@ public class BoxSelection : MonoBehaviour
     {
         _frogMask.transform.SetParent(transform);
         _frogMask.transform.SetSiblingIndex(1);
-        
+
         if (_gridLayoutGroup.childCount != 0)
         {
             foreach (Transform child in _gridLayoutGroup)
