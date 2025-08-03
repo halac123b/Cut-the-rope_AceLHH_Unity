@@ -3,8 +3,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIController : MonoSingleton<UIController>
+public class UIController :MonoBehaviour
 {
+    public static UIController Instance;
     [SerializeField] private Button _pauseButton;
     [SerializeField] private Button _replayButton;
 
@@ -13,6 +14,16 @@ public class UIController : MonoSingleton<UIController>
     
     public bool IsEnableUI;
     public bool IsCompleteLevel;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        
+        Instance = this;
+    }
 
     private void Start()
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using LitMotion;
@@ -21,6 +22,9 @@ public class LoadingUI : MonoBehaviour
     private float _boxCutterAnimDuration = 1.2f;
     private float _boxCutterOffsetX = -519.2f;
     private float _durationLoadingCurtain = 0.75f;
+    
+    private MotionHandle _motionFirst, _motionSecond, _motionThird;
+    private Coroutine _coroutine;
 
     private void Start()
     {
@@ -48,7 +52,7 @@ public class LoadingUI : MonoBehaviour
 
         //Debug.Log("Width screen is: " + width);
 
-        StartCoroutine(StartLoadingSequence());
+        _coroutine =  StartCoroutine(StartLoadingSequence());
     }
 
     // private void InitCuterTagOffsets()
@@ -75,7 +79,7 @@ public class LoadingUI : MonoBehaviour
 
         _boxCutterRect.anchoredPosition = new Vector2(_boxCutterOffsetX, startY);
 
-        LMotion.Create(_boxCutterRect.anchoredPosition, new Vector2(_boxCutterOffsetX, endY),
+        _motionFirst = LMotion.Create(_boxCutterRect.anchoredPosition, new Vector2(_boxCutterOffsetX, endY),
                 _boxCutterAnimDuration)
             .WithEase(Ease.InOutSine)
             .BindToAnchoredPosition(_boxCutterRect);
@@ -97,11 +101,11 @@ public class LoadingUI : MonoBehaviour
         //StartCoroutine(ShrinkHorizontalTagsCoroutine(_durationLoadingCurtain));
 
         // Animate slide panels
-        LMotion.Create(_leftPanel.rectTransform.anchoredPosition, new Vector2(-leftWidth, 0), _durationLoadingCurtain)
+        _motionSecond = LMotion.Create(_leftPanel.rectTransform.anchoredPosition, new Vector2(-leftWidth, 0), _durationLoadingCurtain)
             .WithEase(Ease.InOutQuad)
             .BindToAnchoredPosition(_leftPanel.rectTransform);
 
-        LMotion.Create(_rightPanel.rectTransform.anchoredPosition, new Vector2(rightWidth, 0),
+        _motionThird = LMotion.Create(_rightPanel.rectTransform.anchoredPosition, new Vector2(rightWidth, 0),
                 _durationLoadingCurtain * 2)
             .WithEase(Ease.InOutQuad)
             .BindToAnchoredPosition(_rightPanel.rectTransform);
@@ -173,5 +177,23 @@ public class LoadingUI : MonoBehaviour
 
         _tagRight.offsetMin = new Vector2(rightStartMin.x, 0);
         _tagRight.offsetMax = new Vector2(rightStartMax.x, 0);
+    }
+
+    private void OnDestroy()
+    {
+        CancelMotion(_motionFirst);
+        CancelMotion(_motionSecond);
+        CancelMotion(_motionThird);
+        
+        StopCoroutine(_coroutine);
+        _coroutine = null;
+    }
+    
+    private void CancelMotion(MotionHandle motion)
+    {
+        if (motion != null && motion.IsPlaying())
+        {
+            motion.Cancel();
+        }
     }
 }
