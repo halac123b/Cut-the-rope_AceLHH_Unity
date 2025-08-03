@@ -10,7 +10,7 @@ public class UIController : MonoSingleton<UIController>
 
     public PauseUI PauseUIComponent;
     public CompleteLevelUI CompleteLevelUIComponent;
-
+    
     public bool IsEnableUI;
     public bool IsCompleteLevel;
 

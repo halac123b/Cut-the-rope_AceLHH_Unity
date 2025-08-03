@@ -19,3 +19,4 @@ MonoBehaviour:
   RequireStar: 8
   BoxSprite: {fileID: 21300000, guid: 208e1e3003e5547688a4cbe1437d513f, type: 3}
   CharFrogSprites: {fileID: -252658675, guid: 56fde9423255a413e9e76b728df7d51b, type: 3}
+  BGGameplay: {fileID: 21300000, guid: cfd0876092958466a94561a4a825c863, type: 3}
