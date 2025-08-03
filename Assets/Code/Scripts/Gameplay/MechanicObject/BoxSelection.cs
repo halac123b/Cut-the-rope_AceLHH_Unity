@@ -56,6 +56,7 @@ public class BoxSelection : MonoBehaviour
 
     private void Start()
     {
+        horizontalLayoutGroup.GetComponent<RectTransform>().sizeDelta = new Vector2(viewport.rect.width, viewport.rect.height);
         EventDispatcher.Instance.AddEvent(gameObject, boxData => { LoadLevel((BoxData)boxData); },
             EventDispatcher.LoadLevelUI);
 
@@ -155,7 +156,7 @@ public class BoxSelection : MonoBehaviour
 
         horizontalLayoutGroup.padding.left = halfViewport;
         horizontalLayoutGroup.padding.right = halfViewport;
-
+        
         LayoutRebuilder.ForceRebuildLayoutImmediate(horizontalLayoutGroup.GetComponent<RectTransform>());
     }
 
