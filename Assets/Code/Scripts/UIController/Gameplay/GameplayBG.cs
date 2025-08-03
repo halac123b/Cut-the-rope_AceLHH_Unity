@@ -1,21 +1,18 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
-using Quaternion = UnityEngine.Quaternion;
 
-public class GameplayUI : MonoBehaviour
+public class GameplayBG : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _bgImage;
 
-    public void Awake()
+    private void Awake()
     {
-        var camera = Camera.main;
+        Camera camera = Camera.main;
         transform.position = camera.transform.position + camera.transform.forward * (camera.farClipPlane - 0.01f);
         transform.forward = camera.transform.forward;
         transform.eulerAngles = new Vector3(0, 0, 90f);
         
-        var cameraWidth = camera.orthographicSize * 2;
-        var cameraHeight = cameraWidth * camera.aspect;
+        float cameraWidth = camera.orthographicSize * 2;
+        float cameraHeight = cameraWidth * camera.aspect;
 
         Vector2 size = new Vector2(cameraWidth , cameraHeight);
         

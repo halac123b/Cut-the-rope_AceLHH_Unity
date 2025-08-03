@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7725258243421968575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5742155244051175008}
+  - component: {fileID: 2929887199624331176}
+  - component: {fileID: 5418413971977170908}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5742155244051175008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7725258243421968575}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2929887199624331176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7725258243421968575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e54e457f174e4b528746d6f5b1b5182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _staticPointPrefab: {fileID: 5982756826991161604, guid: bfd5590ce48744c9d986b53d70928749, type: 3}
+  _candyPrefab: {fileID: 8718484117257232086, guid: 33331b253fbb34ab6a7b05a0ed5c9253, type: 3}
+  _ropePrefab: {fileID: 601785303011650862, guid: ec2c02cd3d31b4b66ba4bacb2e74669d, type: 3}
+  _frogPrefab: {fileID: 7545011936986348594, guid: a68bee4623cff47b5a49077ccef93e62, type: 3}
+  _starPrefab: {fileID: 2329482212126349978, guid: 391184aa1d480448a93178fa90f6e840, type: 3}
+  ParentObject: {fileID: 0}
+--- !u!114 &5418413971977170908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7725258243421968575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11081633d17904b7cafa06dc49de724d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pauseButton: {fileID: 0}
+  _replayButton: {fileID: 0}
+  PauseUIComponent: {fileID: 0}
+  CompleteLevelUIComponent: {fileID: 0}
+  IsEnableUI: 0
+  IsCompleteLevel: 0
