@@ -60,7 +60,6 @@ public class BoxSelection : MonoBehaviour
             EventDispatcher.LoadLevelUI);
 
         _btnBack.onClick.AddListener(() => OnBackButtonClicked());
-        UpdatePadding();
     }
 
     private void Update()
@@ -184,6 +183,8 @@ public class BoxSelection : MonoBehaviour
             _boxUIList.Add(_boxUI);
             _boxUI.SetUIBoxComponent();
         }
+
+        UpdatePadding();
     }
 
     private void LoadLevel(BoxData boxData)
