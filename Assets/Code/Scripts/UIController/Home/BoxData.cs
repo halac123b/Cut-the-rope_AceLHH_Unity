@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BoxData", menuName = "Scriptable Objects/BoxData")]
@@ -12,4 +13,5 @@ public class BoxData : ScriptableObject
     //UI List Box
     public Sprite BoxSprite;
     public Sprite BGGameplay;
+    public Sprite CharFrogSprites;
 }

@@ -209,6 +209,9 @@ MonoBehaviour:
   IsPlayAnimation: 0
   LockPart: {fileID: 59324202572554243}
   RequireStarAmount: {fileID: 2737697271260524801}
+  SpritesCharFrog:
+  - {fileID: 665484249, guid: 56fde9423255a413e9e76b728df7d51b, type: 3}
+  - {fileID: 11169815, guid: 56fde9423255a413e9e76b728df7d51b, type: 3}
 --- !u!1 &4120081616123194035
 GameObject:
   m_ObjectHideFlags: 0

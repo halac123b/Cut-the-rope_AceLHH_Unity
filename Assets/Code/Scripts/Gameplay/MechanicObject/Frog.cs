@@ -4,22 +4,18 @@ using System.Collections;
 
 public class Frog : MonoBehaviour
 {
-    [SerializeField] private Animator animator; 
+    [SerializeField] private Animator _animator; 
+    [SerializeField] private SpriteRenderer _frogStandPoint;
     private const float EatAnimDuration = 3.0f; 
     private int _nextLevelValue;
-    
-    // public static event Action<Collider2D> OnCandyCollision;
-    //
-    // private void OnEnable()
-    // {
-    //     OnCandyCollision += HandleFrogCollision;
-    // }
-    //
-    // private void OnDisable()
-    // {
-    //     OnCandyCollision -= HandleFrogCollision;
-    // }
 
+
+    private void Start()
+    {
+        Sprite selectedFrogSprite = UserProfile.Instance.SelectedBoxData.CharFrogSprites;
+        _frogStandPoint.sprite = selectedFrogSprite;
+    }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Candy"))
@@ -34,14 +30,14 @@ public class Frog : MonoBehaviour
     {
         string candyName = candyObj.name;
         
-        if (animator != null)
+        if (_animator != null)
         {
-            animator.SetTrigger("Eat");
+            _animator.SetTrigger("Eat");
         }
         
         yield return new WaitForSeconds(EatAnimDuration);
         
-        animator.ResetTrigger("Eat");
+        _animator.ResetTrigger("Eat");
         
         HandleFrogLogic(candyName);
         
