@@ -48,13 +48,13 @@ MonoBehaviour:
     ExpandProperty: 
   - Id: 8
     Category: 2
-    Position: {x: 0, y: 0, z: -1}
+    Position: {x: 0, y: 0, z: 0}
     ExpandProperty: '{"FirstNailIndex": 0, "SecondNailIndex": 3, "LengthRope": 8}'
   - Id: 9
     Category: 2
-    Position: {x: 0, y: 0, z: -1}
+    Position: {x: 0, y: 0, z: 0}
     ExpandProperty: '{"FirstNailIndex": 1, "SecondNailIndex": 3, "LengthRope": 10}'
   - Id: 10
     Category: 2
-    Position: {x: 0, y: 0, z: -1}
+    Position: {x: 0, y: 0, z: 0}
     ExpandProperty: '{"FirstNailIndex": 2, "SecondNailIndex": 3, "LengthRope": 4}'
