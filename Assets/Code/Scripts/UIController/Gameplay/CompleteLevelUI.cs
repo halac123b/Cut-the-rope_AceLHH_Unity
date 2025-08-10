@@ -63,6 +63,7 @@ public class CompleteLevelUI : MonoBehaviour
 
     private void OnClickNextButton()
     {
+        EventDispatcher.Instance.Dispatch(null, EventDispatcher.OpenLoadingCurtain);
         UIController.Instance.SetUIStatus(false);
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.LoadNextLevel);
     }
