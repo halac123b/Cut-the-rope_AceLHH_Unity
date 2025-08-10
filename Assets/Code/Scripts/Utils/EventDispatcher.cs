@@ -31,6 +31,7 @@ public class EventDispatcher : MonoSingleton<EventDispatcher>
     public static string DisableCompleteUI = "DisableCompleteUI";
     public static string PlayLevelTextAnimation = "PlayLevelTextAnimation";
     public static string DestroyCandy = "DestroyCandy";
+    public static string GetCurrentStar = "GetCurrentStar";
     public static string CloseLoadingCurtain = "CloseLoadingCurtain";
     public static string OpenLoadingCurtain = "OpenLoadingCurtain";
 
