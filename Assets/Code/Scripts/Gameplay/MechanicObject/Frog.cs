@@ -55,6 +55,7 @@ public class Frog : MonoBehaviour
             Debug.Log($"[Frog] Xử lý logic sau khi ăn Candy: {candyName}");
 
             string levelIndex = UserProfile.Instance.SelectedLevelIndex;
+            EventDispatcher.Instance.Dispatch(null, EventDispatcher.CloseLoadingCurtain);
 
             EventDispatcher.Instance.Dispatch(
                 (Action<int>)(currentStars =>

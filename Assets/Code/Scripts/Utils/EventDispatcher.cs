@@ -24,13 +24,15 @@ public class EventDispatcher : MonoSingleton<EventDispatcher>
     public static string UpdateStarNumber =  "UpdateStarNumber";
     public static string RestartLevel = "RestartLevel";
     public static string OnStarIncreased = "OnStarIncreased";
-    public static string OnResetStars = "OnResetStars";
+    public static string OnResetStars = "OnResetStars";  
     public static string OnGetStarsRequest = "OnGetStarsRequest";
     public static string OnIncreaseStar = "OnIncreaseStar";
     public static string LoadNextLevel = "LoadNextLevel";
     public static string DisableCompleteUI = "DisableCompleteUI";
     public static string PlayLevelTextAnimation = "PlayLevelTextAnimation";
     public static string DestroyCandy = "DestroyCandy";
+    public static string CloseLoadingCurtain = "CloseLoadingCurtain";
+    public static string OpenLoadingCurtain = "OpenLoadingCurtain";
 
     public void AddEvent(GameObject gameObject, Action<object> action, string key)
     {

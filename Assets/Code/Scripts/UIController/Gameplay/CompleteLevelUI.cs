@@ -55,6 +55,8 @@ public class CompleteLevelUI : MonoBehaviour
 
     private void OnClickRestartButton()
     {
+        // Debug.Log("OnReplaceButtonClick");
+        EventDispatcher.Instance.Dispatch(null, EventDispatcher.OpenLoadingCurtain);
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.RestartLevel);
         UIController.Instance.SetUIStatus(false);
     }

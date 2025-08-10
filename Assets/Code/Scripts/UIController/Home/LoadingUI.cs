@@ -88,6 +88,55 @@ public class LoadingUI : MonoBehaviour
 
         _boxCutterRect.gameObject.SetActive(false);
     }
+    
+    private void OnEnable()
+    {
+        EventDispatcher.Instance.AddEvent(gameObject, HandleOpenCurtainRequest, EventDispatcher.OpenLoadingCurtain);
+        EventDispatcher.Instance.AddEvent(gameObject, HandleCloseCurtainRequest, EventDispatcher.CloseLoadingCurtain);
+    }
+
+    private void OnDisable()
+    {
+        EventDispatcher.Instance.RemoveEvent(gameObject);
+    }
+
+    private void HandleOpenCurtainRequest(object param)
+    {
+        StartCoroutine(ShowLoadingCurtainCoroutine());
+    }
+                     
+    private void HandleCloseCurtainRequest(object param)
+    {
+        StartCoroutine(CloseLoadingCurtainCoroutine(_durationLoadingCurtain));
+    }
+    
+    private IEnumerator CloseLoadingCurtainCoroutine(float duration)
+    {
+        float leftWidth = _leftPanel.rectTransform.rect.width;
+        float centerX = -_canvasRect.rect.width / 2;
+        
+        _leftPanel.gameObject.SetActive(true);
+        _rightPanel.gameObject.SetActive(true);
+        _tagLeft.gameObject.SetActive(false);
+        _tagRight.gameObject.SetActive(false);
+        Vector2 leftStartPos = new Vector2(-leftWidth, 0);
+        Vector2 rightStartPos = new Vector2(0, 0);
+        
+        Vector2 closedPos = new Vector2(centerX, 0);
+        
+        _leftPanel.rectTransform.anchoredPosition = leftStartPos;
+        _rightPanel.rectTransform.anchoredPosition = rightStartPos;
+        
+        _motionSecond = LMotion.Create(leftStartPos, closedPos, duration)
+            .WithEase(Ease.InOutQuad)
+            .BindToAnchoredPosition(_leftPanel.rectTransform);
+
+        _motionThird = LMotion.Create(rightStartPos, closedPos, duration)
+            .WithEase(Ease.InOutQuad)
+            .BindToAnchoredPosition(_rightPanel.rectTransform);
+        
+        yield return new WaitForSeconds(duration);
+    }
 
     private IEnumerator ShowLoadingCurtainCoroutine()
     {
