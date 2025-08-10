@@ -48,9 +48,7 @@ public class LevelSceneLoader : MonoBehaviour
        // UserProfile.Instance.SetLevel(secondNumber + "_" + nextLvIndex.ToString());
         int seasonIdx = UserProfile.Instance.SeasonIndex;
         bool finalLevel = IsFinalLevel(nextLvIndex);
-
-        Debug.Log($"final level: {finalLevel} - {nextLvIndex}");
-
+        
         if (finalLevel)
         {
             UserProfile.Instance.IsCompleteBox = true;
@@ -73,8 +71,7 @@ public class LevelSceneLoader : MonoBehaviour
     private bool IsFinalLevel(int nextLevel)
     {
         int totalBoxDataLevel = UserProfile.Instance.SelectedBoxData.NumberOfLevels;
-        Debug.Log($"Final level: {totalBoxDataLevel}");
-
+        
         if (nextLevel >= totalBoxDataLevel)
         {
             return true;

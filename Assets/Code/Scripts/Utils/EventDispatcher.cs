@@ -31,6 +31,7 @@ public class EventDispatcher : MonoSingleton<EventDispatcher>
     public static string DisableCompleteUI = "DisableCompleteUI";
     public static string PlayLevelTextAnimation = "PlayLevelTextAnimation";
     public static string DestroyCandy = "DestroyCandy";
+    public static string GetCurrentStar = "GetCurrentStar";
 
     public void AddEvent(GameObject gameObject, Action<object> action, string key)
     {
