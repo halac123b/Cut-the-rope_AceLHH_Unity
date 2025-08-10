@@ -11,12 +11,12 @@ public class Candy : MonoBehaviour
 
     private Rigidbody2D _rb2D;
     private Camera _mainCamera;
-    
+
 
     private void Start()
     {
         _rb2D = GetComponent<Rigidbody2D>();
-        
+        _rb2D.linearDamping = 0.5f;
         _mainCamera = Camera.main;
     }
 
@@ -39,6 +39,7 @@ public class Candy : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+
     private void OnDestroyCandy(object obj)
     {
         if (this == null || gameObject == null)
@@ -48,12 +49,12 @@ public class Candy : MonoBehaviour
 
         StartCoroutine(DelayDeactivate());
     }
-    
+
     private void OnEnable()
     {
         EventDispatcher.Instance.AddEvent(gameObject, OnDestroyCandy, EventDispatcher.DestroyCandy);
     }
-    
+
     private IEnumerator DelayDeactivate()
     {
         yield return null;
@@ -88,7 +89,7 @@ public class Candy : MonoBehaviour
         if (!AttachedRopes.Contains(rope))
             AttachedRopes.Add(rope);
     }
-    
+
     public void DetachRope(Rope rope)
     {
         if (AttachedRopes.Contains(rope))
@@ -107,10 +108,19 @@ public class Candy : MonoBehaviour
         }
     }
 
+    public void SetStaticGravity()
+    {
+        _rb2D.gravityScale = 0f;
+    }
+
     private void AddForceIfTriggerBalloon(float balloonSpeed)
     {
-        _rb2D.gravityScale = -0.25f;
-        _rb2D.AddForce(Vector3.up * balloonSpeed, ForceMode2D.Force);
+        _rb2D.gravityScale = -0.15f;
+        
+        if (_rb2D.linearVelocityY < 0.25f)
+        {
+            _rb2D.AddForce(Vector3.up * balloonSpeed, ForceMode2D.Impulse);
+        }
     }
 
     private void AddForceIfDestroyBalloon()

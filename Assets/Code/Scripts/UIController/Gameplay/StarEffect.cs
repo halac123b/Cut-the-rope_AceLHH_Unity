@@ -17,7 +17,7 @@ public class StarEffect : MonoBehaviour
         if (transform != null)
         {
             _motion = LMotion
-                .Create(transform.position.y, transform.position.y + 0.1f,
+                .Create(transform.position.y, transform.position.y + 0.05f,
                     1.15f) // Animate from 0f to 10f over 2 seconds
                 .WithEase(Ease.OutQuad) // Specify easing function
                 .WithLoops(-1, LoopType.Yoyo) // Specify loop count and type
