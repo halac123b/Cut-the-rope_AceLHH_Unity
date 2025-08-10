@@ -42,7 +42,3 @@ MonoBehaviour:
     Category: 4
     Position: {x: 0, y: -0.85, z: 0}
     ExpandProperty: 
-  - Id: 6
-    Category: 2
-    Position: {x: 0, y: -0.85, z: 0}
-    ExpandProperty: 
