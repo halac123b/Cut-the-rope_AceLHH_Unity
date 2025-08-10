@@ -115,7 +115,7 @@ public class Candy : MonoBehaviour
 
     private void AddForceIfTriggerBalloon(float balloonSpeed)
     {
-        _rb2D.gravityScale = -0.1f;
+        _rb2D.gravityScale = -0.15f;
         
         if (_rb2D.linearVelocityY < 0.25f)
         {

@@ -5,7 +5,7 @@ public class Balloon : MonoBehaviour
 {
     public Camera mainCamera;
 
-    private float _balloonSpeed = 0.05f;
+    private float _balloonSpeed = 2f;
     private bool _isCarryCandy;
 
     private void Start()
@@ -20,20 +20,10 @@ public class Balloon : MonoBehaviour
 
         if (candy != null)
         {
-            candy.SetStaticGravity();
             transform.SetParent(candy.transform);
-            _isCarryCandy = true;
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        Candy candy = collision.GetComponent<Candy>();
-
-        if (candy != null)
-        {
+            transform.localPosition = Vector3.zero;
             candy.SetBalloonState(true, _balloonSpeed);
-            transform.position = candy.transform.position;
+            _isCarryCandy = true;
         }
     }
 
