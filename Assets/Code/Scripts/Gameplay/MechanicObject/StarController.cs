@@ -9,9 +9,12 @@ public class StarController : MonoBehaviour
     [SerializeField] private List<Animator> _stars;
     [SerializeField] private List<Sprite> _starSprites;
 
+    public int CurrentStarsInGameplay => _currentStarsInGameplay;
+
     private void Start()
     {
-        EventDispatcher.Instance.AddEvent(gameObject, _ => EnableStarIndex(_currentStarsInGameplay), EventDispatcher.OnStarIncreased);
+        EventDispatcher.Instance.AddEvent(gameObject, _ => EnableStarIndex(_currentStarsInGameplay),
+            EventDispatcher.OnStarIncreased);
         EventDispatcher.Instance.AddEvent(gameObject, SetStartLevel, EventDispatcher.OnResetStars);
         EventDispatcher.Instance.AddEvent(gameObject, _ => IncreaseStars(), EventDispatcher.OnIncreaseStar);
         EventDispatcher.Instance.AddEvent(gameObject, obj =>
@@ -21,13 +24,19 @@ public class StarController : MonoBehaviour
                 callback.Invoke(_currentStarsInGameplay);
             }
         }, EventDispatcher.OnGetStarsRequest);
+        EventDispatcher.Instance.AddEvent(gameObject, _ => GetCurrentStars(), EventDispatcher.GetCurrentStar);
     }
 
     private void OnDestroy()
     {
         EventDispatcher.Instance.RemoveEvent(gameObject);
     }
-    
+
+    private void GetCurrentStars()
+    {
+        UserProfile.Instance.CurrentStars = _currentStarsInGameplay;
+    }
+
     private void SetStartLevel(object obj)
     {
         _currentStarsInGameplay = 0;
@@ -39,7 +48,7 @@ public class StarController : MonoBehaviour
 
         EventDispatcher.Instance.Dispatch(_currentStarsInGameplay, EventDispatcher.UpdateStarNumber);
     }
-    
+
     private void IncreaseStars()
     {
         if (_currentStarsInGameplay < MAX_STARS)
@@ -62,13 +71,14 @@ public class StarController : MonoBehaviour
             star.SetTrigger("StarIncrease");
         }
     }
+
     private void ResetStarsUI()
     {
         foreach (Animator star in _stars)
         {
             //Reset parameters in Animator
-            star.Rebind();        
-            star.Update(0);       
+            star.Rebind();
+            star.Update(0);
         }
     }
 }

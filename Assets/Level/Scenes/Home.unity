@@ -2310,7 +2310,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 856, y: 1838}
+  m_SizeDelta: {x: 1140, y: 1854.4851}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1354316211
 MonoBehaviour:
@@ -3183,6 +3183,7 @@ MonoBehaviour:
   SelectedBoxData: {fileID: 0}
   SeasonIndex: 0
   IsCompleteBox: 0
+  CurrentStars: 0
 --- !u!1 &1798287020
 GameObject:
   m_ObjectHideFlags: 0

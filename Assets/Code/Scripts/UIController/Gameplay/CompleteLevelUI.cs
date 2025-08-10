@@ -29,10 +29,10 @@ public class CompleteLevelUI : MonoBehaviour
 
     private void UpdateStarCollectLevel()
     {
-        int starCollect = PlayerPrefs.GetInt($"Level_{_levelIndex}_Stars");
-        
-        Debug.Log($"StarCollect: {starCollect}");
+        EventDispatcher.Instance.Dispatch(null , EventDispatcher.GetCurrentStar);
 
+        int starCollect = UserProfile.Instance.CurrentStars;
+        
         for (int i = 0; i < starCollect; i++)
         {
             _starCollect[i].SetActiveStar(true);
@@ -41,6 +41,8 @@ public class CompleteLevelUI : MonoBehaviour
 
     private void ResetUIStarCollect()
     {
+        UserProfile.Instance.CurrentStars = 0;
+        
         for (int i = 0; i < _starCollect.Count; i++)
         {
             _starCollect[i].SetActiveStar(false);

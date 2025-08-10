@@ -11,7 +11,7 @@ public class AutoScaleBackground : MonoBehaviour
         get => _canvas;
         set => _canvas = value;
     }
-
+    
     private void Start()
     {
         if (IsDelayAFrame)
@@ -33,24 +33,23 @@ public class AutoScaleBackground : MonoBehaviour
     private void UpdateBgSize()
     {
         var canvasSize = _canvas.GetComponent<RectTransform>().sizeDelta;
-        var rect = GetComponent<RectTransform>();
+        var rect = transform.GetComponent<RectTransform>();
         Vector2 bgSize = rect.sizeDelta;
-
+        
         float ratio;
 
         if (bgSize.x < canvasSize.x)
         {
             ratio = canvasSize.x / bgSize.x + 0.02f;
-        }
-        else if (bgSize.y < canvasSize.y)
-        {
-            ratio = canvasSize.y / bgSize.y + 0.02f;
-        }
-        else
-        {
+            rect.sizeDelta = new Vector2(bgSize.x * ratio, bgSize.y * ratio);
             return;
         }
 
-        rect.sizeDelta = new Vector2(bgSize.x * ratio, bgSize.y * ratio);
+        if (bgSize.y < canvasSize.y)
+        {
+            ratio = canvasSize.y / bgSize.y + 0.02f;
+            rect.sizeDelta = new Vector2(bgSize.x * ratio, bgSize.y * ratio);
+            return;
+        }
     }
 }

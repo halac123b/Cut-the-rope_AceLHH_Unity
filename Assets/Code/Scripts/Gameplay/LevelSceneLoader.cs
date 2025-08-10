@@ -11,7 +11,7 @@ public class LevelSceneLoader : MonoBehaviour
     [SerializeField] private GameObject _ropePrefab;
     [SerializeField] private GameObject _frogPrefab;
     [SerializeField] private GameObject _starPrefab;
-    [SerializeField] private GameObject _TutorialSignPrefab;
+    [SerializeField] private GameObject _balloonPrefab;
 
     public Transform ParentObject;
     private List<GameObject> _listLoadedObj = new();
@@ -49,9 +49,7 @@ public class LevelSceneLoader : MonoBehaviour
        // UserProfile.Instance.SetLevel(secondNumber + "_" + nextLvIndex.ToString());
         int seasonIdx = UserProfile.Instance.SeasonIndex;
         bool finalLevel = IsFinalLevel(nextLvIndex);
-
-        Debug.Log($"final level: {finalLevel} - {nextLvIndex}");
-
+        
         if (finalLevel)
         {
             UserProfile.Instance.IsCompleteBox = true;
@@ -74,8 +72,7 @@ public class LevelSceneLoader : MonoBehaviour
     private bool IsFinalLevel(int nextLevel)
     {
         int totalBoxDataLevel = UserProfile.Instance.SelectedBoxData.NumberOfLevels;
-        Debug.Log($"Final level: {totalBoxDataLevel}");
-
+        
         if (nextLevel >= totalBoxDataLevel)
         {
             return true;
@@ -130,46 +127,8 @@ public class LevelSceneLoader : MonoBehaviour
             case ObjectCategory.Star:
                 createdObj = Instantiate(_starPrefab, entity.Position, Quaternion.identity);
                 break;
-            case ObjectCategory.TutorialSign:
-                createdObj = Instantiate(_TutorialSignPrefab, entity.Position, Quaternion.identity);
-
-                if (!string.IsNullOrEmpty(entity.ExpandProperty))
-                {
-                    JObject tutorialData = JObject.Parse(entity.ExpandProperty);
-                    
-                    float rotationZ = (float)(tutorialData["Rotation"] ?? 0f);
-                    Transform imagePart = createdObj.transform.Find("ImagePart");
-                    if (imagePart != null)
-                        imagePart.rotation = Quaternion.Euler(0, 0, rotationZ);
-                    
-                    string title = (string)tutorialData["Title"] ?? "";
-                    string spriteName = (string)tutorialData["Sprite"] ?? "";
-
-                    Sprite bodySprite = null;
-                    if (!string.IsNullOrEmpty(spriteName))
-                    {
-                        Sprite[] allSprites = Resources.LoadAll<Sprite>("TutorialSprites/tutorial_signs");
-                        foreach (var s in allSprites)
-                        {
-                            if (s.name == $"tutorial_signs_{spriteName}")
-                            {
-                                bodySprite = s;
-                                if (imagePart != null)
-                                {
-                                    float posX = (float)(tutorialData["SpritePosX"] ?? imagePart.localPosition.x);
-                                    float posY = (float)(tutorialData["SpritePosY"] ?? imagePart.localPosition.y);
-                                    float posZ = (float)(tutorialData["SpritePosZ"] ?? imagePart.localPosition.z);
-                                    imagePart.localPosition = new Vector3(posX, posY, posZ);
-                                }
-                                break;
-                            }
-                        }
-                    }
-
-                    var tutorialSign = createdObj.GetComponent<TutorialSign>();
-                    if (tutorialSign != null)
-                        tutorialSign.SetContent(title, bodySprite);
-                }
+            case ObjectCategory.Balloon:
+                createdObj = Instantiate(_balloonPrefab, entity.Position, Quaternion.identity);
                 break;
             default:
                 Debug.LogError($"Unknown category: {entity.Category}");
@@ -205,6 +164,6 @@ public class LevelSceneLoader : MonoBehaviour
         Rope,
         Frog,
         Star,
-        TutorialSign
+        Balloon
     }
 }

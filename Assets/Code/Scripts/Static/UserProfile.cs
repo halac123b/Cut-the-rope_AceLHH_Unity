@@ -9,6 +9,7 @@ public class UserProfile : MonoBehaviour
     public BoxData SelectedBoxData;
     public int SeasonIndex = -1;
     public bool IsCompleteBox;
+    public int CurrentStars;
 
     private void Awake()
     {

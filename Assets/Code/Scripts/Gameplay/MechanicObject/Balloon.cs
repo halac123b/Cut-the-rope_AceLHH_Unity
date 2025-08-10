@@ -1,46 +1,65 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Balloon : MonoBehaviour
 {
     public Camera mainCamera;
-    
-    private float _balloonSpeed = 13f;
+
+    private float _balloonSpeed = 2f;
+    private bool _isCarryCandy;
 
     private void Start()
     {
         mainCamera = Camera.main;
+        _isCarryCandy = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Candy candy = collision.GetComponent<Candy>();
+
         if (candy != null)
         {
             transform.SetParent(candy.transform);
-            candy.SetBalloonState(true, _balloonSpeed );
+            transform.localPosition = Vector3.zero;
+            candy.SetBalloonState(true, _balloonSpeed);
+            _isCarryCandy = true;
         }
     }
 
-    public void PopBalloon()
+    private void PopBalloon()
     {
         Candy candy = transform.parent.GetComponent<Candy>();
         if (candy == null)
         {
             return;
         }
+
         candy.SetBalloonState(false);
         Destroy(gameObject);
+
+        _isCarryCandy = false;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!_isCarryCandy)
         {
-            Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            return;
+        }
+
+        if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
+        {
+            Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Pointer.current.position.ReadValue());
 
             RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
 
-            if (hit.collider != null && hit.collider.gameObject.CompareTag("Balloon"))
+            if (hit.collider == null)
+            {
+                return;
+            }
+            
+            if (hit.collider.gameObject.CompareTag("Balloon") || hit.collider.gameObject.CompareTag("Candy"))
             {
                 PopBalloon();
             }
