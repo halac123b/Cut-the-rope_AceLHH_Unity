@@ -14,23 +14,25 @@ public class CompleteLevelUI : MonoBehaviour
 
     private string _levelIndex;
     private void OnEnable()
-    {
-        //gameObject.SetActive(false);
-        _nextBtn.onClick.AddListener(OnClickNextButton);
-        _menuBtn.onClick.AddListener(OnClickMenuButton);
-        _replayBtn.onClick.AddListener(OnClickRestartButton);
-        
+    { 
         _levelIndex = UserProfile.Instance.SelectedLevelIndex;
 
         UpdateStarCollectLevel();
     }
 
+    private void Start()
+    {
+        _nextBtn.onClick.AddListener(OnClickNextButton);
+        _menuBtn.onClick.AddListener(OnClickMenuButton);
+        _replayBtn.onClick.AddListener(OnClickRestartButton);
+    }
+
     private void UpdateStarCollectLevel()
     {
-        int starCollect = PlayerPrefs.GetInt($"Level_{_levelIndex}_Stars");
-        
-        Debug.Log($"StarCollect: {starCollect}");
+        EventDispatcher.Instance.Dispatch(null , EventDispatcher.GetCurrentStar);
 
+        int starCollect = UserProfile.Instance.CurrentStars;
+        
         for (int i = 0; i < starCollect; i++)
         {
             _starCollect[i].SetActiveStar(true);
@@ -39,6 +41,8 @@ public class CompleteLevelUI : MonoBehaviour
 
     private void ResetUIStarCollect()
     {
+        UserProfile.Instance.CurrentStars = 0;
+        
         for (int i = 0; i < _starCollect.Count; i++)
         {
             _starCollect[i].SetActiveStar(false);
@@ -47,16 +51,21 @@ public class CompleteLevelUI : MonoBehaviour
 
     private void OnClickMenuButton()
     {
+        UIController.Instance.SetUIStatus(false);
         SceneManager.LoadScene("Home");
     }
 
     private void OnClickRestartButton()
     {
+        // Debug.Log("OnReplaceButtonClick");
+        EventDispatcher.Instance.Dispatch(null, EventDispatcher.OpenLoadingCurtain);
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.RestartLevel);
+        UIController.Instance.SetUIStatus(false);
     }
 
     private void OnClickNextButton()
     {
+        UIController.Instance.SetUIStatus(false);
         EventDispatcher.Instance.Dispatch(null, EventDispatcher.LoadNextLevel);
     }
 

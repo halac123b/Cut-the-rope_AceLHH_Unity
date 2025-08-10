@@ -8,10 +8,8 @@ public class UserProfile : MonoBehaviour
     public string SelectedLevelIndex;
     public BoxData SelectedBoxData;
     public int SeasonIndex = -1;
-
-    public int AllStarsCollect;
-
     public bool IsCompleteBox;
+    public int CurrentStars;
 
     private void Awake()
     {

@@ -1,32 +1,58 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using LitMotion;
 using LitMotion.Extensions;
+using UnityEngine.UI;
 
 public class LoadingUI : MonoBehaviour
 {
-    [Header("Loading UI")] [SerializeField]
-    private RectTransform _leftPanel;
-
-    [SerializeField] private RectTransform _rightPanel;
-    [SerializeField] private RectTransform _cutterKnifeImage;
+    [Header("Loading UI")] 
+    [SerializeField] private Image _leftPanel;
+    [SerializeField] private Image _rightPanel;
+    [SerializeField] private RectTransform _boxCutterRect;
     [SerializeField] private RectTransform _canvasRect;
     [SerializeField] private RectTransform _tagLeft;
     [SerializeField] private RectTransform _tagRight;
+    
     // [SerializeField] private RectTransform _tagCuterByKnifeLeft;
     // [SerializeField] private RectTransform _tagCuterByKnifeRight;
 
-    //Time 
-    private float _durationScissorsAmim = 1.2f;
-    private float _scissorsImageOffsetX = -519.2f;
+    //Time animation
+    private float _boxCutterAnimDuration = 1.2f;
+    private float _boxCutterOffsetX = -519.2f;
     private float _durationLoadingCurtain = 0.75f;
+    
+    private MotionHandle _motionFirst, _motionSecond, _motionThird;
+    private Coroutine _coroutine;
 
     private void Start()
     {
-        _leftPanel.anchoredPosition = Vector2.zero;
-        _rightPanel.anchoredPosition = Vector2.zero;
-        //InitCuterTagOffsets();
-        StartCoroutine(StartLoadingSequence());
+        InitLoadingUI();
+    }
+
+    private void InitLoadingUI()
+    {
+        _leftPanel.gameObject.SetActive(true);
+        _rightPanel.gameObject.SetActive(true);
+        _boxCutterRect.gameObject.SetActive(true);
+
+        float width = _canvasRect.rect.width;
+
+        _leftPanel.sprite = UserProfile.Instance.SelectedBoxData.BoxBGSprite;
+        _rightPanel.sprite = UserProfile.Instance.SelectedBoxData.BoxBGSprite;
+
+        // Set size
+        _leftPanel.rectTransform.sizeDelta = new Vector2(width, _leftPanel.rectTransform.sizeDelta.y);
+        _rightPanel.rectTransform.sizeDelta = new Vector2(width, _rightPanel.rectTransform.sizeDelta.y);
+
+        // Set anchored position
+        _leftPanel.rectTransform.anchoredPosition = new Vector2(-width / 2, 0);
+        _rightPanel.rectTransform.anchoredPosition = new Vector2(-width / 2, 0);
+
+        //Debug.Log("Width screen is: " + width);
+
+        _coroutine =  StartCoroutine(StartLoadingSequence());
     }
 
     // private void InitCuterTagOffsets()
@@ -43,29 +69,79 @@ public class LoadingUI : MonoBehaviour
 
     private IEnumerator PlayCutAnimation()
     {
-        _cutterKnifeImage.gameObject.SetActive(true);
+        _boxCutterRect.gameObject.SetActive(true);
 
         float canvasHeight = _canvasRect.rect.height;
-        float scissorsHeight = _cutterKnifeImage.rect.height;
+        float scissorsHeight = _boxCutterRect.rect.height;
 
         float startY = +scissorsHeight / 2;
         float endY = canvasHeight + scissorsHeight / 2;
 
-        _cutterKnifeImage.anchoredPosition = new Vector2(_scissorsImageOffsetX, startY);
+        _boxCutterRect.anchoredPosition = new Vector2(_boxCutterOffsetX, startY);
 
-        LMotion.Create(_cutterKnifeImage.anchoredPosition, new Vector2(_scissorsImageOffsetX, endY), _durationScissorsAmim)
+        _motionFirst = LMotion.Create(_boxCutterRect.anchoredPosition, new Vector2(_boxCutterOffsetX, endY),
+                _boxCutterAnimDuration)
             .WithEase(Ease.InOutSine)
-            .BindToAnchoredPosition(_cutterKnifeImage);
+            .BindToAnchoredPosition(_boxCutterRect);
 
-        yield return new WaitForSeconds(_durationScissorsAmim);
+        yield return new WaitForSeconds(_boxCutterAnimDuration);
 
-        _cutterKnifeImage.gameObject.SetActive(false);
+        _boxCutterRect.gameObject.SetActive(false);
     }
     
+    private void OnEnable()
+    {
+        EventDispatcher.Instance.AddEvent(gameObject, HandleOpenCurtainRequest, EventDispatcher.OpenLoadingCurtain);
+        EventDispatcher.Instance.AddEvent(gameObject, HandleCloseCurtainRequest, EventDispatcher.CloseLoadingCurtain);
+    }
+
+    private void OnDisable()
+    {
+        EventDispatcher.Instance.RemoveEvent(gameObject);
+    }
+
+    private void HandleOpenCurtainRequest(object param)
+    {
+        StartCoroutine(ShowLoadingCurtainCoroutine());
+    }
+                     
+    private void HandleCloseCurtainRequest(object param)
+    {
+        StartCoroutine(CloseLoadingCurtainCoroutine(_durationLoadingCurtain));
+    }
+    
+    private IEnumerator CloseLoadingCurtainCoroutine(float duration)
+    {
+        float leftWidth = _leftPanel.rectTransform.rect.width;
+        float centerX = -_canvasRect.rect.width / 2;
+        
+        _leftPanel.gameObject.SetActive(true);
+        _rightPanel.gameObject.SetActive(true);
+        _tagLeft.gameObject.SetActive(false);
+        _tagRight.gameObject.SetActive(false);
+        Vector2 leftStartPos = new Vector2(-leftWidth, 0);
+        Vector2 rightStartPos = new Vector2(0, 0);
+        
+        Vector2 closedPos = new Vector2(centerX, 0);
+        
+        _leftPanel.rectTransform.anchoredPosition = leftStartPos;
+        _rightPanel.rectTransform.anchoredPosition = rightStartPos;
+        
+        _motionSecond = LMotion.Create(leftStartPos, closedPos, duration)
+            .WithEase(Ease.InOutQuad)
+            .BindToAnchoredPosition(_leftPanel.rectTransform);
+
+        _motionThird = LMotion.Create(rightStartPos, closedPos, duration)
+            .WithEase(Ease.InOutQuad)
+            .BindToAnchoredPosition(_rightPanel.rectTransform);
+        
+        yield return new WaitForSeconds(duration);
+    }
+
     private IEnumerator ShowLoadingCurtainCoroutine()
     {
-        float leftWidth = _leftPanel.rect.width;
-        float rightWidth = _rightPanel.rect.width;
+        float leftWidth = _leftPanel.rectTransform.rect.width;
+        float rightWidth = _rightPanel.rectTransform.rect.width;
 
         _leftPanel.gameObject.SetActive(true);
         _rightPanel.gameObject.SetActive(true);
@@ -74,13 +150,14 @@ public class LoadingUI : MonoBehaviour
         //StartCoroutine(ShrinkHorizontalTagsCoroutine(_durationLoadingCurtain));
 
         // Animate slide panels
-        LMotion.Create(_leftPanel.anchoredPosition, new Vector2(-leftWidth, 0), _durationLoadingCurtain)
+        _motionSecond = LMotion.Create(_leftPanel.rectTransform.anchoredPosition, new Vector2(-leftWidth, 0), _durationLoadingCurtain)
             .WithEase(Ease.InOutQuad)
-            .BindToAnchoredPosition(_leftPanel);
+            .BindToAnchoredPosition(_leftPanel.rectTransform);
 
-        LMotion.Create(_rightPanel.anchoredPosition, new Vector2(rightWidth, 0), _durationLoadingCurtain)
+        _motionThird = LMotion.Create(_rightPanel.rectTransform.anchoredPosition, new Vector2(rightWidth, 0),
+                _durationLoadingCurtain * 2)
             .WithEase(Ease.InOutQuad)
-            .BindToAnchoredPosition(_rightPanel);
+            .BindToAnchoredPosition(_rightPanel.rectTransform);
 
         yield return new WaitForSeconds(_durationLoadingCurtain);
 
@@ -149,5 +226,23 @@ public class LoadingUI : MonoBehaviour
 
         _tagRight.offsetMin = new Vector2(rightStartMin.x, 0);
         _tagRight.offsetMax = new Vector2(rightStartMax.x, 0);
+    }
+
+    private void OnDestroy()
+    {
+        CancelMotion(_motionFirst);
+        CancelMotion(_motionSecond);
+        CancelMotion(_motionThird);
+        
+        StopCoroutine(_coroutine);
+        _coroutine = null;
+    }
+    
+    private void CancelMotion(MotionHandle motion)
+    {
+        if (motion != null && motion.IsPlaying())
+        {
+            motion.Cancel();
+        }
     }
 }

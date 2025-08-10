@@ -58,11 +58,13 @@ public class BoxUIComponent : MonoBehaviour
             
             IsPlayAnimation = true;
 
-            _motionFirstScale = LSequence.Create().Append(LMotion.Create(1f, 0.85f, 0.15f).BindToLocalScaleX(transform))
+            _motionFirstScale = LSequence.Create().Append(LMotion.Create(1f, 0.85f, 0.15f)
+                    .BindToLocalScaleX(transform))
                 .Join(LMotion.Create(1f, 1.1f, 0.15f).BindToLocalScaleY(transform))
                 .Append(LMotion.Create(0.85f, 1.08f, 0.3f).BindToLocalScaleX(transform))
                 .Join(LMotion.Create(1.1f, 1f, 0.3f).BindToLocalScaleY(transform))
-                .Append(LMotion.Create(1.08f, 1f, 0.2f).BindToLocalScaleX(transform)).Run();
+                .Append(LMotion.Create(1.08f, 1f, 0.2f).BindToLocalScaleX(transform))
+                .Run();
         }
     }
 
