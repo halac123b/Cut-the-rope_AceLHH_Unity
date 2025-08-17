@@ -16,7 +16,7 @@ public class LevelSceneLoader : MonoBehaviour
     
     public Transform ParentObject;
     private List<GameObject> _listLoadedObj = new();
-
+    private static Dictionary<string, Sprite> _spriteCache;
     private void Start()
     {
         LoadLevelData(UserProfile.Instance.SelectedLevelIndex);
@@ -149,21 +149,25 @@ public class LevelSceneLoader : MonoBehaviour
                     Sprite bodySprite = null;
                     if (!string.IsNullOrEmpty(spriteName))
                     {
-                        Sprite[] allSprites = Resources.LoadAll<Sprite>("TutorialSprites/tutorial_signs");
-                        foreach (var s in allSprites)
+                        if (_spriteCache == null)
                         {
-                            if (s.name == $"tutorial_signs_{spriteName}")
-                            {
-                                bodySprite = s;
-                                if (imagePart != null)
-                                {
-                                    float posX = (float)(tutorialData["SpritePosX"] ?? imagePart.localPosition.x);
-                                    float posY = (float)(tutorialData["SpritePosY"] ?? imagePart.localPosition.y);
-                                    float posZ = (float)(tutorialData["SpritePosZ"] ?? imagePart.localPosition.z);
-                                    imagePart.localPosition = new Vector3(posX, posY, posZ);
-                                }
-                                break;
-                            }
+                            _spriteCache = new Dictionary<string, Sprite>();
+                            var allSprites = Resources.LoadAll<Sprite>("TutorialSprites/tutorial_signs");
+                            foreach (var s in allSprites)
+                                _spriteCache[s.name] = s;
+                        }
+
+                        _spriteCache.TryGetValue($"tutorial_signs_{spriteName}", out bodySprite);
+
+                        if (bodySprite == null)
+                            Debug.LogWarning($"Sprite not found: tutorial_signs_{spriteName}");
+
+                        if (bodySprite != null && imagePart != null)
+                        {
+                            float posX = (float)(tutorialData["SpritePosX"] ?? imagePart.localPosition.x);
+                            float posY = (float)(tutorialData["SpritePosY"] ?? imagePart.localPosition.y);
+                            float posZ = (float)(tutorialData["SpritePosZ"] ?? imagePart.localPosition.z);
+                            imagePart.localPosition = new Vector3(posX, posY, posZ);
                         }
                     }
 
