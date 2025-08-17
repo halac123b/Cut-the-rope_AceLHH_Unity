@@ -1,26 +1,24 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using System.Collections;
+using LitMotion;
 
 public class TutorialSign : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro titleText;
-    [SerializeField] private SpriteRenderer bodySpriteRenderer;
+    [SerializeField] private TextMeshPro _titleText;
+    [SerializeField] private SpriteRenderer _bodySpriteRenderer;
+    public SpriteRenderer IconTutorialSign => _bodySpriteRenderer;
     private float _fadeDuration = 1f;
     private float _showTime = 5f;
     private float _startWithDelay = 1.95f;
 
     public void SetContent(string title, Sprite bodySprite)
     {
-        if (titleText)
-        {
-            titleText.text = title;
-        }
+        if (_titleText)
+            _titleText.text = title;
 
-        if (bodySpriteRenderer)
-        {
-            bodySpriteRenderer.sprite = bodySprite;
-        }
+        if (_bodySpriteRenderer)
+            _bodySpriteRenderer.sprite = bodySprite;
 
         SetAlpha(0);
         StartCoroutine(StartWithDelay());
@@ -34,36 +32,30 @@ public class TutorialSign : MonoBehaviour
 
     private IEnumerator Fade()
     {
-        this.gameObject.SetActive(true);
-        yield return LerpAlpha(0, 1, _fadeDuration); // Fade in
-        yield return new WaitForSeconds(_showTime); // Wait
-        yield return LerpAlpha(1, 0, _fadeDuration); // Fade out
+        gameObject.SetActive(true);
+
+        // fade in
+        yield return LMotion.Create(0f, 1f, _fadeDuration)
+            .Bind(SetAlpha)
+            .ToYieldInstruction();
+
+        // wait
+        yield return new WaitForSeconds(_showTime);
+
+        // fade out
+        yield return LMotion.Create(1f, 0f, _fadeDuration)
+            .Bind(SetAlpha)
+            .ToYieldInstruction();
+
         Destroy(gameObject);
-    }
-
-    private IEnumerator LerpAlpha(float a, float b, float t)
-    {
-        for (float time = 0; time < t; time += Time.deltaTime)
-        {
-            float alpha = Mathf.Lerp(a, b, time / t);
-            SetAlpha(alpha);
-            yield return null;
-        }
-
-        SetAlpha(b);
     }
 
     private void SetAlpha(float a)
     {
-        if (titleText)
-        {
-            titleText.color = new Color(titleText.color.r, titleText.color.g, titleText.color.b, a);
-        }
+        if (_titleText)
+            _titleText.color = new Color(_titleText.color.r, _titleText.color.g, _titleText.color.b, a);
 
-        if (bodySpriteRenderer)
-        {
-            bodySpriteRenderer.color = new Color(bodySpriteRenderer.color.r, bodySpriteRenderer.color.g,
-                bodySpriteRenderer.color.b, a);
-        }
+        if (_bodySpriteRenderer)
+            _bodySpriteRenderer.color = new Color(_bodySpriteRenderer.color.r, _bodySpriteRenderer.color.g, _bodySpriteRenderer.color.b, a);
     }
 }
