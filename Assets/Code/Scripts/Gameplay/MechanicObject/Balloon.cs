@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 public class Balloon : MonoBehaviour
 {
     public Camera mainCamera;
-
+    public Animator Animator;
+    
     private float _balloonSpeed = 2f;
     private bool _isCarryCandy;
 
@@ -23,6 +24,7 @@ public class Balloon : MonoBehaviour
             transform.SetParent(candy.transform);
             transform.localPosition = Vector3.zero;
             candy.SetBalloonState(true, _balloonSpeed);
+            Animator.SetTrigger("candy");
             _isCarryCandy = true;
         }
     }
@@ -30,15 +32,21 @@ public class Balloon : MonoBehaviour
     private void PopBalloon()
     {
         Candy candy = transform.parent.GetComponent<Candy>();
+        
         if (candy == null)
         {
             return;
         }
 
         candy.SetBalloonState(false);
-        Destroy(gameObject);
-
         _isCarryCandy = false;
+        
+        Animator.SetTrigger("pop");
+    }
+
+    private void DestroyBalloon()
+    {
+        Destroy(this.gameObject);
     }
 
     private void Update()
@@ -58,7 +66,7 @@ public class Balloon : MonoBehaviour
             {
                 return;
             }
-            
+
             if (hit.collider.gameObject.CompareTag("Balloon") || hit.collider.gameObject.CompareTag("Candy"))
             {
                 PopBalloon();
