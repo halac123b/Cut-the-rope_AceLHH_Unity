@@ -4,9 +4,9 @@ using System.Collections;
 
 public class Frog : MonoBehaviour
 {
-    [SerializeField] private Animator _animator; 
+    [SerializeField] private Animator _animator;
     [SerializeField] private SpriteRenderer _frogStandPoint;
-    private const float EatAnimDuration = 3.0f; 
+    private const float EatAnimDuration = 3.0f;
     private int _nextLevelValue;
 
 
@@ -14,8 +14,10 @@ public class Frog : MonoBehaviour
     {
         Sprite selectedFrogSprite = UserProfile.Instance.SelectedBoxData.CharFrogSprites;
         _frogStandPoint.sprite = selectedFrogSprite;
+        
+        EventDispatcher.Instance.AddEvent(gameObject, _ => PlayAnimationLevelFail(), EventDispatcher.LevelFail);
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Candy"))
@@ -25,29 +27,39 @@ public class Frog : MonoBehaviour
             StartCoroutine(HandleCandyCollisionFlow(collision.gameObject));
         }
     }
-    
+
+    private void PlayAnimationLevelFail()
+    {
+        _animator.Play("Sad");
+    }
+
+    private void LevelFailHandle()
+    {
+        EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.RestartLevel);
+    }
+
     private IEnumerator HandleCandyCollisionFlow(GameObject candyObj)
     {
         string candyName = candyObj.name;
-        
+
         if (_animator != null)
         {
             _animator.SetTrigger("Eat");
         }
-        
+
         yield return new WaitForSeconds(EatAnimDuration);
-        
+
         _animator.ResetTrigger("Eat");
-        
+
         HandleFrogLogic(candyName);
-        
+
         if (candyObj != null)
         {
             Destroy(candyObj);
             Debug.Log($"[Frog] Candy {candyName} đã bị destroy.");
         }
     }
-    
+
     private void HandleFrogLogic(string candyName)
     {
         try
@@ -92,7 +104,7 @@ public class Frog : MonoBehaviour
             Debug.LogError($"[Frog] Lỗi xử lý Candy {candyName}: {ex.Message}");
         }
     }
-    
+
     private string GetNextLevelIndex(string currentLevelIndex)
     {
         string[] parts = currentLevelIndex.Split('_');
@@ -106,5 +118,10 @@ public class Frog : MonoBehaviour
         }
 
         return currentLevelIndex;
+    }
+
+    private void OnDestroy()
+    {
+        EventDispatcher.Instance.RemoveEvent(gameObject);
     }
 }

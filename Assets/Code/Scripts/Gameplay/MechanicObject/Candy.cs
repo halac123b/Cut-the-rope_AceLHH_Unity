@@ -28,7 +28,8 @@ public class Candy : MonoBehaviour
 
         if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1 && AttachedRopes.Count <= 0)
         {
-            EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.RestartLevel);
+            EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
+            return;
         }
     }
 

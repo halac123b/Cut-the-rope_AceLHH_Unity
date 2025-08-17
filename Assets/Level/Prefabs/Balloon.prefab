@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3823695240282853973}
   - component: {fileID: 2543603118288643389}
   m_Layer: 0
-  m_Name: BalloonBG
+  m_Name: Balloon
   m_TagString: Balloon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,8 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11488718ced1493d83234dda561d260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
-  Animator: {fileID: 609849214729973159}
+  _animator: {fileID: 609849214729973159}
 --- !u!95 &609849214729973159
 Animator:
   serializedVersion: 7
