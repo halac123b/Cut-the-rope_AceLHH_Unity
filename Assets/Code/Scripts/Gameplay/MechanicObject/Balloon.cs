@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class Balloon : MonoBehaviour
 {
-    public Camera mainCamera;
-    public Animator Animator;
+    [FormerlySerializedAs("Animator")] [SerializeField] private Animator _animator;
+    private Camera mainCamera;
     
     private float _balloonSpeed = 2f;
     private bool _isCarryCandy;
@@ -24,7 +25,7 @@ public class Balloon : MonoBehaviour
             transform.SetParent(candy.transform);
             transform.localPosition = Vector3.zero;
             candy.SetBalloonState(true, _balloonSpeed);
-            Animator.SetTrigger("candy");
+            _animator.SetTrigger("candy");
             _isCarryCandy = true;
         }
     }
@@ -41,7 +42,7 @@ public class Balloon : MonoBehaviour
         candy.SetBalloonState(false);
         _isCarryCandy = false;
         
-        Animator.SetTrigger("pop");
+        _animator.SetTrigger("pop");
     }
 
     private void DestroyBalloon()

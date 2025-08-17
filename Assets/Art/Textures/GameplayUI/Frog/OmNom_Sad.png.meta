@@ -259,9 +259,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 174
-        y: 186
+        y: 188
         width: 85
-        height: 81
+        height: 79
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,7 +346,7 @@ TextureImporter:
       name: OmNom_Sad_11
       rect:
         serializedVersion: 2
-        x: 4
+        x: 0
         y: 13
         width: 82
         height: 86
@@ -371,7 +371,7 @@ TextureImporter:
         x: 90
         y: 2
         width: 84
-        height: 81
+        height: 80
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -391,9 +391,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 176
-        y: 18
+        y: 19
         width: 86
-        height: 83
+        height: 82
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
