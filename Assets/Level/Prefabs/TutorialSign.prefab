@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751e13e29fb874322bcc3da78a7515b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleText: {fileID: 5408368389293626077}
-  bodySpriteRenderer: {fileID: 3843406388445994023}
+  _titleText: {fileID: 5408368389293626077}
+  _bodySpriteRenderer: {fileID: 3843406388445994023}
 --- !u!1 &8114397465421955957
 GameObject:
   m_ObjectHideFlags: 0
