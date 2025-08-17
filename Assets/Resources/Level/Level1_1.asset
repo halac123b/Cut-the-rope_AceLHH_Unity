@@ -24,7 +24,7 @@ MonoBehaviour:
     ExpandProperty: 
   - Id: 2
     Category: 2
-    Position: {x: 0, y: 0, z: -1}
+    Position: {x: 0, y: 0, z: 0}
     ExpandProperty: '{"FirstNailIndex": 0, "SecondNailIndex": 1, "LengthRope": 5}'
   - Id: 3
     Category: 3

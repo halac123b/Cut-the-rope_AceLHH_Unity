@@ -16,7 +16,6 @@ public class Candy : MonoBehaviour
     private void Start()
     {
         _rb2D = GetComponent<Rigidbody2D>();
-        _rb2D.linearDamping = 0.5f;
         _mainCamera = Camera.main;
     }
 
