@@ -139,9 +139,9 @@ public class LevelSceneLoader : MonoBehaviour
                     JObject tutorialData = JObject.Parse(entity.ExpandProperty);
                     
                     float rotationZ = (float)(tutorialData["Rotation"] ?? 0f);
-                    Transform imagePart = createdObj.transform.Find("ImagePart");
+                    Transform imagePart = createdObj.transform.Find("Icon");
                     if (imagePart != null)
-                        imagePart.rotation = Quaternion.Euler(0, 0, rotationZ);
+                        imagePart.localRotation = Quaternion.Euler(0, 0, rotationZ);
                     
                     string title = (string)tutorialData["Title"] ?? "";
                     string spriteName = (string)tutorialData["Sprite"] ?? "";
