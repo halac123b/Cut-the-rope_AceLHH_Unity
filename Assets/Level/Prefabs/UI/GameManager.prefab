@@ -51,6 +51,7 @@ MonoBehaviour:
   _frogPrefab: {fileID: 7545011936986348594, guid: a68bee4623cff47b5a49077ccef93e62, type: 3}
   _starPrefab: {fileID: 2329482212126349978, guid: 391184aa1d480448a93178fa90f6e840, type: 3}
   _balloonPrefab: {fileID: 943537111812984756, guid: 31df2cf11cacc4dd8ac35a74ddfe1f0a, type: 3}
+  _tutorialSignPrefab: {fileID: 7222669854370089271, guid: d01454aa17e9643eba1780c8ad092b5d, type: 3}
   ParentObject: {fileID: 0}
 --- !u!114 &5418413971977170908
 MonoBehaviour:

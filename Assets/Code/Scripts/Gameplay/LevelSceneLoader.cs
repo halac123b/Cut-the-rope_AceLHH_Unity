@@ -12,9 +12,11 @@ public class LevelSceneLoader : MonoBehaviour
     [SerializeField] private GameObject _frogPrefab;
     [SerializeField] private GameObject _starPrefab;
     [SerializeField] private GameObject _balloonPrefab;
-
+    [SerializeField] private GameObject _tutorialSignPrefab;
+    
     public Transform ParentObject;
     private List<GameObject> _listLoadedObj = new();
+    private static Dictionary<string, Sprite> _spriteCache;
 
     private void Start()
     {
@@ -130,6 +132,54 @@ public class LevelSceneLoader : MonoBehaviour
             case ObjectCategory.Balloon:
                 createdObj = Instantiate(_balloonPrefab, entity.Position, Quaternion.identity);
                 break;
+            case ObjectCategory.TutorialSign:
+                createdObj = Instantiate(_tutorialSignPrefab, entity.Position, Quaternion.identity);
+
+                if (!string.IsNullOrEmpty(entity.ExpandProperty))
+                {
+                    JObject tutorialData = JObject.Parse(entity.ExpandProperty);
+                    
+                    string title = (string)tutorialData["Title"] ?? "";
+                    string spriteName = (string)tutorialData["Sprite"] ?? "";
+
+                    TutorialSign tutorialSign = createdObj.GetComponent<TutorialSign>();
+                    if (tutorialSign != null)
+                    {
+                        float rotationZ = (float)(tutorialData["Rotation"] ?? 0f);
+                        tutorialSign.IconTutorialSign.transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
+                        
+                        Sprite bodySprite = null;
+                        if (!string.IsNullOrEmpty(spriteName))
+                        {
+                            Sprite[] allSprites = Resources.LoadAll<Sprite>("TutorialSprites/tutorial_signs");
+                            foreach (Sprite sprite in allSprites)
+                            {
+                                if (sprite.name == $"tutorial_signs_{spriteName}")
+                                {
+                                    bodySprite = sprite;
+                                    break;
+                                }
+                            }
+
+                            if (bodySprite == null)
+                            {
+                                Debug.LogWarning($"Sprite not found: tutorial_signs_{spriteName}");
+                            }
+                            else
+                            {
+                                Transform iconTransform = tutorialSign.IconTutorialSign.transform;
+
+                                float posX = (float)(tutorialData["SpritePosX"] ?? iconTransform.localPosition.x);
+                                float posY = (float)(tutorialData["SpritePosY"] ?? iconTransform.localPosition.y);
+                                float posZ = (float)(tutorialData["SpritePosZ"] ?? iconTransform.localPosition.z);
+                                iconTransform.localPosition = new Vector3(posX, posY, posZ);
+                            }
+                        }
+
+                        tutorialSign.SetContent(title, bodySprite);
+                    }
+                }
+                break;
             default:
                 Debug.LogError($"Unknown category: {entity.Category}");
                 break;
@@ -164,6 +214,7 @@ public class LevelSceneLoader : MonoBehaviour
         Rope,
         Frog,
         Star,
-        Balloon
+        Balloon,
+        TutorialSign
     }
 }
