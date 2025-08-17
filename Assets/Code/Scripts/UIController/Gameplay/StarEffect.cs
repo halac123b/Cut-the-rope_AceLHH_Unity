@@ -1,10 +1,12 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using LitMotion;
 using LitMotion.Extensions;
 
 public class StarEffect : MonoBehaviour
 {
+    [SerializeField] private Animator _animator;
     private MotionHandle _motion;
 
     private void Start()
@@ -24,6 +26,16 @@ public class StarEffect : MonoBehaviour
                 .WithDelay(0.2f) // Set delay
                 .BindToPositionY(transform);
         }
+    }
+
+    public void PlayDisappearAnimation()
+    {
+        _animator.SetTrigger("collect");
+    }
+
+    private void DestroyStar()
+    {
+       Destroy(gameObject);
     }
 
     private void OnDestroy()
