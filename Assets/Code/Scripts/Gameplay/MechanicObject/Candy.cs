@@ -31,11 +31,12 @@ public class Candy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        StarEffect starEffect = collision.GetComponent<StarEffect>();
         if (collision.CompareTag("Star"))
         {
             Debug.Log($"[Candy] Candy va chạm với Star Object: {collision.name}");
             EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnIncreaseStar);
-            Destroy(collision.gameObject);
+            starEffect.PlayDisappearAnimation();
         }
     }
 
