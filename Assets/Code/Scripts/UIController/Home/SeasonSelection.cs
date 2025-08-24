@@ -24,7 +24,7 @@ public class SeasonSelection : MonoBehaviour
     {
         UserProfile.Instance.SeasonIndex = index;
         
-        Transition.Instance.Appear(() =>
+        Transition.Instance.Appear(Color.black, () =>
         {
             gameObject.SetActive(false);
             _boxMapPanel.SetActive(true);
@@ -33,7 +33,7 @@ public class SeasonSelection : MonoBehaviour
 
     private void OnBackButtonClicked()
     {
-        Transition.Instance.Appear(() =>
+        Transition.Instance.Appear(Color.black, () =>
         {
             gameObject.SetActive(false);
             _introScreen.SetActive(true);

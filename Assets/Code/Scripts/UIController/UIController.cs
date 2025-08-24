@@ -67,7 +67,10 @@ public class UIController :MonoBehaviour
     private void OnReplaceButtonClick()
     {
         SetUIStatus(false);
-        EventDispatcher.Instance.Dispatch(null, EventDispatcher.RestartLevel);
+        Transition.Instance.Appear(Color.white, () =>
+        {
+            EventDispatcher.Instance.Dispatch(null, EventDispatcher.RestartLevel);
+        }, 0.15f);
     }
 
     private void OnApplicationFocus(bool hasFocus)

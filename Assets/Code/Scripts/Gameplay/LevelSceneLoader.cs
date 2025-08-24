@@ -13,7 +13,7 @@ public class LevelSceneLoader : MonoBehaviour
     [SerializeField] private GameObject _starPrefab;
     [SerializeField] private GameObject _balloonPrefab;
     [SerializeField] private GameObject _tutorialSignPrefab;
-    
+
     public Transform ParentObject;
     private List<GameObject> _listLoadedObj = new();
     private static Dictionary<string, Sprite> _spriteCache;
@@ -48,10 +48,10 @@ public class LevelSceneLoader : MonoBehaviour
         int secondNumber = int.Parse(parts[1]); // "1"
         int nextLvIndex = secondNumber + 1; //1+1 = 2
 
-       // UserProfile.Instance.SetLevel(secondNumber + "_" + nextLvIndex.ToString());
+        // UserProfile.Instance.SetLevel(secondNumber + "_" + nextLvIndex.ToString());
         int seasonIdx = UserProfile.Instance.SeasonIndex;
         bool finalLevel = IsFinalLevel(nextLvIndex);
-        
+
         if (finalLevel)
         {
             UserProfile.Instance.IsCompleteBox = true;
@@ -74,7 +74,7 @@ public class LevelSceneLoader : MonoBehaviour
     private bool IsFinalLevel(int nextLevel)
     {
         int totalBoxDataLevel = UserProfile.Instance.SelectedBoxData.NumberOfLevels;
-        
+
         if (nextLevel >= totalBoxDataLevel)
         {
             return true;
@@ -138,7 +138,7 @@ public class LevelSceneLoader : MonoBehaviour
                 if (!string.IsNullOrEmpty(entity.ExpandProperty))
                 {
                     JObject tutorialData = JObject.Parse(entity.ExpandProperty);
-                    
+
                     string title = (string)tutorialData["Title"] ?? "";
                     string spriteName = (string)tutorialData["Sprite"] ?? "";
 
@@ -147,7 +147,7 @@ public class LevelSceneLoader : MonoBehaviour
                     {
                         float rotationZ = (float)(tutorialData["Rotation"] ?? 0f);
                         tutorialSign.IconTutorialSign.transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
-                        
+
                         Sprite bodySprite = null;
                         if (!string.IsNullOrEmpty(spriteName))
                         {
@@ -179,6 +179,7 @@ public class LevelSceneLoader : MonoBehaviour
                         tutorialSign.SetContent(title, bodySprite);
                     }
                 }
+
                 break;
             default:
                 Debug.LogError($"Unknown category: {entity.Category}");
