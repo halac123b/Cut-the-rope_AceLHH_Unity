@@ -9,6 +9,7 @@ TagManager:
   - Star
   - Frog
   - Frog Eating Ready Zone
+  - Balloon
   layers:
   - Default
   - TransparentFX
@@ -45,6 +46,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Candy
+    uniqueID: 635432977
     locked: 0
   m_RenderingLayers:
   - Default
