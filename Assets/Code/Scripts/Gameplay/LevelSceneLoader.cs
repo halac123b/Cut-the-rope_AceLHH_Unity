@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
@@ -16,17 +17,19 @@ public class LevelSceneLoader : MonoBehaviour
 
     public Transform ParentObject;
     private List<GameObject> _listLoadedObj = new();
-    private static Dictionary<string, Sprite> _spriteCache;
+    private List<BaseEntity> _pendingTutorialSigns = new();
 
     private void Start()
     {
         LoadLevelData(UserProfile.Instance.SelectedLevelIndex);
         LoadLevelMap();
         EventDispatcher.Instance.AddEvent(gameObject, _ => ReloadLevel(), EventDispatcher.RestartLevel);
-        EventDispatcher.Instance.AddEvent(gameObject, _ => LoadNextLevel(), EventDispatcher.LoadNextLevel);
+        EventDispatcher.Instance.AddEvent(gameObject, (action) =>
+        { 
+            TriggerTutorialSign((int)action);
+        }, EventDispatcher.TriggerTutorial);
     }
-
-
+    
     /// <summary>
     /// Reload level - GameOver
     /// </summary>
@@ -133,53 +136,14 @@ public class LevelSceneLoader : MonoBehaviour
                 createdObj = Instantiate(_balloonPrefab, entity.Position, Quaternion.identity);
                 break;
             case ObjectCategory.TutorialSign:
-                createdObj = Instantiate(_tutorialSignPrefab, entity.Position, Quaternion.identity);
+                JObject tutorialData = JObject.Parse(entity.ExpandProperty);
 
-                if (!string.IsNullOrEmpty(entity.ExpandProperty))
-                {
-                    JObject tutorialData = JObject.Parse(entity.ExpandProperty);
-
-                    string title = (string)tutorialData["Title"] ?? "";
-                    string spriteName = (string)tutorialData["Sprite"] ?? "";
-
-                    TutorialSign tutorialSign = createdObj.GetComponent<TutorialSign>();
-                    if (tutorialSign != null)
-                    {
-                        float rotationZ = (float)(tutorialData["Rotation"] ?? 0f);
-                        tutorialSign.IconTutorialSign.transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
-
-                        Sprite bodySprite = null;
-                        if (!string.IsNullOrEmpty(spriteName))
-                        {
-                            Sprite[] allSprites = Resources.LoadAll<Sprite>("TutorialSprites/tutorial_signs");
-                            foreach (Sprite sprite in allSprites)
-                            {
-                                if (sprite.name == $"tutorial_signs_{spriteName}")
-                                {
-                                    bodySprite = sprite;
-                                    break;
-                                }
-                            }
-
-                            if (bodySprite == null)
-                            {
-                                Debug.LogWarning($"Sprite not found: tutorial_signs_{spriteName}");
-                            }
-                            else
-                            {
-                                Transform iconTransform = tutorialSign.IconTutorialSign.transform;
-
-                                float posX = (float)(tutorialData["SpritePosX"] ?? iconTransform.localPosition.x);
-                                float posY = (float)(tutorialData["SpritePosY"] ?? iconTransform.localPosition.y);
-                                float posZ = (float)(tutorialData["SpritePosZ"] ?? iconTransform.localPosition.z);
-                                iconTransform.localPosition = new Vector3(posX, posY, posZ);
-                            }
-                        }
-
-                        tutorialSign.SetContent(title, bodySprite);
-                    }
-                }
-
+                bool showLater = (bool?)(tutorialData["ShowLater"]) ?? false;
+ 
+                if (showLater)
+                    _pendingTutorialSigns.Add(entity);
+                else
+                    SpawnTutorialSign(entity);
                 break;
             default:
                 Debug.LogError($"Unknown category: {entity.Category}");
@@ -190,6 +154,72 @@ public class LevelSceneLoader : MonoBehaviour
         {
             _listLoadedObj.Add(createdObj);
             createdObj.transform.SetParent(ParentObject);
+        }
+    }
+
+    private void TriggerTutorialSign(int id)
+    {
+        BaseEntity entity = _pendingTutorialSigns.Find(e => e.Id == id);
+        
+        if (entity == null)
+            return;
+        
+        SpawnTutorialSign(entity);
+        _pendingTutorialSigns.Remove(entity);
+    }
+
+
+    private void SpawnTutorialSign(BaseEntity entity)
+    {
+        GameObject createdObj = null;
+        createdObj = Instantiate(_tutorialSignPrefab, entity.Position, Quaternion.identity);
+
+        if (!string.IsNullOrEmpty(entity.ExpandProperty))
+        {
+            JObject tutorialData = JObject.Parse(entity.ExpandProperty);
+
+            string title = (string)tutorialData["Title"] ?? "";
+            string spriteName = (string)tutorialData["Sprite"] ?? "";
+
+            TutorialSign tutorialSign = createdObj.GetComponent<TutorialSign>();
+            if (tutorialSign != null)
+            {
+                float rotationZ = (float)(tutorialData["Rotation"] ?? 0f);
+                tutorialSign.IconTutorialSign.transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
+
+                Sprite bodySprite = null;
+                if (!string.IsNullOrEmpty(spriteName))
+                {
+                    Sprite[] allSprites = Resources.LoadAll<Sprite>("TutorialSprites/tutorial_signs");
+                    foreach (Sprite sprite in allSprites)
+                    {
+                        if (sprite.name == $"tutorial_signs_{spriteName}")
+                        {
+                            bodySprite = sprite;
+                            break;
+                        }
+                    }
+
+                    if (bodySprite == null)
+                    {
+                        Debug.LogWarning($"Sprite not found: tutorial_signs_{spriteName}");
+                    }
+                    else
+                    {
+                        Transform iconTransform = tutorialSign.IconTutorialSign.transform;
+
+                        float posX = (float)(tutorialData["SpritePosX"] ?? iconTransform.localPosition.x);
+                        float posY = (float)(tutorialData["SpritePosY"] ?? iconTransform.localPosition.y);
+                        float posZ = (float)(tutorialData["SpritePosZ"] ?? iconTransform.localPosition.z);
+                        iconTransform.localPosition = new Vector3(posX, posY, posZ);
+                        
+                        float scale = (float)(tutorialData["SpriteScale"] ?? iconTransform.localScale.x);
+                        iconTransform.localScale = new Vector3(scale, scale, scale);
+                    }
+                }
+
+                tutorialSign.SetContent(title, bodySprite, false);
+            }
         }
     }
 
