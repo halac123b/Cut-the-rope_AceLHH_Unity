@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3823695240282853973}
   - component: {fileID: 2543603118288643389}
   m_Layer: 0
-  m_Name: BalloonBG
+  m_Name: Balloon
   m_TagString: Balloon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 8462503943598510831}
   - component: {fileID: 8609018562907852279}
   - component: {fileID: 5890007266305799358}
+  - component: {fileID: 609849214729973159}
   m_Layer: 0
   m_Name: Balloon
   m_TagString: Balloon
@@ -253,4 +254,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11488718ced1493d83234dda561d260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
+  _animator: {fileID: 609849214729973159}
+--- !u!95 &609849214729973159
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164437985084843920}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f246f5e59a4884858aa00ec73c182a67, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

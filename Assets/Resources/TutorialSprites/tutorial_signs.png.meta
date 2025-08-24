@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 65f39aa91920b4f57a342cf468c4e5e6
+guid: fb2aca5c0c7fc438f85007f98aff9f4c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,287 +123,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OmNom_Sad_0
+      name: tutorial_signs_2
       rect:
         serializedVersion: 2
-        x: 2
-        y: 270
-        width: 89
-        height: 79
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 78
+        y: 107
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d14ebbcfa5c34798b7568494380ada9
-      internalID: 1311133416
+      spriteID: de8be524d06c04d70af92e7eba550560
+      internalID: 570914991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OmNom_Sad_1
+      name: tutorial_signs_3
       rect:
         serializedVersion: 2
-        x: 93
-        y: 262
-        width: 77
-        height: 87
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 177
+        y: 141
+        width: 43
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 744e2b0b619ea4a23933bd171a879c9a
-      internalID: -153720621
+      spriteID: 4f40d5121722d46f8ba54205c988c37d
+      internalID: 145810697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OmNom_Sad_2
+      name: tutorial_signs_1
       rect:
         serializedVersion: 2
-        x: 174
-        y: 270
-        width: 83
-        height: 81
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7a50b9ee6c8f4feca3480224510bd1f
-      internalID: 717784650
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_3
-      rect:
-        serializedVersion: 2
-        x: 264
-        y: 266
-        width: 86
+        x: 1
+        y: 118
+        width: 61
         height: 83
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0253ba2f6c5de44168ddb1610456e68a
-      internalID: -31306296
+      spriteID: c570700f7f79645e6a474f0b4a5aa05a
+      internalID: 2027641921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OmNom_Sad_4
+      name: tutorial_signs_7
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 73
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47d35b67a510f4da6b1b91384ac3d57a
+      internalID: -1286143372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tutorial_signs_5
       rect:
         serializedVersion: 2
         x: 2
-        y: 188
-        width: 83
-        height: 80
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 56
+        width: 73
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 292c8e675b8f24d5bb314229e05316fa
-      internalID: -1076571578
+      spriteID: 7640e919b425a4d8dbf1065efdb58ce3
+      internalID: -1987527818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OmNom_Sad_5
+      name: tutorial_signs_8
       rect:
         serializedVersion: 2
-        x: 92
-        y: 172
-        width: 77
-        height: 87
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f1d5a147221148348ee5105c5562b20
-      internalID: -666371649
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_6
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 188
-        width: 85
-        height: 79
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 22eddec1c3a324cf19cad151112ea39c
-      internalID: -176048062
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_8
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 101
-        width: 81
-        height: 83
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 59b303068a47542f390bac23b39634d2
-      internalID: 1121281989
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_9
-      rect:
-        serializedVersion: 2
-        x: 93
-        y: 85
-        width: 79
-        height: 84
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 264bc5590c9ff4b448ac3d23ef82efdc
-      internalID: 2108125952
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_10
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 104
-        width: 85
-        height: 81
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa3ebfbd365e947e2a39799de9e1c084
-      internalID: -1259570883
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_11
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 13
-        width: 82
-        height: 86
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b1f48cc83aa14d36944cfae06d14330
-      internalID: 1816173159
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_12
-      rect:
-        serializedVersion: 2
-        x: 90
+        x: 1
         y: 2
-        width: 84
-        height: 80
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 59
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d35302bb038843a48b2c13018d57021
-      internalID: 1478395668
+      spriteID: 402c6d025ed29475d842f5ec3b0b34bd
+      internalID: -1745853213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OmNom_Sad_13
+      name: tutorial_signs_6
       rect:
         serializedVersion: 2
-        x: 176
-        y: 19
-        width: 86
-        height: 82
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 76
+        y: 47
+        width: 68
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1052b015d5e854e759b9a4aa2edd5ffa
-      internalID: 643577123
+      spriteID: b797b76afec1e4508b210f71f6ce6900
+      internalID: 1938174439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tutorial_signs_4
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 5
+        width: 38
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df3fa5bb9da194204aaef6ccb1bfaa9a
+      internalID: -1538786353
       vertices: []
       indices: 
       edges: []
@@ -412,7 +302,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5a8d260e6f23d4e06920a6c0fc202a4f
+    spriteID: 28ccd828e3c744c00a83a719ee997f33
     internalID: 0
     vertices: []
     indices: 
@@ -422,21 +312,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      OmNom_Sad_0: 1311133416
-      OmNom_Sad_1: -153720621
-      OmNom_Sad_10: -1259570883
-      OmNom_Sad_11: 1816173159
-      OmNom_Sad_12: 1478395668
-      OmNom_Sad_13: 643577123
-      OmNom_Sad_14: 589305388
-      OmNom_Sad_2: 717784650
-      OmNom_Sad_3: -31306296
-      OmNom_Sad_4: -1076571578
-      OmNom_Sad_5: -666371649
-      OmNom_Sad_6: -176048062
-      OmNom_Sad_7: -942165976
-      OmNom_Sad_8: 1121281989
-      OmNom_Sad_9: 2108125952
+      tutorial_signs_0: -1186055045
+      tutorial_signs_1: 2027641921
+      tutorial_signs_11: 132772311
+      tutorial_signs_12: -80505045
+      tutorial_signs_14: -466306861
+      tutorial_signs_16: -1895788057
+      tutorial_signs_17: 1183423860
+      tutorial_signs_2: 570914991
+      tutorial_signs_21: -207573792
+      tutorial_signs_3: 145810697
+      tutorial_signs_4: -1538786353
+      tutorial_signs_5: -1987527818
+      tutorial_signs_6: 1938174439
+      tutorial_signs_7: -1286143372
+      tutorial_signs_8: -1745853213
+      tutorial_signs_9: -1769864709
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

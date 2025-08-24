@@ -61,7 +61,7 @@ public class Rope : MonoBehaviour
                 if (rope != null && ropeCandy != null)
                 {
                     rope._joint.connectedBody = null;
-                    ropeCandy.DetachRope(this);
+                    ropeCandy.DetachRope(rope);
                 }
 
                 Destroy(hit.collider.gameObject);

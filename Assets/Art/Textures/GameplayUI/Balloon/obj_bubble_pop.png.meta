@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 65f39aa91920b4f57a342cf468c4e5e6
+guid: 5fcf80385ae7947e5b972e62e5c84426
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -50,7 +50,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -123,287 +123,221 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OmNom_Sad_0
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 270
-        width: 89
-        height: 79
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d14ebbcfa5c34798b7568494380ada9
-      internalID: 1311133416
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_1
-      rect:
-        serializedVersion: 2
-        x: 93
-        y: 262
-        width: 77
-        height: 87
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 744e2b0b619ea4a23933bd171a879c9a
-      internalID: -153720621
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_2
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 270
-        width: 83
-        height: 81
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7a50b9ee6c8f4feca3480224510bd1f
-      internalID: 717784650
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_3
-      rect:
-        serializedVersion: 2
-        x: 264
-        y: 266
-        width: 86
-        height: 83
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0253ba2f6c5de44168ddb1610456e68a
-      internalID: -31306296
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_4
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 188
-        width: 83
-        height: 80
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 292c8e675b8f24d5bb314229e05316fa
-      internalID: -1076571578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_5
-      rect:
-        serializedVersion: 2
-        x: 92
-        y: 172
-        width: 77
-        height: 87
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f1d5a147221148348ee5105c5562b20
-      internalID: -666371649
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_6
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 188
-        width: 85
-        height: 79
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 22eddec1c3a324cf19cad151112ea39c
-      internalID: -176048062
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_8
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 101
-        width: 81
-        height: 83
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 59b303068a47542f390bac23b39634d2
-      internalID: 1121281989
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_9
-      rect:
-        serializedVersion: 2
-        x: 93
-        y: 85
-        width: 79
-        height: 84
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 264bc5590c9ff4b448ac3d23ef82efdc
-      internalID: 2108125952
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_10
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 104
-        width: 85
-        height: 81
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa3ebfbd365e947e2a39799de9e1c084
-      internalID: -1259570883
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OmNom_Sad_11
+      name: obj_bubble_pop_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 13
-        width: 82
-        height: 86
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 356
+        width: 126
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b1f48cc83aa14d36944cfae06d14330
-      internalID: 1816173159
+      spriteID: 5c92e75645d7e4c398f5547d718799d1
+      internalID: 1163924719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OmNom_Sad_12
+      name: obj_bubble_pop_1
       rect:
         serializedVersion: 2
-        x: 90
+        x: 0
+        y: 239
+        width: 126
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 501fe0731b9894aa69482173bb9e9f47
+      internalID: -734311083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_bubble_pop_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 122
+        width: 126
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5fe87a7a2939423785d9c940ce72b77
+      internalID: 249879423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_bubble_pop_3
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 2
-        width: 84
-        height: 80
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 126
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d35302bb038843a48b2c13018d57021
-      internalID: 1478395668
+      spriteID: 1bb87ff41ac3e412d82ed29d46c3b3b1
+      internalID: -651294263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OmNom_Sad_13
+      name: obj_bubble_pop_4
       rect:
         serializedVersion: 2
-        x: 176
-        y: 19
-        width: 86
-        height: 82
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 126
+        y: 357
+        width: 108
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1052b015d5e854e759b9a4aa2edd5ffa
-      internalID: 643577123
+      spriteID: e17bc985f82484c90ae413d7c89b1894
+      internalID: 1835754589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_bubble_pop_5
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 357
+        width: 117
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfe0ee58632984759949fb8346109fe3
+      internalID: -771232490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_bubble_pop_6
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 246
+        width: 108
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80ba2fb2d42084409829f7be254758f3
+      internalID: 2117695386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_bubble_pop_7
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 136
+        width: 108
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e1106335d7fe403db401f882964786a
+      internalID: 228154760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_bubble_pop_8
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 26
+        width: 108
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 023f9ea0ae45d4e659ccf3dfb84c0940
+      internalID: -1993608096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_bubble_pop_9
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 253
+        width: 117
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9483f27c28b5041ceb1e4150f060a1b0
+      internalID: 1721454462
       vertices: []
       indices: 
       edges: []
@@ -412,7 +346,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5a8d260e6f23d4e06920a6c0fc202a4f
+    spriteID: e0d8f652799b544c8af4559fccd7906e
     internalID: 0
     vertices: []
     indices: 
@@ -422,21 +356,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      OmNom_Sad_0: 1311133416
-      OmNom_Sad_1: -153720621
-      OmNom_Sad_10: -1259570883
-      OmNom_Sad_11: 1816173159
-      OmNom_Sad_12: 1478395668
-      OmNom_Sad_13: 643577123
-      OmNom_Sad_14: 589305388
-      OmNom_Sad_2: 717784650
-      OmNom_Sad_3: -31306296
-      OmNom_Sad_4: -1076571578
-      OmNom_Sad_5: -666371649
-      OmNom_Sad_6: -176048062
-      OmNom_Sad_7: -942165976
-      OmNom_Sad_8: 1121281989
-      OmNom_Sad_9: 2108125952
+      obj_bubble_pop_0: 1163924719
+      obj_bubble_pop_1: -734311083
+      obj_bubble_pop_2: 249879423
+      obj_bubble_pop_3: -651294263
+      obj_bubble_pop_4: 1835754589
+      obj_bubble_pop_5: -771232490
+      obj_bubble_pop_6: 2117695386
+      obj_bubble_pop_7: 228154760
+      obj_bubble_pop_8: -1993608096
+      obj_bubble_pop_9: 1721454462
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
