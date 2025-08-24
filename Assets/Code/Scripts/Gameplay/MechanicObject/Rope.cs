@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class Rope : MonoBehaviour
     public Camera mainCamera;
     public int RopeLength;
     [SerializeField] private float gravity = -1f;
+    [SerializeField] private Material _whiteMaterial;
 
     private LineRenderer _ropeRenderer;
     private List<RopeSegment> _ropeSegments = new();
@@ -221,7 +223,18 @@ public class Rope : MonoBehaviour
 
     public void CutAtPoint(Vector2 cutPoint)
     {
-        // Rope rope = hit.collider.GetComponent<Rope>();
+        StartCoroutine(FlashWhite());
+    }
+
+    private IEnumerator FlashWhite()
+    {
+        Material originalStart = _ropeRenderer.material;
+
+        _ropeRenderer.material = _whiteMaterial;
+
+        yield return new WaitForSeconds(0.1f);
+
+        _ropeRenderer.material = originalStart;
         Candy ropeCandy = RopeSecondObject.GetComponent<Candy>();
 
         if (ropeCandy != null)
