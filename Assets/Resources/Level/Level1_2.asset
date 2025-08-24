@@ -58,3 +58,9 @@ MonoBehaviour:
     Category: 2
     Position: {x: 0, y: 0, z: -1}
     ExpandProperty: '{"FirstNailIndex": 2, "SecondNailIndex": 3, "LengthRope": 28}'
+  - Id: 11
+    Category: 6
+    Position: {x: 0.4, y: -1.7, z: -1}
+    ExpandProperty: '{   "Rotation": 0,   "Title": "Collect as many<br>start as you
+      can", "ShowLater": false,   "Sprite": "3",   "SpritePosX": -0.813,   "SpritePosY":
+      1.24,   "SpritePosZ": 0.0,   "SpriteScale": 0.7 } '
