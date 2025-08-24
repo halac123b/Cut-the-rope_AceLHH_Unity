@@ -57,7 +57,7 @@ public class LevelSelection : MonoBehaviour
 
     private void OnBackButtonClicked()
     {
-        Transition.Instance.Appear(() =>
+        Transition.Instance.Appear(Color.black, () =>
         {
             if (_gridLayoutGroup.childCount != 0)
             {

@@ -881,6 +881,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3657753704439452620, guid: 1d7f5361aaaa64acd8d5d5e88df36dee, type: 3}
+      propertyPath: m_Name
+      value: ReplaBtn
+      objectReference: {fileID: 0}
     - target: {fileID: 4173980660846694522, guid: 1d7f5361aaaa64acd8d5d5e88df36dee, type: 3}
       propertyPath: m_Name
       value: UI Game

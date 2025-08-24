@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7960777971292052177}
   - component: {fileID: 4185033331111195650}
   - component: {fileID: 1017996470463393250}
+  - component: {fileID: 4015532344138988407}
   m_Layer: 5
   m_Name: UITransition
   m_TagString: Untagged
@@ -102,6 +103,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4015532344138988407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740499194819736247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee590ccbfedc450086d3a42c6ef10d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvasGroup: {fileID: 3572621244381613261}
+  _canvas: {fileID: 7960777971292052177}
+  _imgTransition: {fileID: 9190938546601065733}
 --- !u!1 &8021091038127220545
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +130,6 @@ GameObject:
   - component: {fileID: 3495608068904387130}
   - component: {fileID: 9190938546601065733}
   - component: {fileID: 3572621244381613261}
-  - component: {fileID: 4997721411795801438}
   m_Layer: 5
   m_Name: Transition
   m_TagString: Untagged
@@ -191,17 +206,3 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &4997721411795801438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8021091038127220545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ee590ccbfedc450086d3a42c6ef10d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _canvasGroup: {fileID: 3572621244381613261}
-  _canvas: {fileID: 7960777971292052177}

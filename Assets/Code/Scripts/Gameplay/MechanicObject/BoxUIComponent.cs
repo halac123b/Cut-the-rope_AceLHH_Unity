@@ -33,7 +33,7 @@ public class BoxUIComponent : MonoBehaviour
         }
         
         UserProfile.Instance.SetBoxData(MyBoxData);
-        Transition.Instance.Appear(() =>
+        Transition.Instance.Appear(Color.black, () =>
         {
             EventDispatcher.Instance.Dispatch(MyBoxData, EventDispatcher.LoadLevelUI);
         });

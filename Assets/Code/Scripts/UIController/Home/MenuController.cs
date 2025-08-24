@@ -34,7 +34,7 @@ public class MenuController : MonoBehaviour
     {
         Debug.Log("Play button clicked!");
 
-        Transition.Instance.Appear(() =>
+        Transition.Instance.Appear(Color.black, () =>
         {
             _menuPanel.SetActive(false);
             _seasonPanel.SetActive(true);
@@ -50,7 +50,7 @@ public class MenuController : MonoBehaviour
 
     private void LoadPreviousBox(BoxData boxData)
     {
-        Transition.Instance.Appear(() =>
+        Transition.Instance.Appear(Color.black, () =>
         {
             _menuPanel.SetActive(false);
             _levelMap.gameObject.SetActive(true);
