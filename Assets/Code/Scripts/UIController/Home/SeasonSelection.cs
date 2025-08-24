@@ -16,20 +16,27 @@ public class SeasonSelection : MonoBehaviour
             int index = i; // Capture the current index
             _btnSeason[i].onClick.AddListener(() => OnSeasonButtonClicked(index));
         }
-        
+
         _btnBack.onClick.AddListener(() => OnBackButtonClicked());
     }
 
     private void OnSeasonButtonClicked(int index)
     {
         UserProfile.Instance.SeasonIndex = index;
-        gameObject.SetActive(false);
-        _boxMapPanel.SetActive(true);
+        
+        Transition.Instance.Appear(Color.black, () =>
+        {
+            gameObject.SetActive(false);
+            _boxMapPanel.SetActive(true);
+        });
     }
 
     private void OnBackButtonClicked()
     {
-        gameObject.SetActive(false);
-        _introScreen.SetActive(true);
+        Transition.Instance.Appear(Color.black, () =>
+        {
+            gameObject.SetActive(false);
+            _introScreen.SetActive(true);
+        });
     }
 }

@@ -56,7 +56,8 @@ public class BoxSelection : MonoBehaviour
 
     private void Start()
     {
-        horizontalLayoutGroup.GetComponent<RectTransform>().sizeDelta = new Vector2(viewport.rect.width, viewport.rect.height);
+        horizontalLayoutGroup.GetComponent<RectTransform>().sizeDelta =
+            new Vector2(viewport.rect.width, viewport.rect.height);
         EventDispatcher.Instance.AddEvent(gameObject, boxData => { LoadLevel((BoxData)boxData); },
             EventDispatcher.LoadLevelUI);
 
@@ -94,7 +95,7 @@ public class BoxSelection : MonoBehaviour
         if (Pointer.current != null && Pointer.current.press.isPressed)
         {
             Vector2 currentMousePos = Pointer.current.position.ReadValue();
-            
+
             if ((currentMousePos - _lastMousePos).sqrMagnitude > 1f)
             {
                 _isTouchEnd = true;
@@ -104,7 +105,7 @@ public class BoxSelection : MonoBehaviour
                     _boxUIList[i].IsPlayAnimation = false;
                 }
             }
-            
+
             _lastMousePos = currentMousePos;
         }
         else
@@ -120,6 +121,7 @@ public class BoxSelection : MonoBehaviour
                 }
             }
         }
+
         for (int i = 0; i < _pos.Length; i++)
         {
             bool isFocusedBox;
@@ -133,10 +135,10 @@ public class BoxSelection : MonoBehaviour
             {
                 isFocusedBox = _scrollPos < _pos[i] + (distance / 2f) && _scrollPos > _pos[i] - (distance / 2f);
             }
-            
+
             if (isFocusedBox)
             {
-                _frogMask.transform.SetParent(_boxUIList[i].FrogMask.transform, false);
+                _frogMask.transform.SetParent(_boxUIList[i].FrogMask.transform, true);
                 _frogMask.transform.SetAsFirstSibling();
                 _frogMask.transform.localScale = Vector3.one;
                 if (!_isTouchEnd)
@@ -156,7 +158,7 @@ public class BoxSelection : MonoBehaviour
 
         horizontalLayoutGroup.padding.left = halfViewport;
         horizontalLayoutGroup.padding.right = halfViewport;
-        
+
         LayoutRebuilder.ForceRebuildLayoutImmediate(horizontalLayoutGroup.GetComponent<RectTransform>());
     }
 
@@ -197,21 +199,24 @@ public class BoxSelection : MonoBehaviour
 
     private void OnBackButtonClicked()
     {
-        _frogMask.transform.SetParent(transform);
-        _frogMask.transform.SetSiblingIndex(1);
-
-        if (_gridLayoutGroup.childCount != 0)
+        Transition.Instance.Appear(Color.black, () =>
         {
-            foreach (Transform child in _gridLayoutGroup)
+            _frogMask.transform.SetParent(transform);
+            _frogMask.transform.SetSiblingIndex(1);
+
+            if (_gridLayoutGroup.childCount != 0)
             {
-                Destroy(child.gameObject);
+                foreach (Transform child in _gridLayoutGroup)
+                {
+                    Destroy(child.gameObject);
+                }
             }
-        }
 
-        ClearBox();
+            ClearBox();
 
-        gameObject.SetActive(false);
-        _seasonSelection.gameObject.SetActive(true);
+            gameObject.SetActive(false);
+            _seasonSelection.gameObject.SetActive(true);
+        });
     }
 
     private void ClearBox()

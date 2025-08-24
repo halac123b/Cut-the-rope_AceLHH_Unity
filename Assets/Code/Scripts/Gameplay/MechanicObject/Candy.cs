@@ -8,7 +8,8 @@ public class Candy : MonoBehaviour
 {
     //public static event Action<Collider2D> OnCandyCollision;
     public List<Rope> AttachedRopes = new();
-
+    public SpriteRenderer LightSprite;
+    public Animator Animator;
     private Rigidbody2D _rb2D;
     private Camera _mainCamera;
     private LevelSceneLoader _sceneLoader;
@@ -25,6 +26,8 @@ public class Candy : MonoBehaviour
             (Action<LevelSceneLoader>)(loader => _sceneLoader = loader), 
             EventDispatcher.GetLevelSceneLoader
         );
+
+        Animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -33,7 +36,8 @@ public class Candy : MonoBehaviour
 
         if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1 && AttachedRopes.Count <= 0)
         {
-            EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.RestartLevel);
+            EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
+            return;
         }
         
         if (transform.position.y > _tutorialTriggerYLevel05 && transform.position.y < _tutorialTriggerYLevel05 + 0.3f &&
@@ -51,8 +55,20 @@ public class Candy : MonoBehaviour
         {
             Debug.Log($"[Candy] Candy va chạm với Star Object: {collision.name}");
             EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnIncreaseStar);
+            PlayAnimationTriggerStar();
             starEffect.PlayDisappearAnimation();
         }
+    }
+
+    public void PlayAnimationTriggerStar()
+    {
+        LightSprite.enabled = true;
+        Animator.SetTrigger("TriggerStar");
+    }
+
+    public void AfterTriggerStar()
+    {
+        LightSprite.enabled = false;
     }
 
     private void OnDestroyCandy(object obj)
@@ -123,15 +139,10 @@ public class Candy : MonoBehaviour
         }
     }
 
-    public void SetStaticGravity()
-    {
-        _rb2D.gravityScale = 0f;
-    }
-
     private void AddForceIfTriggerBalloon(float balloonSpeed)
     {
         _rb2D.gravityScale = -0.15f;
-        
+
         if (_rb2D.linearVelocityY < 0.25f)
         {
             _rb2D.AddForce(Vector3.up * balloonSpeed, ForceMode2D.Impulse);

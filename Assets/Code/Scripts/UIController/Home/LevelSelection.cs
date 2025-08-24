@@ -8,7 +8,7 @@ public class LevelSelection : MonoBehaviour
     [SerializeField] private GameObject _levelPrefab;
     [SerializeField] private Transform _gridLayoutGroup;
     [SerializeField] private TextMeshProUGUI _numberStar;
-    
+
     [SerializeField] private Button _backButton;
     [SerializeField] private BoxSelection _boxSelection;
 
@@ -39,6 +39,7 @@ public class LevelSelection : MonoBehaviour
                 PlayerPrefs.SetInt($"Level_{boxData.Index}_{i + 1}_Stars", stars);
                 PlayerPrefs.Save();
             }
+
             levelObj.SetStars(stars);
 
             bool isPlayedBefore = stars >= 0;
@@ -56,14 +57,18 @@ public class LevelSelection : MonoBehaviour
 
     private void OnBackButtonClicked()
     {
-        if (_gridLayoutGroup.childCount != 0)
+        Transition.Instance.Appear(Color.black, () =>
         {
-            foreach (Transform child in _gridLayoutGroup)
+            if (_gridLayoutGroup.childCount != 0)
             {
-                Destroy(child.gameObject);
+                foreach (Transform child in _gridLayoutGroup)
+                {
+                    Destroy(child.gameObject);
+                }
             }
-        }
-        gameObject.SetActive(false);
-        _boxSelection.gameObject.SetActive(true);
+
+            gameObject.SetActive(false);
+            _boxSelection.gameObject.SetActive(true);
+        });
     }
 }
