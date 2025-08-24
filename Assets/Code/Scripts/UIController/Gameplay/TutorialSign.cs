@@ -5,28 +5,30 @@ using LitMotion;
 
 public class TutorialSign : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro _titleText;
+    public TextMeshPro TitleText;
     [SerializeField] private SpriteRenderer _bodySpriteRenderer;
     public SpriteRenderer IconTutorialSign => _bodySpriteRenderer;
     private float _fadeDuration = 1f;
     private float _showTime = 5f;
     private float _startWithDelay = 1.95f;
 
-    public void SetContent(string title, Sprite bodySprite)
+    public void SetContent(string title, Sprite bodySprite, bool IsStartWithDelay = true)
     {
-        if (_titleText)
-            _titleText.text = title;
+        if (TitleText)
+            TitleText.text = title;
 
         if (_bodySpriteRenderer)
-            _bodySpriteRenderer.sprite = bodySprite;
+            _bodySpriteRenderer.sprite = bodySprite; 
 
         SetAlpha(0);
-        StartCoroutine(StartWithDelay());
+        StartCoroutine(StartWithDelay(IsStartWithDelay));
     }
 
-    private IEnumerator StartWithDelay()
+    private IEnumerator StartWithDelay(bool isStartWithDelay = true)
     {
-        yield return new WaitForSeconds(_startWithDelay);
+        if(isStartWithDelay)
+            yield return new WaitForSeconds(_startWithDelay);
+        
         yield return Fade();
     }
 
@@ -52,8 +54,8 @@ public class TutorialSign : MonoBehaviour
 
     private void SetAlpha(float a)
     {
-        if (_titleText)
-            _titleText.color = new Color(_titleText.color.r, _titleText.color.g, _titleText.color.b, a);
+        if (TitleText)
+            TitleText.color = new Color(TitleText.color.r, TitleText.color.g, TitleText.color.b, a);
 
         if (_bodySpriteRenderer)
             _bodySpriteRenderer.color = new Color(_bodySpriteRenderer.color.r, _bodySpriteRenderer.color.g, _bodySpriteRenderer.color.b, a);
