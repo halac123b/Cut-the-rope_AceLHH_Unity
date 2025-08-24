@@ -11,12 +11,20 @@ public class Candy : MonoBehaviour
 
     private Rigidbody2D _rb2D;
     private Camera _mainCamera;
-
-
+    private LevelSceneLoader _sceneLoader;
+    private float _tutorialTriggerYLevel05 = 1.6f;
+    private float _tutorialTriggerXLevel05 = 0.4f;
+    private float _stayTimer;
+    
     private void Start()
     {
         _rb2D = GetComponent<Rigidbody2D>();
         _mainCamera = Camera.main;
+        
+        EventDispatcher.Instance.Dispatch(
+            (Action<LevelSceneLoader>)(loader => _sceneLoader = loader), 
+            EventDispatcher.GetLevelSceneLoader
+        );
     }
 
     private void Update()
@@ -26,6 +34,13 @@ public class Candy : MonoBehaviour
         if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1 && AttachedRopes.Count <= 0)
         {
             EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.RestartLevel);
+        }
+        
+        if (transform.position.y > _tutorialTriggerYLevel05 && transform.position.y < _tutorialTriggerYLevel05 + 0.3f &&
+            transform.position.x > _tutorialTriggerXLevel05 && transform.position.x < _tutorialTriggerXLevel05 + 0.3f)
+        {
+            int _tutorialId = 10;
+            _sceneLoader.TriggerTutorialSign(_tutorialId);
         }
     }
 

@@ -12,7 +12,7 @@ public class TutorialSign : MonoBehaviour
     private float _showTime = 5f;
     private float _startWithDelay = 1.95f;
 
-    public void SetContent(string title, Sprite bodySprite)
+    public void SetContent(string title, Sprite bodySprite, bool IsStartWithDelay = true)
     {
         if (_titleText)
             _titleText.text = title;
@@ -21,12 +21,14 @@ public class TutorialSign : MonoBehaviour
             _bodySpriteRenderer.sprite = bodySprite;
 
         SetAlpha(0);
-        StartCoroutine(StartWithDelay());
+        StartCoroutine(StartWithDelay(IsStartWithDelay));
     }
 
-    private IEnumerator StartWithDelay()
+    private IEnumerator StartWithDelay(bool isStartWithDelay = true)
     {
-        yield return new WaitForSeconds(_startWithDelay);
+        if(isStartWithDelay)
+            yield return new WaitForSeconds(_startWithDelay);
+        
         yield return Fade();
     }
 
