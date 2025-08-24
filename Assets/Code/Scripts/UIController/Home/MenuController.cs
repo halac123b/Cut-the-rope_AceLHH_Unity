@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,20 +18,27 @@ public class MenuController : MonoBehaviour
         {
             LoadPreviousBox(UserProfile.Instance.SelectedBoxData);
         }
-
+        
         if (UserProfile.Instance.SeasonIndex != -1 && UserProfile.Instance.IsCompleteBox)
         {
-            LoadBoxUIData(UserProfile.Instance.SeasonIndex);
+            LoadBoxUIData();
             UserProfile.Instance.IsCompleteBox = false;
+        }
+        else
+        {
+             _menuPanel.SetActive(true);
         }
     }
 
     private void OnPlayButtonClicked()
     {
         Debug.Log("Play button clicked!");
-        // Hide the menu panel and show the season panel
-        _menuPanel.SetActive(false);
-        _seasonPanel.SetActive(true);
+
+        Transition.Instance.Appear(() =>
+        {
+            _menuPanel.SetActive(false);
+            _seasonPanel.SetActive(true);
+        });
     }
 
     private void OnDestroy()
@@ -42,15 +50,17 @@ public class MenuController : MonoBehaviour
 
     private void LoadPreviousBox(BoxData boxData)
     {
-        _menuPanel.SetActive(false);
-        _levelMap.gameObject.SetActive(true);
+        Transition.Instance.Appear(() =>
+        {
+            _menuPanel.SetActive(false);
+            _levelMap.gameObject.SetActive(true);
+        });
+
         _levelMap.LoadLevel(boxData);
     }
 
-    private void LoadBoxUIData(int seasonIndex)
+    private void LoadBoxUIData()
     {
-        _menuPanel.SetActive(false);
-        _levelMap.gameObject.SetActive(false);
         _boxSelection.gameObject.SetActive(true);
     }
 }
