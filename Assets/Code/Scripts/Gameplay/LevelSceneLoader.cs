@@ -24,14 +24,10 @@ public class LevelSceneLoader : MonoBehaviour
         LoadLevelData(UserProfile.Instance.SelectedLevelIndex);
         LoadLevelMap();
         EventDispatcher.Instance.AddEvent(gameObject, _ => ReloadLevel(), EventDispatcher.RestartLevel);
-        EventDispatcher.Instance.AddEvent(gameObject, _ => LoadNextLevel(), EventDispatcher.LoadNextLevel);
-        EventDispatcher.Instance.AddEvent(gameObject, OnGetLevelSceneLoader, EventDispatcher.GetLevelSceneLoader);
-    }
-
-    private void OnGetLevelSceneLoader(object obj)
-    {
-        Action<LevelSceneLoader> callback = obj as Action<LevelSceneLoader>;
-        callback?.Invoke(this);
+        EventDispatcher.Instance.AddEvent(gameObject, (action) =>
+        { 
+            TriggerTutorialSign((int)action);
+        }, EventDispatcher.TriggerTutorial);
     }
     
     /// <summary>
@@ -160,10 +156,10 @@ public class LevelSceneLoader : MonoBehaviour
             createdObj.transform.SetParent(ParentObject);
         }
     }
-    
-    public void TriggerTutorialSign(int id)
+
+    private void TriggerTutorialSign(int id)
     {
-        var entity = _pendingTutorialSigns.Find(e => e.Id == id);
+        BaseEntity entity = _pendingTutorialSigns.Find(e => e.Id == id);
         
         if (entity == null)
             return;

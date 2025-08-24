@@ -21,12 +21,6 @@ public class Candy : MonoBehaviour
     {
         _rb2D = GetComponent<Rigidbody2D>();
         _mainCamera = Camera.main;
-        
-        EventDispatcher.Instance.Dispatch(
-            (Action<LevelSceneLoader>)(loader => _sceneLoader = loader), 
-            EventDispatcher.GetLevelSceneLoader
-        );
-
         Animator = GetComponent<Animator>();
     }
 
@@ -44,7 +38,7 @@ public class Candy : MonoBehaviour
             transform.position.x > _tutorialTriggerXLevel05 && transform.position.x < _tutorialTriggerXLevel05 + 0.3f)
         {
             int _tutorialId = 10;
-            _sceneLoader.TriggerTutorialSign(_tutorialId);
+            EventDispatcher.Instance.Dispatch(_tutorialId, EventDispatcher.TriggerTutorial);
         }
     }
 

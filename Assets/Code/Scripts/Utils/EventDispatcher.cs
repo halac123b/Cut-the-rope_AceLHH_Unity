@@ -34,8 +34,8 @@ public class EventDispatcher : MonoSingleton<EventDispatcher>
     public static string GetCurrentStar = "GetCurrentStar";
     public static string CloseLoadingCurtain = "CloseLoadingCurtain";
     public static string OpenLoadingCurtain = "OpenLoadingCurtain";
-    public static string GetLevelSceneLoader = "GetLevelSceneLoader";
     public static string LevelFail = "LevelFail";
+    public static string TriggerTutorial = "TriggerTutorial";
 
     public void AddEvent(GameObject gameObject, Action<object> action, string key)
     {
