@@ -12,5 +12,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae92dedaa7ee84992a5fda59de3d60ba, type: 3}
   m_Name: Level1_8
   m_EditorClassIdentifier: 
-  levelName: 1_5
-  ListEntities: []
+  levelName: 1_8
+  ListEntities:
+  - Id: 0
+    Category: 1
+    Position: {x: 2, y: 2, z: 0}
+    ExpandProperty: 
+  - Id: 1
+    Category: 0
+    Position: {x: 0, y: 1.5, z: 0}
+    ExpandProperty: 
+  - Id: 2
+    Category: 0
+    Position: {x: 0, y: 0, z: 0}
+    ExpandProperty: 
+  - Id: 0
+    Category: 4
+    Position: {x: 0, y: 2, z: 0}
+    ExpandProperty: 
+  - Id: 0
+    Category: 4
+    Position: {x: 1.5, y: 0, z: 0}
+    ExpandProperty: 
+  - Id: 0
+    Category: 4
+    Position: {x: -1.5, y: 0, z: 0}
+    ExpandProperty: 
+  - Id: 0
+    Category: 2
+    Position: {x: 0, y: 0, z: 0}
+    ExpandProperty: '{"FirstNailIndex": 1, "SecondNailIndex": 0 ,"LengthRope": 10
+      }'
+  - Id: 0
+    Category: 2
+    Position: {x: 0, y: 0, z: 0}
+    ExpandProperty: '{"FirstNailIndex": 2, "SecondNailIndex": 0 ,"LengthRope": 13
+      }'
+  - Id: 0
+    Category: 3
+    Position: {x: 0, y: -2.5, z: 0}
+    ExpandProperty: 
+  - Id: 0
+    Category: 5
+    Position: {x: 1, y: -1.5, z: 0}
+    ExpandProperty: 
