@@ -1,0 +1,54 @@
+{
+    "name": "CutRope",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "2e8c398d-8364-4412-b333-dd523c8a2b9e",
+            "actions": [
+                {
+                    "name": "Point",
+                    "type": "Value",
+                    "id": "7387e88d-4573-4f89-8b27-52e201907740",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "285bf58a-c8ba-445f-b365-db3a786e190a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2dfefb38-c428-427f-ab7d-a65e2be54dea",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b539abdf-6e69-45ae-a64d-b4a990568edc",
+                    "path": "<Pointer>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

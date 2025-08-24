@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Rope : MonoBehaviour
 {
@@ -42,31 +41,31 @@ public class Rope : MonoBehaviour
 
     private void Update()
     {
-        if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
-        {
-            Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Pointer.current.position.ReadValue());
+        // if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
+        // {
+        //     Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Pointer.current.position.ReadValue());
 
-            RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
+        //     RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
 
-            if (hit.collider != null && hit.collider.gameObject.CompareTag("Rope"))
-            {
-                if (UIController.Instance.IsEnableUI)
-                {
-                    return;
-                }
-                
-                Rope rope = hit.collider.GetComponent<Rope>();
-                Candy ropeCandy = RopeSecondObject.GetComponent<Candy>();
+        //     if (hit.collider != null && hit.collider.gameObject.CompareTag("Rope"))
+        //     {
+        //         if (UIController.Instance.IsEnableUI)
+        //         {
+        //             return;
+        //         }
 
-                if (rope != null && ropeCandy != null)
-                {
-                    rope._joint.connectedBody = null;
-                    ropeCandy.DetachRope(rope);
-                }
+        //         Rope rope = hit.collider.GetComponent<Rope>();
+        //         Candy ropeCandy = RopeSecondObject.GetComponent<Candy>();
 
-                Destroy(hit.collider.gameObject);
-            }
-        }
+        //         if (rope != null && ropeCandy != null)
+        //         {
+        //             rope._joint.connectedBody = null;
+        //             ropeCandy.DetachRope(rope);
+        //         }
+
+        //         Destroy(hit.collider.gameObject);
+        //     }
+        // }
 
         DrawRope();
     }
@@ -77,7 +76,7 @@ public class Rope : MonoBehaviour
         {
             return;
         }
-        
+
         Simulate();
 
         for (int i = 0; i < 10; i++)
@@ -92,7 +91,7 @@ public class Rope : MonoBehaviour
         {
             return;
         }
-        
+
         UpdateColliderForRope();
     }
 
@@ -184,11 +183,11 @@ public class Rope : MonoBehaviour
 
     private void DrawRope()
     {
-        if (UIController.Instance.IsCompleteLevel)
+        if (UIController.Instance.IsCompleteLevel || RopeSecondObject == null)
         {
             return;
         }
-        
+
         float lineWidth = _ropeWidth;
         _ropeRenderer.startWidth = lineWidth;
         _ropeRenderer.endWidth = lineWidth;
@@ -218,5 +217,19 @@ public class Rope : MonoBehaviour
             posNow = pos;
             posOld = pos;
         }
+    }
+
+    public void CutAtPoint(Vector2 cutPoint)
+    {
+        // Rope rope = hit.collider.GetComponent<Rope>();
+        Candy ropeCandy = RopeSecondObject.GetComponent<Candy>();
+
+        if (ropeCandy != null)
+        {
+            _joint.connectedBody = null;
+            ropeCandy.DetachRope(this);
+        }
+
+        Destroy(gameObject);
     }
 }
