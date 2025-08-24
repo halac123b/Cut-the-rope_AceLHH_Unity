@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 
 public class Balloon : MonoBehaviour
 {
-    [FormerlySerializedAs("Animator")] [SerializeField] private Animator _animator;
+    [SerializeField] private Animator _animator;
     private Camera mainCamera;
     
     private float _balloonSpeed = 2f;
