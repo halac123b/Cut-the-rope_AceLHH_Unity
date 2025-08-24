@@ -199,7 +199,7 @@ public class BoxSelection : MonoBehaviour
 
     private void OnBackButtonClicked()
     {
-        Transition.Instance.Appear(() =>
+        Transition.Instance.Appear(Color.black, () =>
         {
             _frogMask.transform.SetParent(transform);
             _frogMask.transform.SetSiblingIndex(1);

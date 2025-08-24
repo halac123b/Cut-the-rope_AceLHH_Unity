@@ -52,7 +52,7 @@ public class CompleteLevelUI : MonoBehaviour
     private void OnClickMenuButton()
     {
         UIController.Instance.SetUIStatus(false);
-        Transition.Instance.Appear(() =>
+        Transition.Instance.Appear(Color.black, () =>
         {
             SceneManager.LoadScene("Home");
         });

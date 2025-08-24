@@ -723,7 +723,7 @@ GameObject:
   - component: {fileID: 3498170657853203751}
   - component: {fileID: 5752732642934195020}
   m_Layer: 5
-  m_Name: ReplaceBtn
+  m_Name: ReplayBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
