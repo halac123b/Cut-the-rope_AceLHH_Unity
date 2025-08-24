@@ -12,7 +12,6 @@ public class Candy : MonoBehaviour
     public Animator Animator;
     private Rigidbody2D _rb2D;
     private Camera _mainCamera;
-    private LevelSceneLoader _sceneLoader;
     private float _tutorialTriggerYLevel05 = 1.6f;
     private float _tutorialTriggerXLevel05 = 0.4f;
     private float _stayTimer;
