@@ -78,7 +78,7 @@ public class LevelSceneLoader : MonoBehaviour
     {
         int totalBoxDataLevel = UserProfile.Instance.SelectedBoxData.NumberOfLevels;
 
-        if (nextLevel >= totalBoxDataLevel)
+        if (nextLevel > totalBoxDataLevel)
         {
             return true;
         }
