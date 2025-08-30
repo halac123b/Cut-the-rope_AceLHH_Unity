@@ -36,6 +36,7 @@ public class EventDispatcher : MonoSingleton<EventDispatcher>
     public static string OpenLoadingCurtain = "OpenLoadingCurtain";
     public static string LevelFail = "LevelFail";
     public static string TriggerTutorial = "TriggerTutorial";
+    public static string TriggerSpike = "TriggerSpike";
 
     public void AddEvent(GameObject gameObject, Action<object> action, string key)
     {

@@ -21,6 +21,7 @@ public class Candy : MonoBehaviour
         _rb2D = GetComponent<Rigidbody2D>();
         _mainCamera = Camera.main;
         Animator = GetComponent<Animator>();
+        EventDispatcher.Instance.AddEvent(gameObject, _ => PlayAnimationCollisionWithSpike(), EventDispatcher.TriggerSpike);
     }
 
     private void Update()
@@ -53,6 +54,18 @@ public class Candy : MonoBehaviour
         }
     }
 
+    private void PlayAnimationCollisionWithSpike()
+    {
+        // run particle collision with spike here
+        Destroy(gameObject);
+        EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
+    }
+
+    private void OnDestroy()
+    {
+        EventDispatcher.Instance.RemoveEvent(gameObject);
+    }
+    
     public void PlayAnimationTriggerStar()
     {
         LightSprite.enabled = true;
