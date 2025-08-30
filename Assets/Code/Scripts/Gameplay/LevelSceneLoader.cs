@@ -152,20 +152,11 @@ public class LevelSceneLoader : MonoBehaviour
                 string spriteName = (string)spikeData["SpriteName"];
 
                 SpriteRenderer sr = createdObj.GetComponent<SpriteRenderer>();
-                BoxCollider2D col = createdObj.GetComponent<BoxCollider2D>();
+                BoxCollider2D collider = createdObj.GetComponent<BoxCollider2D>();
 
                 if (!string.IsNullOrEmpty(spriteName))
                 {
-                    Sprite[] allSprites = Resources.LoadAll<Sprite>("SpikeSprites");
-                    foreach (Sprite sprite in allSprites)
-                    {
-                        if (sprite.name == $"spikes_{spriteName}") 
-                        {
-                            sr.sprite = sprite;
-                            break;
-                        }
-                    }
-
+                    sr.sprite = Resources.Load<Sprite>($"SpikeSprites/spikes_0{spriteName}");
                     float colliderX = 0.5f;
                     switch (spriteName)
                     {
@@ -175,7 +166,7 @@ public class LevelSceneLoader : MonoBehaviour
                         case "04": colliderX = 2.0f; break;
                     }
 
-                    col.size = new Vector2(colliderX, col.size.y);
+                    collider.size = new Vector2(colliderX, collider.size.y);
                 }
                 break;
             default:

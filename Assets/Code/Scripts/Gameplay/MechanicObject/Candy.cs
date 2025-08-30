@@ -56,18 +56,13 @@ public class Candy : MonoBehaviour
 
     private void PlayAnimationCollisionWithSpike()
     {
-        if (this == null || gameObject == null) return;
-        
-        StartCoroutine(RemoveEventNextFrame());
-    
         // run particle collision with spike here
         Destroy(gameObject);
         EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
     }
 
-    private IEnumerator RemoveEventNextFrame()
+    private void OnDestroy()
     {
-        yield return null;
         EventDispatcher.Instance.RemoveEvent(gameObject);
     }
     
