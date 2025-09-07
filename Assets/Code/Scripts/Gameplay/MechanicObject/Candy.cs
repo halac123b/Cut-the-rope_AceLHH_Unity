@@ -15,6 +15,7 @@ public class Candy : MonoBehaviour
     private float _tutorialTriggerYLevel05 = 1.6f;
     private float _tutorialTriggerXLevel05 = 0.4f;
     private float _stayTimer;
+    [SerializeField] private ParticleSystem _candyParticlesCollisionSpike;
     
     private void Start()
     {
@@ -57,16 +58,23 @@ public class Candy : MonoBehaviour
     private void PlayAnimationCollisionWithSpike()
     {
         // run particle collision with spike here
-        Destroy(gameObject);
-        EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
+        PlayParticleTriggerSpike();
     }
 
     private void OnDestroy()
     {
         EventDispatcher.Instance.RemoveEvent(gameObject);
     }
-    
-    public void PlayAnimationTriggerStar()
+
+    private void PlayParticleTriggerSpike()
+    {
+        ParticleSystem ps = Instantiate(_candyParticlesCollisionSpike, transform.position, Quaternion.identity, transform.parent);
+        ps.Play();
+        EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
+        Destroy(gameObject);   
+    }
+
+    private void PlayAnimationTriggerStar()
     {
         LightSprite.enabled = true;
         Animator.SetTrigger("TriggerStar");
