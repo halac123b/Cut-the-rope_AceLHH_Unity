@@ -52,7 +52,7 @@ MonoBehaviour:
     Category: 6
     Position: {x: 0.75, y: 0.5, z: 0}
     ExpandProperty: '{   "Rotation": 0,   "Title": "Slide your finger<br>to cut the
-      rope ", "ShowLater": false,  "Sprite": "0",   "SpritePosX": -0.6,   "SpritePosY":
+      rope ", "ShowLater": false,  "Sprite": "",   "SpritePosX": -0.6,   "SpritePosY":
       0.5,   "SpritePosZ": 0.0 } '
   - Id: 7
     Category: 6

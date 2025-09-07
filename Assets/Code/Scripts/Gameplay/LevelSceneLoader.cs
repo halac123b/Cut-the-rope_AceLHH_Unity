@@ -14,6 +14,7 @@ public class LevelSceneLoader : MonoBehaviour
     [SerializeField] private GameObject _starPrefab;
     [SerializeField] private GameObject _balloonPrefab;
     [SerializeField] private GameObject _tutorialSignPrefab;
+    [SerializeField] private GameObject _spikePrefab;
 
     public Transform ParentObject;
     private List<GameObject> _listLoadedObj = new();
@@ -145,6 +146,29 @@ public class LevelSceneLoader : MonoBehaviour
                 else
                     SpawnTutorialSign(entity);
                 break;
+            case ObjectCategory.Spike:
+                createdObj = Instantiate(_spikePrefab, entity.Position, Quaternion.identity);
+                JObject spikeData = JObject.Parse(entity.ExpandProperty);
+                string spriteName = (string)spikeData["SpriteName"];
+
+                SpriteRenderer sr = createdObj.GetComponent<SpriteRenderer>();
+                BoxCollider2D collider = createdObj.GetComponent<BoxCollider2D>();
+
+                if (!string.IsNullOrEmpty(spriteName))
+                {
+                    sr.sprite = Resources.Load<Sprite>($"SpikeSprites/spikes_0{spriteName}");
+                    float colliderX = 0.5f;
+                    switch (spriteName)
+                    {
+                        case "01": colliderX = 0.5f; break;
+                        case "02": colliderX = 1.0f; break;
+                        case "03": colliderX = 1.5f; break;
+                        case "04": colliderX = 2.0f; break;
+                    }
+
+                    collider.size = new Vector2(colliderX, collider.size.y);
+                }
+                break;
             default:
                 Debug.LogError($"Unknown category: {entity.Category}");
                 break;
@@ -246,6 +270,7 @@ public class LevelSceneLoader : MonoBehaviour
         Frog,
         Star,
         Balloon,
-        TutorialSign
+        TutorialSign,
+        Spike,
     }
 }
