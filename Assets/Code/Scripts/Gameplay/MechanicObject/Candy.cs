@@ -57,21 +57,15 @@ public class Candy : MonoBehaviour
 
     private void PlayAnimationCollisionWithSpike()
     {
-        // run particle collision with spike here
-        PlayParticleTriggerSpike();
+        ParticleSystem ps = Instantiate(_candyParticlesCollisionSpike, transform.position, Quaternion.identity, transform.parent);
+        ps.Play();
+        EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
+        Destroy(gameObject);  
     }
 
     private void OnDestroy()
     {
         EventDispatcher.Instance.RemoveEvent(gameObject);
-    }
-
-    private void PlayParticleTriggerSpike()
-    {
-        ParticleSystem ps = Instantiate(_candyParticlesCollisionSpike, transform.position, Quaternion.identity, transform.parent);
-        ps.Play();
-        EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
-        Destroy(gameObject);   
     }
 
     private void PlayAnimationTriggerStar()
