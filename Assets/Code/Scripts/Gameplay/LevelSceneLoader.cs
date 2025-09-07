@@ -25,6 +25,7 @@ public class LevelSceneLoader : MonoBehaviour
         LoadLevelData(UserProfile.Instance.SelectedLevelIndex);
         LoadLevelMap();
         EventDispatcher.Instance.AddEvent(gameObject, _ => ReloadLevel(), EventDispatcher.RestartLevel);
+        EventDispatcher.Instance.AddEvent(gameObject, _ => LoadNextLevel(), EventDispatcher.LoadNextLevel);
         EventDispatcher.Instance.AddEvent(gameObject, (action) =>
         { 
             TriggerTutorialSign((int)action);
@@ -195,8 +196,7 @@ public class LevelSceneLoader : MonoBehaviour
 
     private void SpawnTutorialSign(BaseEntity entity)
     {
-        GameObject createdObj = null;
-        createdObj = Instantiate(_tutorialSignPrefab, entity.Position, Quaternion.identity);
+        GameObject createdObj = Instantiate(_tutorialSignPrefab, entity.Position, Quaternion.identity, ParentObject);
 
         if (!string.IsNullOrEmpty(entity.ExpandProperty))
         {
