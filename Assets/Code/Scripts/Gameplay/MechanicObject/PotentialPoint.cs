@@ -1,14 +1,17 @@
 using System;
+using LitMotion;
+using LitMotion.Extensions;
 using UnityEngine;
 
 public class PotentialPoint : MonoBehaviour
 {
     public int RopeLength;
-    public float Scale = 0.25f; 
+    public float Scale = 0.25f;
     [SerializeField] private GameObject _ropePrefab;
     [SerializeField] private CircleCollider2D _circleCollider;
     private float _defaultScale = 0.25f;
     private float _numberAdjustScale;
+    private MotionHandle _motion;
 
     private void Start()
     {
@@ -16,10 +19,10 @@ public class PotentialPoint : MonoBehaviour
         {
             Scale = 1f;
         }
-        
+
         _numberAdjustScale = Scale <= 1f ? 0.05f : 0.1f;
         Scale *= _defaultScale - _numberAdjustScale;
-        
+
         _circleCollider.transform.localScale = new Vector3(Scale, Scale, Scale);
         _circleCollider.enabled = true;
     }
@@ -43,7 +46,13 @@ public class PotentialPoint : MonoBehaviour
         rope.RopeLength = RopeLength;
 
         EventDispatcher.Instance.Dispatch(rope.gameObject, EventDispatcher.AddToListObjsLevel);
-        
-        _circleCollider.enabled = false;
+        FadeOutCircle();
+    }
+
+    private void FadeOutCircle()
+    {
+        SpriteRenderer spriteRenderer = _circleCollider.GetComponent<SpriteRenderer>();
+        _motion = LMotion.Create(1f, 0f, 0.3f).WithOnComplete(() => { _circleCollider.enabled = false; })
+            .BindToColorA(spriteRenderer);
     }
 }
