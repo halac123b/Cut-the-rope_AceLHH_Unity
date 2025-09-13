@@ -29,10 +29,13 @@ public class Candy : MonoBehaviour
     {
         Vector3 viewPos = _mainCamera.WorldToViewportPoint(transform.position);
 
-        if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1 && AttachedRopes.Count <= 0)
+        if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
         {
-            EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
-            return;
+            if (AttachedRopes.Count <= 0)
+            {
+                EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
+                return;
+            }
         }
         
         if (transform.position.y > _tutorialTriggerYLevel05 && transform.position.y < _tutorialTriggerYLevel05 + 0.3f &&
