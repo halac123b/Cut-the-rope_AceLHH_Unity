@@ -206,6 +206,7 @@ public class LevelSceneLoader : MonoBehaviour
     
     private void AddToListObjsLevel(GameObject createdObj)
     {
+        _listLoadedObj.Add(createdObj);
         createdObj.transform.SetParent(ParentObject);
     }
 
