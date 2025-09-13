@@ -16,6 +16,7 @@ public class Frog : MonoBehaviour
         _frogStandPoint.sprite = selectedFrogSprite;
         
         EventDispatcher.Instance.AddEvent(gameObject, _ => PlayAnimationLevelFail(), EventDispatcher.LevelFail);
+        EventDispatcher.Instance.AddEvent(gameObject, _ => PlayAnimationCollectStar(), EventDispatcher.CollectStar);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,6 +32,11 @@ public class Frog : MonoBehaviour
     private void PlayAnimationLevelFail()
     {
         _animator.Play("Sad");
+    }
+    
+    private void PlayAnimationCollectStar()
+    {
+        _animator.Play("Forward");
     }
 
     private void LevelFailHandle()
