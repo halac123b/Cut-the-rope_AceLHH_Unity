@@ -79,7 +79,7 @@ public class Rope : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (UIController.Instance != null && UIController.Instance.IsCompleteLevel)
+        if (UIController.Instance.IsCompleteLevel)
         {
             return;
         }
@@ -94,7 +94,7 @@ public class Rope : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (UIController.Instance != null && UIController.Instance.IsCompleteLevel)
+        if (UIController.Instance.IsCompleteLevel)
         {
             return;
         }
@@ -295,12 +295,12 @@ public class Rope : MonoBehaviour
         }
 
         GameObject ropeNut = Instantiate(_ropeNutPrefab);
-        LineRenderer lrNut = ropeNut.GetComponent<LineRenderer>();
-        lrNut.positionCount = cutIndex + 1;
+        LineRenderer ropeCutted = ropeNut.GetComponent<LineRenderer>();
+        ropeCutted.positionCount = cutIndex + 1;
         
         for (int i = 0; i <= cutIndex; i++)
         {
-            lrNut.SetPosition(i, _ropeRenderer.GetPosition(i));
+            ropeCutted.SetPosition(i, _ropeRenderer.GetPosition(i));
         }
 
         // Vector3 freeEnd = lrNut.GetPosition(lrNut.positionCount - 1);
