@@ -16,28 +16,26 @@ public class Candy : MonoBehaviour
     private float _tutorialTriggerXLevel05 = 0.4f;
     private float _stayTimer;
     [SerializeField] private ParticleSystem _candyParticlesCollisionSpike;
-    
+
     private void Start()
     {
         _rb2D = GetComponent<Rigidbody2D>();
         _mainCamera = Camera.main;
         Animator = GetComponent<Animator>();
-        EventDispatcher.Instance.AddEvent(gameObject, _ => PlayAnimationCollisionWithSpike(), EventDispatcher.TriggerSpike);
+        EventDispatcher.Instance.AddEvent(gameObject, _ => PlayAnimationCollisionWithSpike(),
+            EventDispatcher.TriggerSpike);
     }
 
     private void Update()
     {
         Vector3 viewPos = _mainCamera.WorldToViewportPoint(transform.position);
 
-        if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
+        if ((viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1) && AttachedRopes.Count <= 0)
         {
-            if (AttachedRopes.Count <= 0)
-            {
-                EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
-                return;
-            }
+            EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
+            return;
         }
-        
+
         if (transform.position.y > _tutorialTriggerYLevel05 && transform.position.y < _tutorialTriggerYLevel05 + 0.3f &&
             transform.position.x > _tutorialTriggerXLevel05 && transform.position.x < _tutorialTriggerXLevel05 + 0.3f)
         {
@@ -53,6 +51,7 @@ public class Candy : MonoBehaviour
         {
             Debug.Log($"[Candy] Candy va chạm với Star Object: {collision.name}");
             EventDispatcher.Instance.Dispatch(null, EventDispatcher.OnIncreaseStar);
+            EventDispatcher.Instance.Dispatch(null, EventDispatcher.CollectStar);
             PlayAnimationTriggerStar();
             starEffect.PlayDisappearAnimation();
         }
@@ -60,10 +59,11 @@ public class Candy : MonoBehaviour
 
     private void PlayAnimationCollisionWithSpike()
     {
-        ParticleSystem ps = Instantiate(_candyParticlesCollisionSpike, transform.position, Quaternion.identity, transform.parent);
+        ParticleSystem ps = Instantiate(_candyParticlesCollisionSpike, transform.position, Quaternion.identity,
+            transform.parent);
         ps.Play();
         EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
-        Destroy(gameObject);  
+        Destroy(gameObject);
     }
 
     private void OnDestroy()
