@@ -24,7 +24,11 @@ public class Frog : MonoBehaviour
         if (collision.CompareTag("Candy"))
         {
             Debug.Log($"[Frog] Frog ăn Candy Object: {collision.name}");
-            EventDispatcher.Instance.Dispatch(collision.gameObject, EventDispatcher.DestroyCandy);
+            // EventDispatcher.Instance.Dispatch(collision.gameObject, EventDispatcher.DestroyCandy);
+            collision.gameObject.SetActive(false);
+
+            collision.gameObject.GetComponent<Candy>().FadeAllRopes();
+            
             StartCoroutine(HandleCandyCollisionFlow(collision.gameObject));
         }
     }

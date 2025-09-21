@@ -82,21 +82,6 @@ public class Candy : MonoBehaviour
         LightSprite.enabled = false;
     }
 
-    private void OnDestroyCandy(object obj)
-    {
-        if (this == null || gameObject == null)
-        {
-            return;
-        }
-
-        StartCoroutine(DelayDeactivate());
-    }
-
-    private void OnEnable()
-    {
-        EventDispatcher.Instance.AddEvent(gameObject, OnDestroyCandy, EventDispatcher.DestroyCandy);
-    }
-
     private IEnumerator DelayDeactivate()
     {
         yield return null;
@@ -163,5 +148,13 @@ public class Candy : MonoBehaviour
     private void AddForceIfDestroyBalloon()
     {
         _rb2D.gravityScale = 1f;
+    }
+
+    public void FadeAllRopes()
+    {
+        foreach (Rope rope in AttachedRopes)
+        {
+            rope.StartFadeOut();
+        }
     }
 }
