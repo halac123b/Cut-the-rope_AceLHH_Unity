@@ -12,5 +12,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae92dedaa7ee84992a5fda59de3d60ba, type: 3}
   m_Name: Level1_10
   m_EditorClassIdentifier: 
-  levelName: 1_5
-  ListEntities: []
+  levelName: 1_10
+  ListEntities:
+  - Id: 0
+    Category: 1
+    Position: {x: -1.15, y: 2.5, z: 0}
+    ExpandProperty: 
+  - Id: 1
+    Category: 0
+    Position: {x: -1.15, y: 3.25, z: 0}
+    ExpandProperty: 
+  - Id: 4
+    Category: 8
+    Position: {x: -0.75, y: 1.5, z: 0}
+    ExpandProperty: '{"Scale": 1, "RopeLength": 6}'
+  - Id: 5
+    Category: 8
+    Position: {x: 0, y: 0.5, z: 0}
+    ExpandProperty: '{"Scale": 1, "RopeLength": 6}'
+  - Id: 6
+    Category: 8
+    Position: {x: 0.75, y: -0.5, z: 0}
+    ExpandProperty: '{"Scale": 1, "RopeLength": 6}'
+  - Id: 8
+    Category: 4
+    Position: {x: -1, y: 0.5, z: 0}
+    ExpandProperty: 
+  - Id: 9
+    Category: 4
+    Position: {x: 0, y: -0.5, z: 0}
+    ExpandProperty: 
+  - Id: 10
+    Category: 4
+    Position: {x: 0.75, y: -1.5, z: 0}
+    ExpandProperty: 
+  - Id: 11
+    Category: 2
+    Position: {x: 0, y: 0, z: 0}
+    ExpandProperty: '{"FirstNailIndex": 1, "SecondNailIndex": 0 ,"LengthRope": 5}'
+  - Id: 14
+    Category: 3
+    Position: {x: 1.5, y: -2, z: 0}
+    ExpandProperty: 
+  - Id: 15
+    Category: 6
+    Position: {x: 0.5, y: 1.75, z: 0}
+    ExpandProperty: '{   "Rotation": 0,   "Title": "Automatic ropes <br>appear when
+      <br> candy gets into <br> their area" , "ShowLater": false,   "Sprite": "8",  
+      "SpritePosX": -0.25,   "SpritePosY": 0,   "SpritePosZ": 0.0,   "SpriteScale":
+      1 } '
