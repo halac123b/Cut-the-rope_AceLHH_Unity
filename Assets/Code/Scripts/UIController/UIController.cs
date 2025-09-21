@@ -66,6 +66,11 @@ public class UIController :MonoBehaviour
 
     private void OnReplaceButtonClick()
     {
+        if (IsCompleteLevel)
+        {
+            return;
+        }
+        
         SetUIStatus(false);
         Transition.Instance.Appear(Color.white, () =>
         {
@@ -75,7 +80,7 @@ public class UIController :MonoBehaviour
 
     private void OnApplicationFocus(bool hasFocus)
     {
-        if (hasFocus)
+        if (hasFocus && !IsCompleteLevel)
         {
             OnPauseButtonClick();
         }

@@ -58,7 +58,9 @@ public class Frog : MonoBehaviour
         }
 
         yield return new WaitForSeconds(EatAnimDuration);
-
+        
+        UIController.Instance.IsCompleteLevel = true;
+        
         _animator.ResetTrigger("Eat");
 
         HandleFrogLogic(candyName);
@@ -75,7 +77,6 @@ public class Frog : MonoBehaviour
         try
         {
             Debug.Log($"[Frog] Xử lý logic sau khi ăn Candy: {candyName}");
-
             string levelIndex = UserProfile.Instance.SelectedLevelIndex;
             EventDispatcher.Instance.Dispatch(null, EventDispatcher.CloseLoadingCurtain);
 
