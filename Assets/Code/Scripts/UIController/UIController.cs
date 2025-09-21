@@ -75,7 +75,7 @@ public class UIController :MonoBehaviour
 
     private void OnApplicationFocus(bool hasFocus)
     {
-        if (hasFocus)
+        if (hasFocus && !IsCompleteLevel)
         {
             OnPauseButtonClick();
         }
