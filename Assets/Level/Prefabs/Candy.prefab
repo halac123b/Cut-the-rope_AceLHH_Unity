@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 2917427662889590973}
   - component: {fileID: 5748031571829181505}
   - component: {fileID: 8765196661280017122}
+  - component: {fileID: 1134255309558958007}
   m_Layer: 0
   m_Name: Candy
   m_TagString: Candy
@@ -485,6 +486,7 @@ MonoBehaviour:
   AttachedRopes: []
   LightSprite: {fileID: 1225730976453297658}
   Animator: {fileID: 8765196661280017122}
+  _candyParticlesCollisionSpike: {fileID: 5948115110333892736, guid: ba94f0ce76527461f97664404fabfa32, type: 3}
 --- !u!58 &5748031571829181505
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -543,3 +545,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!232 &1134255309558958007
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8718484117257232086}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 8792316910107842636}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 0
+  m_Distance: 0.005
+  m_MaxDistanceOnly: 0

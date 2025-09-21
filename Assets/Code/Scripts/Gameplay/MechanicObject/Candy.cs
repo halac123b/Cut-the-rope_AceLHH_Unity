@@ -15,6 +15,7 @@ public class Candy : MonoBehaviour
     private float _tutorialTriggerYLevel05 = 1.6f;
     private float _tutorialTriggerXLevel05 = 0.4f;
     private float _stayTimer;
+    [SerializeField] private ParticleSystem _candyParticlesCollisionSpike;
     
     private void Start()
     {
@@ -28,10 +29,13 @@ public class Candy : MonoBehaviour
     {
         Vector3 viewPos = _mainCamera.WorldToViewportPoint(transform.position);
 
-        if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1 && AttachedRopes.Count <= 0)
+        if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
         {
-            EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
-            return;
+            if (AttachedRopes.Count <= 0)
+            {
+                EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
+                return;
+            }
         }
         
         if (transform.position.y > _tutorialTriggerYLevel05 && transform.position.y < _tutorialTriggerYLevel05 + 0.3f &&
@@ -56,17 +60,18 @@ public class Candy : MonoBehaviour
 
     private void PlayAnimationCollisionWithSpike()
     {
-        // run particle collision with spike here
-        Destroy(gameObject);
+        ParticleSystem ps = Instantiate(_candyParticlesCollisionSpike, transform.position, Quaternion.identity, transform.parent);
+        ps.Play();
         EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
+        Destroy(gameObject);  
     }
 
     private void OnDestroy()
     {
         EventDispatcher.Instance.RemoveEvent(gameObject);
     }
-    
-    public void PlayAnimationTriggerStar()
+
+    private void PlayAnimationTriggerStar()
     {
         LightSprite.enabled = true;
         Animator.SetTrigger("TriggerStar");

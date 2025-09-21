@@ -8,6 +8,7 @@ public class LevelSceneLoader : MonoBehaviour
 {
     private LevelData _levelData;
     [SerializeField] private GameObject _staticPointPrefab;
+    [SerializeField] private GameObject _potentialPoint;
     [SerializeField] private GameObject _candyPrefab;
     [SerializeField] private GameObject _ropePrefab;
     [SerializeField] private GameObject _frogPrefab;
@@ -25,12 +26,15 @@ public class LevelSceneLoader : MonoBehaviour
         LoadLevelData(UserProfile.Instance.SelectedLevelIndex);
         LoadLevelMap();
         EventDispatcher.Instance.AddEvent(gameObject, _ => ReloadLevel(), EventDispatcher.RestartLevel);
+        EventDispatcher.Instance.AddEvent(gameObject, _ => LoadNextLevel(), EventDispatcher.LoadNextLevel);
+        EventDispatcher.Instance.AddEvent(gameObject, (action) => { TriggerTutorialSign((int)action); },
+            EventDispatcher.TriggerTutorial);
         EventDispatcher.Instance.AddEvent(gameObject, (action) =>
-        { 
-            TriggerTutorialSign((int)action);
-        }, EventDispatcher.TriggerTutorial);
+        {
+            AddToListObjsLevel((GameObject) action);
+        }, EventDispatcher.AddToListObjsLevel);
     }
-    
+
     /// <summary>
     /// Reload level - GameOver
     /// </summary>
@@ -112,6 +116,16 @@ public class LevelSceneLoader : MonoBehaviour
             case ObjectCategory.StaticPoint:
                 createdObj = Instantiate(_staticPointPrefab, entity.Position, Quaternion.identity);
                 break;
+            case ObjectCategory.PotentialPoint:
+                JObject pointObj = JObject.Parse(entity.ExpandProperty);
+                int ropeLength = (int)pointObj["RopeLength"];
+                float scale   = (float)pointObj["Scale"];
+
+                createdObj = Instantiate(_potentialPoint, entity.Position, Quaternion.identity);
+                PotentialPoint potentialPoint = createdObj.GetComponent<PotentialPoint>();
+                potentialPoint.RopeLength = ropeLength;
+                potentialPoint.Scale = scale;
+                break;
             case ObjectCategory.Candy:
                 createdObj = Instantiate(_candyPrefab, entity.Position, Quaternion.identity);
                 break;
@@ -140,7 +154,7 @@ public class LevelSceneLoader : MonoBehaviour
                 JObject tutorialData = JObject.Parse(entity.ExpandProperty);
 
                 bool showLater = (bool?)(tutorialData["ShowLater"]) ?? false;
- 
+
                 if (showLater)
                     _pendingTutorialSigns.Add(entity);
                 else
@@ -160,14 +174,23 @@ public class LevelSceneLoader : MonoBehaviour
                     float colliderX = 0.5f;
                     switch (spriteName)
                     {
-                        case "01": colliderX = 0.5f; break;
-                        case "02": colliderX = 1.0f; break;
-                        case "03": colliderX = 1.5f; break;
-                        case "04": colliderX = 2.0f; break;
+                        case "01":
+                            colliderX = 0.5f;
+                            break;
+                        case "02":
+                            colliderX = 1.0f;
+                            break;
+                        case "03":
+                            colliderX = 1.5f;
+                            break;
+                        case "04":
+                            colliderX = 2.0f;
+                            break;
                     }
 
                     collider.size = new Vector2(colliderX, collider.size.y);
                 }
+
                 break;
             default:
                 Debug.LogError($"Unknown category: {entity.Category}");
@@ -180,14 +203,20 @@ public class LevelSceneLoader : MonoBehaviour
             createdObj.transform.SetParent(ParentObject);
         }
     }
+    
+    private void AddToListObjsLevel(GameObject createdObj)
+    {
+        _listLoadedObj.Add(createdObj);
+        createdObj.transform.SetParent(ParentObject);
+    }
 
     private void TriggerTutorialSign(int id)
     {
         BaseEntity entity = _pendingTutorialSigns.Find(e => e.Id == id);
-        
+
         if (entity == null)
             return;
-        
+
         SpawnTutorialSign(entity);
         _pendingTutorialSigns.Remove(entity);
     }
@@ -195,8 +224,7 @@ public class LevelSceneLoader : MonoBehaviour
 
     private void SpawnTutorialSign(BaseEntity entity)
     {
-        GameObject createdObj = null;
-        createdObj = Instantiate(_tutorialSignPrefab, entity.Position, Quaternion.identity);
+        GameObject createdObj = Instantiate(_tutorialSignPrefab, entity.Position, Quaternion.identity, ParentObject);
 
         if (!string.IsNullOrEmpty(entity.ExpandProperty))
         {
@@ -236,7 +264,7 @@ public class LevelSceneLoader : MonoBehaviour
                         float posY = (float)(tutorialData["SpritePosY"] ?? iconTransform.localPosition.y);
                         float posZ = (float)(tutorialData["SpritePosZ"] ?? iconTransform.localPosition.z);
                         iconTransform.localPosition = new Vector3(posX, posY, posZ);
-                        
+
                         float scale = (float)(tutorialData["SpriteScale"] ?? iconTransform.localScale.x);
                         iconTransform.localScale = new Vector3(scale, scale, scale);
                     }
@@ -272,5 +300,6 @@ public class LevelSceneLoader : MonoBehaviour
         Balloon,
         TutorialSign,
         Spike,
+        PotentialPoint
     }
 }

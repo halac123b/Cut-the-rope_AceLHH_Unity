@@ -11,6 +11,7 @@ TagManager:
   - Frog Eating Ready Zone
   - Balloon
   - Spike
+  - PotentialNut
   layers:
   - Default
   - TransparentFX

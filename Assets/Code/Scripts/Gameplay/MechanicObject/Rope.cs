@@ -12,6 +12,7 @@ public class Rope : MonoBehaviour
     public int RopeLength;
     [SerializeField] private float gravity = -1f;
     [SerializeField] private Material _whiteMaterial;
+    [SerializeField] private GameObject _ropeNutPrefab;
 
     private LineRenderer _ropeRenderer;
     private List<RopeSegment> _ropeSegments = new();
@@ -19,12 +20,15 @@ public class Rope : MonoBehaviour
     private float _ropeWidth = 0.03f;
     private SpringJoint2D _springJoint;
     private EdgeCollider2D _edgeCollider;
+    private Material _originalMat;
+    private Candy _candy;
     private float _jointDistance;
 
     private void Start()
     {
         _ropeRenderer = GetComponent<LineRenderer>();
         _edgeCollider = GetComponent<EdgeCollider2D>();
+        _originalMat = GetComponent<Renderer>().material;
 
         Vector3 ropeStartPoint = new(RopeFirstObject.position.x, RopeFirstObject.position.y, 0f);
 
@@ -43,8 +47,8 @@ public class Rope : MonoBehaviour
 
         mainCamera = Camera.main;
 
-        Candy candy = RopeSecondObject.GetComponent<Candy>();
-        candy.AttachRope(this);
+        _candy = RopeSecondObject.GetComponent<Candy>();
+        _candy.AttachRope(this);
     }
 
     private void Update()
@@ -167,7 +171,7 @@ public class Rope : MonoBehaviour
 
     private void DrawRope()
     {
-        if (UIController.Instance.IsCompleteLevel || RopeSecondObject == null)
+        if (UIController.Instance != null && UIController.Instance.IsCompleteLevel || RopeSecondObject == null)
         {
             return;
         }
@@ -205,14 +209,17 @@ public class Rope : MonoBehaviour
 
     public void CutAtPoint(Vector2 cutPoint)
     {
-        StartCoroutine(FlashWhite());
+        StartCoroutine(FlashWhite(cutPoint));
     }
 
-    private IEnumerator FlashWhite()
+    private IEnumerator FlashWhite(Vector2 cutPoint)
     {
+        Vector3 cutOnLine = new();
         Material originalStart = _ropeRenderer.material;
 
         _ropeRenderer.material = _whiteMaterial;
+
+        int index = GetCutIndex(cutPoint, out cutOnLine);
 
         yield return new WaitForSeconds(0.1f);
 
@@ -223,11 +230,67 @@ public class Rope : MonoBehaviour
         {
             _springJoint.connectedBody = null;
             ropeCandy.DetachRope(this);
+            _ropeRenderer.material = _originalMat;
         }
 
-        Destroy(gameObject);
+        CutRope(index);
     }
 
+    private int GetCutIndex(Vector2 hitPoint, out Vector3 cutOnLine)
+    {
+        int cutIndex = -1;
+        cutOnLine = Vector3.zero;
+        float minDist = float.MaxValue;
+
+        for (int i = 0; i < _ropeRenderer.positionCount - 1; i++)
+        {
+            Vector3 a = _ropeRenderer.GetPosition(i);
+            Vector3 b = _ropeRenderer.GetPosition(i + 1);
+
+            Vector3 ab = b - a;
+
+            float t = Vector2.Dot(hitPoint - (Vector2)a, (Vector2)ab) / ab.sqrMagnitude;
+            t = Mathf.Clamp01(t);
+
+            Vector3 proj = a + t * ab;
+
+            float dist = Vector2.Distance(hitPoint, proj);
+
+            if (dist < minDist)
+            {
+                minDist = dist;
+                cutIndex = i;
+                cutOnLine = proj;
+            }
+        }
+
+        return cutIndex;
+    }
+
+    public void CutRope(int cutIndex)
+    {
+        if (_ropeRenderer.positionCount < 2 || cutIndex <= 0 || cutIndex >= _ropeRenderer.positionCount - 1)
+        {
+            Destroy(_ropeRenderer.gameObject);
+            return;
+        }
+
+        GameObject ropeNut = Instantiate(_ropeNutPrefab);
+        LineRenderer ropeCutted = ropeNut.GetComponent<LineRenderer>();
+        ropeCutted.positionCount = cutIndex + 1;
+
+        for (int i = 0; i <= cutIndex; i++)
+        {
+            ropeCutted.SetPosition(i, _ropeRenderer.GetPosition(i));
+        }
+
+        // Vector3 freeEnd = lrNut.GetPosition(lrNut.positionCount - 1);
+
+        ropeNut.GetComponent<RopeEndWiggle>().Init();
+
+        Destroy(_ropeRenderer.gameObject);
+    }
+    
     private void UpdateJoint()
     {
         float distance2D = Vector2.Distance(
