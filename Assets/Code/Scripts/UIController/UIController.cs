@@ -66,6 +66,11 @@ public class UIController :MonoBehaviour
 
     private void OnReplaceButtonClick()
     {
+        if (IsCompleteLevel)
+        {
+            return;
+        }
+        
         SetUIStatus(false);
         Transition.Instance.Appear(Color.white, () =>
         {
