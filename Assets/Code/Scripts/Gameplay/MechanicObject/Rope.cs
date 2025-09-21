@@ -13,6 +13,8 @@ public class Rope : MonoBehaviour
     [SerializeField] private float gravity = -1f;
     [SerializeField] private Material _whiteMaterial;
     [SerializeField] private GameObject _ropeNutPrefab;
+    [SerializeField] private Material _normalMaterial;
+    [SerializeField] private Material _redMaterial;
 
     private LineRenderer _ropeRenderer;
     private List<RopeSegment> _ropeSegments = new();
@@ -28,7 +30,6 @@ public class Rope : MonoBehaviour
     {
         _ropeRenderer = GetComponent<LineRenderer>();
         _edgeCollider = GetComponent<EdgeCollider2D>();
-        _originalMat = GetComponent<Renderer>().material;
 
         Vector3 ropeStartPoint = new(RopeFirstObject.position.x, RopeFirstObject.position.y, 0f);
 
@@ -214,12 +215,11 @@ public class Rope : MonoBehaviour
 
     private IEnumerator FlashWhite(Vector2 cutPoint)
     {
-        Vector3 cutOnLine = new();
         Material originalStart = _ropeRenderer.material;
 
         _ropeRenderer.material = _whiteMaterial;
 
-        int index = GetCutIndex(cutPoint, out cutOnLine);
+        int index = GetCutIndex(cutPoint, out Vector3 cutOnLine);
 
         yield return new WaitForSeconds(0.1f);
 
@@ -230,7 +230,7 @@ public class Rope : MonoBehaviour
         {
             _springJoint.connectedBody = null;
             ropeCandy.DetachRope(this);
-            _ropeRenderer.material = _originalMat;
+            _ropeRenderer.material = _normalMaterial;
         }
 
         CutRope(index);
@@ -290,7 +290,7 @@ public class Rope : MonoBehaviour
 
         Destroy(_ropeRenderer.gameObject);
     }
-    
+
     private void UpdateJoint()
     {
         float distance2D = Vector2.Distance(
@@ -305,6 +305,15 @@ public class Rope : MonoBehaviour
         else
         {
             _springJoint.enabled = true;
+        }
+
+        if (distance2D >= _jointDistance * 1.4f)
+        {
+            _ropeRenderer.material = _redMaterial;
+        }
+        else
+        {
+            _ropeRenderer.material = _normalMaterial;
         }
     }
 }
