@@ -215,6 +215,11 @@ public class Rope : MonoBehaviour
 
     private IEnumerator FlashWhite(Vector2 cutPoint)
     {
+        if (RopeSecondObject == null || RopeSecondObject.gameObject.activeInHierarchy == false)
+        {
+            yield break;
+        }
+
         Material originalStart = _ropeRenderer.material;
 
         _ropeRenderer.material = _whiteMaterial;
@@ -315,5 +320,30 @@ public class Rope : MonoBehaviour
         {
             _ropeRenderer.material = _normalMaterial;
         }
+    }
+
+    public void StartFadeOut()
+    {
+        StartCoroutine(FadeOut());
+    }
+
+    private IEnumerator FadeOut()
+    {
+        float elapsed = 0f;
+        Color startColor = _ropeRenderer.startColor;
+        Color endColor = _ropeRenderer.endColor;
+
+        while (elapsed < 1f)
+        {
+            elapsed += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, elapsed / 1f);
+
+            _ropeRenderer.startColor = new Color(startColor.r, startColor.g, startColor.b, alpha);
+            _ropeRenderer.endColor = new Color(endColor.r, endColor.g, endColor.b, alpha);
+
+            yield return null;
+        }
+
+        Destroy(gameObject);
     }
 }
