@@ -35,6 +35,7 @@ public class EventDispatcher : MonoSingleton<EventDispatcher>
     public static string CloseLoadingCurtain = "CloseLoadingCurtain";
     public static string OpenLoadingCurtain = "OpenLoadingCurtain";
     public static string LevelFail = "LevelFail";
+    public static string CollectStar = "CollectStar";
     public static string TriggerTutorial = "TriggerTutorial";
     public static string TriggerSpike = "TriggerSpike";
     public static string AddToListObjsLevel = "AddToListObjsLevel";
