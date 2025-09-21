@@ -1,8 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(LineRenderer))]
+[RequireComponent(typeof(EdgeCollider2D))]
 public class Rope : MonoBehaviour
 {
     public Transform RopeFirstObject;
@@ -12,21 +13,23 @@ public class Rope : MonoBehaviour
     [SerializeField] private float gravity = -1f;
     [SerializeField] private Material _whiteMaterial;
     [SerializeField] private GameObject _ropeNutPrefab;
+    [SerializeField] private Material _normalMaterial;
+    [SerializeField] private Material _redMaterial;
 
     private LineRenderer _ropeRenderer;
     private List<RopeSegment> _ropeSegments = new();
     private float _ropeSegmentLen = 0.1f;
     private float _ropeWidth = 0.03f;
-    private DistanceJoint2D _joint;
+    private SpringJoint2D _springJoint;
     private EdgeCollider2D _edgeCollider;
     private Material _originalMat;
     private Candy _candy;
+    private float _jointDistance;
 
     private void Start()
     {
         _ropeRenderer = GetComponent<LineRenderer>();
         _edgeCollider = GetComponent<EdgeCollider2D>();
-        _originalMat = GetComponent<Renderer>().material;
 
         Vector3 ropeStartPoint = new(RopeFirstObject.position.x, RopeFirstObject.position.y, 0f);
 
@@ -36,9 +39,12 @@ public class Rope : MonoBehaviour
             ropeStartPoint.y -= _ropeSegmentLen;
         }
 
-        _joint = RopeFirstObject.GetComponent<DistanceJoint2D>();
-        _joint.connectedBody = RopeSecondObject.GetComponent<Rigidbody2D>();
-        _joint.distance = (RopeLength + 5) * 0.1f;
+        Rigidbody2D rb = RopeSecondObject.GetComponent<Rigidbody2D>();
+        _jointDistance = (RopeLength + 5) * 0.1f;
+
+        _springJoint = RopeFirstObject.GetComponent<SpringJoint2D>();
+        _springJoint.connectedBody = rb;
+        _springJoint.distance = _jointDistance;
 
         mainCamera = Camera.main;
 
@@ -48,32 +54,6 @@ public class Rope : MonoBehaviour
 
     private void Update()
     {
-        // if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
-        // {
-        //     Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Pointer.current.position.ReadValue());
-
-        //     RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
-
-        //     if (hit.collider != null && hit.collider.gameObject.CompareTag("Rope"))
-        //     {
-        //         if (UIController.Instance.IsEnableUI)
-        //         {
-        //             return;
-        //         }
-
-        //         Rope rope = hit.collider.GetComponent<Rope>();
-        //         Candy ropeCandy = RopeSecondObject.GetComponent<Candy>();
-
-        //         if (rope != null && ropeCandy != null)
-        //         {
-        //             rope._joint.connectedBody = null;
-        //             ropeCandy.DetachRope(rope);
-        //         }
-
-        //         Destroy(hit.collider.gameObject);
-        //     }
-        // }
-
         DrawRope();
     }
 
@@ -90,6 +70,8 @@ public class Rope : MonoBehaviour
         {
             ApplyConstraint();
         }
+
+        UpdateJoint();
     }
 
     private void LateUpdate()
@@ -233,13 +215,12 @@ public class Rope : MonoBehaviour
 
     private IEnumerator FlashWhite(Vector2 cutPoint)
     {
-        Vector3 cutOnLine = new();
         Material originalStart = _ropeRenderer.material;
 
         _ropeRenderer.material = _whiteMaterial;
 
-        int index = GetCutIndex(cutPoint, out cutOnLine);
-        
+        int index = GetCutIndex(cutPoint, out Vector3 cutOnLine);
+
         yield return new WaitForSeconds(0.1f);
 
         _ropeRenderer.material = originalStart;
@@ -247,9 +228,9 @@ public class Rope : MonoBehaviour
 
         if (ropeCandy != null)
         {
-            _joint.connectedBody = null;
+            _springJoint.connectedBody = null;
             ropeCandy.DetachRope(this);
-            _ropeRenderer.material = _originalMat;
+            _ropeRenderer.material = _normalMaterial;
         }
 
         CutRope(index);
@@ -285,7 +266,7 @@ public class Rope : MonoBehaviour
 
         return cutIndex;
     }
-    
+
     public void CutRope(int cutIndex)
     {
         if (_ropeRenderer.positionCount < 2 || cutIndex <= 0 || cutIndex >= _ropeRenderer.positionCount - 1)
@@ -297,17 +278,42 @@ public class Rope : MonoBehaviour
         GameObject ropeNut = Instantiate(_ropeNutPrefab);
         LineRenderer ropeCutted = ropeNut.GetComponent<LineRenderer>();
         ropeCutted.positionCount = cutIndex + 1;
-        
+
         for (int i = 0; i <= cutIndex; i++)
         {
             ropeCutted.SetPosition(i, _ropeRenderer.GetPosition(i));
         }
 
         // Vector3 freeEnd = lrNut.GetPosition(lrNut.positionCount - 1);
-        
+
         ropeNut.GetComponent<RopeEndWiggle>().Init();
 
         Destroy(_ropeRenderer.gameObject);
     }
-}
 
+    private void UpdateJoint()
+    {
+        float distance2D = Vector2.Distance(
+            new Vector2(RopeSecondObject.position.x, RopeSecondObject.position.y),
+            new Vector2(RopeFirstObject.position.x, RopeFirstObject.position.y)
+        );
+
+        if (distance2D <= _jointDistance)
+        {
+            _springJoint.enabled = false;
+        }
+        else
+        {
+            _springJoint.enabled = true;
+        }
+
+        if (distance2D >= _jointDistance * 1.4f)
+        {
+            _ropeRenderer.material = _redMaterial;
+        }
+        else
+        {
+            _ropeRenderer.material = _normalMaterial;
+        }
+    }
+}
