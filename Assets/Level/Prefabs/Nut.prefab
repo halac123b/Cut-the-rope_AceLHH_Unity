@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 7502261571240423152}
   - component: {fileID: 5433255220672783052}
   - component: {fileID: 1415125499655387059}
+  - component: {fileID: 5781991343035089258}
   m_Layer: 0
   m_Name: Nut
   m_TagString: Untagged
@@ -224,3 +225,24 @@ DistanceJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 1
   m_MaxDistanceOnly: 1
+--- !u!231 &5781991343035089258
+SpringJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5982756826991161604}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 0
+  m_Distance: 1.2960309
+  m_DampingRatio: 0
+  m_Frequency: 2
