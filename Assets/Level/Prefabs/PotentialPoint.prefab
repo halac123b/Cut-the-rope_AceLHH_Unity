@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 9077592111572368705}
   - component: {fileID: 2002706313548380887}
   - component: {fileID: 2667128594184992775}
-  - component: {fileID: 716115017099417659}
   - component: {fileID: 7753595295628857893}
+  - component: {fileID: 4222237674419130922}
   m_Layer: 0
   m_Name: PotentialPoint
   m_TagString: PotentialNut
@@ -243,26 +243,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!232 &716115017099417659
-DistanceJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3266095084304904422}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_BreakAction: 3
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_AutoConfigureDistance: 0
-  m_Distance: 1
-  m_MaxDistanceOnly: 1
 --- !u!114 &7753595295628857893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +259,27 @@ MonoBehaviour:
   Scale: 5
   _ropePrefab: {fileID: 601785303011650862, guid: ec2c02cd3d31b4b66ba4bacb2e74669d, type: 3}
   _circleCollider: {fileID: 8563762195124930424}
+--- !u!231 &4222237674419130922
+SpringJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3266095084304904422}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 0
+  m_Distance: 1.2960309
+  m_DampingRatio: 0
+  m_Frequency: 2
 --- !u!1 &7343358792961850256
 GameObject:
   m_ObjectHideFlags: 0

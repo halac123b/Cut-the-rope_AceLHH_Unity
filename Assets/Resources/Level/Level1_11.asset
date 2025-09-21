@@ -16,7 +16,7 @@ MonoBehaviour:
   ListEntities:
   - Id: 0
     Category: 1
-    Position: {x: 0, y: -1, z: 0}
+    Position: {x: 0, y: 0, z: 0}
     ExpandProperty: 
   - Id: 1
     Category: 0

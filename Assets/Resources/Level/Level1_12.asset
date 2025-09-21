@@ -16,61 +16,51 @@ MonoBehaviour:
   ListEntities:
   - Id: 0
     Category: 1
-    Position: {x: 0, y: -1, z: 0}
+    Position: {x: -0.5, y: -0.25, z: 0}
     ExpandProperty: 
   - Id: 1
     Category: 0
-    Position: {x: 0, y: 3, z: 0}
+    Position: {x: -1, y: -1, z: 0}
     ExpandProperty: 
   - Id: 2
     Category: 0
-    Position: {x: 0.8, y: 2.25, z: 0}
+    Position: {x: 0, y: 1, z: 0}
     ExpandProperty: 
-  - Id: 3
-    Category: 0
-    Position: {x: -0.8, y: 2.25, z: 0}
-    ExpandProperty: 
-  - Id: 4
-    Category: 8
-    Position: {x: 1.5, y: 1.5, z: 0}
-    ExpandProperty: '{"Scale": 2, "RopeLength": 10}'
   - Id: 5
     Category: 8
-    Position: {x: -1.5, y: 1.5, z: 0}
-    ExpandProperty: '{"Scale": 2, "RopeLength": 10}'
+    Position: {x: 1, y: 2, z: 0}
+    ExpandProperty: '{"Scale": 1, "RopeLength": 10}'
   - Id: 6
     Category: 8
-    Position: {x: 0.8, y: -0.5, z: 0}
-    ExpandProperty: '{"Scale": 2, "RopeLength": 10}'
-  - Id: 7
-    Category: 8
-    Position: {x: -0.8, y: -0.5, z: 0}
-    ExpandProperty: '{"Scale": 2, "RopeLength": 10}'
+    Position: {x: 0.5, y: 0, z: 0}
+    ExpandProperty: '{"Scale": 1.5, "RopeLength": 10}'
   - Id: 8
     Category: 4
-    Position: {x: -0.8, y: -2, z: 0}
+    Position: {x: 1, y: -0.5, z: 0}
     ExpandProperty: 
   - Id: 9
     Category: 4
-    Position: {x: -1.5, y: 0.25, z: 0}
+    Position: {x: 0, y: -0.5, z: 0}
     ExpandProperty: 
   - Id: 10
     Category: 4
-    Position: {x: 0.8, y: -2, z: 0}
+    Position: {x: 0.25, y: 1.5, z: 0}
     ExpandProperty: 
   - Id: 11
     Category: 2
     Position: {x: 0, y: 0, z: 0}
-    ExpandProperty: '{"FirstNailIndex": 1, "SecondNailIndex": 0 ,"LengthRope": 15}'
+    ExpandProperty: '{"FirstNailIndex": 1, "SecondNailIndex": 0 ,"LengthRope": 2}'
   - Id: 12
     Category: 2
     Position: {x: 0, y: 0, z: 0}
-    ExpandProperty: '{"FirstNailIndex": 2, "SecondNailIndex": 0 ,"LengthRope": 12}'
-  - Id: 13
-    Category: 2
-    Position: {x: 0, y: 0, z: 0}
-    ExpandProperty: '{"FirstNailIndex": 3, "SecondNailIndex": 0 ,"LengthRope": 12}'
+    ExpandProperty: '{"FirstNailIndex": 2, "SecondNailIndex": 0 ,"LengthRope": 3}'
   - Id: 14
     Category: 3
-    Position: {x: 0, y: -3, z: 0}
+    Position: {x: 0, y: -2, z: 0}
     ExpandProperty: 
+  - Id: 13
+    Category: 6
+    Position: {x: -1, y: 2, z: 0}
+    ExpandProperty: '{   "Rotation": 0,   "Title": "Stretched <br> ropes turn <br>red"
+      , "ShowLater": false,   "Sprite": "3",   "SpritePosX":0,   "SpritePosY": 0,  
+      "SpritePosZ": 0.0,   "SpriteScale": 1 } '

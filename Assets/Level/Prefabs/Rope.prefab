@@ -203,3 +203,5 @@ MonoBehaviour:
   gravity: -1
   _whiteMaterial: {fileID: 2100000, guid: a44e68d75ec3044deb7a6ad7ec9475a2, type: 2}
   _ropeNutPrefab: {fileID: 2168642611762733908, guid: 47a44d5948e0b4b62aabb72a377303b0, type: 3}
+  _normalMaterial: {fileID: 2100000, guid: 0eb12f468b34140b0a1bac31ef202b80, type: 2}
+  _redMaterial: {fileID: 2100000, guid: c8777b8a30280428196d70c10519b695, type: 2}
