@@ -15,7 +15,7 @@ public class BalloonCollision : MonoBehaviour
                 rb.AddForce(pushDir * pushForce, ForceMode2D.Impulse);
             }
 
-            gameObject.SetActive(false); 
+            //gameObject.SetActive(false); 
         }
     }
 }
