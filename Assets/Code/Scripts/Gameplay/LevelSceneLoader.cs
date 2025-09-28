@@ -15,6 +15,7 @@ public class LevelSceneLoader : MonoBehaviour
     [SerializeField] private GameObject _balloonPrefab;
     [SerializeField] private GameObject _tutorialSignPrefab;
     [SerializeField] private GameObject _spikePrefab;
+    [SerializeField] private GameObject _bubblePrefab;
 
     public Transform ParentObject;
     private List<GameObject> _listLoadedObj = new();
@@ -26,12 +27,10 @@ public class LevelSceneLoader : MonoBehaviour
         LoadLevelMap();
         EventDispatcher.Instance.AddEvent(gameObject, _ => ReloadLevel(), EventDispatcher.RestartLevel);
         EventDispatcher.Instance.AddEvent(gameObject, _ => LoadNextLevel(), EventDispatcher.LoadNextLevel);
-        EventDispatcher.Instance.AddEvent(gameObject, (action) =>
-        { 
-            TriggerTutorialSign((int)action);
-        }, EventDispatcher.TriggerTutorial);
+        EventDispatcher.Instance.AddEvent(gameObject, (action) => { TriggerTutorialSign((int)action); },
+            EventDispatcher.TriggerTutorial);
     }
-    
+
     /// <summary>
     /// Reload level - GameOver
     /// </summary>
@@ -134,8 +133,8 @@ public class LevelSceneLoader : MonoBehaviour
             case ObjectCategory.Star:
                 createdObj = Instantiate(_starPrefab, entity.Position, Quaternion.identity);
                 break;
-            case ObjectCategory.Balloon:
-                createdObj = Instantiate(_balloonPrefab, entity.Position, Quaternion.identity);
+            case ObjectCategory.Bubble:
+                createdObj = Instantiate(_bubblePrefab, entity.Position, Quaternion.identity);
                 break;
             case ObjectCategory.TutorialSign:
                 JObject tutorialData = JObject.Parse(entity.ExpandProperty);
@@ -168,6 +167,17 @@ public class LevelSceneLoader : MonoBehaviour
                     }
 
                     collider.size = new Vector2(colliderX, collider.size.y);
+                }
+                break;
+            case ObjectCategory.Balloon:
+                createdObj = Instantiate(_balloonPrefab, entity.Position, Quaternion.identity);
+
+                if (!string.IsNullOrEmpty(entity.ExpandProperty))
+                {
+                    JObject bubbleData = JObject.Parse(entity.ExpandProperty);
+                    float rotationZ = (float)(bubbleData["Rotation"] ?? 0f);
+
+                    createdObj.transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
                 }
                 break;
             default:
@@ -272,5 +282,6 @@ public class LevelSceneLoader : MonoBehaviour
         Balloon,
         TutorialSign,
         Spike,
+        Bubble
     }
 }
