@@ -81,8 +81,7 @@ public class SwipeCutter : MonoBehaviour
         // Reset last position for cutting checks
         _lastPos = worldPos;
     }
-
-
+    
     private void OnClickEnd(InputAction.CallbackContext ctx)
     {
         _isSwiping = false;

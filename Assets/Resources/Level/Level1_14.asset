@@ -10,49 +10,47 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae92dedaa7ee84992a5fda59de3d60ba, type: 3}
-  m_Name: Level1_8
+  m_Name: Level1_14
   m_EditorClassIdentifier: 
-  levelName: 1_8
+  levelName: 1_14
   ListEntities:
   - Id: 0
     Category: 1
-    Position: {x: 1, y: 1, z: 0}
+    Position: {x: -1, y: -1.5, z: 0}
     ExpandProperty: 
   - Id: 1
     Category: 0
-    Position: {x: 0, y: 1.35, z: 0}
+    Position: {x: -1, y: 0, z: 0}
     ExpandProperty: 
   - Id: 2
-    Category: 0
-    Position: {x: 0, y: 0, z: 0}
-    ExpandProperty: 
-  - Id: 0
-    Category: 4
-    Position: {x: 0, y: 2, z: 0}
-    ExpandProperty: 
-  - Id: 0
-    Category: 4
-    Position: {x: 1.45, y: 0, z: 0}
-    ExpandProperty: 
-  - Id: 0
-    Category: 4
-    Position: {x: -1.45, y: 0, z: 0}
-    ExpandProperty: 
-  - Id: 0
-    Category: 2
-    Position: {x: 0, y: 0, z: 0}
-    ExpandProperty: '{"FirstNailIndex": 1, "SecondNailIndex": 0 ,"LengthRope": 9
-      }'
-  - Id: 0
-    Category: 2
-    Position: {x: 0, y: 0, z: 0}
-    ExpandProperty: '{"FirstNailIndex": 2, "SecondNailIndex": 0 ,"LengthRope": 12
-      }'
-  - Id: 0
-    Category: 3
-    Position: {x: 0, y: -2.5, z: 0}
-    ExpandProperty: 
-  - Id: 0
+    Category: 8
+    Position: {x: 0, y: 1, z: 0}
+    ExpandProperty: '{"Scale":2.5, "RopeLength": 7}'
+  - Id: 4
     Category: 5
-    Position: {x: 1, y: -1.5, z: 0}
+    Position: {x: -1, y: -2, z: 0}
+    ExpandProperty: 
+  - Id: 6
+    Category: 5
+    Position: {x: 1, y: 0.5, z: 0}
+    ExpandProperty: 
+  - Id: 8
+    Category: 4
+    Position: {x: -1, y: -2, z: 0}
+    ExpandProperty: 
+  - Id: 9
+    Category: 4
+    Position: {x: -1, y: 0.5, z: 0}
+    ExpandProperty: 
+  - Id: 10
+    Category: 4
+    Position: {x: 1, y: 0.5, z: 0}
+    ExpandProperty: 
+  - Id: 11
+    Category: 2
+    Position: {x: 0, y: 0, z: 0}
+    ExpandProperty: '{"FirstNailIndex": 1, "SecondNailIndex": 0 ,"LengthRope": 7}'
+  - Id: 14
+    Category: 3
+    Position: {x: 1, y: 1.5, z: 0}
     ExpandProperty: 

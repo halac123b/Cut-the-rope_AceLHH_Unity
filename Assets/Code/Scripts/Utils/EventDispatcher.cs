@@ -30,13 +30,14 @@ public class EventDispatcher : MonoSingleton<EventDispatcher>
     public static string LoadNextLevel = "LoadNextLevel";
     public static string DisableCompleteUI = "DisableCompleteUI";
     public static string PlayLevelTextAnimation = "PlayLevelTextAnimation";
-    public static string DestroyCandy = "DestroyCandy";
     public static string GetCurrentStar = "GetCurrentStar";
     public static string CloseLoadingCurtain = "CloseLoadingCurtain";
     public static string OpenLoadingCurtain = "OpenLoadingCurtain";
     public static string LevelFail = "LevelFail";
+    public static string CollectStar = "CollectStar";
     public static string TriggerTutorial = "TriggerTutorial";
     public static string TriggerSpike = "TriggerSpike";
+    public static string AddToListObjsLevel = "AddToListObjsLevel";
 
     public void AddEvent(GameObject gameObject, Action<object> action, string key)
     {
