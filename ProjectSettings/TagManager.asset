@@ -12,6 +12,7 @@ TagManager:
   - Balloon
   - Spike
   - PotentialNut
+  - Bubble
   layers:
   - Default
   - TransparentFX

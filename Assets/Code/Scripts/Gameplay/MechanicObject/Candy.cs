@@ -123,29 +123,29 @@ public class Candy : MonoBehaviour
             AttachedRopes.Remove(rope);
     }
 
-    public void SetBalloonState(bool isActive, float balloonSpeed = 0f)
+    public void SetBubbleState(bool isActive, float bubbleSpeed = 0f)
     {
         if (isActive)
         {
-            AddForceIfTriggerBalloon(balloonSpeed);
+            AddForceIfTriggerBubble(bubbleSpeed);
         }
         else
         {
-            AddForceIfDestroyBalloon();
+            AddForceIfDestroyBubble();
         }
     }
 
-    private void AddForceIfTriggerBalloon(float balloonSpeed)
+    private void AddForceIfTriggerBubble(float bublleSpeed)
     {
         _rb2D.gravityScale = -0.15f;
 
         if (_rb2D.linearVelocityY < 0.25f)
         {
-            _rb2D.AddForce(Vector3.up * balloonSpeed, ForceMode2D.Impulse);
+            _rb2D.AddForce(Vector3.up * bublleSpeed, ForceMode2D.Impulse);
         }
     }
 
-    private void AddForceIfDestroyBalloon()
+    private void AddForceIfDestroyBubble()
     {
         _rb2D.gravityScale = 1f;
     }
