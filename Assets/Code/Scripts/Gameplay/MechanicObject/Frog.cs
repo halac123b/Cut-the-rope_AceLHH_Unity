@@ -9,7 +9,6 @@ public class Frog : MonoBehaviour
     private const float EatAnimDuration = 3.0f;
     private int _nextLevelValue;
 
-
     private void Start()
     {
         Sprite selectedFrogSprite = UserProfile.Instance.SelectedBoxData.CharFrogSprites;
@@ -25,9 +24,14 @@ public class Frog : MonoBehaviour
         {
             Debug.Log($"[Frog] Frog ăn Candy Object: {collision.name}");
             // EventDispatcher.Instance.Dispatch(collision.gameObject, EventDispatcher.DestroyCandy);
-            collision.gameObject.SetActive(false);
-
-            collision.gameObject.GetComponent<Candy>().FadeAllRopes();
+            // collision.gameObject.SetActive(false);
+            
+            Candy candy = collision.gameObject.GetComponent<Candy>();
+            candy.FadeAllRopes();
+            
+            float height = GetComponent<SpriteRenderer>().bounds.size.y;
+            Vector3 frogPos = transform.position + new Vector3(0, height / 2f, 0);
+            collision.gameObject.GetComponent<Candy>().BeEaten(frogPos);
             
             StartCoroutine(HandleCandyCollisionFlow(collision.gameObject));
         }
@@ -50,8 +54,6 @@ public class Frog : MonoBehaviour
 
     private IEnumerator HandleCandyCollisionFlow(GameObject candyObj)
     {
-        string candyName = candyObj.name;
-
         if (_animator != null)
         {
             _animator.SetTrigger("Eat");
@@ -63,57 +65,50 @@ public class Frog : MonoBehaviour
         
         _animator.ResetTrigger("Eat");
 
-        HandleFrogLogic(candyName);
+        HandleFrogLogic();
 
         if (candyObj != null)
         {
-            Destroy(candyObj);
-            Debug.Log($"[Frog] Candy {candyName} đã bị destroy.");
+            // Destroy(candyObj);
+            Debug.Log($"[Frog] Candy đã bị destroy.");
         }
     }
 
-    private void HandleFrogLogic(string candyName)
+    private void HandleFrogLogic()
     {
-        try
-        {
-            Debug.Log($"[Frog] Xử lý logic sau khi ăn Candy: {candyName}");
-            string levelIndex = UserProfile.Instance.SelectedLevelIndex;
-            EventDispatcher.Instance.Dispatch(null, EventDispatcher.CloseLoadingCurtain);
+        Debug.Log($"[Frog] Xử lý logic sau khi ăn Candy");
+        string levelIndex = UserProfile.Instance.SelectedLevelIndex;
+        EventDispatcher.Instance.Dispatch(null, EventDispatcher.CloseLoadingCurtain);
 
-            EventDispatcher.Instance.Dispatch(
-                (Action<int>)(currentStars =>
+        EventDispatcher.Instance.Dispatch(
+            (Action<int>)(currentStars =>
+            {
+                UserProfile.Instance.SaveStars(levelIndex, currentStars);
+                EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LoadCompleteUI);
+                string nextLevelIndex = GetNextLevelIndex(levelIndex);
+
+                if (UserProfile.Instance.SelectedBoxData != null)
                 {
-                    UserProfile.Instance.SaveStars(levelIndex, currentStars);
-                    EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LoadCompleteUI);
-                    string nextLevelIndex = GetNextLevelIndex(levelIndex);
+                    int totalLevels = UserProfile.Instance.SelectedBoxData.NumberOfLevels;
 
-                    if (UserProfile.Instance.SelectedBoxData != null)
+                    if (_nextLevelValue <= totalLevels)
                     {
-                        int totalLevels = UserProfile.Instance.SelectedBoxData.NumberOfLevels;
-
-                        if (_nextLevelValue <= totalLevels)
-                        {
-                            EventDispatcher.Instance.Dispatch(
-                                (Action<int>)(resetStars =>
-                                {
-                                    UserProfile.Instance.SaveStars(nextLevelIndex, resetStars);
-                                }),
-                                EventDispatcher.OnResetStars
-                            );
-                        }
+                        EventDispatcher.Instance.Dispatch(
+                            (Action<int>)(resetStars =>
+                            {
+                                UserProfile.Instance.SaveStars(nextLevelIndex, resetStars);
+                            }),
+                            EventDispatcher.OnResetStars
+                        );
                     }
-                    else
-                    {
-                        Debug.LogWarning("[Frog] SelectedBoxData is null.");
-                    }
-                }),
-                EventDispatcher.OnGetStarsRequest
-            );
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[Frog] Lỗi xử lý Candy {candyName}: {ex.Message}");
-        }
+                }
+                else
+                {
+                    Debug.LogWarning("[Frog] SelectedBoxData is null.");
+                }
+            }),
+            EventDispatcher.OnGetStarsRequest
+        );
     }
 
     private string GetNextLevelIndex(string currentLevelIndex)
