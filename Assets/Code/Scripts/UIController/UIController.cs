@@ -14,6 +14,7 @@ public class UIController :MonoBehaviour
     
     public bool IsEnableUI;
     public bool IsCompleteLevel;
+    public bool IsCreatedLevel;
 
     private void Awake()
     {

@@ -19,4 +19,5 @@ MonoBehaviour:
   RequireStar: 0
   BoxSprite: {fileID: 21300000, guid: 077ee3f9060db4f47b033284c0940b39, type: 3}
   BGGameplay: {fileID: 21300000, guid: 7b3087110ca834d9ab09ad48fc7f5c0d, type: 3}
+  TiledBG: {fileID: 21300000, guid: 2abdc0d0b1bed416abe85684e99612b1, type: 3}
   CharFrogSprites: {fileID: 665484249, guid: 56fde9423255a413e9e76b728df7d51b, type: 3}

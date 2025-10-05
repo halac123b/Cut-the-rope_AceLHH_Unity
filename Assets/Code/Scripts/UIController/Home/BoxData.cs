@@ -8,10 +8,12 @@ public class BoxData : ScriptableObject
     public string BoxName;
     public int NumberOfLevels;
     public Sprite BoxBGSprite;
+    public float AdjustPosition;
     public int RequireStar;
     
     //UI List Box
     public Sprite BoxSprite;
     public Sprite BGGameplay;
+    public Sprite TiledBG;
     public Sprite CharFrogSprites;
 }

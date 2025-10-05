@@ -1,27 +1,14 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class UserProfile : MonoBehaviour
+public class UserProfile : MonoSingleton<UserProfile>
 {
-    public static UserProfile Instance { get; private set; }
-
     public string SelectedLevelIndex;
     public BoxData SelectedBoxData;
     public int SeasonIndex = -1;
     public bool IsCompleteBox;
     public int CurrentStars;
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
+    public ScrollLevelData ScrollLevelData;
 
     public void SetLevel(string levelIndex)
     {
