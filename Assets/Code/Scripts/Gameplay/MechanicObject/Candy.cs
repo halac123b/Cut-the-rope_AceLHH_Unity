@@ -1,9 +1,11 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using LitMotion;
+using LitMotion.Extensions;
 using UnityEngine;
-using UnityEngine.Serialization;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class Candy : MonoBehaviour
 {
     //public static event Action<Collider2D> OnCandyCollision;
@@ -123,29 +125,29 @@ public class Candy : MonoBehaviour
             AttachedRopes.Remove(rope);
     }
 
-    public void SetBalloonState(bool isActive, float balloonSpeed = 0f)
+    public void SetBubbleState(bool isActive, float bubbleSpeed = 0f)
     {
         if (isActive)
         {
-            AddForceIfTriggerBalloon(balloonSpeed);
+            AddForceIfTriggerBubble(bubbleSpeed);
         }
         else
         {
-            AddForceIfDestroyBalloon();
+            AddForceIfDestroyBubble();
         }
     }
 
-    private void AddForceIfTriggerBalloon(float balloonSpeed)
+    private void AddForceIfTriggerBubble(float bublleSpeed)
     {
         _rb2D.gravityScale = -0.15f;
 
         if (_rb2D.linearVelocityY < 0.25f)
         {
-            _rb2D.AddForce(Vector3.up * balloonSpeed, ForceMode2D.Impulse);
+            _rb2D.AddForce(Vector3.up * bublleSpeed, ForceMode2D.Impulse);
         }
     }
 
-    private void AddForceIfDestroyBalloon()
+    private void AddForceIfDestroyBubble()
     {
         _rb2D.gravityScale = 1f;
     }
@@ -156,5 +158,30 @@ public class Candy : MonoBehaviour
         {
             rope.StartFadeOut();
         }
+    }
+
+    public void BeEaten(Vector3 pos)
+    {
+        _rb2D.bodyType = RigidbodyType2D.Static;
+        GetComponent<CircleCollider2D>().enabled = false;
+        float duration = 0.15f;
+
+        LMotion.Create(transform.position, pos, duration)
+            .WithEase(Ease.OutQuad)
+            .BindToPosition(transform).AddTo(gameObject);
+
+        LMotion.Create(transform.localScale, Vector3.zero, duration)
+            .BindToLocalScale(transform).AddTo(gameObject);
+
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        LMotion.Create(sr.color.a, 0f, duration)
+        .WithEase(Ease.OutQuad)
+        .Bind(alpha =>
+        {
+            Color c = sr.color;
+            c.a = alpha;
+            sr.color = c;
+        })
+        .AddTo(gameObject);
     }
 }
