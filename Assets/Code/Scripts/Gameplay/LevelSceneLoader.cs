@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using LitMotion;
 using UnityEngine.SceneManagement;
 
 public class LevelSceneLoader : MonoBehaviour
@@ -178,21 +179,40 @@ public class LevelSceneLoader : MonoBehaviour
                     float colliderX = 0.5f;
                     switch (spriteName)
                     {
-                        case "01":
+                        case "1":
                             colliderX = 0.5f;
                             break;
-                        case "02":
+                        case "2":
                             colliderX = 1.0f;
                             break;
-                        case "03":
+                        case "3":
                             colliderX = 1.5f;
                             break;
-                        case "04":
+                        case "4":
                             colliderX = 2.0f;
                             break;
                     }
 
                     collider.size = new Vector2(colliderX, collider.size.y);
+                    //Debug.Log($"[Spike],size of collider is: {colliderX}");
+                    
+                    bool rotateLoop = (bool?)spikeData["RotateLoop"] ?? false;
+                    if (rotateLoop)
+                    {
+                        float rotateSpeed = 40.0f;
+                        float duration = 360f / rotateSpeed;
+
+                        LMotion.Create(0f, -360f, duration)
+                            .WithEase(Ease.Linear)
+                            .WithLoops(-1, LoopType.Restart)
+                            .Bind(x =>
+                            {
+                                createdObj.transform.localRotation = Quaternion.Euler(0, 0, x);
+                            });
+                    }
+                    
+                    float rotationZ = (float)(spikeData["Rotation"] ?? 0f);
+                    createdObj.transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
                 }
 
                 break;
