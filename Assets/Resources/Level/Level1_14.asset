@@ -27,11 +27,11 @@ MonoBehaviour:
     Position: {x: 0, y: 1, z: 0}
     ExpandProperty: '{"Scale":2.5, "RopeLength": 7}'
   - Id: 4
-    Category: 5
+    Category: 9
     Position: {x: -1, y: -2, z: 0}
     ExpandProperty: 
   - Id: 6
-    Category: 5
+    Category: 9
     Position: {x: 1, y: 0.5, z: 0}
     ExpandProperty: 
   - Id: 8
