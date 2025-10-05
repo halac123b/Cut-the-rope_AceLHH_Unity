@@ -19,7 +19,7 @@ MonoBehaviour:
     Position: {x: 0.5, y: -2.5, z: 0}
     ExpandProperty: 
   - Id: 1
-    Category: 5
+    Category: 9
     Position: {x: -0.5, y: -1.5, z: 0}
     ExpandProperty: 
   - Id: 2

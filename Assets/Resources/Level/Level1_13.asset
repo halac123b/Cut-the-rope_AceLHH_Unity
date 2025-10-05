@@ -27,15 +27,15 @@ MonoBehaviour:
     Position: {x: 0, y: 1.25, z: 0}
     ExpandProperty: 
   - Id: 4
-    Category: 5
+    Category: 9
     Position: {x: 0.75, y: -2, z: 0}
     ExpandProperty: 
   - Id: 5
-    Category: 5
+    Category: 9
     Position: {x: 0, y: -2, z: 0}
     ExpandProperty: 
   - Id: 6
-    Category: 5
+    Category: 9
     Position: {x: -0.75, y: -2, z: 0}
     ExpandProperty: 
   - Id: 8
