@@ -233,6 +233,23 @@ public class LevelSceneLoader : MonoBehaviour
                             });
                     }
                     
+                    JArray posAArray = (JArray)spikeData["MovePointA"];
+                    JArray posBArray = (JArray)spikeData["MovePointB"];
+
+                    if (posAArray != null && posBArray != null)
+                    {
+                        Vector3 pointA = new Vector3((float)posAArray[0], (float)posAArray[1], 0);
+                        Vector3 pointB = new Vector3((float)posBArray[0], (float)posBArray[1], 0);
+                        float moveSpeed = (float?)(spikeData["MoveDuration"] ?? 3.0f) ?? 3.0f;
+
+                        LMotion.Create(pointA, pointB, moveSpeed)
+                            .WithEase(Ease.Linear)
+                            .WithLoops(-1, LoopType.Flip)
+                            .Bind(pos => {
+                                createdObj.transform.position = pos;
+                            });
+                    }
+                    
                     float rotationZ = (float)(spikeData["Rotation"] ?? 0f);
                     createdObj.transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
                 }
