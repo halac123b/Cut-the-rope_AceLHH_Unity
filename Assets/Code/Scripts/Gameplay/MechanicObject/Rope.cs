@@ -274,11 +274,6 @@ public class Rope : MonoBehaviour
 
     private void CutRope(int cutIndex)
     {
-        if (!UIController.Instance.IsCreatedLevel)
-        {
-            return;
-        }
-        
         if (_ropeRenderer.positionCount < 2 || cutIndex <= 0 || cutIndex >= _ropeRenderer.positionCount - 1)
         {
             Destroy(_ropeRenderer.gameObject);

@@ -16,6 +16,7 @@ MonoBehaviour:
   BoxName: Buzz Box
   NumberOfLevels: 3
   BoxBGSprite: {fileID: 21300000, guid: e97a42a14810f4d64982d0e1519bd680, type: 3}
+  AdjustPosition: -0.22
   RequireStar: 7
   BoxSprite: {fileID: 21300000, guid: a9c9a8e45e1654cdb9918b1f2848705b, type: 3}
   BGGameplay: {fileID: 21300000, guid: 07826178ed95b4b4186d96af34f23d16, type: 3}

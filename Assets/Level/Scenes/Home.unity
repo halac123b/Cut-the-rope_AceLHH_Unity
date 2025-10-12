@@ -1164,8 +1164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objs:
-  - PoolName: Tile
-    Prefab: {fileID: 1454974766912882741, guid: ee2f5902363e14bb083c57bfe3b1d1fe, type: 3}
+  - PoolName: BGScroll
+    Prefab: {fileID: 6622226899109578123, guid: a6473ccb2127d424a9126edd42b93526, type: 3}
 --- !u!4 &452833481
 Transform:
   m_ObjectHideFlags: 0

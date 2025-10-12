@@ -51,7 +51,7 @@ public class ObjectSpawner : MonoSingleton<ObjectSpawner>
         return obj;
     }
 
-    public GameObject Spawn(string poolName, Transform parent,Vector3 eulerAngle,  Vector3? localPos = null)
+    public GameObject SpawnWithAngle(string poolName, Vector3 eulerAngle = default, Transform parent = null, Vector3? localPos = null)
     {
         if (!_lookup.TryGetValue(poolName, out var entry))
         {

@@ -16,6 +16,7 @@ MonoBehaviour:
   BoxName: Magic Box
   NumberOfLevels: 3
   BoxBGSprite: {fileID: 21300000, guid: 9f8c20005b0354924a47e482561b65e1, type: 3}
+  AdjustPosition: -0.13
   RequireStar: 4
   BoxSprite: {fileID: 21300000, guid: 2cacdb3a047b04d038c68a3e64f97827, type: 3}
   BGGameplay: {fileID: 21300000, guid: a77460f4b264640018123e99890874a9, type: 3}
