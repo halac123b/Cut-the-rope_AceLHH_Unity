@@ -23,10 +23,14 @@ public class LevelSceneLoader : MonoBehaviour
     private List<GameObject> _listLoadedObj = new();
     private List<BaseEntity> _pendingTutorialSigns = new();
 
-    private void Start()
+    private void Awake()
     {
         LoadLevelData(UserProfile.Instance.SelectedLevelIndex);
         LoadLevelMap();
+    }
+
+    private void Start()
+    {
         EventDispatcher.Instance.AddEvent(gameObject, _ => ReloadLevel(), EventDispatcher.RestartLevel);
         EventDispatcher.Instance.AddEvent(gameObject, _ => LoadNextLevel(), EventDispatcher.LoadNextLevel);
         EventDispatcher.Instance.AddEvent(gameObject, (action) => { TriggerTutorialSign((int)action); },
@@ -96,6 +100,11 @@ public class LevelSceneLoader : MonoBehaviour
         return false;
     }
 
+    private void GetScrollLevel()
+    {
+        UserProfile.Instance.ScrollLevelData = _levelData.ScrollLevelData;
+    }
+    
     private void LoadLevelData(string levelName)
     {
         string levelLoad = $"Level{levelName}";
@@ -105,6 +114,8 @@ public class LevelSceneLoader : MonoBehaviour
 
     private void LoadLevelMap()
     {
+        GetScrollLevel();
+
         for (int i = 0; i < _levelData.ListEntities.Length; i++)
         {
             BaseEntity entity = _levelData.ListEntities[i];
@@ -148,6 +159,7 @@ public class LevelSceneLoader : MonoBehaviour
                 break;
             case ObjectCategory.Frog:
                 createdObj = Instantiate(_frogPrefab, entity.Position, Quaternion.identity);
+                UserProfile.Instance.PosFrog = entity.Position;
                 break;
             case ObjectCategory.Star:
                 createdObj = Instantiate(_starPrefab, entity.Position, Quaternion.identity);
@@ -158,7 +170,7 @@ public class LevelSceneLoader : MonoBehaviour
             case ObjectCategory.TutorialSign:
                 JObject tutorialData = JObject.Parse(entity.ExpandProperty);
 
-                bool showLater = (bool?)(tutorialData["ShowLater"]) ?? false;
+                bool showLater = (bool?)(tutorialData["ShowLater"]) ?? false;;
 
                 if (showLater)
                     _pendingTutorialSigns.Add(entity);
@@ -169,7 +181,6 @@ public class LevelSceneLoader : MonoBehaviour
                 createdObj = Instantiate(_spikePrefab, entity.Position, Quaternion.identity);
                 JObject spikeData = JObject.Parse(entity.ExpandProperty);
                 string spriteName = (string)spikeData["SpriteName"];
-
                 SpriteRenderer sr = createdObj.GetComponent<SpriteRenderer>();
                 BoxCollider2D collider = createdObj.GetComponent<BoxCollider2D>();
 

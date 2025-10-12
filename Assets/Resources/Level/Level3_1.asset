@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Level3_1
   m_EditorClassIdentifier: 
   levelName: 3_1
+  ScrollLevelData:
+    IsScrollLevel: 0
+    ScrollAmount: 4
   ListEntities:
   - Id: 0
     Category: 0

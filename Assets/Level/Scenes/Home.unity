@@ -2774,11 +2774,10 @@ Transform:
   m_GameObject: {fileID: 1561773911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 517.90826, y: 1211.4382, z: -9.348789}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1763779186}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1575261698
@@ -3177,11 +3176,11 @@ Transform:
   m_GameObject: {fileID: 1763779185}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -517.66284, y: -1210.4766, z: -0.54048634}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1561773913}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1763779187
 MonoBehaviour:
@@ -3200,6 +3199,10 @@ MonoBehaviour:
   SeasonIndex: 0
   IsCompleteBox: 0
   CurrentStars: 0
+  ScrollLevelData:
+    IsScrollLevel: 0
+    ScrollAmount: 0
+  MaxPosY: 0
 --- !u!1 &1798287020
 GameObject:
   m_ObjectHideFlags: 0
@@ -3430,7 +3433,7 @@ Transform:
   m_GameObject: {fileID: 1997585950}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4430,4 +4433,5 @@ SceneRoots:
   - {fileID: 1179104980}
   - {fileID: 236830184}
   - {fileID: 1561773913}
+  - {fileID: 1763779186}
   - {fileID: 1956670169315692409}
