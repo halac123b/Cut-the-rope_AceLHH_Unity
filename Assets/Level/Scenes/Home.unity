@@ -3200,9 +3200,11 @@ MonoBehaviour:
   IsCompleteBox: 0
   CurrentStars: 0
   ScrollLevelData:
-    IsScrollLevel: 0
+    IsScrollLevelHorizontal: 0
+    IsScrollLevelVertical: 0
     ScrollAmount: 0
-  MaxPosY: 0
+  PosFrog: {x: 0, y: 0, z: 0}
+  PosCandy: {x: 0, y: 0, z: 0}
 --- !u!1 &1798287020
 GameObject:
   m_ObjectHideFlags: 0

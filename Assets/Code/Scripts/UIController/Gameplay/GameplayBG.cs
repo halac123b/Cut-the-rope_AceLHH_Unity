@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using LitMotion;
 using LitMotion.Extensions;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class GameplayBG : MonoBehaviour
@@ -15,6 +17,7 @@ public class GameplayBG : MonoBehaviour
     private MotionHandle _motion;
     private List<Vector3> _positions;
     private float _boundY => _bgImageUp.bounds.max.y;
+    private float _duration = 2f;
 
     private void Awake()
     {
@@ -29,6 +32,22 @@ public class GameplayBG : MonoBehaviour
             UserProfile.Instance.SelectedBoxData.AdjustPosition, UserProfile.Instance.ScrollLevelData);
 
         MoveCameraToCandy();
+    }
+
+    private void Update()
+    {
+        if (UIController.Instance.IsCreatedLevel)
+        {
+            return;
+        }
+    
+        if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
+        {
+            if (_motion.IsPlaying())
+            {
+                _motion.PlaybackSpeed = 4f;
+            }
+        }
     }
 
     private void SetBGImage(Sprite sprite, Sprite tileSprite, float posY, ScrollLevelData scrollLevelData)
@@ -46,12 +65,12 @@ public class GameplayBG : MonoBehaviour
 
     private void MoveCameraToCandy()
     {
-        if (!UserProfile.Instance.ScrollLevelData.IsScrollLevelHorizontal ||
+        if (!UserProfile.Instance.ScrollLevelData.IsScrollLevelHorizontal &&
             !UserProfile.Instance.ScrollLevelData.IsScrollLevelVertical)
         {
             return;
         }
-        
+
         UIController.Instance.IsCreatedLevel = false;
 
         Vector3 frogPos = UserProfile.Instance.PosFrog;
@@ -67,14 +86,14 @@ public class GameplayBG : MonoBehaviour
 
             if (UserProfile.Instance.ScrollLevelData.IsScrollLevelVertical)
             {
-                _motion = LMotion.Create(frogPos.y, UserProfile.Instance.PosCandy.y, 2f).WithOnComplete(() =>
+                _motion = LMotion.Create(frogPos.y, UserProfile.Instance.PosCandy.y, _duration).WithOnComplete(() =>
                 {
                     UIController.Instance.IsCreatedLevel = true;
                 }).BindToPositionY(_camera.transform);
             }
             else if (UserProfile.Instance.ScrollLevelData.IsScrollLevelHorizontal)
             {
-                _motion = LMotion.Create(frogPos.x, UserProfile.Instance.PosCandy.x, 2f).WithOnComplete(() =>
+                _motion = LMotion.Create(frogPos.x, UserProfile.Instance.PosCandy.x, _duration).WithOnComplete(() =>
                 {
                     UIController.Instance.IsCreatedLevel = true;
                 }).BindToPositionX(_camera.transform);
