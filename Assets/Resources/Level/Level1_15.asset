@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: 1_15
   ScrollLevelData:
-    IsScrollLevel: 1
+    IsScrollLevelHorizontal: 0
+    IsScrollLevelVertical: 1
     ScrollAmount: 1
   ListEntities:
   - Id: 0

@@ -9,7 +9,7 @@ public class UserProfile : MonoSingleton<UserProfile>
     public bool IsCompleteBox;
     public int CurrentStars;
     public ScrollLevelData ScrollLevelData;
-    public float MaxPosY;
+    public Vector3 PosFrog, PosCandy;
 
     public void SetLevel(string levelIndex)
     {

@@ -12,6 +12,7 @@ public class LevelData : ScriptableObject
 [Serializable]
 public class ScrollLevelData 
 {
-    public bool IsScrollLevel;
+    public bool IsScrollLevelHorizontal;
+    public bool IsScrollLevelVertical;
     public int ScrollAmount;
 }

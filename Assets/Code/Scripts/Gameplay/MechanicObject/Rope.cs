@@ -215,7 +215,7 @@ public class Rope : MonoBehaviour
 
     private IEnumerator FlashWhite(Vector2 cutPoint)
     {
-        if (RopeSecondObject == null || RopeSecondObject.gameObject.activeInHierarchy == false)
+        if (RopeSecondObject == null || RopeSecondObject.gameObject.activeInHierarchy == false || cutPoint == default)
         {
             yield break;
         }

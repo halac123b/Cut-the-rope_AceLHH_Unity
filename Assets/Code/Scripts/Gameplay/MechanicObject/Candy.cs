@@ -45,10 +45,11 @@ public class Candy : MonoBehaviour
             EventDispatcher.Instance.Dispatch(_tutorialId, EventDispatcher.TriggerTutorial);
         }
 
-        if (UserProfile.Instance.ScrollLevelData.IsScrollLevel && gameObject != null && UIController.Instance.IsCreatedLevel)
+        if ((UserProfile.Instance.ScrollLevelData.IsScrollLevelHorizontal || UserProfile.Instance.ScrollLevelData.IsScrollLevelVertical) && gameObject != null && UIController.Instance.IsCreatedLevel)
         {
-            float posY = Mathf.Clamp(transform.position.y, 0f, UserProfile.Instance.MaxPosY);
-            _mainCamera.transform.position = new Vector3(0f, posY, -10f);
+            float posX = Mathf.Clamp(transform.position.x, 0f, UserProfile.Instance.PosFrog.x);
+            float posY = Mathf.Clamp(transform.position.y, 0f, UserProfile.Instance.PosFrog.y);
+            _mainCamera.transform.position = UserProfile.Instance.ScrollLevelData.IsScrollLevelHorizontal ? new Vector3(posX, 0f, -10f) : new Vector3(0f, posY, -10f);
         }
     }
 

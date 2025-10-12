@@ -159,7 +159,7 @@ public class LevelSceneLoader : MonoBehaviour
                 break;
             case ObjectCategory.Frog:
                 createdObj = Instantiate(_frogPrefab, entity.Position, Quaternion.identity);
-                UserProfile.Instance.MaxPosY = entity.Position.y;
+                UserProfile.Instance.PosFrog = entity.Position;
                 break;
             case ObjectCategory.Star:
                 createdObj = Instantiate(_starPrefab, entity.Position, Quaternion.identity);
@@ -170,7 +170,7 @@ public class LevelSceneLoader : MonoBehaviour
             case ObjectCategory.TutorialSign:
                 JObject tutorialData = JObject.Parse(entity.ExpandProperty);
 
-                bool showLater = (bool?)(tutorialData["ShowLater"]) ?? false;
+                bool showLater = (bool?)(tutorialData["ShowLater"]) ?? false;;
 
                 if (showLater)
                     _pendingTutorialSigns.Add(entity);
