@@ -12,19 +12,12 @@ public class GameplayBG : MonoBehaviour
     [SerializeField] private GameObject _bgPrefab;
     [SerializeField] private Camera _camera;
     [SerializeField] private Transform _tileBGParent;
-    private Vector2 _size;
     private MotionHandle _motion;
     private List<Vector3> _positions;
-    private float _boundY => _bgImageUp.bounds.max.y;
+    public float MaxBoundY => _bgImageUp.bounds.max.y;
 
     private void Awake()
     {
-        float cameraWidth = _camera.orthographicSize * 2;
-        float cameraHeight = cameraWidth * _camera.aspect;
-
-        Vector2 size = new Vector2(cameraWidth, cameraHeight);
-        _size = size;
-
         _camera.transform.position = new Vector3(0, 0, -15f);
         _bgPrefab.transform.position = Vector3.zero;
     }
@@ -45,7 +38,8 @@ public class GameplayBG : MonoBehaviour
         if (scrollLevelData.IsScrollLevel)
         {
             LogTilePositions(scrollLevelData.ScrollAmount);
-            MoveCameraToBottom((scrollLevelData.ScrollAmount + 1)*_boundY);
+            MoveCameraToBottom((scrollLevelData.ScrollAmount + 1) * MaxBoundY);
+            UserProfile.Instance.MaxPosY = ((scrollLevelData.ScrollAmount + 1) * MaxBoundY)/2;
         }
     }
 
@@ -57,7 +51,7 @@ public class GameplayBG : MonoBehaviour
 
         if (transform != null)
         {
-            _motion = LMotion.Create(spriteTop - cameraSize, 0 + cameraSize, 1f).WithOnComplete(() =>
+            _motion = LMotion.Create(spriteTop - cameraSize, 0f, 1f).WithOnComplete(() =>
             {
                 UIController.Instance.IsCreatedLevel = true;
             }).BindToPositionY(_camera.transform);
@@ -70,13 +64,16 @@ public class GameplayBG : MonoBehaviour
         {
             GameObject obj = ObjectSpawner.Instance?.SpawnWithAngle("BGScroll", Vector3.zero);
             obj?.GetComponent<GameplayBGScroll>().SetBG();
-            Vector3 origin = new Vector3(0f, (x + 1) * _boundY, 0f);
+            Vector3 origin = new Vector3(0f, (x + 1) * MaxBoundY, 0f);
             obj.transform.position = origin;
         }
     }
 
     private void OnDisable()
     {
-        if (_motion != null && _motion.IsActive()) _motion.Cancel();
+        if (_motion != null && _motion.IsActive())
+        {
+            _motion.Cancel();
+        }
     }
 }

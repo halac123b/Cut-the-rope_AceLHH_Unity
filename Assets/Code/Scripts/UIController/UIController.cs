@@ -14,7 +14,7 @@ public class UIController :MonoBehaviour
     
     public bool IsEnableUI;
     public bool IsCompleteLevel;
-    public bool IsCreatedLevel;
+    public bool IsCreatedLevel; //Check trạng thái đang UI Laoding
 
     private void Awake()
     {

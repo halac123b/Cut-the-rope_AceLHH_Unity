@@ -47,7 +47,8 @@ public class Candy : MonoBehaviour
 
         if (UserProfile.Instance.ScrollLevelData.IsScrollLevel && gameObject != null && UIController.Instance.IsCreatedLevel)
         {
-            _mainCamera.transform.position = new Vector3(0f, transform.position.y, -10f);
+            float posY = Mathf.Clamp(transform.position.y, 0f, UserProfile.Instance.MaxPosY);
+            _mainCamera.transform.position = new Vector3(0f, posY, -10f);
         }
     }
 
