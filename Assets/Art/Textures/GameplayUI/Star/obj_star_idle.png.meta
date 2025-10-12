@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 5
-        y: 494
+        y: 493
         width: 81
         height: 77
       alignment: 0
@@ -211,7 +211,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_5
+      name: obj_star_disappear_06
       rect:
         serializedVersion: 2
         x: 198
@@ -233,7 +233,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_6
+      name: obj_star_disappear_14
       rect:
         serializedVersion: 2
         x: 270
@@ -255,7 +255,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_7
+      name: obj_star_disappear_22
       rect:
         serializedVersion: 2
         x: 341
@@ -277,7 +277,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_8
+      name: obj_star_disappear_30
       rect:
         serializedVersion: 2
         x: 413
@@ -409,7 +409,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_16
+      name: obj_star_disappear_07
       rect:
         serializedVersion: 2
         x: 198
@@ -431,7 +431,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_17
+      name: obj_star_disappear_15
       rect:
         serializedVersion: 2
         x: 270
@@ -453,7 +453,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_18
+      name: obj_star_disappear_23
       rect:
         serializedVersion: 2
         x: 341
@@ -475,7 +475,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_19
+      name: obj_star_disappear_31
       rect:
         serializedVersion: 2
         x: 413
@@ -541,13 +541,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_23
+      name: obj_star_disappear_01
       rect:
         serializedVersion: 2
-        x: 120
-        y: 115
-        width: 78
-        height: 364
+        x: 123
+        y: 406
+        width: 73
+        height: 73
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -567,7 +567,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 422
+        y: 421
         width: 28
         height: 31
       alignment: 0
@@ -607,7 +607,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_27
+      name: obj_star_disappear_08
       rect:
         serializedVersion: 2
         x: 198
@@ -629,7 +629,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_28
+      name: obj_star_disappear_16
       rect:
         serializedVersion: 2
         x: 270
@@ -651,7 +651,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_29
+      name: obj_star_disappear_24
       rect:
         serializedVersion: 2
         x: 341
@@ -673,7 +673,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_30
+      name: obj_star_disappear_32
       rect:
         serializedVersion: 2
         x: 413
@@ -827,7 +827,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_41
+      name: obj_star_disappear_09
       rect:
         serializedVersion: 2
         x: 198
@@ -849,7 +849,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_42
+      name: obj_star_disappear_17
       rect:
         serializedVersion: 2
         x: 270
@@ -871,7 +871,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_43
+      name: obj_star_disappear_25
       rect:
         serializedVersion: 2
         x: 341
@@ -893,7 +893,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_44
+      name: obj_star_disappear_33
       rect:
         serializedVersion: 2
         x: 413
@@ -981,7 +981,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_53
+      name: obj_star_disappear_10
       rect:
         serializedVersion: 2
         x: 198
@@ -1003,7 +1003,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_54
+      name: obj_star_disappear_18
       rect:
         serializedVersion: 2
         x: 270
@@ -1025,11 +1025,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_55
+      name: obj_star_disappear_26
       rect:
         serializedVersion: 2
         x: 341
-        y: 218
+        y: 219
         width: 71
         height: 70
       alignment: 0
@@ -1047,7 +1047,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_56
+      name: obj_star_disappear_34
       rect:
         serializedVersion: 2
         x: 413
@@ -1069,7 +1069,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_57
+      name: obj_star_disappear_11
       rect:
         serializedVersion: 2
         x: 198
@@ -1091,7 +1091,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_58
+      name: obj_star_disappear_19
       rect:
         serializedVersion: 2
         x: 269
@@ -1113,7 +1113,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_59
+      name: obj_star_disappear_27
       rect:
         serializedVersion: 2
         x: 341
@@ -1135,7 +1135,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_60
+      name: obj_star_disappear_35
       rect:
         serializedVersion: 2
         x: 413
@@ -1157,10 +1157,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_61
+      name: obj_star_disappear_12
       rect:
         serializedVersion: 2
-        x: 198
+        x: 197
         y: 74
         width: 70
         height: 70
@@ -1179,7 +1179,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_62
+      name: obj_star_disappear_20
       rect:
         serializedVersion: 2
         x: 269
@@ -1201,7 +1201,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_63
+      name: obj_star_disappear_28
       rect:
         serializedVersion: 2
         x: 341
@@ -1223,7 +1223,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_64
+      name: obj_star_disappear_36
       rect:
         serializedVersion: 2
         x: 413
@@ -1245,7 +1245,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_65
+      name: obj_star_disappear_13
       rect:
         serializedVersion: 2
         x: 198
@@ -1267,7 +1267,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_66
+      name: obj_star_disappear_21
       rect:
         serializedVersion: 2
         x: 269
@@ -1289,7 +1289,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_67
+      name: obj_star_disappear_29
       rect:
         serializedVersion: 2
         x: 341
@@ -1311,7 +1311,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obj_star_idle_68
+      name: obj_star_disappear_37
       rect:
         serializedVersion: 2
         x: 413
@@ -1332,6 +1332,116 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: obj_star_disappear_02
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 335
+        width: 72
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21dc1718259f94888a490e133062949b
+      internalID: -2006313770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_star_disappear_03
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 263
+        width: 72
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d128d3f4e32044b5dbd95dde200a70ba
+      internalID: -738257948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_star_disappear_04
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 190
+        width: 73
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 068dac3cde1794557a0eb48f0bf89fe2
+      internalID: 484761924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_star_disappear_05
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 116
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df54fa821a9047508e9455b144445ce
+      internalID: -395881389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_star_idle_25
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 563
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a873d3d23698f485283adcaa0aa49a21
+      internalID: -1391227207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1346,31 +1456,56 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      obj_star_disappear_01: -768276086
+      obj_star_disappear_02: -2006313770
+      obj_star_disappear_03: -738257948
+      obj_star_disappear_04: 484761924
+      obj_star_disappear_05: -395881389
+      obj_star_disappear_06: 658876042
+      obj_star_disappear_07: -562269599
+      obj_star_disappear_08: 19229939
+      obj_star_disappear_09: 1230090667
+      obj_star_disappear_10: -816475936
+      obj_star_disappear_11: -1585442409
+      obj_star_disappear_12: -85723693
+      obj_star_disappear_13: 6356792
+      obj_star_disappear_14: 495662508
+      obj_star_disappear_15: -1870011353
+      obj_star_disappear_16: -293041412
+      obj_star_disappear_17: 941738620
+      obj_star_disappear_18: 1901896933
+      obj_star_disappear_19: -1011900061
+      obj_star_disappear_20: -124581621
+      obj_star_disappear_21: -1862159819
+      obj_star_disappear_22: -454030625
+      obj_star_disappear_23: 77979789
+      obj_star_disappear_24: 1421657421
+      obj_star_disappear_25: 1428665484
+      obj_star_disappear_26: 1180002737
+      obj_star_disappear_27: 1195221744
+      obj_star_disappear_28: 1879340409
+      obj_star_disappear_29: -43811648
+      obj_star_disappear_30: -877104558
+      obj_star_disappear_31: -816273854
+      obj_star_disappear_32: 164971314
+      obj_star_disappear_33: -1098332046
+      obj_star_disappear_34: 465578587
+      obj_star_disappear_35: -882162479
+      obj_star_disappear_36: 396283753
+      obj_star_disappear_37: 675463905
       obj_star_idle_0: 150148329
       obj_star_idle_1: -1621237103
       obj_star_idle_10: 848632149
-      obj_star_idle_11: -738257948
-      obj_star_idle_12: 484761924
       obj_star_idle_13: -423238861
       obj_star_idle_14: 1893151180
       obj_star_idle_15: -1864269607
-      obj_star_idle_16: -562269599
-      obj_star_idle_17: -1870011353
-      obj_star_idle_18: 77979789
-      obj_star_idle_19: -816273854
       obj_star_idle_2: -1150260270
       obj_star_idle_20: 1915806746
       obj_star_idle_21: 1828615835
-      obj_star_idle_22: -395881389
-      obj_star_idle_23: -768276086
       obj_star_idle_24: -936130320
       obj_star_idle_25: -1391227207
       obj_star_idle_26: -1528199579
-      obj_star_idle_27: 19229939
-      obj_star_idle_28: -293041412
-      obj_star_idle_29: 1421657421
       obj_star_idle_3: 885004618
-      obj_star_idle_30: 164971314
       obj_star_idle_31: -361632751
       obj_star_idle_32: -1580784305
       obj_star_idle_33: -2074316220
@@ -1380,40 +1515,15 @@ TextureImporter:
       obj_star_idle_37: -1395608521
       obj_star_idle_38: 2078485950
       obj_star_idle_39: -250073906
-      obj_star_idle_4: -2006313770
       obj_star_idle_40: 1456536605
-      obj_star_idle_41: 1230090667
-      obj_star_idle_42: 941738620
-      obj_star_idle_43: 1428665484
-      obj_star_idle_44: -1098332046
       obj_star_idle_45: 1831765855
       obj_star_idle_46: -970217306
       obj_star_idle_47: 289834538
       obj_star_idle_48: 78627819
       obj_star_idle_49: -258142263
-      obj_star_idle_5: 658876042
       obj_star_idle_50: 190304867
       obj_star_idle_51: 510076753
       obj_star_idle_52: 280523381
-      obj_star_idle_53: -816475936
-      obj_star_idle_54: 1901896933
-      obj_star_idle_55: 1180002737
-      obj_star_idle_56: 465578587
-      obj_star_idle_57: -1585442409
-      obj_star_idle_58: -1011900061
-      obj_star_idle_59: 1195221744
-      obj_star_idle_6: 495662508
-      obj_star_idle_60: -882162479
-      obj_star_idle_61: -85723693
-      obj_star_idle_62: -124581621
-      obj_star_idle_63: 1879340409
-      obj_star_idle_64: 396283753
-      obj_star_idle_65: 6356792
-      obj_star_idle_66: -1862159819
-      obj_star_idle_67: -43811648
-      obj_star_idle_68: 675463905
-      obj_star_idle_7: -454030625
-      obj_star_idle_8: -877104558
       obj_star_idle_9: 1801626721
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
