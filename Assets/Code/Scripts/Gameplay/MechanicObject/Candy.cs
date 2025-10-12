@@ -44,6 +44,13 @@ public class Candy : MonoBehaviour
             int _tutorialId = 10;
             EventDispatcher.Instance.Dispatch(_tutorialId, EventDispatcher.TriggerTutorial);
         }
+
+        if ((UserProfile.Instance.ScrollLevelData.IsScrollLevelHorizontal || UserProfile.Instance.ScrollLevelData.IsScrollLevelVertical) && gameObject != null && UIController.Instance.IsCreatedLevel)
+        {
+            float posX = Mathf.Clamp(transform.position.x, 0f, UserProfile.Instance.PosFrog.x);
+            float posY = Mathf.Clamp(transform.position.y, 0f, UserProfile.Instance.PosFrog.y);
+            _mainCamera.transform.position = UserProfile.Instance.ScrollLevelData.IsScrollLevelHorizontal ? new Vector3(posX, 0f, -10f) : new Vector3(0f, posY, -10f);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
