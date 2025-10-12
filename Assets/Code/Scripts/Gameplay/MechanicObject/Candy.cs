@@ -145,6 +145,16 @@ public class Candy : MonoBehaviour
         {
             _rb2D.AddForce(Vector3.up * bublleSpeed, ForceMode2D.Impulse);
         }
+
+        _rb2D.linearVelocity *= 0.5f;
+        _rb2D.linearDamping = 1.3f;
+        StartCoroutine(ResetDamping());
+    }
+
+    private IEnumerator ResetDamping()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _rb2D.linearDamping = 0.5f; // or your default value
     }
 
     private void AddForceIfDestroyBubble()
