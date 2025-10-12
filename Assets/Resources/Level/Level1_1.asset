@@ -15,7 +15,7 @@ MonoBehaviour:
   levelName: 1_1
   ScrollLevelData:
     IsScrollLevel: 0
-    ScrollAmount: 2
+    ScrollAmount: 0
   ListEntities:
   - Id: 0
     Category: 0
