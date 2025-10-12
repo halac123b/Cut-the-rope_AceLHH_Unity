@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: 1_4
   ScrollLevelData:
-    IsScrollLevel: 0
+    IsScrollLevelHorizontal: 0
+    IsScrollLevelVertical: 0
     ScrollAmount: 0
   ListEntities:
   - Id: 0
@@ -59,11 +60,11 @@ MonoBehaviour:
     ExpandProperty: '{"FirstNailIndex": 4, "SecondNailIndex": 5 ,"LengthRope": 12}'
   - Id: 10
     Category: 4
-    Position: {x: 0, y: 0.5, z: 0}
+    Position: {x: 0, y: 0.25, z: 0}
     ExpandProperty: 
   - Id: 11
     Category: 4
-    Position: {x: -1, y: -0.5, z: 0}
+    Position: {x: -1.5, y: -0.5, z: 0}
     ExpandProperty: 
   - Id: 12
     Category: 4

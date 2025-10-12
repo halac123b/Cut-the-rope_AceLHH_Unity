@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: 1_1
   ScrollLevelData:
-    IsScrollLevel: 0
+    IsScrollLevelHorizontal: 0
+    IsScrollLevelVertical: 0
     ScrollAmount: 0
   ListEntities:
   - Id: 0
     Category: 0
-    Position: {x: 0, y: 2, z: 0}
+    Position: {x: 0, y: 2.5, z: 0}
     ExpandProperty: 
   - Id: 1
     Category: 1
@@ -28,14 +29,14 @@ MonoBehaviour:
   - Id: 2
     Category: 2
     Position: {x: 0, y: 0, z: 0}
-    ExpandProperty: '{"FirstNailIndex": 0, "SecondNailIndex": 1, "LengthRope": 5}'
+    ExpandProperty: '{"FirstNailIndex": 0, "SecondNailIndex": 1, "LengthRope": 7}'
   - Id: 3
     Category: 3
-    Position: {x: 0, y: -2, z: 0}
+    Position: {x: 0, y: -2.5, z: 0}
     ExpandProperty: 
   - Id: 4
     Category: 4
-    Position: {x: 0, y: 0.35, z: 0}
+    Position: {x: 0, y: 0.5, z: 0}
     ExpandProperty: 
   - Id: 5
     Category: 4
@@ -43,7 +44,7 @@ MonoBehaviour:
     ExpandProperty: 
   - Id: 6
     Category: 4
-    Position: {x: 0, y: -0.85, z: 0}
+    Position: {x: 0, y: -1, z: 0}
     ExpandProperty: 
   - Id: 6
     Category: 6
@@ -53,13 +54,13 @@ MonoBehaviour:
       "SpritePosY": 0.1,   "SpritePosZ": 0.0 } '
   - Id: 7
     Category: 6
-    Position: {x: 0.75, y: 0.5, z: 0}
+    Position: {x: 0.75, y: 1.25, z: 0}
     ExpandProperty: '{   "Rotation": 0,   "Title": "Slide your finger<br>to cut the
       rope ", "ShowLater": false,  "Sprite": "",   "SpritePosX": -0.6,   "SpritePosY":
       0.5,   "SpritePosZ": 0.0 } '
   - Id: 7
     Category: 6
-    Position: {x: 0.8, y: -1.8, z: 0}
+    Position: {x: 0.8, y: -2.25, z: 0}
     ExpandProperty: '{   "Rotation": 0,   "Title": "Deliver<br>candy to Om <br>Nom",
       "ShowLater": false,   "Sprite": "8",   "SpritePosX": -0.04,   "SpritePosY":
       0.35,   "SpritePosZ": 0.0,   "SpriteScale": 0.7 } '
