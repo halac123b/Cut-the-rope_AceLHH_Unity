@@ -7,7 +7,9 @@ using LitMotion.Extensions;
 public class StarEffect : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
+    [SerializeField] private Animator _animatorStar;
     private MotionHandle _motion;
+    public bool DisappearOnTrigger;
 
     private void Start()
     {
@@ -31,6 +33,27 @@ public class StarEffect : MonoBehaviour
     public void PlayDisappearAnimation()
     {
         _animator.SetTrigger("collect");
+    }
+
+    private void PlayLightDisappearAnimation()
+    {
+        _animatorStar.SetTrigger("star_disappear");
+    }
+
+    public void TriggerDisappear(float delay = 2f)
+    {
+        if (DisappearOnTrigger)
+            StartCoroutine(PlayDisappearCoroutine(delay));
+    }
+
+    private IEnumerator PlayDisappearCoroutine(float delay)
+    {
+        if (delay > 0f)
+            yield return new WaitForSeconds(delay);
+
+        PlayLightDisappearAnimation();
+        yield return new WaitForSeconds(3.1f);
+        DestroyStar();
     }
 
     private void DestroyStar()
