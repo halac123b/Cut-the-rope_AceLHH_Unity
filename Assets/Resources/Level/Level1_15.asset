@@ -13,38 +13,38 @@ MonoBehaviour:
   m_Name: Level1_15
   m_EditorClassIdentifier: 
   levelName: 1_15
+  ScrollLevelData:
+    IsScrollLevelHorizontal: 0
+    IsScrollLevelVertical: 1
+    ScrollAmount: 1
   ListEntities:
   - Id: 0
     Category: 1
-    Position: {x: -1, y: -1.5, z: 0}
+    Position: {x: 0, y: -2, z: 0}
     ExpandProperty: 
   - Id: 1
     Category: 0
-    Position: {x: -1, y: 0, z: 0}
+    Position: {x: 0, y: -1, z: 0}
     ExpandProperty: 
   - Id: 2
     Category: 8
-    Position: {x: 0, y: 1, z: 0}
-    ExpandProperty: '{"Scale":2.5, "RopeLength": 7}'
+    Position: {x: -0.9, y: -0.4, z: 0}
+    ExpandProperty: '{"Scale":2.7, "RopeLength": 10}'
   - Id: 4
     Category: 9
-    Position: {x: -1, y: -2, z: 0}
-    ExpandProperty: 
-  - Id: 6
-    Category: 9
-    Position: {x: 1, y: 0.5, z: 0}
+    Position: {x: 0, y: -3, z: 0}
     ExpandProperty: 
   - Id: 8
     Category: 4
-    Position: {x: -1, y: -2, z: 0}
+    Position: {x: 0, y: 1.25, z: 0}
     ExpandProperty: 
   - Id: 9
     Category: 4
-    Position: {x: -1, y: 0.5, z: 0}
+    Position: {x: 0, y: 7, z: 0}
     ExpandProperty: 
   - Id: 10
     Category: 4
-    Position: {x: 1, y: 0.5, z: 0}
+    Position: {x: 0, y: 4.55, z: 0}
     ExpandProperty: 
   - Id: 11
     Category: 2
@@ -52,5 +52,21 @@ MonoBehaviour:
     ExpandProperty: '{"FirstNailIndex": 1, "SecondNailIndex": 0 ,"LengthRope": 7}'
   - Id: 14
     Category: 3
-    Position: {x: 1, y: 1.5, z: 0}
+    Position: {x: 0, y: 7.5, z: 0}
     ExpandProperty: 
+  - Id: 15
+    Category: 8
+    Position: {x: 1, y: 1.25, z: 0}
+    ExpandProperty: '{"Scale":2.7, "RopeLength": 10}'
+  - Id: 16
+    Category: 8
+    Position: {x: -0.9, y: 2.9, z: 0}
+    ExpandProperty: '{"Scale":2.7, "RopeLength": 10}'
+  - Id: 17
+    Category: 8
+    Position: {x: 1, y: 4.55, z: 0}
+    ExpandProperty: '{"Scale":2.7, "RopeLength": 10}'
+  - Id: 18
+    Category: 8
+    Position: {x: -0.9, y: 6.2, z: 0}
+    ExpandProperty: '{"Scale":2.7, "RopeLength": 10}'

@@ -23,10 +23,14 @@ public class LevelSceneLoader : MonoBehaviour
     private List<GameObject> _listLoadedObj = new();
     private List<BaseEntity> _pendingTutorialSigns = new();
 
-    private void Start()
+    private void Awake()
     {
         LoadLevelData(UserProfile.Instance.SelectedLevelIndex);
         LoadLevelMap();
+    }
+
+    private void Start()
+    {
         EventDispatcher.Instance.AddEvent(gameObject, _ => ReloadLevel(), EventDispatcher.RestartLevel);
         EventDispatcher.Instance.AddEvent(gameObject, _ => LoadNextLevel(), EventDispatcher.LoadNextLevel);
         EventDispatcher.Instance.AddEvent(gameObject, (action) => { TriggerTutorialSign((int)action); },
@@ -96,6 +100,11 @@ public class LevelSceneLoader : MonoBehaviour
         return false;
     }
 
+    private void GetScrollLevel()
+    {
+        UserProfile.Instance.ScrollLevelData = _levelData.ScrollLevelData;
+    }
+    
     private void LoadLevelData(string levelName)
     {
         string levelLoad = $"Level{levelName}";
@@ -105,6 +114,8 @@ public class LevelSceneLoader : MonoBehaviour
 
     private void LoadLevelMap()
     {
+        GetScrollLevel();
+
         for (int i = 0; i < _levelData.ListEntities.Length; i++)
         {
             BaseEntity entity = _levelData.ListEntities[i];
@@ -148,9 +159,21 @@ public class LevelSceneLoader : MonoBehaviour
                 break;
             case ObjectCategory.Frog:
                 createdObj = Instantiate(_frogPrefab, entity.Position, Quaternion.identity);
+                UserProfile.Instance.PosFrog = entity.Position;
                 break;
             case ObjectCategory.Star:
                 createdObj = Instantiate(_starPrefab, entity.Position, Quaternion.identity);
+
+                if (!string.IsNullOrEmpty(entity.ExpandProperty))
+                {
+                    JObject starData = JObject.Parse(entity.ExpandProperty);
+                    bool disappearOnTrigger = (bool?)starData["IsLimitTime"] ?? false;
+                    StarEffect starComp = createdObj.GetComponent<StarEffect>();
+                    starComp.DisappearOnTrigger = disappearOnTrigger;
+                    
+                    if (disappearOnTrigger)
+                        starComp.TriggerDisappear();
+                }
                 break;
             case ObjectCategory.Bubble:
                 createdObj = Instantiate(_bubblePrefab, entity.Position, Quaternion.identity);
@@ -158,7 +181,7 @@ public class LevelSceneLoader : MonoBehaviour
             case ObjectCategory.TutorialSign:
                 JObject tutorialData = JObject.Parse(entity.ExpandProperty);
 
-                bool showLater = (bool?)(tutorialData["ShowLater"]) ?? false;
+                bool showLater = (bool?)(tutorialData["ShowLater"]) ?? false;;
 
                 if (showLater)
                     _pendingTutorialSigns.Add(entity);
@@ -169,7 +192,6 @@ public class LevelSceneLoader : MonoBehaviour
                 createdObj = Instantiate(_spikePrefab, entity.Position, Quaternion.identity);
                 JObject spikeData = JObject.Parse(entity.ExpandProperty);
                 string spriteName = (string)spikeData["SpriteName"];
-
                 SpriteRenderer sr = createdObj.GetComponent<SpriteRenderer>();
                 BoxCollider2D collider = createdObj.GetComponent<BoxCollider2D>();
 
@@ -208,6 +230,23 @@ public class LevelSceneLoader : MonoBehaviour
                             .Bind(x =>
                             {
                                 createdObj.transform.localRotation = Quaternion.Euler(0, 0, x);
+                            });
+                    }
+                    
+                    JArray posAArray = (JArray)spikeData["MovePointA"];
+                    JArray posBArray = (JArray)spikeData["MovePointB"];
+
+                    if (posAArray != null && posBArray != null)
+                    {
+                        Vector3 pointA = new Vector3((float)posAArray[0], (float)posAArray[1], 0);
+                        Vector3 pointB = new Vector3((float)posBArray[0], (float)posBArray[1], 0);
+                        float moveSpeed = (float?)(spikeData["MoveDuration"] ?? 3.0f) ?? 3.0f;
+
+                        LMotion.Create(pointA, pointB, moveSpeed)
+                            .WithEase(Ease.Linear)
+                            .WithLoops(-1, LoopType.Flip)
+                            .Bind(pos => {
+                                createdObj.transform.position = pos;
                             });
                     }
                     

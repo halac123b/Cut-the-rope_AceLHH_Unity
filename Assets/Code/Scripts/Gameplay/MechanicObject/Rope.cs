@@ -219,7 +219,7 @@ public class Rope : MonoBehaviour
 
     private IEnumerator FlashWhite(Vector2 cutPoint)
     {
-        if (RopeSecondObject == null || RopeSecondObject.gameObject.activeInHierarchy == false)
+        if (RopeSecondObject == null || RopeSecondObject.gameObject.activeInHierarchy == false || cutPoint == default)
         {
             yield break;
         }
@@ -276,7 +276,7 @@ public class Rope : MonoBehaviour
         return cutIndex;
     }
 
-    public void CutRope(int cutIndex)
+    private void CutRope(int cutIndex)
     {
         if (_ropeRenderer.positionCount < 2 || cutIndex <= 0 || cutIndex >= _ropeRenderer.positionCount - 1)
         {
