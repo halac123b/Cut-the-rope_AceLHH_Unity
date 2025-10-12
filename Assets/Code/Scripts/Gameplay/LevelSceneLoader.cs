@@ -163,6 +163,17 @@ public class LevelSceneLoader : MonoBehaviour
                 break;
             case ObjectCategory.Star:
                 createdObj = Instantiate(_starPrefab, entity.Position, Quaternion.identity);
+
+                if (!string.IsNullOrEmpty(entity.ExpandProperty))
+                {
+                    JObject starData = JObject.Parse(entity.ExpandProperty);
+                    bool disappearOnTrigger = (bool?)starData["IsLimitTime"] ?? false;
+                    StarEffect starComp = createdObj.GetComponent<StarEffect>();
+                    starComp.DisappearOnTrigger = disappearOnTrigger;
+                    
+                    if (disappearOnTrigger)
+                        starComp.TriggerDisappear();
+                }
                 break;
             case ObjectCategory.Bubble:
                 createdObj = Instantiate(_bubblePrefab, entity.Position, Quaternion.identity);
