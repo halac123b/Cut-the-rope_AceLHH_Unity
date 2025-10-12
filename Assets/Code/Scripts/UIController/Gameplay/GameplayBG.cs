@@ -46,6 +46,12 @@ public class GameplayBG : MonoBehaviour
 
     private void MoveCameraToCandy()
     {
+        if (!UserProfile.Instance.ScrollLevelData.IsScrollLevelHorizontal ||
+            !UserProfile.Instance.ScrollLevelData.IsScrollLevelVertical)
+        {
+            return;
+        }
+        
         UIController.Instance.IsCreatedLevel = false;
 
         Vector3 frogPos = UserProfile.Instance.PosFrog;
