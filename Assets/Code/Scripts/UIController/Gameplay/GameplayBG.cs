@@ -14,7 +14,7 @@ public class GameplayBG : MonoBehaviour
     [SerializeField] private Transform _tileBGParent;
     private MotionHandle _motion;
     private List<Vector3> _positions;
-    public float MaxBoundY => _bgImageUp.bounds.max.y;
+    private float _boundY => _bgImageUp.bounds.max.y;
 
     private void Awake()
     {
@@ -24,8 +24,11 @@ public class GameplayBG : MonoBehaviour
 
     private void Start()
     {
+        EventDispatcher.Instance.AddEvent(gameObject,  _ => MoveCameraToBottom(), EventDispatcher.LoadScrollLevel);
         SetBGImage(UserProfile.Instance.SelectedBoxData.BGGameplay, UserProfile.Instance.SelectedBoxData.TiledBG,
             UserProfile.Instance.SelectedBoxData.AdjustPosition, UserProfile.Instance.ScrollLevelData);
+        
+        MoveCameraToBottom();
     }
 
     private void SetBGImage(Sprite sprite, Sprite tileSprite, float posY, ScrollLevelData scrollLevelData)
@@ -34,24 +37,29 @@ public class GameplayBG : MonoBehaviour
         _bgImageDown.sprite = sprite;
         _bgImageTile.sprite = tileSprite;
         _bgImageTile.transform.position = new Vector3(0f, -posY, 0f);
-
+        
         if (scrollLevelData.IsScrollLevel)
         {
             LogTilePositions(scrollLevelData.ScrollAmount);
-            MoveCameraToBottom((scrollLevelData.ScrollAmount + 1) * MaxBoundY);
-            UserProfile.Instance.MaxPosY = ((scrollLevelData.ScrollAmount + 1) * MaxBoundY)/2;
         }
     }
 
-    private void MoveCameraToBottom(float spriteTop)
+    private void MoveCameraToBottom()
     {
-        float cameraSize = _camera.orthographicSize;
+        UIController.Instance.IsCreatedLevel = false;
 
-        _camera.transform.position = new Vector3(0f, spriteTop - cameraSize, -15f);
+        float frogPos = UserProfile.Instance.MaxPosY;
+
+        _camera.transform.position = new Vector3(0f, frogPos, -15f);
 
         if (transform != null)
         {
-            _motion = LMotion.Create(spriteTop - cameraSize, 0f, 1f).WithOnComplete(() =>
+            if (_motion != null && _motion.IsActive())
+            {
+                _motion.Cancel();
+            }
+            
+            _motion = LMotion.Create(frogPos, 0f, 2f).WithOnComplete(() =>
             {
                 UIController.Instance.IsCreatedLevel = true;
             }).BindToPositionY(_camera.transform);
@@ -64,11 +72,12 @@ public class GameplayBG : MonoBehaviour
         {
             GameObject obj = ObjectSpawner.Instance?.SpawnWithAngle("BGScroll", Vector3.zero);
             obj?.GetComponent<GameplayBGScroll>().SetBG();
-            Vector3 origin = new Vector3(0f, (x + 1) * MaxBoundY, 0f);
+            Vector3 origin = new Vector3(0f, (x + 1) * _boundY, 0f);
             obj.transform.position = origin;
         }
     }
-
+    
+    
     private void OnDisable()
     {
         if (_motion != null && _motion.IsActive())

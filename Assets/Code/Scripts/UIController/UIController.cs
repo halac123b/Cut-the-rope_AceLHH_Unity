@@ -29,7 +29,7 @@ public class UIController :MonoBehaviour
     private void Start()
     {
         _pauseButton.onClick.AddListener(() => OnPauseButtonClick());
-        _replayButton.onClick.AddListener(() => OnReplaceButtonClick());
+        _replayButton.onClick.AddListener(() => OnReplayButtonClick());
 
         EventDispatcher.Instance.AddEvent(gameObject, _ => ShowLevelCompleteUI(true), EventDispatcher.LoadCompleteUI);
         EventDispatcher.Instance.AddEvent(gameObject, _ => ShowLevelCompleteUI(false), EventDispatcher.DisableCompleteUI);
@@ -65,7 +65,7 @@ public class UIController :MonoBehaviour
         SetUIStatus(true);
     }
 
-    private void OnReplaceButtonClick()
+    private void OnReplayButtonClick()
     {
         if (IsCompleteLevel)
         {
@@ -76,6 +76,7 @@ public class UIController :MonoBehaviour
         Transition.Instance.Appear(Color.white, () =>
         {
             EventDispatcher.Instance.Dispatch(null, EventDispatcher.RestartLevel);
+            EventDispatcher.Instance.Dispatch(null, EventDispatcher.LoadScrollLevel);
         }, 0.15f);
     }
 

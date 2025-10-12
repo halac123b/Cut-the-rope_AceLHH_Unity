@@ -100,7 +100,7 @@ public class LevelSceneLoader : MonoBehaviour
         return false;
     }
 
-    public void GetScrollLevel()
+    private void GetScrollLevel()
     {
         UserProfile.Instance.ScrollLevelData = _levelData.ScrollLevelData;
     }
@@ -159,6 +159,7 @@ public class LevelSceneLoader : MonoBehaviour
                 break;
             case ObjectCategory.Frog:
                 createdObj = Instantiate(_frogPrefab, entity.Position, Quaternion.identity);
+                UserProfile.Instance.MaxPosY = entity.Position.y;
                 break;
             case ObjectCategory.Star:
                 createdObj = Instantiate(_starPrefab, entity.Position, Quaternion.identity);
