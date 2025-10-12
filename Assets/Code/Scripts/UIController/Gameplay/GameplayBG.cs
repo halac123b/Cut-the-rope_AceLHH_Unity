@@ -34,22 +34,21 @@ public class GameplayBG : MonoBehaviour
         MoveCameraToCandy();
     }
 
-    // private void Update()
-    // {
-    //     if (UIController.Instance.IsCreatedLevel)
-    //     {
-    //         return;
-    //     }
-    //
-    //     if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
-    //     {
-    //         Vector2 mouseWorldPos = _camera.ScreenToWorldPoint(Pointer.current.position.ReadValue());
-    //
-    //         RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
-    //
-    //         _duration = hit != default ? 0.5f : 2f;
-    //     }
-    // }
+    private void Update()
+    {
+        if (UIController.Instance.IsCreatedLevel)
+        {
+            return;
+        }
+    
+        if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
+        {
+            if (_motion.IsPlaying())
+            {
+                _motion.PlaybackSpeed = 4f;
+            }
+        }
+    }
 
     private void SetBGImage(Sprite sprite, Sprite tileSprite, float posY, ScrollLevelData scrollLevelData)
     {
