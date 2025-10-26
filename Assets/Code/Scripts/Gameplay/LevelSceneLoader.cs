@@ -18,7 +18,8 @@ public class LevelSceneLoader : MonoBehaviour
     [SerializeField] private GameObject _tutorialSignPrefab;
     [SerializeField] private GameObject _spikePrefab;
     [SerializeField] private GameObject _bubblePrefab;
-
+    [SerializeField] private GameObject _spiderPrefab;
+    
     public Transform ParentObject;
     private List<GameObject> _listLoadedObj = new();
     private List<BaseEntity> _pendingTutorialSigns = new();
@@ -266,6 +267,9 @@ public class LevelSceneLoader : MonoBehaviour
                     createdObj.transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
                 }
                 break;
+            case ObjectCategory.Spider:
+                createdObj = Instantiate(_spiderPrefab, entity.Position, Quaternion.identity);
+                break;
             default:
                 Debug.LogError($"Unknown category: {entity.Category}");
                 break;
@@ -375,6 +379,7 @@ public class LevelSceneLoader : MonoBehaviour
         TutorialSign,
         Spike,
         PotentialPoint,
-        Bubble
+        Bubble,
+        Spider
     }
 }
