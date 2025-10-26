@@ -49,11 +49,11 @@ MonoBehaviour:
   - Id: 11
     Category: 2
     Position: {x: 0, y: 0, z: 0}
-    ExpandProperty: '{"FirstNailIndex": 1, "SecondNailIndex": 0 ,"LengthRope": 2}'
+    ExpandProperty: '{"FirstNailIndex": 1, "SecondNailIndex": 0 ,"LengthRope": 3}'
   - Id: 12
     Category: 2
     Position: {x: 0, y: 0, z: 0}
-    ExpandProperty: '{"FirstNailIndex": 2, "SecondNailIndex": 0 ,"LengthRope": 3}'
+    ExpandProperty: '{"FirstNailIndex": 2, "SecondNailIndex": 0 ,"LengthRope": 4}'
   - Id: 14
     Category: 3
     Position: {x: 0, y: -2, z: 0}

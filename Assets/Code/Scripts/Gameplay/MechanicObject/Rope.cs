@@ -59,7 +59,7 @@ public class Rope : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (UIController.Instance.IsCompleteLevel)
+        if (UIController.Instance.IsCompleteLevel || RopeSecondObject == null)
         {
             return;
         }
@@ -123,6 +123,10 @@ public class Rope : MonoBehaviour
 
     private void ApplyConstraint()
     {
+        if (RopeSecondObject == null)
+        {
+            return;
+        }
         // Cố định 2 segment đầu cuối
         RopeSegment firstSegment = _ropeSegments[0];
         firstSegment.posNow = new Vector3(RopeFirstObject.position.x, RopeFirstObject.position.y, 0f);
