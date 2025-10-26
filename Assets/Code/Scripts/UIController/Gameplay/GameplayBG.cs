@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using LitMotion;
 using LitMotion.Extensions;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class GameplayBG : MonoBehaviour
@@ -11,10 +13,10 @@ public class GameplayBG : MonoBehaviour
     [SerializeField] private SpriteRenderer _bgImageDown;
     [SerializeField] private GameObject _bgPrefab;
     [SerializeField] private Camera _camera;
-    [SerializeField] private Transform _tileBGParent;
     private MotionHandle _motion;
     private List<Vector3> _positions;
     private float _boundY => _bgImageUp.bounds.max.y;
+    private float _duration = 2f;
 
     private void Awake()
     {
@@ -25,13 +27,38 @@ public class GameplayBG : MonoBehaviour
     private void Start()
     {
         EventDispatcher.Instance.AddEvent(gameObject, _ => MoveCameraToCandy(), EventDispatcher.LoadScrollLevel);
+        EventDispatcher.Instance.AddEvent(gameObject, _ => LoadBackgrondNextLevel(), EventDispatcher.LoadScrollNextLevel);
         SetBGImage(UserProfile.Instance.SelectedBoxData.BGGameplay, UserProfile.Instance.SelectedBoxData.TiledBG,
             UserProfile.Instance.SelectedBoxData.AdjustPosition, UserProfile.Instance.ScrollLevelData);
 
         MoveCameraToCandy();
     }
 
-    private void SetBGImage(Sprite sprite, Sprite tileSprite, float posY, ScrollLevelData scrollLevelData)
+    private void Update()
+    {
+        if (UIController.Instance.IsCreatedLevel || (!UserProfile.Instance.ScrollLevelData.IsScrollLevelHorizontal && !UserProfile.Instance.ScrollLevelData.IsScrollLevelVertical))
+        {
+            _camera.transform.position = new Vector3(0, 0, -15f);
+
+            return;
+        }
+
+        if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
+        {
+            if (_motion.IsPlaying())
+            {
+                _motion.PlaybackSpeed = 4f;
+            }
+        }
+    }
+
+    private void LoadBackgrondNextLevel()
+    {
+        SetBGImage(UserProfile.Instance.SelectedBoxData.BGGameplay, UserProfile.Instance.SelectedBoxData.TiledBG,
+            UserProfile.Instance.SelectedBoxData.AdjustPosition, UserProfile.Instance.ScrollLevelData);
+    }
+
+    public void SetBGImage(Sprite sprite, Sprite tileSprite, float posY, ScrollLevelData scrollLevelData)
     {
         _bgImageUp.sprite = sprite;
         _bgImageDown.sprite = sprite;
@@ -46,7 +73,7 @@ public class GameplayBG : MonoBehaviour
 
     private void MoveCameraToCandy()
     {
-        if (!UserProfile.Instance.ScrollLevelData.IsScrollLevelHorizontal ||
+        if (!UserProfile.Instance.ScrollLevelData.IsScrollLevelHorizontal &&
             !UserProfile.Instance.ScrollLevelData.IsScrollLevelVertical)
         {
             return;
@@ -58,27 +85,24 @@ public class GameplayBG : MonoBehaviour
 
         _camera.transform.position = new Vector3(frogPos.x, frogPos.y, -15f);
 
-        if (transform != null)
+        if (_motion != null && _motion.IsActive())
         {
-            if (_motion != null && _motion.IsActive())
-            {
-                _motion.Cancel();
-            }
+            _motion.Cancel();
+        }
 
-            if (UserProfile.Instance.ScrollLevelData.IsScrollLevelVertical)
+        if (UserProfile.Instance.ScrollLevelData.IsScrollLevelVertical)
+        {
+            _motion = LMotion.Create(frogPos.y, UserProfile.Instance.PosCandy.y, _duration).WithOnComplete(() =>
             {
-                _motion = LMotion.Create(frogPos.y, UserProfile.Instance.PosCandy.y, 2f).WithOnComplete(() =>
-                {
-                    UIController.Instance.IsCreatedLevel = true;
-                }).BindToPositionY(_camera.transform);
-            }
-            else if (UserProfile.Instance.ScrollLevelData.IsScrollLevelHorizontal)
+                UIController.Instance.IsCreatedLevel = true;
+            }).BindToPositionY(_camera.transform);
+        }
+        else if (UserProfile.Instance.ScrollLevelData.IsScrollLevelHorizontal)
+        {
+            _motion = LMotion.Create(frogPos.x, UserProfile.Instance.PosCandy.x, _duration).WithOnComplete(() =>
             {
-                _motion = LMotion.Create(frogPos.x, UserProfile.Instance.PosCandy.x, 2f).WithOnComplete(() =>
-                {
-                    UIController.Instance.IsCreatedLevel = true;
-                }).BindToPositionX(_camera.transform);
-            }
+                UIController.Instance.IsCreatedLevel = true;
+            }).BindToPositionX(_camera.transform);
         }
     }
 
@@ -93,8 +117,9 @@ public class GameplayBG : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
+        EventDispatcher.Instance.RemoveEvent(gameObject);
         if (_motion != null && _motion.IsActive())
         {
             _motion.Cancel();

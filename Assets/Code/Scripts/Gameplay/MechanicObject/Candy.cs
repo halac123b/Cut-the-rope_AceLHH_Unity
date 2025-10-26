@@ -45,7 +45,7 @@ public class Candy : MonoBehaviour
             EventDispatcher.Instance.Dispatch(_tutorialId, EventDispatcher.TriggerTutorial);
         }
 
-        if ((UserProfile.Instance.ScrollLevelData.IsScrollLevelHorizontal || UserProfile.Instance.ScrollLevelData.IsScrollLevelVertical) && gameObject != null && UIController.Instance.IsCreatedLevel)
+        if ( UIController.Instance.IsCreatedLevel && gameObject != null && (UserProfile.Instance.ScrollLevelData.IsScrollLevelHorizontal || UserProfile.Instance.ScrollLevelData.IsScrollLevelVertical))
         {
             float posX = Mathf.Clamp(transform.position.x, 0f, UserProfile.Instance.PosFrog.x);
             float posY = Mathf.Clamp(transform.position.y, 0f, UserProfile.Instance.PosFrog.y);
@@ -152,6 +152,16 @@ public class Candy : MonoBehaviour
         {
             _rb2D.AddForce(Vector3.up * bublleSpeed, ForceMode2D.Impulse);
         }
+
+        _rb2D.linearVelocity *= 0.5f;
+        _rb2D.linearDamping = 1.3f;
+        StartCoroutine(ResetDamping());
+    }
+
+    private IEnumerator ResetDamping()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _rb2D.linearDamping = 0.5f; // or your default value
     }
 
     private void AddForceIfDestroyBubble()
