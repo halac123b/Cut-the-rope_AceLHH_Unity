@@ -116,6 +116,8 @@ public class LevelSceneLoader : MonoBehaviour
     {
         GetScrollLevel();
 
+        EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LoadScrollNextLevel);
+        
         for (int i = 0; i < _levelData.ListEntities.Length; i++)
         {
             BaseEntity entity = _levelData.ListEntities[i];

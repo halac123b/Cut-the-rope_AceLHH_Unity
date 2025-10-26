@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae92dedaa7ee84992a5fda59de3d60ba, type: 3}
-  m_Name: Level2_3
+  m_Name: Level2_4
   m_EditorClassIdentifier: 
-  levelName: 2_3
+  levelName: 2_4
   ScrollLevelData:
     IsScrollLevelHorizontal: 0
     IsScrollLevelVertical: 0
@@ -20,57 +20,61 @@ MonoBehaviour:
   ListEntities:
   - Id: 0
     Category: 0
-    Position: {x: 0.75, y: 2, z: 0}
+    Position: {x: -1.5, y: 2.5, z: 0}
     ExpandProperty: 
   - Id: 1
     Category: 0
-    Position: {x: -0.75, y: 0.5, z: 0}
+    Position: {x: -0.25, y: 2.5, z: 0}
     ExpandProperty: 
   - Id: 2
-    Category: 7
-    Position: {x: -1.5, y: 0, z: 0}
-    ExpandProperty: '{SpriteName: 1}'
-  - Id: 3
     Category: 1
-    Position: {x: 0.5, y: 2, z: 0}
+    Position: {x: 0, y: 1, z: 0}
     ExpandProperty: 
   - Id: 4
     Category: 4
-    Position: {x: -0.75, y: 0, z: 0}
+    Position: {x: -1.75, y: -0.25, z: 0}
     ExpandProperty: 
   - Id: 5
     Category: 4
-    Position: {x: -0.75, y: 2.25, z: 0}
+    Position: {x: 1.75, y: -0.25, z: 0}
     ExpandProperty: 
   - Id: 6
     Category: 4
-    Position: {x: -0.75, y: -1.25, z: 0}
+    Position: {x: 1, y: -2, z: 0}
     ExpandProperty: 
   - Id: 7
     Category: 3
-    Position: {x: 0.5, y: -1.5, z: 0}
+    Position: {x: 1, y: 1.75, z: 0}
     ExpandProperty: 
-  - Id: 10
-    Category: 7
-    Position: {x: 1, y: 0, z: 0}
-    ExpandProperty: '{SpriteName: 4}'
   - Id: 8
     Category: 2
     Position: {x: 0, y: 0, z: -1}
-    ExpandProperty: '{"FirstNailIndex": 0, "SecondNailIndex": 3, "LengthRope": 8}'
+    ExpandProperty: '{"FirstNailIndex": 0, "SecondNailIndex": 2, "LengthRope": 10}'
   - Id: 9
     Category: 2
     Position: {x: 0, y: 0, z: -1}
-    ExpandProperty: '{"FirstNailIndex": 1, "SecondNailIndex": 3, "LengthRope": 13}'
+    ExpandProperty: '{"FirstNailIndex": 1, "SecondNailIndex": 2, "LengthRope": 10}'
   - Id: 11
-    Category: 5
-    Position: {x: 1.75, y: 0.75, z: 0}
-    ExpandProperty: '{Rotation: 90}'
-  - Id: 12
     Category: 5
     Position: {x: -1.5, y: -1.25, z: 0}
     ExpandProperty: '{Rotation: -90}'
-  - Id: 13
+  - Id: 12
+    Category: 8
+    Position: {x: -1.5, y: 0, z: 0}
+    ExpandProperty: '{"Scale":1, "RopeLength": 5}'
+  - Id: 14
+    Category: 8
+    Position: {x: -0.5, y: 0, z: 0}
+    ExpandProperty: '{"Scale":1, "RopeLength": 5}'
+  - Id: 15
+    Category: 8
+    Position: {x: 0.5, y: 0, z: 0}
+    ExpandProperty: '{"Scale":1, "RopeLength": 5}'
+  - Id: 16
+    Category: 8
+    Position: {x: 1.5, y: 0, z: 0}
+    ExpandProperty: '{"Scale":1, "RopeLength": 5}'
+  - Id: 17
     Category: 9
-    Position: {x: -0.75, y: 1.5, z: -1}
+    Position: {x: 1, y: -2, z: 0}
     ExpandProperty: 
