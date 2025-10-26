@@ -46,18 +46,6 @@ MonoBehaviour:
     Category: 4
     Position: {x: 0, y: -1, z: 0}
     ExpandProperty: 
-  - Id: 6
-    Category: 6
-    Position: {x: -1, y: -0.85, z: 0}
-    ExpandProperty: '{   "Rotation": -180,   "Title": "Cut The Rope is number one,
-      if you dont know", "ShowLater": true , "Sprite": "8",   "SpritePosX": -0.3,  
-      "SpritePosY": 0.1,   "SpritePosZ": 0.0 } '
-  - Id: 7
-    Category: 6
-    Position: {x: 0.75, y: 1.25, z: 0}
-    ExpandProperty: '{   "Rotation": 0,   "Title": "Slide your finger<br>to cut the
-      rope ", "ShowLater": false,  "Sprite": "",   "SpritePosX": -0.6,   "SpritePosY":
-      0.5,   "SpritePosZ": 0.0 } '
   - Id: 7
     Category: 6
     Position: {x: 0.8, y: -2.25, z: 0}

@@ -37,12 +37,16 @@ public class LevelSceneLoader : MonoBehaviour
             EventDispatcher.TriggerTutorial);
         EventDispatcher.Instance.AddEvent(gameObject, (action) =>
         {
-            AddToListObjsLevel((GameObject) action);
+            AddToListObjsLevel((GameObject)action);
         }, EventDispatcher.AddToListObjsLevel);
         EventDispatcher.Instance.AddEvent(gameObject, (action) => { TriggerTutorialSign((int)action); },
             EventDispatcher.TriggerTutorial);
     }
-
+    
+    private void OnDestroy()
+    {
+        EventDispatcher.Instance.RemoveEvent(gameObject);
+    }
 
     /// <summary>
     /// Reload level - GameOver
@@ -120,11 +124,16 @@ public class LevelSceneLoader : MonoBehaviour
         {
             BaseEntity entity = _levelData.ListEntities[i];
 
-            CreateStaticPoint(entity);
+            InstantiateObjects(entity);
+        }
+
+        if (_levelData.levelName == "1_1")
+        {
+            CreateFirstTutorial();
         }
     }
 
-    private void CreateStaticPoint(BaseEntity entity)
+    private void InstantiateObjects(BaseEntity entity)
     {
         GameObject createdObj = null;
         switch (entity.Category)
@@ -359,9 +368,10 @@ public class LevelSceneLoader : MonoBehaviour
         _listLoadedObj.Clear();
     }
 
-    private void OnDestroy()
+    private void CreateFirstTutorial()
     {
-        EventDispatcher.Instance.RemoveEvent(gameObject);
+        GameObject obj = Resources.Load<GameObject>("TutorialSprites/TutorialLv1");
+        Instantiate(obj, new Vector3(-0.22f, 0.18f, 0), Quaternion.identity, ParentObject);
     }
 
     public enum ObjectCategory
