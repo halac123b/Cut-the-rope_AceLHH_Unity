@@ -28,7 +28,7 @@ MonoBehaviour:
     ExpandProperty: 
   - Id: 2
     Category: 7
-    Position: {x: -1.75, y: 0, z: 0}
+    Position: {x: -1.5, y: 0, z: 0}
     ExpandProperty: '{SpriteName: 1}'
   - Id: 3
     Category: 1
@@ -68,7 +68,7 @@ MonoBehaviour:
     ExpandProperty: '{Rotation: 90}'
   - Id: 12
     Category: 5
-    Position: {x: -1.75, y: -1.25, z: 0}
+    Position: {x: -1.5, y: -1.25, z: 0}
     ExpandProperty: '{Rotation: -90}'
   - Id: 13
     Category: 9
