@@ -14,6 +14,8 @@ public class StarEffect : MonoBehaviour
     private void Start()
     {
         StarAnimation();
+        
+        _animatorStar.enabled = DisappearOnTrigger;
     }
 
     private void StarAnimation()
@@ -43,7 +45,9 @@ public class StarEffect : MonoBehaviour
     public void TriggerDisappear(float delay = 2f)
     {
         if (DisappearOnTrigger)
+        {
             StartCoroutine(PlayDisappearCoroutine(delay));
+        }
     }
 
     private IEnumerator PlayDisappearCoroutine(float delay)
@@ -58,7 +62,7 @@ public class StarEffect : MonoBehaviour
 
     private void DestroyStar()
     {
-       Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     private void OnDestroy()
