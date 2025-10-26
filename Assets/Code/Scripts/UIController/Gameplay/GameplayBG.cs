@@ -17,6 +17,7 @@ public class GameplayBG : MonoBehaviour
     private List<Vector3> _positions;
     private float _boundY => _bgImageUp.bounds.max.y;
     private float _duration = 2f;
+    private BoxData _selectedBoxData;
 
     private void Awake()
     {
@@ -27,7 +28,7 @@ public class GameplayBG : MonoBehaviour
     private void Start()
     {
         EventDispatcher.Instance.AddEvent(gameObject, _ => MoveCameraToCandy(), EventDispatcher.LoadScrollLevel);
-        EventDispatcher.Instance.AddEvent(gameObject, _ => LoadBackgrondNextLevel(), EventDispatcher.LoadScrollNextLevel);
+        EventDispatcher.Instance.AddEvent(gameObject, _ => LoadBackgroundNextLevel(), EventDispatcher.LoadScrollNextLevel);
         SetBGImage(UserProfile.Instance.SelectedBoxData.BGGameplay, UserProfile.Instance.SelectedBoxData.TiledBG,
             UserProfile.Instance.SelectedBoxData.AdjustPosition, UserProfile.Instance.ScrollLevelData);
 
@@ -52,10 +53,11 @@ public class GameplayBG : MonoBehaviour
         }
     }
 
-    private void LoadBackgrondNextLevel()
+    private void LoadBackgroundNextLevel()
     {
-        SetBGImage(UserProfile.Instance.SelectedBoxData.BGGameplay, UserProfile.Instance.SelectedBoxData.TiledBG,
-            UserProfile.Instance.SelectedBoxData.AdjustPosition, UserProfile.Instance.ScrollLevelData);
+        _selectedBoxData = UserProfile.Instance.SelectedBoxData;
+        SetBGImage(_selectedBoxData.BGGameplay, _selectedBoxData.TiledBG,
+            _selectedBoxData.AdjustPosition, UserProfile.Instance.ScrollLevelData);
     }
 
     public void SetBGImage(Sprite sprite, Sprite tileSprite, float posY, ScrollLevelData scrollLevelData)
