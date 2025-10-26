@@ -14,38 +14,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: 2_1
   ScrollLevelData:
-    IsScrollLevel: 0
+    IsScrollLevelHorizontal: 0
+    IsScrollLevelVertical: 0
     ScrollAmount: 2
   ListEntities:
   - Id: 0
     Category: 0
-    Position: {x: 0, y: 3, z: 0}
+    Position: {x: 0, y: 2, z: 0}
     ExpandProperty: 
   - Id: 1
     Category: 1
-    Position: {x: 0, y: 2.5, z: 0}
+    Position: {x: 0, y: 0, z: 0}
     ExpandProperty: 
   - Id: 2
     Category: 2
     Position: {x: 0, y: 0, z: -1}
-    ExpandProperty: '{"FirstNailIndex": 0, "SecondNailIndex": 1, "LengthRope": 5}'
+    ExpandProperty: '{"FirstNailIndex": 0, "SecondNailIndex": 1, "LengthRope": 15}'
   - Id: 3
-    Category: 3
+    Category: 5
     Position: {x: 0, y: -1.5, z: 0}
     ExpandProperty: 
   - Id: 4
-    Category: 4
-    Position: {x: 0, y: 0, z: 0}
-    ExpandProperty: 
+    Category: 5
+    Position: {x: 1.5, y: 0, z: 0}
+    ExpandProperty: '{Rotation: 90}'
   - Id: 5
-    Category: 4
-    Position: {x: 0, y: -0.5, z: 0}
-    ExpandProperty: 
+    Category: 5
+    Position: {x: -1.5, y: 0, z: 0}
+    ExpandProperty: '{Rotation: -90}'
   - Id: 6
     Category: 4
-    Position: {x: 0, y: -1, z: 0}
+    Position: {x: 0, y: 1, z: 0}
     ExpandProperty: 
   - Id: 7
-    Category: 8
-    Position: {x: 0, y: 1, z: 0}
-    ExpandProperty: '{"RopeLength": 5, "Scale" :1}'
+    Category: 4
+    Position: {x: -1.5, y: 2, z: 0}
+    ExpandProperty: 
+  - Id: 8
+    Category: 4
+    Position: {x: 1.5, y: 2, z: 0}
+    ExpandProperty: 
+  - Id: 9
+    Category: 3
+    Position: {x: 1.5, y: -2.75, z: 0}
+    ExpandProperty: 
+  - Id: 10
+    Category: 6
+    Position: {x: -1, y: -3.5, z: 0}
+    ExpandProperty: '{   "Rotation": 180,   "Title": "Tap the air cushion to blow
+      objects away", "ShowLater": false , "Sprite": "8",   "SpritePosX": 0.25,  
+      "SpritePosY": 1.75,   "SpritePosZ": 0.0 } '
