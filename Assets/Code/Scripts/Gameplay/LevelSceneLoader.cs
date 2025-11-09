@@ -170,8 +170,11 @@ public class LevelSceneLoader : MonoBehaviour
                 {
                     JObject starData = JObject.Parse(entity.ExpandProperty);
                     bool disappearOnTrigger = (bool?)starData["IsLimitTime"] ?? false;
+                    int distance = (int)starData["Distance"];
+                    
                     StarEffect starComp = createdObj.GetComponent<StarEffect>();
                     starComp.DisappearOnTrigger = disappearOnTrigger;
+                    starComp.DistanceMove = distance;
                     
                     if (disappearOnTrigger)
                         starComp.TriggerDisappear();
