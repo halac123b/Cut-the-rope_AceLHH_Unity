@@ -18,7 +18,8 @@ public class LevelSceneLoader : MonoBehaviour
     [SerializeField] private GameObject _tutorialSignPrefab;
     [SerializeField] private GameObject _spikePrefab;
     [SerializeField] private GameObject _bubblePrefab;
-
+    [SerializeField] private GameObject _spiderPrefab;
+    
     public Transform ParentObject;
     private List<GameObject> _listLoadedObj = new();
     private List<BaseEntity> _pendingTutorialSigns = new();
@@ -221,6 +222,8 @@ public class LevelSceneLoader : MonoBehaviour
                     //Debug.Log($"[Spike],size of collider is: {colliderX}");
                     
                     bool rotateLoop = (bool?)spikeData["RotateLoop"] ?? false;
+                    var spikeGo = createdObj;
+
                     if (rotateLoop)
                     {
                         float rotateSpeed = 40.0f;
@@ -231,8 +234,10 @@ public class LevelSceneLoader : MonoBehaviour
                             .WithLoops(-1, LoopType.Restart)
                             .Bind(x =>
                             {
-                                createdObj.transform.localRotation = Quaternion.Euler(0, 0, x);
-                            });
+                                if (spikeGo == null) return;
+                                spikeGo.transform.localRotation = Quaternion.Euler(0, 0, x);
+                            })
+                            .AddTo(spikeGo);
                     }
                     
                     JArray posAArray = (JArray)spikeData["MovePointA"];
@@ -247,9 +252,12 @@ public class LevelSceneLoader : MonoBehaviour
                         LMotion.Create(pointA, pointB, moveSpeed)
                             .WithEase(Ease.Linear)
                             .WithLoops(-1, LoopType.Flip)
-                            .Bind(pos => {
-                                createdObj.transform.position = pos;
-                            });
+                            .Bind(pos =>
+                            {
+                                if (spikeGo == null) return;
+                                spikeGo.transform.position = pos;
+                            })
+                            .AddTo(spikeGo); 
                     }
                     
                     float rotationZ = (float)(spikeData["Rotation"] ?? 0f);
@@ -267,6 +275,10 @@ public class LevelSceneLoader : MonoBehaviour
 
                     createdObj.transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
                 }
+                break;
+            case ObjectCategory.Spider:
+                createdObj = Instantiate(_spiderPrefab, entity.Position, Quaternion.identity);
+                SpiderFollowRope.ResetStartDelay();
                 break;
             default:
                 Debug.LogError($"Unknown category: {entity.Category}");
@@ -377,6 +389,7 @@ public class LevelSceneLoader : MonoBehaviour
         TutorialSign,
         Spike,
         PotentialPoint,
-        Bubble
+        Bubble,
+        Spider
     }
 }
