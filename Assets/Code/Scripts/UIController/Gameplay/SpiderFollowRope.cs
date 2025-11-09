@@ -17,31 +17,45 @@ public class SpiderFollowRope : MonoBehaviour
     private bool _initialized;
     private bool _isDead;
     private bool _isFinished;
-
+    private bool _hasReachedCandy;
+    private static bool _hasStartDelay;
+    
     private void Start()
     {
-        EventDispatcher.Instance.AddEvent(gameObject, (action) =>
+        EventDispatcher.Instance.AddEvent(gameObject, action =>
         {
-            OnRopeReceived((Rope)action);
+            if (action is Rope rope)
+                OnRopeReceived(rope);
         }, EventDispatcher.GetRopeComponent);
         
-        EventDispatcher.Instance.AddEvent(gameObject, (action) =>
+        EventDispatcher.Instance.AddEvent(gameObject, action =>
         {
-            Rope cutRope = (Rope)action;
-            if (_rope == cutRope)
+            if (action is Rope cutRope && _rope == cutRope)
                 OnRopeCut();
         }, EventDispatcher.RopeCut);
         
-        StartCoroutine(RequestRopeIfNone());
+        EventDispatcher.Instance.AddEvent(gameObject, action =>
+        {
+            var winner = action as SpiderFollowRope;
+            if (winner != null && winner != this && !_isDead && !_hasReachedCandy && _isOnRope)
+                DropNow();
+        }, EventDispatcher.SpiderReachCandy);
     }
 
-    private IEnumerator RequestRopeIfNone()
+    public static void ResetStartDelay()
     {
-        yield return new WaitForSeconds(0.1f);
-        if (_rope == null)
-        {
-            EventDispatcher.Instance.Dispatch(this, EventDispatcher.GetRopeComponent);
-        }
+        _hasStartDelay = false;
+    }
+    
+    private void DropNow()
+    {
+        if (_isDead) return;
+        _isDead = true;
+
+        StopAllCoroutines();
+        _isOnRope = false;
+        _animator.Play("spider_fail_target");
+        StartCoroutine(BounceAndFall());
     }
 
     private void OnRopeReceived(Rope rope)
@@ -66,9 +80,15 @@ public class SpiderFollowRope : MonoBehaviour
             StartCoroutine(StartMoveAfterDelay());
         }
     }
+    
     private IEnumerator StartMoveAfterDelay()
     {
-        yield return new WaitForSeconds(1.8f);
+        if (!_hasStartDelay)
+        {
+            _hasStartDelay = true;
+            yield return new WaitForSeconds(1.8f);
+        }
+
         _isOnRope = true;
         _initialized = true;
         _animator?.Play("spider_already");
@@ -108,17 +128,36 @@ public class SpiderFollowRope : MonoBehaviour
     
     private void OnRopeCut()
     {
-        if (_isDead) return;
-        _isDead = true;
+        if (_isDead || _hasReachedCandy) return;
 
         Debug.Log($"{name} rơi khỏi dây {_rope.name}!");
-        _animator?.Play("spider_fail_target");
+        _isDead = true;
+        _animator.Play("spider_fail_target");
         
-        var rb = GetComponent<Rigidbody2D>();
-        if (rb != null)
+        _isOnRope = false;
+        StartCoroutine(BounceAndFall());
+    }
+
+    private IEnumerator BounceAndFall()
+    {
+        Vector3 startPos = transform.position;
+        Vector3 peakPos = startPos + new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(0.6f, 0.9f), 0f);
+        float t = 0f;
+        while (t < 1f)
         {
-            rb.simulated = true;
-            rb.gravityScale = 1f;
+            t += Time.deltaTime / 0.3f;
+            transform.position = Vector3.Lerp(startPos, peakPos, Mathf.Sin(t * Mathf.PI * 0.5f));
+            yield return null;
+        }
+        if(_hasReachedCandy)
+            yield return new WaitForSeconds(0.2f);
+        float fallSpeed = 0f;
+        float gravity = 18f;
+        while (transform.position.y > -10f)
+        {
+            fallSpeed += gravity * Time.deltaTime;
+            transform.position -= new Vector3(0, fallSpeed * Time.deltaTime, 0);
+            yield return null;
         }
     }
 
@@ -138,18 +177,15 @@ public class SpiderFollowRope : MonoBehaviour
             totalLength += Vector3.Distance(_ropePoints[i], _ropePoints[i + 1]);
 
         _traveledDistance += _moveSpeed * Time.deltaTime;
-        // if (_traveledDistance > totalLength)
-        // {
-        //     if (_loop)
-        //         _traveledDistance = 0f;
-        //     else
-        //         _traveledDistance = totalLength;
-        // }
         if (_traveledDistance >= totalLength)
         {
             _isFinished = true;
+            _hasReachedCandy = true;              
+
             _animator.Play("spider_achievements");
             Debug.Log($"{name} đã tới đích!");
+            EventDispatcher.Instance.Dispatch(this, EventDispatcher.SpiderReachCandy);
+            EventDispatcher.Instance.Dispatch(gameObject, EventDispatcher.LevelFail);
             return;
         }
 
@@ -165,10 +201,27 @@ public class SpiderFollowRope : MonoBehaviour
 
                 Vector3 dir = (_ropePoints[i + 1] - _ropePoints[i]).normalized;
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(0, 0, angle);
+                
+                Quaternion targetRot = Quaternion.Euler(0, 0, angle + 90f);
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, Time.deltaTime * 10f);
+                Vector3 localScale = transform.localScale;
+                if (dir.x < 0)
+                    localScale.x = Mathf.Abs(localScale.x);
+                else
+                    localScale.x = -Mathf.Abs(localScale.x);
+                transform.localScale = localScale;
+
                 break;
             }
             currentLength += segLen;
+        }
+    }
+    
+    private void OnDestroy()
+    {
+        if (EventDispatcher.Instance != null)
+        {
+            EventDispatcher.Instance.RemoveEvent(gameObject);
         }
     }
 }

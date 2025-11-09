@@ -343,9 +343,21 @@ public class Rope : MonoBehaviour
         }
     }
 
+    private void ReleaseFromCandy()
+    {
+        if (_springJoint != null)
+            _springJoint.connectedBody = null;
+
+        if (_candy != null)
+            _candy.DetachRope(this);
+
+        RopeSecondObject = null;
+    }
+
     public void StartFadeOut()
     {
         StartCoroutine(FadeOut());
+        ReleaseFromCandy();
     }
 
     private IEnumerator FadeOut()
