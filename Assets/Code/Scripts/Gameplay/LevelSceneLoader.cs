@@ -201,24 +201,25 @@ public class LevelSceneLoader : MonoBehaviour
                 if (!string.IsNullOrEmpty(spriteName))
                 {
                     sr.sprite = Resources.Load<Sprite>($"SpikeSprites/spikes_0{spriteName}");
-                    float colliderX = 0.5f;
+                    float colliderX = 0.45f;
+                    float colliderY = 0.2f;
                     switch (spriteName)
                     {
                         case "1":
-                            colliderX = 0.5f;
+                            colliderX = 0.45f;
                             break;
                         case "2":
-                            colliderX = 1.0f;
+                            colliderX = 0.95f;
                             break;
                         case "3":
-                            colliderX = 1.5f;
+                            colliderX = 1.45f;
                             break;
                         case "4":
-                            colliderX = 2.0f;
+                            colliderX = 1.95f;
                             break;
                     }
 
-                    collider.size = new Vector2(colliderX, collider.size.y);
+                    collider.size = new Vector2(colliderX, colliderY);
                     //Debug.Log($"[Spike],size of collider is: {colliderX}");
                     
                     bool rotateLoop = (bool?)spikeData["RotateLoop"] ?? false;
