@@ -25,6 +25,23 @@ public class Rope : MonoBehaviour
     private Material _originalMat;
     private Candy _candy;
     private float _jointDistance;
+    private bool _hasDispatched;
+
+    private void Awake()
+    {
+        StartCoroutine(DispatchRopeOnce());
+    }
+
+    private IEnumerator DispatchRopeOnce()
+    {
+        yield return null;
+        if (!_hasDispatched)
+        {
+            _hasDispatched = true;
+            EventDispatcher.Instance.Dispatch(this, EventDispatcher.GetRopeComponent);
+            Debug.Log($" Rope {name} đã gửi event GetRopeComponent");
+        }
+    }
 
     private void Start()
     {
@@ -296,7 +313,7 @@ public class Rope : MonoBehaviour
         // Vector3 freeEnd = lrNut.GetPosition(lrNut.positionCount - 1);
 
         ropeNut.GetComponent<RopeEndWiggle>().Init();
-
+        EventDispatcher.Instance.Dispatch(this, EventDispatcher.RopeCut);
         Destroy(_ropeRenderer.gameObject);
     }
 
@@ -326,9 +343,21 @@ public class Rope : MonoBehaviour
         }
     }
 
+    private void ReleaseFromCandy()
+    {
+        if (_springJoint != null)
+            _springJoint.connectedBody = null;
+
+        if (_candy != null)
+            _candy.DetachRope(this);
+
+        RopeSecondObject = null;
+    }
+
     public void StartFadeOut()
     {
         StartCoroutine(FadeOut());
+        ReleaseFromCandy();
     }
 
     private IEnumerator FadeOut()

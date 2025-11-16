@@ -29,7 +29,45 @@ public class Candy : MonoBehaviour
         
         EventDispatcher.Instance.AddEvent(gameObject, _ => PlayAnimationCollisionWithSpike(),
             EventDispatcher.TriggerElectronicSpark);
+        EventDispatcher.Instance.AddEvent(gameObject, (action) =>
+        {
+            OnSpiderReachCandy((SpiderFollowRope)action);
+        }, EventDispatcher.SpiderReachCandy);
+
     }
+    private void OnSpiderReachCandy(SpiderFollowRope spider)
+    {
+        if (spider == null) return;
+
+        FadeAllRopes();               
+        AttachedRopes.Clear();
+
+        _rb2D.bodyType      = RigidbodyType2D.Dynamic;
+        _rb2D.simulated     = true;
+        _rb2D.gravityScale  = 1f;
+        _rb2D.linearDamping = 0.3f;
+        _rb2D.constraints   = RigidbodyConstraints2D.FreezeRotation;
+
+        var col = GetComponent<CircleCollider2D>();
+        if (col) col.enabled = false;    
+
+        spider.enabled = false;
+        var srb = spider.GetComponent<Rigidbody2D>();
+        if (srb)
+        {
+            srb.simulated = false;
+            srb.isKinematic = true;
+        }
+
+        spider.transform.SetParent(transform, false);
+        spider.transform.localPosition = new Vector3(0f, -0.45f, 0f);
+        spider.transform.localRotation = Quaternion.identity;
+        
+        _rb2D.AddForce(Vector2.up * 3.5f, ForceMode2D.Impulse);
+
+        Animator?.SetTrigger("Fall");
+    }
+
 
     private void Update()
     {
@@ -174,8 +212,15 @@ public class Candy : MonoBehaviour
 
     public void FadeAllRopes()
     {
-        foreach (Rope rope in AttachedRopes)
+        if (AttachedRopes == null || AttachedRopes.Count == 0)
+            return;
+        
+        var ropesSnapshot = AttachedRopes.ToArray();
+        AttachedRopes.Clear();
+        
+        foreach (var rope in ropesSnapshot)
         {
+            if (rope == null) continue;
             rope.StartFadeOut();
         }
     }

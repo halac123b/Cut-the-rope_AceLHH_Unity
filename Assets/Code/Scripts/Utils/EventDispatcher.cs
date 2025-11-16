@@ -41,6 +41,9 @@ public class EventDispatcher : MonoSingleton<EventDispatcher>
     public static string AddToListObjsLevel = "AddToListObjsLevel";
     public static string LoadScrollLevel = "LoadScrollLevel";
     public static string LoadScrollNextLevel = "LoadScrollNextLevel";
+    public static string GetRopeComponent = "GetRopeComponent";
+    public static string RopeCut = "RopeCut";
+    public static string SpiderReachCandy = "SpiderReachCandy";
 
     public void AddEvent(GameObject gameObject, Action<object> action, string key)
     {

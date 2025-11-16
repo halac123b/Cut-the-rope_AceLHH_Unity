@@ -1216,6 +1216,10 @@ PrefabInstance:
       propertyPath: ParentObject
       value: 
       objectReference: {fileID: 2116699971}
+    - target: {fileID: 2929887199624331176, guid: 363604841e3b5483ca391814c38f639b, type: 3}
+      propertyPath: _spiderPrefab
+      value: 
+      objectReference: {fileID: 4177395578079321677, guid: 21913a82c9958489a822f6ca425952ac, type: 3}
     - target: {fileID: 5418413971977170908, guid: 363604841e3b5483ca391814c38f639b, type: 3}
       propertyPath: _pauseButton
       value: 
