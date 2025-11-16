@@ -20,6 +20,8 @@ public class LevelSceneLoader : MonoBehaviour
     [SerializeField] private GameObject _bubblePrefab;
     [SerializeField] private GameObject _spiderPrefab;
     
+    [SerializeField] private GameObject _electronicSparkPrefab;
+
     public Transform ParentObject;
     private List<GameObject> _listLoadedObj = new();
     private List<BaseEntity> _pendingTutorialSigns = new();
@@ -171,8 +173,11 @@ public class LevelSceneLoader : MonoBehaviour
                 {
                     JObject starData = JObject.Parse(entity.ExpandProperty);
                     bool disappearOnTrigger = (bool?)starData["IsLimitTime"] ?? false;
+                    int distance = (int)starData["Distance"];
+                    
                     StarEffect starComp = createdObj.GetComponent<StarEffect>();
                     starComp.DisappearOnTrigger = disappearOnTrigger;
+                    starComp.DistanceMove = distance;
                     
                     if (disappearOnTrigger)
                         starComp.TriggerDisappear();
@@ -279,6 +284,9 @@ public class LevelSceneLoader : MonoBehaviour
             case ObjectCategory.Spider:
                 createdObj = Instantiate(_spiderPrefab, entity.Position, Quaternion.identity);
                 SpiderFollowRope.ResetStartDelay();
+                break;
+            case ObjectCategory.ElectronicSpark:
+                createdObj = Instantiate(_electronicSparkPrefab, entity.Position, Quaternion.identity);
                 break;
             default:
                 Debug.LogError($"Unknown category: {entity.Category}");
@@ -390,6 +398,7 @@ public class LevelSceneLoader : MonoBehaviour
         Spike,
         PotentialPoint,
         Bubble,
-        Spider
+        Spider,
+        ElectronicSpark
     }
 }

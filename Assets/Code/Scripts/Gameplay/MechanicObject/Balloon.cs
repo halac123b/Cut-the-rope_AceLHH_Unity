@@ -69,7 +69,6 @@ public class Balloon : MonoBehaviour
 
     private void PlayAnimationBalloon()
     {
-        Debug.Log("Balloon animation started");
         _animator.SetTrigger("Balloon");
         ShootBalloon();
     }

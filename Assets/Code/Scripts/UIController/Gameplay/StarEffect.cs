@@ -8,12 +8,15 @@ public class StarEffect : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private Animator _animatorStar;
-    private MotionHandle _motion;
+    private MotionHandle _motion, _motionDistance;
     public bool DisappearOnTrigger;
+    public float DistanceMove;
 
     private void Start()
     {
         StarAnimation();
+
+        _animatorStar.enabled = DisappearOnTrigger;
     }
 
     private void StarAnimation()
@@ -27,6 +30,15 @@ public class StarEffect : MonoBehaviour
                 .WithLoops(-1, LoopType.Yoyo) // Specify loop count and type
                 .WithDelay(0.2f) // Set delay
                 .BindToPositionY(transform);
+
+            if (DistanceMove != 0f)
+            {
+                _motionDistance = LMotion.Create(transform.position.x, transform.position.x + DistanceMove, 1.5f)
+                    .WithEase(Ease.Linear)
+                    .WithLoops(-1, LoopType.Yoyo)
+                    .WithDelay(0.1f)
+                    .BindToPositionX(transform);
+            }
         }
     }
 
@@ -43,7 +55,9 @@ public class StarEffect : MonoBehaviour
     public void TriggerDisappear(float delay = 2f)
     {
         if (DisappearOnTrigger)
+        {
             StartCoroutine(PlayDisappearCoroutine(delay));
+        }
     }
 
     private IEnumerator PlayDisappearCoroutine(float delay)
@@ -58,7 +72,7 @@ public class StarEffect : MonoBehaviour
 
     private void DestroyStar()
     {
-       Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     private void OnDestroy()
@@ -66,6 +80,11 @@ public class StarEffect : MonoBehaviour
         if (_motion.IsPlaying())
         {
             _motion.Cancel();
+        }
+
+        if (_motionDistance.IsPlaying())
+        {
+            _motionDistance.Cancel();
         }
     }
 }

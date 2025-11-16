@@ -37,6 +37,7 @@ public class EventDispatcher : MonoSingleton<EventDispatcher>
     public static string CollectStar = "CollectStar";
     public static string TriggerTutorial = "TriggerTutorial";
     public static string TriggerSpike = "TriggerSpike";
+    public static string TriggerElectronicSpark = "TriggerElectronicSpark";
     public static string AddToListObjsLevel = "AddToListObjsLevel";
     public static string LoadScrollLevel = "LoadScrollLevel";
     public static string LoadScrollNextLevel = "LoadScrollNextLevel";

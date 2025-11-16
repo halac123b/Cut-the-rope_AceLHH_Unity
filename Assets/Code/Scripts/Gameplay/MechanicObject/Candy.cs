@@ -26,6 +26,9 @@ public class Candy : MonoBehaviour
         Animator = GetComponent<Animator>();
         EventDispatcher.Instance.AddEvent(gameObject, _ => PlayAnimationCollisionWithSpike(),
             EventDispatcher.TriggerSpike);
+        
+        EventDispatcher.Instance.AddEvent(gameObject, _ => PlayAnimationCollisionWithSpike(),
+            EventDispatcher.TriggerElectronicSpark);
         EventDispatcher.Instance.AddEvent(gameObject, (action) =>
         {
             OnSpiderReachCandy((SpiderFollowRope)action);
